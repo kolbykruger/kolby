@@ -83,6 +83,8 @@ export default {
         left: -10vw;
         width: 120vw;
         height: 100%;
+        pointer-events: none;
+        user-select: none;
 
         svg {
             width: 100%;

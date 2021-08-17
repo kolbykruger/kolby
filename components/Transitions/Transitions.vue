@@ -1,5 +1,5 @@
 <template>
-    <div class="transitions" aria-hidden="false">
+    <div class="transitions" aria-hidden="true">
         <div class="transitions-background"></div>
     </div>
 </template>
