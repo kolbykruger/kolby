@@ -11,4 +11,4 @@ const map = (x, a, b, c, d) => ((x - a) * (d - c)) / (b - a) + c
 // Random number generator
 const getRandomNumber = (min, max) => Math.floor(Math.random() * (max - min + 1) + min)
 
-export { lerp, clamp, invlerp, range, map, getMousePos, getRandomNumber }
+export { lerp, clamp, invlerp, range, map, getRandomNumber }

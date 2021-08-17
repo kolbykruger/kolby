@@ -15,7 +15,7 @@
 
 <script>
 import { gsap, TweenMax } from 'gsap'
-import { lerp, getMousePos } from '~/plugins/utils'
+import { lerp } from '~/plugins/utils'
 
 export default {
     name: 'Pointer',
@@ -121,7 +121,7 @@ export default {
         })
 
         // Track cursor position and store pos
-        window.addEventListener('mousemove', event => (this.cursor = getMousePos(event)))
+        window.addEventListener('mousemove', event => (this.cursor = { x: event.clientX, y: event.clientY }))
 
         // Loop through render call for Mouse Move
         requestAnimationFrame(() => {
