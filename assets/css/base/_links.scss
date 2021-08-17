@@ -1,0 +1,49 @@
+a:not([class]) {
+    color: c('primary-base');
+    text-decoration: none;
+    transition: color 1s ease;
+
+    &:hover,
+    &:focus {
+        color: c('primary-light');
+    }
+
+    &:visited {
+        color: c('primary-dark');
+    }
+}
+
+.link__gradient {
+    .link__gradient--colorized {
+        display: inline;
+        background-image: linear-gradient(
+            to right,
+            c(primary-base) 0%,
+            c('secondary-base') 50%,
+            c('base-2') 50%,
+            c('base-2') 100%
+        );
+        background-size: 300% 100%;
+        background-position-x: -225%;
+        transition: 500ms ease;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        box-decoration-break: clone;
+
+        .arrow {
+            transition-delay: 300ms;
+            transition: 500ms cubic-bezier(0.86, 0, 0.07, 1);
+        }
+    }
+
+    &:hover,
+    &:focus {
+        .link__gradient--colorized {
+            background-position-x: -300%;
+
+            .arrow {
+                margin-left: 0.5em;
+            }
+        }
+    }
+}

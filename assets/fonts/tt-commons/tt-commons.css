@@ -1,0 +1,15 @@
+@font-face {
+    font-family: 'TT Commons';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('~assets/fonts/tt-commons/TTCommons-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'TT Commons';
+    font-style: italic;
+    font-weight: 400;
+    font-display: swap;
+    src: url('~assets/fonts/tt-commons/TTCommons-Italic.ttf') format('truetype');
+}

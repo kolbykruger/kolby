@@ -1,0 +1,58 @@
+{
+  "id": "d3421b1f-6511-49e0-ac9b-872bb5f2e4a7",
+  "uid": "delectus-et-aperiam",
+  "type": "case-study",
+  "data": {
+    "Name": [
+      {
+        "type": "heading1",
+        "text": "Maximize interactive solutions",
+        "spans": []
+      }
+    ],
+    "Tagline": "mesh ubiquitous applications",
+    "Summary": [
+      {
+        "type": "paragraph",
+        "text": "Anim pariatur excepteur anim mollit duis sint eu qui qui cupidatat officia nostrud incididunt. Fugiat non in veniam incididunt.",
+        "spans": []
+      }
+    ],
+    "Client": "benchmark efficient partnerships",
+    "Date": "2015-03-19",
+    "Website": {
+      "link_type": "Web",
+      "url": "http://google.com"
+    },
+    "Role": [
+      {
+        "Design": true,
+        "Development": false,
+        "Branding": true,
+        "UXUI": true,
+        "Support": false
+      },
+      {
+        "Design": false,
+        "Development": true,
+        "Branding": true,
+        "UXUI": false,
+        "Support": false
+      },
+      {
+        "Design": true,
+        "Development": false,
+        "Branding": false,
+        "UXUI": true,
+        "Support": true
+      },
+      {
+        "Design": false,
+        "Development": true,
+        "Branding": false,
+        "UXUI": false,
+        "Support": true
+      }
+    ]
+  }
+}

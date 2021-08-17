@@ -1,0 +1,133 @@
+{
+  "id": "case-study",
+  "label": "Case Study",
+  "repeatable": true,
+  "status": true,
+  "json": {
+    "Main": {
+      "Name": {
+        "config": {
+          "label": "Name",
+          "placeholder": "Project name...",
+          "allowTargetBlank": false,
+          "single": "heading1"
+        },
+        "type": "StructuredText"
+      },
+      "uid": {
+        "config": {
+          "label": "",
+          "placeholder": ""
+        },
+        "type": "UID"
+      },
+      "Tagline": {
+        "config": {
+          "label": "Tagline",
+          "placeholder": ""
+        },
+        "type": "Text"
+      },
+      "Summary": {
+        "config": {
+          "label": "Summary",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,embed,list-item,o-list-item,rtl"
+        },
+        "type": "StructuredText"
+      },
+      "Role": {
+        "config": {
+          "label": "Role",
+          "placeholder": "",
+          "fields": {
+            "Design": {
+              "config": {
+                "label": "Design",
+                "placeholder_false": "No",
+                "placeholder_true": "Yes",
+                "default_value": false
+              },
+              "type": "Boolean"
+            },
+            "Development": {
+              "config": {
+                "label": "Development",
+                "placeholder_false": "No",
+                "placeholder_true": "Yes",
+                "default_value": false
+              },
+              "type": "Boolean"
+            },
+            "Branding": {
+              "config": {
+                "label": "Branding",
+                "placeholder_false": "No",
+                "placeholder_true": "Yes",
+                "default_value": false
+              },
+              "type": "Boolean"
+            },
+            "UXUI": {
+              "config": {
+                "label": "UX / UI",
+                "placeholder_false": "No",
+                "placeholder_true": "Yes",
+                "default_value": false
+              },
+              "type": "Boolean"
+            },
+            "Support": {
+              "config": {
+                "label": "Support",
+                "placeholder_false": "No",
+                "placeholder_true": "Yes",
+                "default_value": false
+              },
+              "type": "Boolean"
+            }
+          }
+        },
+        "type": "Group"
+      },
+      "Client": {
+        "config": {
+          "label": "Client",
+          "placeholder": ""
+        },
+        "type": "Text"
+      },
+      "Date": {
+        "config": {
+          "label": "Date",
+          "placeholder": ""
+        },
+        "type": "Date"
+      },
+      "Website": {
+        "config": {
+          "label": "Website",
+          "placeholder": "",
+          "select": "web",
+          "allowTargetBlank": false
+        },
+        "type": "Link"
+      },
+      "slices": {
+        "type": "Slices",
+        "fieldset": "Slice Zone",
+        "config": {
+          "choices": {
+            "banner_image": {
+              "type": "SharedSlice"
+            },
+            "list": {
+              "type": "SharedSlice"
+            }
+          }
+        }
+      }
+    }
+  }
+}

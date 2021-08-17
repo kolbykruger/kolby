@@ -1,0 +1,63 @@
+{
+  "id": "cf04e321-357e-4688-b196-0378555c57eb",
+  "uid": "sunt-nemo-et",
+  "type": "page",
+  "data": {
+    "meta_title": "cultivate open-source e-business",
+    "meta_description": "reintermediate visionary technologies",
+    "social_cards": [
+      {
+        "social_card_image": {
+          "dimensions": {
+            "width": 900,
+            "height": 500
+          },
+          "alt": "Placeholder image",
+          "copyright": null,
+          "url": "https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?w=900&h=500&fit=crop"
+        },
+        "social_card_title": "enhance bricks-and-clicks solutions",
+        "social_card_description": "embrace synergistic eyeballs"
+      },
+      {
+        "social_card_image": {
+          "dimensions": {
+            "width": 900,
+            "height": 500
+          },
+          "alt": "Placeholder image",
+          "copyright": null,
+          "url": "https://images.unsplash.com/photo-1471897488648-5eae4ac6686b?w=900&h=500&fit=crop"
+        },
+        "social_card_title": "e-enable back-end applications",
+        "social_card_description": "incubate value-added channels"
+      },
+      {
+        "social_card_image": {
+          "dimensions": {
+            "width": 900,
+            "height": 500
+          },
+          "alt": "Placeholder image",
+          "copyright": null,
+          "url": "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=900&h=500&fit=crop"
+        },
+        "social_card_title": "syndicate cutting-edge paradigms",
+        "social_card_description": "whiteboard global content"
+      },
+      {
+        "social_card_image": {
+          "dimensions": {
+            "width": 900,
+            "height": 500
+          },
+          "alt": "Placeholder image",
+          "copyright": null,
+          "url": "https://images.unsplash.com/photo-1607582278038-6bebbd4d7b72?w=900&h=500&fit=crop"
+        },
+        "social_card_title": "aggregate value-added supply-chains",
+        "social_card_description": "enhance revolutionary initiatives"
+      }
+    ]
+  }
+}

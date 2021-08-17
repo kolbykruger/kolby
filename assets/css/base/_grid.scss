@@ -1,0 +1,38 @@
+.grid {
+    display: grid;
+    grid-auto-flow: dense;
+    margin: 0 auto;
+    width: 100%;
+
+    &-col-2 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    &-col-3 {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    &-col-4 {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    &-col-5 {
+        grid-template-columns: repeat(5, 1fr);
+    }
+
+    &-gap-xs {
+        grid-gap: 0.25em;
+    }
+
+    &-gap-sm {
+        grid-gap: 0.5em;
+    }
+
+    &-gap-md {
+        grid-gap: 1em;
+    }
+
+    &-gap-lg {
+        grid-gap: 2.5em;
+    }
+}

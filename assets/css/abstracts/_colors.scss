@@ -1,0 +1,35 @@
+$colors: (
+    background: #ffffff,
+    base: (
+        0: #13161b,
+        1: #212121,
+        2: #1a1a1a
+    ),
+    primary: (
+        lightest: lighten(#b267e6, 24%),
+        lighter: lighten(#b267e6, 16%),
+        light: lighten(#b267e6, 8%),
+        base: #b267e6,
+        dark: darken(#b267e6, 8%),
+        darker: darken(#b267e6, 16%),
+        darkest: darken(#b267e6, 24%)
+    ),
+    secondary: (
+        lightest: lighten(#f7768e, 24%),
+        lighter: lighten(#f7768e, 16%),
+        light: lighten(#f7768e, 8%),
+        base: #f7768e,
+        dark: darken(#f7768e, 8%),
+        darker: darken(#f7768e, 16%),
+        darkest: darken(#f7768e, 24%)
+    ),
+    tertiary: (
+        lightest: lighten(#ffdb69, 24%),
+        lighter: lighten(#ffdb69, 16%),
+        light: lighten(#ffdb69, 8%),
+        base: #ffdb69,
+        dark: darken(#ffdb69, 8%),
+        darker: darken(#ffdb69, 16%),
+        darkest: darken(#ffdb69, 24%)
+    )
+);

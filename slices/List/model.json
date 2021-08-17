@@ -1,0 +1,46 @@
+{
+  "id": "list",
+  "type": "SharedSlice",
+  "name": "List",
+  "description": "List",
+  "variations": [
+    {
+      "id": "default-slice",
+      "name": "Default slice",
+      "docURL": "...",
+      "version": "sktwi1xtmkfgx8626",
+      "description": "List",
+      "primary": {},
+      "items": {
+        "Item": {
+          "config": {
+            "label": "List Item",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "paragraph,strong,em,hyperlink"
+          },
+          "type": "StructuredText"
+        }
+      }
+    },
+    {
+      "id": "orderedList",
+      "name": "Ordered List",
+      "docURL": "...",
+      "version": "sktwi1xtmkfgx8626",
+      "description": "List",
+      "primary": {},
+      "items": {
+        "Item": {
+          "config": {
+            "label": "List Item",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "paragraph,strong,em,hyperlink"
+          },
+          "type": "StructuredText"
+        }
+      }
+    }
+  ]
+}

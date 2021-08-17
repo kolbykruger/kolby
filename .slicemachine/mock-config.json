@@ -1,0 +1,44 @@
+{
+  "slices": {
+    "BannerImage": {},
+    "Accordion": {
+      "default-slice": {
+        "primary": {
+          "heading": {
+            "config": {
+              "patternType": "HEADING",
+              "blocks": 1
+            }
+          }
+        },
+        "items": {
+          "Description": {
+            "config": {
+              "patternType": "PARAGRAPH",
+              "blocks": 1
+            }
+          }
+        }
+      }
+    },
+    "List": {}
+  },
+  "_cts": {
+    "page": {},
+    "case-study": {
+      "Name": {
+        "config": {
+          "patternType": "HEADING",
+          "blocks": 1
+        }
+      },
+      "Summary": {
+        "config": {
+          "patternType": "PARAGRAPH",
+          "blocks": 1
+        }
+      },
+      "Role": {}
+    }
+  }
+}

@@ -1,0 +1,92 @@
+body {
+    font-family: $font-0;
+    font-size-adjust: 0.5;
+}
+
+p,
+ol,
+ul,
+dl,
+li {
+    // font-size: clamp(1.25rem, calc(#{1rem} + 0.5vw), 1.414rem);
+    font-size: clamp(1.25rem, -0.875rem + 8.333vw, 1.999rem);
+    line-height: 1.375;
+    margin-bottom: 0.5rem;
+    font-weight: 300;
+
+    + h2,
+    + h3,
+    + h4,
+    + h5 {
+        margin-top: 1em;
+    }
+}
+
+p {
+    margin-bottom: 0.5em;
+
+    + p {
+        margin-top: 1.5em;
+    }
+
+    &:last-of-type {
+        margin-bottom: 0;
+    }
+}
+
+h1 {
+    font-family: $font-1;
+    font-size: clamp(3.998rem, -0.875rem + 8.333vw, 7.993rem);
+}
+
+h2 {
+    font-family: $font-1;
+    font-size: clamp(3.998rem, -0.875rem + 8.333vw, 5.653rem);
+}
+
+h3 {
+    font-size: clamp(3.998rem, -0.875rem + 8.333vw, 3.998rem);
+}
+
+h4 {
+    font-size: clamp(3.998rem, -0.875rem + 8.333vw, 2.827rem);
+}
+
+h5 {
+    font-size: clamp(3.998rem, -0.875rem + 8.333vw, 1.999rem);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+    line-height: 1.25;
+    margin-bottom: 0.5em;
+}
+
+h2,
+h3,
+h4,
+h5 {
+    margin-top: 1.5em;
+
+    + h2,
+    + h3,
+    + h4 {
+        margin-top: 0.75em;
+    }
+}
+
+h3 + h4 {
+    margin-top: 0;
+}
+
+strong {
+    font-weight: 600;
+    display: inline-block;
+}
+
+em {
+    font-style: italic;
+}

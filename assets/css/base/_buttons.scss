@@ -1,0 +1,36 @@
+button,
+input[type='submit'] {
+    appearance: none;
+    font-family: inherit;
+    border: none;
+    outline: none;
+    background: none;
+    box-shadow: none;
+    cursor: pointer;
+}
+
+.actions {
+    margin: 6vh 0;
+
+    a.button {
+        display: inline-flex;
+        text-decoration: none;
+        background: #f6f9fc;
+        padding: 1.2em 1.6em;
+        border-radius: 0.125em;
+
+        span {
+            margin-right: 0.6em;
+        }
+    }
+}
+
+.reset {
+    appearance: none;
+    background: none;
+    border: none;
+    outline: none;
+    color: inherit;
+    font-family: inherit;
+    font-size: inherit;
+}
