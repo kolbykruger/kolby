@@ -13,3 +13,19 @@
     font-display: swap;
     src: url('~assets/fonts/tt-commons/TTCommons-Italic.ttf') format('truetype');
 }
+
+@font-face {
+    font-family: 'TT Commons';
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+    src: url('~assets/fonts/tt-commons/TTCommons-Medium.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'TT Commons';
+    font-style: italic;
+    font-weight: 500;
+    font-display: swap;
+    src: url('~assets/fonts/tt-commons/TTCommons-MediumItalic.ttf') format('truetype');
+}
