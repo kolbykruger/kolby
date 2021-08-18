@@ -20,7 +20,9 @@
                 </div>
                 <div class="website">
                     <p class="website-item" v-if="document.data.Website">
-                        <a :href="document.data.Website.url" target="_blank" rel="nofollow norefer">Visit website</a>
+                        <a data-anchor :href="document.data.Website.url" target="_blank" rel="nofollow norefer"
+                            >Visit website</a
+                        >
                     </p>
                 </div>
             </div>
