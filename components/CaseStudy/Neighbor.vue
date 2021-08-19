@@ -11,10 +11,10 @@
 
 <script>
 export default {
-    name: 'Neighbor',
-    props: {
-        document: Object
-    }
+    name: 'Neighbor'
+    // props: {
+    //     document: Object
+    // }
 }
 </script>
 
