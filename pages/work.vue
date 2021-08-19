@@ -1,10 +1,6 @@
 <template>
     <main class="page">
-        <section>
-            <div class="container">
-                <h1>Work</h1>
-            </div>
-        </section>
+        <Pageheading name="Work" />
 
         <section class="case-studies">
             <div class="container">
@@ -22,17 +18,19 @@
 
 <script>
 // import SliceZone from 'vue-slicezone'
+import Pageheading from '~/components/Pageheading/Pageheading'
 
 export default {
-    // components: {
-    //     SliceZone
-    // },
+    components: {
+        Pageheading
+    },
     async asyncData({ $prismic, params, error }) {
         const cases = await $prismic.api.query($prismic.predicates.at('document.type', 'case-study'), {
             orderings: '[document.first_publication_date ]'
         })
-        if (cases) {
-            return { cases }
+        const document = await $prismic.api.query($prismic.predicates.at('document.type', 'work'))
+        if (cases && document) {
+            return { cases, document }
         } else {
             error({ statusCode: 404, message: 'Page not found' })
         }
