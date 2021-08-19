@@ -1,0 +1,27 @@
+{
+  "id": "headline",
+  "type": "SharedSlice",
+  "name": "Headline",
+  "description": "Headline",
+  "variations": [
+    {
+      "id": "default-slice",
+      "name": "Default slice",
+      "docURL": "...",
+      "version": "sktwi1xtmkfgx8626",
+      "description": "Headline",
+      "primary": {
+        "title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Title",
+            "placeholder": "This is where it all begins...",
+            "allowTargetBlank": true,
+            "single": "heading1,heading2,heading3,heading4,heading5"
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

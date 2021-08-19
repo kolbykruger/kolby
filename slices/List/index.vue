@@ -48,8 +48,8 @@ export default {
 
     &-items {
         display: grid;
-        grid-template-rows: repeat(3, 1fr);
-        grid-auto-flow: column;
+        grid-template-columns: repeat(3, 1fr);
+        //grid-auto-flow: column;
         grid-gap: 1.5em;
     }
 

@@ -1,31 +1,9 @@
 {
   "slices": {
-    "BannerImage": {
-      "default-slice": {
-        "primary": {}
-      }
-    },
-    "Accordion": {
-      "default-slice": {
-        "primary": {
-          "heading": {
-            "config": {
-              "patternType": "HEADING",
-              "blocks": 1
-            }
-          }
-        },
-        "items": {
-          "Description": {
-            "config": {
-              "patternType": "PARAGRAPH",
-              "blocks": 1
-            }
-          }
-        }
-      }
-    },
-    "List": {}
+    "BannerImage": {},
+    "Accordion": {},
+    "List": {},
+    "Headline": {}
   },
   "_cts": {
     "page": {},

@@ -2,4 +2,5 @@
 
 export { default as Accordion } from './Accordion'
 export { default as BannerImage } from './BannerImage'
+export { default as Headline } from './Headline'
 export { default as List } from './List'

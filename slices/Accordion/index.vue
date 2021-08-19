@@ -11,7 +11,7 @@
                         <p class="accordion-button-title">
                             {{ item.Title }}
                         </p>
-                        <div class="accordion-button-icon">
+                        <div class="accordion-button-icon" data-anchor data-exclusion>
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none">
                                 <path
                                     fill-rule="evenodd"
@@ -68,8 +68,8 @@ export default {
             panel.setAttribute('aria-hidden', panel.style.maxHeight ? false : true)
 
             //Add hash to url
-            const text = button.childNodes[0].textContent.trim()
-            window.location.hash = encodeURIComponent(text)
+            //const text = button.childNodes[0].textContent.trim()
+            //window.location.hash = encodeURIComponent(text)
         }
     }
 }
@@ -80,6 +80,7 @@ export default {
     .container {
         max-width: 92em;
         margin: 0;
+        padding-bottom: 10vh;
     }
 
     &-items {
@@ -103,13 +104,12 @@ export default {
         color: inherit;
         font-family: inherit;
         font-size: inherit;
-
         display: grid;
         align-items: center;
         grid-template-columns: minmax(0, 1fr) 1.999rem;
         grid-row-gap: 1.5em;
         width: 100%;
-        padding: 1.5em 0;
+        padding: 0;
         text-align: left;
         transition: max-height 250ms ease;
         cursor: pointer;
@@ -119,7 +119,7 @@ export default {
 
         &-icon {
             font-size: clamp(1.25rem, -0.875rem + 8.333vw, 1.999rem);
-            opacity: 0.5;
+            padding: 1em 0;
 
             svg {
                 width: 1.999rem;
@@ -140,6 +140,7 @@ export default {
 
     &-panel {
         max-height: 0;
+        padding-right: 4rem;
         overflow: hidden;
         transition: max-height 250ms ease;
     }

@@ -8,7 +8,7 @@
                 sizes="sm:200px, md:50px, lg:100vw, xl:100vw, xxl: 100vw"
                 densities="1x 2x"
             /> -->
-            <prismic-image :field="slice.primary.image" />
+            <prismic-image data-exclusion :field="slice.primary.image" />
         </div>
     </section>
 </template>
