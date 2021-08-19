@@ -3,6 +3,10 @@ body {
     font-size-adjust: 0.5;
 }
 
+small {
+    font-size: clamp(1.25rem, -0.875rem + 8.333vw, 1.414rem);
+}
+
 p,
 ol,
 ul,
@@ -36,7 +40,7 @@ p {
 
 h1 {
     font-family: $font-1;
-    font-size: clamp(3.998rem, -0.875rem + 8.333vw, 7.993rem);
+    font-size: clamp(3.998rem, -0.875rem + 8.333vw, 7.993rem); //11.302rem
 }
 
 h2 {

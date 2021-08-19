@@ -29,3 +29,19 @@
     font-display: swap;
     src: url('~assets/fonts/tt-commons/TTCommons-MediumItalic.ttf') format('truetype');
 }
+
+@font-face {
+    font-family: 'TT Commons';
+    font-style: normal;
+    font-weight: 600;
+    font-display: swap;
+    src: url('~assets/fonts/tt-commons/TTCommons-Bold.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'TT Commons';
+    font-style: italic;
+    font-weight: 600;
+    font-display: swap;
+    src: url('~assets/fonts/tt-commons/TTCommons-BoldItalic.ttf') format('truetype');
+}
