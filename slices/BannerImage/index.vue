@@ -27,12 +27,15 @@ export default {
 
 <style lang="scss">
 .banner-image {
+    max-height: 100vh;
+    height: 100%;
+
     &-container {
     }
 
     img {
         width: 100%;
-        height: 100%;
+        height: 100vh;
         object-fit: cover;
     }
 }
