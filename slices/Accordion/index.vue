@@ -12,12 +12,16 @@
                             {{ item.Title }}
                         </p>
                         <div class="accordion-button-icon" data-anchor data-exclusion>
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none">
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="24"
+                                height="24"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                            >
                                 <path
-                                    fill-rule="evenodd"
-                                    clip-rule="evenodd"
-                                    d="M12 5.25C12.4142 5.25 12.75 5.58579 12.75 6V11.25H18C18.4142 11.25 18.75 11.5858 18.75 12C18.75 12.4142 18.4142 12.75 18 12.75H12.75V18C12.75 18.4142 12.4142 18.75 12 18.75C11.5858 18.75 11.25 18.4142 11.25 18V12.75H6C5.58579 12.75 5.25 12.4142 5.25 12C5.25 11.5858 5.58579 11.25 6 11.25H11.25V6C11.25 5.58579 11.5858 5.25 12 5.25Z"
-                                    fill="#22282F"
+                                    d="M13 10V6C13 5.66667 12.8 5 12 5C11.2 5 11 5.66667 11 6V10C11 10.8 10.3333 11 10 11H6C5.66667 11 5 11.2 5 12C5 12.8 5.66667 13 6 13H10C10.8 13 11 13.6667 11 14V18C11 18.3333 11.2 19 12 19C12.8 19 13 18.3333 13 18V14C13 13.2 13.6667 13 14 13H18C18.3333 13 19 12.8 19 12C19 11.2 18.3333 11 18 11H14C13.6667 11 13 10.8 13 10Z"
+                                    fill="black"
                                 />
                             </svg>
                         </div>
@@ -122,9 +126,11 @@ export default {
             padding: 1em 0;
 
             svg {
-                width: 1.999rem;
-                height: 1.999rem;
+                --size: 1.999rem;
+                width: var(--size);
+                height: var(--size);
                 transition: transform 250ms ease;
+                opacity: 0.5;
             }
         }
 
