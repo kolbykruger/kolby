@@ -1,58 +1,30 @@
 {
-  "id": "d3421b1f-6511-49e0-ac9b-872bb5f2e4a7",
-  "uid": "delectus-et-aperiam",
+  "id": "705ade0e-759b-42e4-ad5d-70d6e983dba4",
+  "uid": "molestias-occaecati-ut",
   "type": "case-study",
   "data": {
     "Name": [
       {
         "type": "heading1",
-        "text": "Maximize interactive solutions",
+        "text": "Reintermediate real-time e-tailers",
         "spans": []
       }
     ],
-    "Tagline": "mesh ubiquitous applications",
+    "Tagline": "visualize integrated paradigms",
     "Summary": [
       {
         "type": "paragraph",
-        "text": "Anim pariatur excepteur anim mollit duis sint eu qui qui cupidatat officia nostrud incididunt. Fugiat non in veniam incididunt.",
+        "text": "Velit pariatur do anim sunt cupidatat irure cupidatat enim.",
         "spans": []
       }
     ],
-    "Client": "benchmark efficient partnerships",
-    "Date": "2015-03-19",
+    "Role": "transition killer users",
+    "Client": "disintermediate cross-media vortals",
+    "Date": "2016-08-29",
     "Website": {
       "link_type": "Web",
       "url": "http://google.com"
     },
-    "Role": [
-      {
-        "Design": true,
-        "Development": false,
-        "Branding": true,
-        "UXUI": true,
-        "Support": false
-      },
-      {
-        "Design": false,
-        "Development": true,
-        "Branding": true,
-        "UXUI": false,
-        "Support": false
-      },
-      {
-        "Design": true,
-        "Development": false,
-        "Branding": false,
-        "UXUI": true,
-        "Support": true
-      },
-      {
-        "Design": false,
-        "Development": true,
-        "Branding": false,
-        "UXUI": false,
-        "Support": true
-      }
-    ]
+    "Accent": "#bb5176"
   }
 }

@@ -39,57 +39,10 @@
       },
       "Role": {
         "config": {
-          "label": "Role",
-          "placeholder": "",
-          "fields": {
-            "Design": {
-              "config": {
-                "label": "Design",
-                "placeholder_false": "No",
-                "placeholder_true": "Yes",
-                "default_value": false
-              },
-              "type": "Boolean"
-            },
-            "Development": {
-              "config": {
-                "label": "Development",
-                "placeholder_false": "No",
-                "placeholder_true": "Yes",
-                "default_value": false
-              },
-              "type": "Boolean"
-            },
-            "Branding": {
-              "config": {
-                "label": "Branding",
-                "placeholder_false": "No",
-                "placeholder_true": "Yes",
-                "default_value": false
-              },
-              "type": "Boolean"
-            },
-            "UXUI": {
-              "config": {
-                "label": "UX / UI",
-                "placeholder_false": "No",
-                "placeholder_true": "Yes",
-                "default_value": false
-              },
-              "type": "Boolean"
-            },
-            "Support": {
-              "config": {
-                "label": "Support",
-                "placeholder_false": "No",
-                "placeholder_true": "Yes",
-                "default_value": false
-              },
-              "type": "Boolean"
-            }
-          }
+          "label": "",
+          "placeholder": ""
         },
-        "type": "Group"
+        "type": "Text"
       },
       "Client": {
         "config": {
@@ -113,6 +66,13 @@
           "allowTargetBlank": false
         },
         "type": "Link"
+      },
+      "Accent": {
+        "config": {
+          "label": "Accent",
+          "placeholder": ""
+        },
+        "type": "Color"
       },
       "slices": {
         "type": "Slices",
