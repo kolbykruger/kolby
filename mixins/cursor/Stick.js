@@ -21,14 +21,14 @@ export const Stick = {
                 stick.addEventListener('mouseenter', () => {
                     this.setState('-stick')
                     const bounds = stick.getBoundingClientRect()
-                    this.props.stick.active = true
-                    this.props.stick.x = bounds.left + bounds.width / 2 - this.props.bounds.circle.width / 2
-                    this.props.stick.y = bounds.top + bounds.height / 2 - this.props.bounds.circle.height / 2
+                    this.stick.active = true
+                    this.stick.x = bounds.left + bounds.width / 2 - this.props.bounds.circle.width / 2
+                    this.stick.y = bounds.top + bounds.height / 2 - this.props.bounds.circle.height / 2
                     // this.props.scale.previous = this.props.scale.current = 1.5
                 })
                 stick.addEventListener('mouseleave', () => {
                     this.removeState('-stick')
-                    this.props.stick.active = false
+                    this.stick.active = false
                     // this.props.scale.previous = this.props.scale.current = 0.18
                 })
             })
