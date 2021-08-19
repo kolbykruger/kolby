@@ -1,13 +1,14 @@
 body {
-    background: c('background');
     position: relative;
+    background: c('background');
     color: c('base-0');
     line-height: 1;
     overflow-x: hidden;
     transition: background 1s ease, color 1s ease;
 }
 
-#app {
+#__app {
+    background-color: c('background');
     min-height: 100vh;
 }
 
@@ -38,6 +39,11 @@ img {
 }
 
 a {
+}
+
+.page {
+    background-color: #fff;
+    min-height: 100vh;
 }
 
 .visually-hidden {
