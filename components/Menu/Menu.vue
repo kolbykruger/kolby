@@ -37,7 +37,7 @@
                         <li class="navigation-item navigation-item-sm">
                             <div class="navigation-item-bit">
                                 <nuxt-link data-stick data-cursor="lg" class="navigation-link" to="/lab">
-                                    <span data-text="Lab">Lab</span>
+                                    <span data-text="LinkedIn">LinkedIn</span>
                                 </nuxt-link>
                             </div>
                         </li>
@@ -85,12 +85,12 @@ export default {
 
             gsap.to(bg, {
                 background: '#fff',
-                duration: 1
+                duration: 0.5
             })
             setTimeout(() => {
                 gsap.to(bg, {
                     background: '#000',
-                    duraiton: 0
+                    duration: 0
                 })
             }, 2000)
         }

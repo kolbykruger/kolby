@@ -43,7 +43,10 @@ export default {
         text-decoration: none;
         transition: 0.3s ease;
         color: #000;
-        font-weight: 500;
+        font-family: 'Ogg';
+        font-weight: 600;
+        font-kerning: none;
+        letter-spacing: 0.025em;
         opacity: 0;
 
         &.-exclusion {

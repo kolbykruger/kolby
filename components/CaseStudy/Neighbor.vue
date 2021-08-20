@@ -23,8 +23,8 @@ export default {
     text-align: center;
 
     .container {
-        padding-top: 10vh;
-        padding-bottom: 10vh;
+        padding-top: 18vh;
+        padding-bottom: 18vh;
     }
 
     a {
@@ -36,7 +36,7 @@ export default {
     }
 
     h2 {
-        margin-top: 0em;
+        margin-top: 0.125em;
         margin-bottom: 0;
         font-family: inherit;
     }

@@ -28,7 +28,7 @@ export default {
         setOffset() {
             const header = this.$refs.header
             const bounds = header.getBoundingClientRect()
-            document.documentElement.style.setProperty('--offset', bounds.height + bounds.top + 'px')
+            document.documentElement.style.setProperty('--offset', bounds.height + 60 + 'px')
         }
     },
     mounted() {
@@ -37,6 +37,11 @@ export default {
         window.addEventListener('resize', event => {
             this.setOffset()
         })
+    },
+    watch: {
+        $route() {
+            this.setOffset()
+        }
     }
 }
 </script>

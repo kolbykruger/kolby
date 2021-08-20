@@ -110,7 +110,7 @@ export default {
 
                 &.-active {
                     .pointer-circle {
-                        transform: scale(1.4);
+                        transform: scale(1);
                     }
                 }
             }
