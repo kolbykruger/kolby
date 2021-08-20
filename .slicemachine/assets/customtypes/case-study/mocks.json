@@ -1,30 +1,86 @@
 {
-  "id": "705ade0e-759b-42e4-ad5d-70d6e983dba4",
-  "uid": "molestias-occaecati-ut",
+  "id": "88278783-5778-4441-9037-2c370b4fc4c5",
+  "uid": "hic-sed-quod",
   "type": "case-study",
   "data": {
     "Name": [
       {
         "type": "heading1",
-        "text": "Reintermediate real-time e-tailers",
+        "text": "Incubate value-added content",
         "spans": []
       }
     ],
-    "Tagline": "visualize integrated paradigms",
+    "Tagline": "architect cutting-edge bandwidth",
     "Summary": [
       {
         "type": "paragraph",
-        "text": "Velit pariatur do anim sunt cupidatat irure cupidatat enim.",
+        "text": "Magna culpa esse deserunt velit eiusmod tempor aliquip sit ex in magna enim. Velit magna id ea qui id eiusmod proident nisi quis non.",
         "spans": []
       }
     ],
-    "Role": "transition killer users",
-    "Client": "disintermediate cross-media vortals",
-    "Date": "2016-08-29",
+    "Role": "cultivate proactive synergies",
+    "Client": "reinvent rich blockchains",
+    "Date": "2013-11-05",
     "Website": {
       "link_type": "Web",
       "url": "http://google.com"
     },
-    "Accent": "#bb5176"
+    "Accent": "#29baef",
+    "meta_title": "architect holistic web-readiness",
+    "meta_description": "generate clicks-and-mortar applications",
+    "social_cards": [
+      {
+        "social_card_image": {
+          "dimensions": {
+            "width": 900,
+            "height": 500
+          },
+          "alt": "Placeholder image",
+          "copyright": null,
+          "url": "https://images.unsplash.com/photo-1504198070170-4ca53bb1c1fa?w=900&h=500&fit=crop"
+        },
+        "social_card_title": "expedite visionary vortals",
+        "social_card_description": "matrix granular web-readiness"
+      },
+      {
+        "social_card_image": {
+          "dimensions": {
+            "width": 900,
+            "height": 500
+          },
+          "alt": "Placeholder image",
+          "copyright": null,
+          "url": "https://images.unsplash.com/photo-1600804931749-2da4ce26c869?w=900&h=500&fit=crop"
+        },
+        "social_card_title": "unleash robust solutions",
+        "social_card_description": "embrace global paradigms"
+      },
+      {
+        "social_card_image": {
+          "dimensions": {
+            "width": 900,
+            "height": 500
+          },
+          "alt": "Placeholder image",
+          "copyright": null,
+          "url": "https://images.unsplash.com/photo-1586952518485-11b180e92764?w=900&h=500&fit=crop"
+        },
+        "social_card_title": "integrate integrated initiatives",
+        "social_card_description": "evolve rich synergies"
+      },
+      {
+        "social_card_image": {
+          "dimensions": {
+            "width": 900,
+            "height": 500
+          },
+          "alt": "Placeholder image",
+          "copyright": null,
+          "url": "https://images.unsplash.com/photo-1493119508027-2b584f234d6c?w=900&h=500&fit=crop"
+        },
+        "social_card_title": "facilitate virtual e-tailers",
+        "social_card_description": "iterate open-source e-tailers"
+      }
+    ]
   }
 }

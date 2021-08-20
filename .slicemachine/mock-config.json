@@ -3,10 +3,39 @@
     "BannerImage": {},
     "Accordion": {},
     "List": {},
-    "Headline": {}
+    "Headline": {},
+    "Text": {
+      "default-slice": {
+        "primary": {
+          "title": {
+            "config": {
+              "patternType": "HEADING",
+              "blocks": 1
+            }
+          },
+          "description": {
+            "config": {
+              "patternType": "PARAGRAPH",
+              "blocks": 1
+            }
+          }
+        }
+      }
+    },
+    "Textblock": {},
+    "MobileImage": {},
+    "Branding": {},
+    "Rail": {}
   },
   "_cts": {
-    "page": {},
+    "page": {
+      "Name": {
+        "config": {
+          "patternType": "HEADING",
+          "blocks": 1
+        }
+      }
+    },
     "case-study": {
       "Name": {
         "config": {
