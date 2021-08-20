@@ -1,5 +1,5 @@
 export default {
-    title: 'Core/Neigh'
+    title: 'Core/Neighbor'
 }
 
-export const Default = () => '<Menu />'
+export const Default = () => '<Neighbor />'
