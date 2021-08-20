@@ -10,5 +10,13 @@ export const Interactivity = {
         window.addEventListener('mouseup', () => {
             this.removeState('-active')
         })
+
+        window.addEventListener('dragstart', () => {
+            this.setState('-dragging')
+        })
+
+        window.addEventListener('dragstart', () => {
+            this.setState('-dragging')
+        })
     }
 }

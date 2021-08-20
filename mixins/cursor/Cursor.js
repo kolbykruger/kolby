@@ -37,6 +37,8 @@ export const Cursor = {
     },
     methods: {
         render(pointer) {
+            const rail = this.checkState('-rail')
+
             // Default cursor active
             if (!this.stick.active) {
                 this.props.circle.x.current = this.cursor.x - this.props.bounds.circle.width / 2
@@ -60,7 +62,14 @@ export const Cursor = {
                 )
             }
 
-            this.move(this.props.circle.x.previous, this.props.circle.y.previous, 0.2, pointer.cursor)
+            if (rail) {
+                // todo: event bus? https://stackoverflow.com/questions/48818110/access-refs-from-other-components-not-in-the-same-level-as-current-component
+                console.log(this.$refs)
+            }
+
+            if (!rail) {
+                this.move(this.props.circle.x.previous, this.props.circle.y.previous, 0.2, pointer.cursor)
+            }
 
             requestAnimationFrame(() => {
                 this.render(pointer)
@@ -79,6 +88,7 @@ export const Cursor = {
         // Track cursor position and store pos
         window.addEventListener('mousemove', event => {
             this.cursor = { x: event.clientX, y: event.clientY }
+            console.log(event.clientX, event.clientY)
         })
 
         // Loop through render call for Mouse Move
