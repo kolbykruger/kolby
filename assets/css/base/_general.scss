@@ -12,6 +12,12 @@ body {
     min-height: 100vh;
 }
 
+main {
+    background-color: #fff;
+    min-height: 100vh;
+    padding-top: var(--offset);
+}
+
 section,
 header,
 footer,
@@ -25,9 +31,6 @@ article {
     }
 }
 
-main {
-}
-
 article {
     margin: 0 auto;
 }
@@ -39,11 +42,6 @@ img {
 }
 
 a {
-}
-
-.page {
-    background-color: #fff;
-    min-height: 100vh;
 }
 
 .visually-hidden {
