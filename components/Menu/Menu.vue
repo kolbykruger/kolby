@@ -5,36 +5,53 @@
                 <nav>
                     <ul class="navigation-items navigation-items-lg">
                         <li class="navigation-item navigation-item-lg">
-                            <nuxt-link data-magnetic class="navigation-link" to="/work">
-                                <span>Work</span>
-                            </nuxt-link>
+                            <div class="navigation-item-bit">
+                                <nuxt-link data-magnetic class="navigation-link" to="/work">
+                                    <span data-text="Work">Work</span>
+                                </nuxt-link>
+                            </div>
                         </li>
                         <li class="navigation-item navigation-item-lg">
-                            <nuxt-link data-magnetic class="navigation-link" to="/process">
-                                <span>Process</span>
-                            </nuxt-link>
+                            <div class="navigation-item-bit">
+                                <nuxt-link data-magnetic class="navigation-link" to="/process">
+                                    <span data-text="Process">Process</span>
+                                </nuxt-link>
+                            </div>
                         </li>
                         <li class="navigation-item navigation-item-lg">
-                            <nuxt-link data-magnetic class="navigation-link" to="/about">
-                                <span>About</span>
-                            </nuxt-link>
+                            <div class="navigation-item-bit">
+                                <nuxt-link data-magnetic class="navigation-link" to="/about">
+                                    <span data-text="About">About</span>
+                                </nuxt-link>
+                            </div>
                         </li>
                     </ul>
                     <ul class="navigation-items navigation-items-sm">
                         <li class="navigation-item navigation-item-sm">
-                            <nuxt-link data-stick class="navigation-link" to="/blog">
-                                <span>Blog</span>
-                            </nuxt-link>
+                            <div class="navigation-item-bit">
+                                <nuxt-link data-stick data-cursor="lg" class="navigation-link" to="/blog">
+                                    <span data-text="Blog">Blog</span>
+                                </nuxt-link>
+                            </div>
                         </li>
                         <li class="navigation-item navigation-item-sm">
-                            <nuxt-link data-stick class="navigation-link" to="/lab">
-                                <span>Lab</span>
-                            </nuxt-link>
+                            <div class="navigation-item-bit">
+                                <nuxt-link data-stick data-cursor="lg" class="navigation-link" to="/lab">
+                                    <span data-text="Lab">Lab</span>
+                                </nuxt-link>
+                            </div>
                         </li>
                         <li class="navigation-item navigation-item-sm">
-                            <a data-stick class="navigation-link" to="https://github.com/kolbykruger">
-                                <span>Github</span>
-                            </a>
+                            <div class="navigation-item-bit">
+                                <a
+                                    data-stick
+                                    data-cursor="lg"
+                                    class="navigation-link"
+                                    to="https://github.com/kolbykruger"
+                                >
+                                    <span data-text="Github">Github</span>
+                                </a>
+                            </div>
                         </li>
                     </ul>
                 </nav>
@@ -97,7 +114,7 @@ export default {
 
         .navigation {
             &-item {
-                span {
+                &-bit {
                     animation: link-in 0.3s cubic-bezier(0.23, 1, 0.32, 1) forwards;
                 }
             }
@@ -106,28 +123,29 @@ export default {
 
     &.-closed {
         transform: translateY(0%);
-        animation: menu-out 0.8s cubic-bezier(0.23, 1, 0.32, 1) forwards;
-        animation-delay: 0.55s;
+        animation: menu-out 0.6s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+        animation-delay: 0.45s;
 
         .navigation {
             &-item {
+                &-bit {
+                    transform: translateY(0%);
+                    animation: link-out 0.3s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+                }
+
                 &-lg {
                     @for $i from 1 through 3 {
-                        &:nth-child(#{$i}) span {
-                            animation-delay: $i * 0.04s + 0.32s;
+                        &:nth-child(#{$i}) .navigation-item-bit {
+                            animation-delay: $i * 0.08s + 0.12s;
                         }
                     }
                 }
                 &-sm {
                     @for $i from 1 through 3 {
-                        &:nth-child(#{$i}) span {
-                            animation-delay: $i * 0.04s + 0.28s;
+                        &:nth-child(#{$i}) .navigation-item-bit {
+                            animation-delay: $i * 0.08s + 0.18s;
                         }
                     }
-                }
-                span {
-                    transform: translateY(0%);
-                    animation: link-out 0.3s cubic-bezier(0.23, 1, 0.32, 1) forwards;
                 }
             }
         }
@@ -154,7 +172,7 @@ export default {
     }
 
     &-background {
-        background: #000;
+        background: #0b0e11;
         position: absolute;
         top: 0;
         left: 0;
@@ -185,14 +203,21 @@ export default {
         }
         &-item {
             margin-bottom: 0;
+            clip-path: polygon(-100% 0, 200% 0, 200% 100%, -100% 100%);
+
+            &-bit {
+                position: relative;
+                display: inline-flex;
+                transform: translateY(-100%);
+            }
 
             &-lg {
                 font-size: 4.5vw;
                 font-family: 'Ogg';
 
                 @for $i from 1 through 3 {
-                    &:nth-child(#{$i}) span {
-                        animation-delay: $i * 0.04s + 0.28s;
+                    &:nth-child(#{$i}) .navigation-item-bit {
+                        animation-delay: $i * 0.12s + 0.28s;
                     }
                 }
             }
@@ -200,19 +225,41 @@ export default {
                 padding-right: 5vw;
 
                 @for $i from 1 through 3 {
-                    &:nth-child(#{$i}) span {
-                        animation-delay: $i * 0.04s + 0.32s;
+                    &:nth-child(#{$i}) .navigation-item-bit {
+                        animation-delay: $i * 0.1s + 0.48s;
                     }
                 }
             }
 
             a {
-                overflow: hidden;
+                &:hover,
+                &:focus {
+                    span {
+                        animation: link-enter 1.2s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+
+                        &::after {
+                            transform: translateY(100%) skew(0deg);
+                            opacity: 1;
+                        }
+                    }
+                }
             }
 
             span {
+                position: relative;
                 display: inline-flex;
-                transform: translateY(-100%);
+                // animation: link-exit 1.2s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+
+                &::after {
+                    content: attr(data-text);
+                    display: block;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    opacity: 0;
+                    transform: translateY(100%) skew(7deg);
+                    transition: opacity 0s, transform 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+                }
             }
         }
     }
@@ -254,6 +301,24 @@ export default {
         }
         to {
             transform: translateY(-100%) skew(-4deg);
+        }
+    }
+
+    @keyframes link-enter {
+        0% {
+            transform: translateY(0%);
+        }
+        to {
+            transform: translateY(-100%);
+        }
+    }
+
+    @keyframes link-exit {
+        0% {
+            transform: translateY(-100%);
+        }
+        to {
+            transform: translateY(0%);
         }
     }
 }

@@ -1,5 +1,5 @@
 <template>
-    <header class="header">
+    <header class="header" ref="header" :class="{ '-open': menuStatus }">
         <div class="container">
             <div class="grid grid-col-2 grid-gap-lg">
                 <Mark />
@@ -18,18 +18,42 @@ export default {
     components: {
         Mark,
         Navicon
+    },
+    computed: {
+        menuStatus() {
+            return this.$store.state.menu.open
+        }
+    },
+    methods: {
+        setOffset() {
+            const header = this.$refs.header
+            const bounds = header.getBoundingClientRect()
+            document.documentElement.style.setProperty('--offset', bounds.height + bounds.top + 'px')
+        }
+    },
+    mounted() {
+        this.setOffset()
+
+        window.addEventListener('resize', event => {
+            this.setOffset()
+        })
     }
 }
 </script>
 
 <style lang="scss" scoped>
 .header {
-    position: relative;
+    position: absolute;
+    top: 3.75em;
+    left: 0;
+    width: 100%;
     z-index: 150;
 
     .container {
-        padding-top: 2em;
-        padding-bottom: 2em;
+    }
+
+    &.-open {
+        position: fixed;
     }
 }
 </style>

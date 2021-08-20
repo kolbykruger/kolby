@@ -1,7 +1,7 @@
 <template>
     <div class="navicon" :class="{ '-open': status }">
-        <button @click="toggleMenu">
-            <span>Menu</span>
+        <button data-magnetic data-stick data-cursor="md" class="navicon-button" @click="toggleMenu">
+            <small>Menu</small>
         </button>
     </div>
 </template>
@@ -27,9 +27,17 @@ export default {
     justify-self: end;
 
     &.-open {
-        button {
+        button,
+        small {
             color: #fff;
         }
+    }
+
+    &-button {
+        position: relative;
+        --size: 64px;
+        width: var(--size);
+        height: var(--size);
     }
 }
 </style>
