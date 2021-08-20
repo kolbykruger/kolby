@@ -1,0 +1,62 @@
+{
+  "id": "rail",
+  "type": "SharedSlice",
+  "name": "Rail",
+  "description": "Rail",
+  "variations": [
+    {
+      "id": "default-slice",
+      "name": "Default slice",
+      "docURL": "...",
+      "version": "sktwi1xtmkfgx8626",
+      "description": "Rail",
+      "primary": {
+        "Title": {
+          "config": {
+            "label": "Title",
+            "placeholder": "",
+            "allowTargetBlank": false,
+            "single": "heading2,strong,em"
+          },
+          "type": "StructuredText"
+        },
+        "Summary": {
+          "config": {
+            "label": "Summary",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,preformatted,strong,em,hyperlink,list-item,o-list-item"
+          },
+          "type": "StructuredText"
+        }
+      },
+      "items": {
+        "Date": {
+          "config": {
+            "label": "Date",
+            "placeholder": ""
+          },
+          "type": "Timestamp"
+        },
+        "Title": {
+          "config": {
+            "label": "Title",
+            "placeholder": "",
+            "allowTargetBlank": false,
+            "single": "heading3"
+          },
+          "type": "StructuredText"
+        },
+        "Summary": {
+          "config": {
+            "label": "Summary",
+            "placeholder": "",
+            "allowTargetBlank": false,
+            "single": "paragraph,strong,em"
+          },
+          "type": "StructuredText"
+        }
+      }
+    }
+  ]
+}

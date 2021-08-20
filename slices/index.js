@@ -2,5 +2,9 @@
 
 export { default as Accordion } from './Accordion'
 export { default as BannerImage } from './BannerImage'
+export { default as Branding } from './Branding'
 export { default as Headline } from './Headline'
 export { default as List } from './List'
+export { default as MobileImage } from './MobileImage'
+export { default as Rail } from './Rail'
+export { default as Textblock } from './Textblock'

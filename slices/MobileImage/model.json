@@ -1,0 +1,43 @@
+{
+  "id": "mobile_image",
+  "type": "SharedSlice",
+  "name": "MobileImage",
+  "description": "MobileImage",
+  "variations": [
+    {
+      "id": "default-slice",
+      "name": "Default slice",
+      "docURL": "...",
+      "version": "sktwi1xtmkfgx8626",
+      "description": "MobileImage",
+      "primary": {
+        "Layout": {
+          "config": {
+            "label": "Layout",
+            "placeholder": "",
+            "options": [
+              "Level",
+              "Waterfall",
+              "Pyramid"
+            ],
+            "default_value": "Level"
+          },
+          "type": "Select"
+        }
+      },
+      "items": {
+        "Image": {
+          "config": {
+            "label": "Image",
+            "constraint": {
+              "width": 517,
+              "height": 1099
+            },
+            "thumbnails": []
+          },
+          "type": "Image"
+        }
+      }
+    }
+  ]
+}

@@ -5,6 +5,15 @@
   "status": true,
   "json": {
     "Page": {
+      "Name": {
+        "config": {
+          "label": "Name",
+          "placeholder": "",
+          "allowTargetBlank": false,
+          "single": "heading1"
+        },
+        "type": "StructuredText"
+      },
       "uid": {
         "type": "UID",
         "config": {
@@ -24,6 +33,15 @@
               "type": "SharedSlice"
             },
             "headline": {
+              "type": "SharedSlice"
+            },
+            "textblock": {
+              "type": "SharedSlice"
+            },
+            "rail": {
+              "type": "SharedSlice"
+            },
+            "list": {
               "type": "SharedSlice"
             }
           }

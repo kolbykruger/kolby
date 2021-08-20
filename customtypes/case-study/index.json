@@ -39,7 +39,7 @@
       },
       "Role": {
         "config": {
-          "label": "",
+          "label": "Role",
           "placeholder": ""
         },
         "type": "Text"
@@ -84,8 +84,64 @@
             },
             "list": {
               "type": "SharedSlice"
+            },
+            "textblock": {
+              "type": "SharedSlice"
+            },
+            "headline": {
+              "type": "SharedSlice"
+            },
+            "mobile_image": {
+              "type": "SharedSlice"
+            },
+            "branding": {
+              "type": "SharedSlice"
             }
           }
+        }
+      }
+    },
+    "SEO Metadata": {
+      "meta_title": {
+        "type": "Text",
+        "config": {
+          "label": "Meta Title",
+          "placeholder": "My title for Search Engine"
+        }
+      },
+      "meta_description": {
+        "type": "Text",
+        "config": {
+          "label": "Meta Description",
+          "placeholder": "The description that will appear in search engine"
+        }
+      },
+      "social_cards": {
+        "type": "Group",
+        "config": {
+          "fields": {
+            "social_card_image": {
+              "type": "Image",
+              "config": {
+                "constraint": {},
+                "thumbnails": [],
+                "label": "Social Card Image"
+              }
+            },
+            "social_card_title": {
+              "type": "Text",
+              "config": {
+                "label": "Social Card Title"
+              }
+            },
+            "social_card_description": {
+              "type": "Text",
+              "config": {
+                "label": "Social card description"
+              }
+            }
+          },
+          "label": "Social Cards - Facebook & Twitter"
         }
       }
     }

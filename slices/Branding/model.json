@@ -1,0 +1,55 @@
+{
+  "id": "branding",
+  "type": "SharedSlice",
+  "name": "Branding",
+  "description": "Branding",
+  "variations": [
+    {
+      "id": "default-slice",
+      "name": "Default slice",
+      "docURL": "...",
+      "version": "sktwi1xtmkfgx8626",
+      "description": "Branding",
+      "primary": {
+        "Typography": {
+          "config": {
+            "label": "Typography",
+            "constraint": {
+              "width": 1024,
+              "height": 682
+            },
+            "thumbnails": []
+          },
+          "type": "Image"
+        },
+        "Logo": {
+          "config": {
+            "label": "Logo",
+            "constraint": {
+              "width": 1024,
+              "height": 682
+            },
+            "thumbnails": []
+          },
+          "type": "Image"
+        }
+      },
+      "items": {
+        "Color": {
+          "config": {
+            "label": "Color",
+            "placeholder": ""
+          },
+          "type": "Color"
+        },
+        "ColorName": {
+          "config": {
+            "label": "Color Name",
+            "placeholder": ""
+          },
+          "type": "Text"
+        }
+      }
+    }
+  ]
+}
