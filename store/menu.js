@@ -10,7 +10,6 @@ export const mutations = {
         state.open = false
     },
     toggle(state) {
-        console.log(state)
         state.open = !state.open
     }
 }
