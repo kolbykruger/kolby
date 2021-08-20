@@ -2,7 +2,7 @@
     <div class="pointer" aria-hidden="true" ref="pointer">
         <span class="pointer-svg" ref="pointerSVG">
             <span class="pointer-circle" ref="pointerCircle"></span>
-            <span class="pointer-text" ref="pointerText">{{ caption.text }}</span>
+            <span class="pointer-text" ref="pointerText" v-html="caption.text"></span>
         </span>
     </div>
 </template>
@@ -91,6 +91,31 @@ export default {
             }
         }
 
+        &.-size {
+            &-sm {
+                .pointer-circle {
+                    transform: scale(1.32);
+                }
+
+                &.-active {
+                    .pointer-circle {
+                        transform: scale(1.3);
+                    }
+                }
+            }
+            &-md {
+                .pointer-circle {
+                    transform: scale(1.6);
+                }
+
+                &.-active {
+                    .pointer-circle {
+                        transform: scale(1.4);
+                    }
+                }
+            }
+        }
+
         &-svg {
             position: absolute;
             display: block;
@@ -126,10 +151,10 @@ export default {
             display: grid;
             place-content: center;
             text-align: center;
-            color: #fff;
-            font-size: 1.125rem;
+            color: #000;
+            font-size: 1.5rem;
             line-height: 1;
-            font-weight: 500;
+            font-weight: 600;
             text-transform: uppercase;
             opacity: 0;
             transition: transform 0.3s, opacity 0.4s;
