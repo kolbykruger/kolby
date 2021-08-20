@@ -3,20 +3,19 @@ body {
     font-size-adjust: 0.5;
 }
 
-small {
-    font-size: clamp(1.25rem, -0.875rem + 8.333vw, 1.414rem);
-}
-
 p,
 ol,
 ul,
 dl,
-li {
+li,
+table,
+small {
     // font-size: clamp(1.25rem, calc(#{1rem} + 0.5vw), 1.414rem);
     font-size: clamp(1.25rem, -0.875rem + 8.333vw, 1.999rem);
     line-height: 1.375;
     margin-bottom: 0.5rem;
     font-weight: 300;
+    color: c('base-2');
 
     + h2,
     + h3,
@@ -36,6 +35,10 @@ p {
     &:last-of-type {
         margin-bottom: 0;
     }
+}
+
+small {
+    font-size: clamp(1.25rem, -0.875rem + 8.333vw, 1.414rem);
 }
 
 h1 {
