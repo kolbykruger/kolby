@@ -17,8 +17,23 @@
                                 target="_blank"
                                 rel="nofollow norefer"
                                 :style="{ color: document.data.Accent ? document.data.Accent : '#000' }"
-                                >Visit website -></a
                             >
+                                <span>Visit website </span>
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="24"
+                                    height="24"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                >
+                                    <path
+                                        fill-rule="evenodd"
+                                        clip-rule="evenodd"
+                                        d="M7.64997 6.00002C7.64997 5.5858 7.98576 5.25002 8.39997 5.25002H18C18.4142 5.25002 18.75 5.5858 18.75 6.00002V15.6C18.75 16.0142 18.4142 16.35 18 16.35C17.5858 16.35 17.25 16.0142 17.25 15.6V7.81068L6.53033 18.5303C6.23744 18.8232 5.76257 18.8232 5.46967 18.5303C5.17678 18.2375 5.17678 17.7626 5.46967 17.4697L16.1893 6.75002H8.39997C7.98576 6.75002 7.64997 6.41423 7.64997 6.00002Z"
+                                        fill="#22282F"
+                                    />
+                                </svg>
+                            </a>
                         </p>
                     </div>
 
