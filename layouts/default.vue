@@ -23,9 +23,6 @@ export default {
         Footer,
         Pointer,
         Splash
-    },
-    mounted() {
-        console.log(this.$refs)
     }
 }
 </script>
