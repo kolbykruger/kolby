@@ -13,7 +13,7 @@ body {
 }
 
 main {
-    background-color: #fff;
+    background-color: c('background');
     min-height: 100vh;
     padding-top: var(--offset);
 }
