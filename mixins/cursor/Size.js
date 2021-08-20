@@ -10,12 +10,18 @@ export const Size = {
 
             // sizes structure
             sizes.forEach(size => {
-                const measurement = size.dataset.dataCursor
+                const measurement = size.dataset.cursor
+
                 size.addEventListener('mouseenter', () => {
-                    this.setState(`-size=${measurement}`)
+                    if (typeof measurement == 'string') {
+                        this.setState(`-size-${measurement}`)
+                    }
                 })
+
                 size.addEventListener('mouseleave', () => {
-                    this.removeState(`-size=${measurement}`)
+                    if (typeof measurement == 'string') {
+                        this.removeState(`-size-${measurement}`)
+                    }
                 })
             })
         }

@@ -45,8 +45,10 @@ export const Cursor = {
 
             // Stick active [MIXIN]
             if (this.stick.active) {
-                this.props.circle.x.current = this.stick.x - (this.stick.x - this.cursor.x) * 0.15
-                this.props.circle.y.current = this.stick.y - (this.stick.y - this.cursor.y) * 0.15
+                this.props.circle.x.current =
+                    this.stick.x - (this.stick.x - (this.cursor.x - this.props.bounds.circle.width / 2)) * 0.2
+                this.props.circle.y.current =
+                    this.stick.y - (this.stick.y - (this.cursor.y - this.props.bounds.circle.height / 2)) * 0.2
             }
 
             // Calculate lerps for smooth transitions

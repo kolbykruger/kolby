@@ -21,9 +21,12 @@ export const Stick = {
                 stick.addEventListener('mouseenter', () => {
                     this.setState('-stick')
                     const bounds = stick.getBoundingClientRect()
+                    console.log(bounds)
                     this.stick.active = true
                     this.stick.x = bounds.left + bounds.width / 2 - this.props.bounds.circle.width / 2
                     this.stick.y = bounds.top + bounds.height / 2 - this.props.bounds.circle.height / 2
+                    console.log(this.stick.x, this.stick.y)
+                    console.log(this.props.bounds.circle.width, this.props.bounds.circle.height)
                     // this.props.scale.previous = this.props.scale.current = 1.5
                 })
                 stick.addEventListener('mouseleave', () => {
