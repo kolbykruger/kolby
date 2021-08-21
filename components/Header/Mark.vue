@@ -1,7 +1,13 @@
 <template>
     <div class="mark">
         <p>
-            <nuxt-link to="/" class="mark-brain" :class="{ '-exclusion': menuStatus, '-visible': visibility }">
+            <nuxt-link
+                data-stick
+                data-cursor="mark"
+                to="/"
+                class="mark-brain"
+                :class="{ '-exclusion': menuStatus, '-visible': visibility }"
+            >
                 <span>kolby.</span>
             </nuxt-link>
         </p>
