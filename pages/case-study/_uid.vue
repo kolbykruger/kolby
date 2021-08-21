@@ -1,6 +1,6 @@
 <template>
     <main class="page case-study">
-        <Pageheading :name="document.data.Name" :capital="true" />
+        <Pageheading :name="document.data.Name" />
 
         <section class="cs-intro">
             <div class="container">

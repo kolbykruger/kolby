@@ -114,6 +114,16 @@ export default {
                     }
                 }
             }
+            &-mark {
+                .pointer-circle {
+                    transform: scale(2.8);
+                }
+                &.-active {
+                    .pointer-circle {
+                        transform: scale(2.4);
+                    }
+                }
+            }
         }
 
         &-svg {

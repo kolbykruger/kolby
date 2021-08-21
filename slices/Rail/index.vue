@@ -4,10 +4,12 @@
             <prismic-rich-text class="rail-title" :field="slice.primary.Title" />
             <prismic-rich-text class="rail-summary" :field="slice.primary.Summary" />
         </div>
-        <div class="rail-container" data-caption="Grab" data-cursor="md">
+        <div class="rail-container" data-cursor="md">
             <Flickity ref="flickity" class="rail-slider" :options="flickityOptions">
                 <div class="rail-item" v-for="(item, i) in slice.items" :key="`slice-item-${i}`">
-                    <p class="rail-item-date" v-if="item.Date">{{ formatDate(item.Date) || '2021' }}</p>
+                    <p class="rail-item-date" v-if="item.Date">
+                        {{ i == 0 ? '— ' : '' }}{{ formatDate(item.Date) || '2021' }}
+                    </p>
                     <prismic-rich-text class="rail-item-title" :field="item.Title" />
                     <prismic-rich-text class="rail-item-summary" :field="item.Summary" />
                 </div>
