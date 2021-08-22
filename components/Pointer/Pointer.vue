@@ -14,6 +14,7 @@ import { Interactivity } from '~/mixins/cursor/Interactivity.js'
 import { Size } from '~/mixins/cursor/Size.js'
 import { Magnetic } from '~/mixins/cursor/Magnetic.js'
 import { Stick } from '~/mixins/cursor/Stick.js'
+// import { Rail } from '~/mixins/cursor/Rail.js'
 import { Caption } from '~/mixins/cursor/Caption.js'
 import { Move } from '~/mixins/cursor/Move.js'
 import { State } from '~/mixins/cursor/State.js'
@@ -92,6 +93,11 @@ export default {
         }
 
         &.-size {
+            &-invisible {
+                .pointer-circle {
+                    transform: scale(0);
+                }
+            }
             &-sm {
                 .pointer-circle {
                     transform: scale(1.32);
@@ -114,13 +120,24 @@ export default {
                     }
                 }
             }
+            &-lg {
+                .pointer-circle {
+                    transform: scale(2.2);
+                }
+
+                &.-active {
+                    .pointer-circle {
+                        transform: scale(2);
+                    }
+                }
+            }
             &-mark {
                 .pointer-circle {
-                    transform: scale(2.8);
+                    transform: scale(3);
                 }
                 &.-active {
                     .pointer-circle {
-                        transform: scale(2.4);
+                        transform: scale(2.6);
                     }
                 }
             }
