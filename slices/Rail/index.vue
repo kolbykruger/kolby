@@ -4,14 +4,30 @@
             <prismic-rich-text class="rail-title" :field="slice.primary.Title" />
             <prismic-rich-text class="rail-summary" :field="slice.primary.Summary" />
         </div>
-        <div class="rail-container" data-cursor="md">
+        <div class="rail-container" data-cursor="invisible">
             <Flickity ref="flickity" class="rail-slider" :options="flickityOptions">
                 <div class="rail-item" v-for="(item, i) in slice.items" :key="`slice-item-${i}`">
-                    <p class="rail-item-date" v-if="item.Date">
-                        {{ i == 0 ? '— ' : '' }}{{ formatDate(item.Date) || '2021' }}
-                    </p>
-                    <prismic-rich-text class="rail-item-title" :field="item.Title" />
-                    <prismic-rich-text class="rail-item-summary" :field="item.Summary" />
+                    <div v-if="slice.variation == 'railWithDateCompany'">
+                        <p class="rail-item-date" v-if="item.Date">
+                            {{ i == 0 ? '~ ' : '' }}{{ formatDate(item.Date) || '2021' }}
+                        </p>
+                        <prismic-rich-text class="rail-item-title" :field="item.Title" />
+                        <div class="rail-item-title">
+                            <h4>
+                                —
+                                <prismic-link :field="item.Link">{{ item.Company || 'Company' }}</prismic-link>
+                            </h4>
+                        </div>
+                        <prismic-rich-text class="rail-item-summary" :field="item.Summary" />
+                    </div>
+                    <div v-else>
+                        <p class="rail-item-eyebrow" v-if="item.Eyebrow">— {{ item.Eyebrow || 'Eyebrow' }}</p>
+                        <prismic-rich-text class="rail-item-title" :field="item.Title" />
+                        <prismic-rich-text class="rail-item-summary" :field="item.Summary" />
+                    </div>
+                </div>
+                <div class="rail-item" aria-hidden="true">
+                    <span></span>
                 </div>
             </Flickity>
         </div>
@@ -19,13 +35,8 @@
 </template>
 
 <script>
-import { Rail } from '~/mixins/cursor/Rail.js'
-import { Move } from '~/mixins/cursor/Move.js'
-import { State } from '~/mixins/cursor/State.js'
-
 export default {
     name: 'Rail',
-    mixins: [Rail, Move, State],
     props: {
         slice: {
             type: Object,
@@ -63,7 +74,8 @@ export default {
         prev() {
             this.$refs.flickity.previous()
         }
-    }
+    },
+    mounted() {}
 }
 </script>
 
@@ -74,6 +86,10 @@ export default {
 
     .container {
         padding-top: 10vh;
+        padding-bottom: 15vh;
+    }
+
+    &-container {
         padding-bottom: 10vh;
     }
 
@@ -82,7 +98,6 @@ export default {
             position: relative;
             margin: 0 auto;
             margin-left: 270px;
-            padding-right: 270px;
         }
     }
 
@@ -99,13 +114,19 @@ export default {
             opacity: 1;
         }
 
+        &:last-of-type {
+            margin-right: calc(10vw + 270px * 2);
+        }
+
+        &-eyebrow,
         &-date,
         &-title {
             font-family: 'Ogg', serif;
             font-weight: 600;
         }
 
-        &-date {
+        &-date,
+        &-eyebrow {
             &,
             &:last-of-type {
                 margin-bottom: 1.5em;
@@ -114,17 +135,24 @@ export default {
 
         &-title {
             h2,
-            h3 {
+            h3,
+            h4 {
                 margin-top: 0;
+                margin-bottom: 0;
             }
         }
 
         &-date,
+        &-eyebrow,
         &-summary {
             &,
             & > * {
                 color: darken(#fff, 30%);
             }
+        }
+
+        &-summary {
+            margin-top: 3em;
         }
     }
 }
