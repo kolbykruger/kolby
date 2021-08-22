@@ -1,0 +1,76 @@
+{
+  "id": "about",
+  "label": "About",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "Name": {
+        "config": {
+          "label": "Name",
+          "placeholder": "",
+          "allowTargetBlank": false,
+          "single": "heading1"
+        },
+        "type": "StructuredText"
+      },
+      "uid": {
+        "config": {
+          "label": "uid",
+          "placeholder": ""
+        },
+        "type": "UID"
+      },
+      "Cover": {
+        "config": {
+          "label": "Cover",
+          "constraint": {},
+          "thumbnails": []
+        },
+        "type": "Image"
+      },
+      "Lizzy": {
+        "config": {
+          "label": "Lizzy",
+          "constraint": {},
+          "thumbnails": []
+        },
+        "type": "Image"
+      },
+      "Wasabi": {
+        "config": {
+          "label": "Wasabi",
+          "constraint": {},
+          "thumbnails": []
+        },
+        "type": "Image"
+      },
+      "slices": {
+        "type": "Slices",
+        "fieldset": "Slice Zone",
+        "config": {
+          "choices": {
+            "headline": {
+              "type": "SharedSlice"
+            },
+            "textblock": {
+              "type": "SharedSlice"
+            },
+            "rail": {
+              "type": "SharedSlice"
+            },
+            "list": {
+              "type": "SharedSlice"
+            },
+            "banner_image": {
+              "type": "SharedSlice"
+            },
+            "gallery": {
+              "type": "SharedSlice"
+            }
+          }
+        }
+      }
+    }
+  }
+}
