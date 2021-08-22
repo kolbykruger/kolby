@@ -18,7 +18,7 @@ export const _DefaultSlice = () => ({
   },
   data() {
     return {
-      mock: {"variation":"default-slice","name":"Default slice","slice_type":"textblock","items":[],"primary":{"Index":3242,"Eyebrow":"benchmark innovative e-markets","title":[{"type":"heading2","text":"Embrace compelling blockchains","spans":[]}],"description":[{"type":"paragraph","text":"Ad dolore occaecat ad aute officia dolor ea magna sit. Pariatur aliquip voluptate dolore ullamco incididunt proident deserunt consequat duis nisi cupidatat eiusmod.","spans":[]}]},"id":"_DefaultSlice"}
+      mock: {"variation":"default-slice","name":"Default slice","slice_type":"textblock","items":[],"primary":{"Index":3600,"Eyebrow":"facilitate virtual synergies","title":[{"type":"heading2","text":"Architect robust e-tailers","spans":[]}],"description":[{"type":"paragraph","text":"Anim veniam enim nulla Lorem occaecat cupidatat aute reprehenderit dolore reprehenderit occaecat ut excepteur do et.","spans":[]}]},"id":"_DefaultSlice"}
     }
   },
   template: '<SliceZone :slices="[mock]" :resolver="resolve" />'
@@ -37,7 +37,7 @@ export const _TextblockWithGridList = () => ({
   },
   data() {
     return {
-      mock: {"variation":"textblockWithGridList","name":"Textblock - with Grid List","slice_type":"textblock","items":[{"Name":"exploit transparent eyeballs","Outline":"seize rich convergence"},{"Name":"visualize one-to-one methodologies","Outline":"enable web-enabled solutions"},{"Name":"innovate integrated communities","Outline":"optimize viral ROI"},{"Name":"integrate dot-com experiences","Outline":"enhance impactful blockchains"},{"Name":"extend distributed e-markets","Outline":"grow robust portals"}],"primary":{"Index":7891,"Eyebrow":"productize visionary eyeballs","title":[{"type":"heading2","text":"Monetize proactive niches","spans":[]}],"description":[{"type":"paragraph","text":"Ullamco nulla in ipsum ad consequat do amet quis in mollit sunt voluptate nostrud cupidatat nisi. Magna tempor et excepteur amet anim minim id nisi velit consequat irure sint. Labore irure officia elit incididunt qui dolore enim tempor esse id consectetur ad aute ex.","spans":[]}]},"id":"_TextblockWithGridList"}
+      mock: {"variation":"textblockWithGridList","name":"Textblock - with Grid List","slice_type":"textblock","items":[{"Name":"incubate synergistic e-commerce","Outline":"enable robust content"},{"Name":"generate magnetic technologies","Outline":"brand synergistic technologies"},{"Name":"engage one-to-one web services","Outline":"benchmark synergistic portals"},{"Name":"seize innovative content","Outline":"brand impactful bandwidth"}],"primary":{"Index":5896,"Eyebrow":"aggregate value-added portals","title":[{"type":"heading2","text":"Reinvent synergistic mindshare","spans":[]}],"description":[{"type":"paragraph","text":"Sunt aliquip minim commodo Lorem exercitation ut eiusmod consequat. Ipsum aute aliquip id anim voluptate occaecat non pariatur ullamco enim Lorem cupidatat fugiat dolore culpa.","spans":[]}]},"id":"_TextblockWithGridList"}
     }
   },
   template: '<SliceZone :slices="[mock]" :resolver="resolve" />'

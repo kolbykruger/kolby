@@ -25,7 +25,8 @@
     "Textblock": {},
     "MobileImage": {},
     "Branding": {},
-    "Rail": {}
+    "Rail": {},
+    "Gallery": {}
   },
   "_cts": {
     "page": {
@@ -46,6 +47,14 @@
       "Summary": {
         "config": {
           "patternType": "PARAGRAPH",
+          "blocks": 1
+        }
+      }
+    },
+    "about": {
+      "Name": {
+        "config": {
+          "patternType": "HEADING",
           "blocks": 1
         }
       }
