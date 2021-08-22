@@ -60,5 +60,9 @@ export default {
     &.-open {
         position: fixed;
     }
+
+    .grid {
+        align-items: center;
+    }
 }
 </style>
