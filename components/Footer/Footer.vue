@@ -1,7 +1,8 @@
 <template>
     <footer class="footer" data-exclusion>
         <div class="container">
-            <h2>TEST FOOTER TEXT</h2>
+            <h2 style="opacity: 0.5">Got a project?</h2>
+            <h2>Let's work together.</h2>
         </div>
     </footer>
 </template>
