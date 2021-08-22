@@ -46,17 +46,19 @@ export default {
 <style lang="scss" scoped>
 .mark {
     &-brain {
+        display: inline-flex;
+        padding: 1em;
         text-decoration: none;
-        transition: 0.3s ease;
-        color: #000;
-        font-family: 'Ogg';
+        transition: opacity 0.3s ease;
+        color: c('base-0');
+        font-family: $font-1;
         font-weight: 600;
         font-kerning: none;
         letter-spacing: 0.025em;
         opacity: 0;
 
         &.-exclusion {
-            color: #fff;
+            color: c('background');
             opacity: 1;
         }
 
