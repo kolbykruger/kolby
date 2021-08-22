@@ -1,6 +1,6 @@
 <template>
     <div class="navicon" :class="{ '-open': status }">
-        <button data-magnetic data-stick data-cursor="md" class="navicon-button" @click="toggleMenu">
+        <button data-magnetic data-stick data-cursor="lg" class="navicon-button" @click="toggleMenu">
             <div class="navicon-track">
                 <span class="navicon-text navicon-text-close" :aria-hidden="!status">Close</span>
                 <span class="navicon-text navicon-text-open" :aria-hidden="status">Menu</span>
@@ -32,7 +32,7 @@ export default {
     &.-open {
         button,
         small {
-            color: #fff;
+            color: c('background');
         }
 
         .navicon-track {
@@ -42,11 +42,12 @@ export default {
 
     &-button {
         position: relative;
-        --size: 64px;
+        --size: 96px;
         width: var(--size);
         height: var(--size);
+        color: c('base-0');
         padding: 0;
-        font-size: 1.414rem;
+        font-size: 1.616rem;
         overflow: hidden;
         outline: none;
     }
@@ -60,8 +61,9 @@ export default {
         display: grid;
         place-content: center;
         text-align: center;
-        height: 64px;
-        width: 64px;
+        --size: 96px;
+        width: var(--size);
+        height: var(--size);
         line-height: 1;
 
         &-close {
