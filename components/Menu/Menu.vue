@@ -89,7 +89,7 @@ export default {
             })
             setTimeout(() => {
                 gsap.to(bg, {
-                    background: '#000',
+                    background: '#0b0e11',
                     duration: 0
                 })
             }, 2000)
@@ -158,12 +158,12 @@ export default {
     a {
         display: inline-flex;
         text-decoration: none;
-        color: #fff;
+        color: c('background');
     }
 
     p {
         margin: 0;
-        color: #fff;
+        color: c('background');
 
         &:not(:last-of-type) {
             margin-bottom: 0.25em;
@@ -172,7 +172,7 @@ export default {
     }
 
     &-background {
-        background: #0b0e11;
+        background: c('base-0');
         position: absolute;
         top: 0;
         left: 0;
