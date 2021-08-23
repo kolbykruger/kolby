@@ -3,7 +3,7 @@
         <div class="container">
             <div class="menu-navigation grid">
                 <nav>
-                    <ul class="navigation-items navigation-items-lg">
+                    <ul ref="navLarge" class="navigation-items navigation-items-lg">
                         <li class="navigation-item navigation-item-lg">
                             <div class="navigation-item-bit">
                                 <nuxt-link data-magnetic class="navigation-link" to="/work">
@@ -26,7 +26,7 @@
                             </div>
                         </li>
                     </ul>
-                    <ul class="navigation-items navigation-items-sm">
+                    <ul ref="navSmall" class="navigation-items navigation-items-sm">
                         <li class="navigation-item navigation-item-sm">
                             <div class="navigation-item-bit">
                                 <nuxt-link data-stick data-cursor="lg" class="navigation-link" to="/blog">
@@ -70,13 +70,53 @@
 </template>
 
 <script>
-import { gsap } from 'gsap'
+import { gsap, TimelineLite } from 'gsap'
+
 export default {
     name: 'Menu',
     computed: {
         status() {
             return this.$store.state.menu.open
         }
+    },
+    mounted() {
+        const navLarge = this.$refs.navLarge
+        const links = navLarge.querySelectorAll('.navigation-link')
+
+        links.forEach(link => {
+            const linkText = link.querySelector('span')
+            gsap.registerPlugin(TimelineLite)
+            const tl = new TimelineLite()
+            let playing = false
+
+            link.addEventListener('mouseenter', () => {
+                console.log(playing)
+                if (playing) {
+                    return false
+                }
+
+                playing = true
+
+                tl.to(linkText, 1.2, {
+                    y: '-100%',
+                    ease: 'Power3.easeOut',
+                    overwrite: 'auto'
+                })
+                tl.to(linkText, 0, {
+                    y: '0%',
+                    overwrite: 'auto',
+                    onComplete: () => {
+                        playing = false
+                    }
+                })
+            })
+            link.addEventListener('mouseleave', () => {
+                tl.to(linkText, 0, {
+                    y: '0%',
+                    overwrite: false
+                })
+            })
+        })
     },
     watch: {
         $route() {
@@ -116,6 +156,10 @@ export default {
             &-item {
                 &-bit {
                     animation: link-in 0.3s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+                }
+
+                span::after {
+                    animation: link-opacity 0s 0.8s ease forwards;
                 }
             }
         }
@@ -234,14 +278,14 @@ export default {
             a {
                 &:hover,
                 &:focus {
-                    span {
-                        animation: link-enter 1.2s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+                    // span {
+                    //     animation: link-enter 1.2s cubic-bezier(0.23, 1, 0.32, 1) forwards;
 
-                        &::after {
-                            transform: translateY(100%) skew(0deg);
-                            opacity: 1;
-                        }
-                    }
+                    //     &::after {
+                    //         transform: translateY(100%) skew(0deg);
+                    //         opacity: 1;
+                    //     }
+                    // }
                 }
             }
 
@@ -257,7 +301,7 @@ export default {
                     top: 0;
                     left: 0;
                     opacity: 0;
-                    transform: translateY(100%) skew(7deg);
+                    transform: translateY(100%);
                     transition: opacity 0s, transform 0.3s cubic-bezier(0.23, 1, 0.32, 1);
                 }
             }
@@ -319,6 +363,15 @@ export default {
         }
         to {
             transform: translateY(0%);
+        }
+    }
+
+    @keyframes link-opacity {
+        0% {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
         }
     }
 }
