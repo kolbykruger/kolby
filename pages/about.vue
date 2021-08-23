@@ -25,21 +25,18 @@
                     design.
                 </p>
                 <p>
-                    I live with my girlfriend <span data-stick data-cursor="mark">Lizzy</span>, and our quirky cat,
-                    <span data-stick data-cursor="mark">Wasabi</span>. Most weekends you'll find us adventuring
-                    outdoors, sailing & paddleboarding in the summers, and skiing in the winters. We're avid hikers, and
-                    like to adventure and enjoy what nature has to offer.
+                    I live with my girlfriend <span ref="lizzy" data-stick data-cursor="mark">Lizzy</span>, and our
+                    quirky cat,
+                    <span data-cursor-img="/wasabi.jpg" ref="wasabi" data-stick data-cursor="mark">Wasabi</span>. Most
+                    weekends you'll find us adventuring outdoors, sailing & paddleboarding in the summers, and skiing in
+                    the winters. We're avid hikers, and like to adventure and enjoy what nature has to offer.
                 </p>
             </div>
         </section>
 
         <slice-zone type="about" uid="about" />
 
-        <section>
-            <div class="container">
-                <h2>Freelancing</h2>
-            </div>
-        </section>
+        <canvas class="about-canvas" aria-hidden="true" ref="canvas"></canvas>
     </main>
 </template>
 
@@ -129,6 +126,17 @@ export default {
                 text-decoration: underline;
             }
         }
+    }
+
+    &-canvas {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        user-select: none;
+        z-index: 1;
     }
 }
 </style>
