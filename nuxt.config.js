@@ -48,13 +48,16 @@ export default {
         scss: ['@/assets/css/internals.scss']
     },
     // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
-    plugins: [{ src: '~/plugins/flickity.js', ssr: false }],
+    plugins: [
+        { src: '~/plugins/flickity.js', ssr: false },
+        { src: '~/plugins/dat-gui.js', ssr: false }
+    ],
     // Auto import components (https://go.nuxtjs.dev/config-components)
     components: true,
     // Modules for dev and build (recommended) (https://go.nuxtjs.dev/config-modules)
     buildModules: ['@nuxt/image'],
     // Transpile
-    transpile: ['gsap'],
+    transpile: ['gsap', 'three', ''],
     // Modules (https://go.nuxtjs.dev/config-modules)
     modules: [
         '@nuxt/image',
