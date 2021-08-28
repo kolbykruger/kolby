@@ -1,9 +1,9 @@
 <template>
-    <section class="case-study-neighbor">
+    <section class="case-study-neighbor" v-if="page">
         <div class="container">
             <p>Next project</p>
-            <nuxt-link data-magnetic to="/">
-                <h2>Vermont Electric</h2>
+            <nuxt-link data-magnetic data-cursor="lg" :to="'/case-study/' + page.uid">
+                <h2>{{ page.data.Name[0].text }}</h2>
             </nuxt-link>
         </div>
     </section>
@@ -11,10 +11,10 @@
 
 <script>
 export default {
-    name: 'Neighbor'
-    // props: {
-    //     document: Object
-    // }
+    name: 'Neighbor',
+    props: {
+        page: Object
+    }
 }
 </script>
 
@@ -38,7 +38,6 @@ export default {
     h2 {
         margin-top: 0.125em;
         margin-bottom: 0;
-        font-family: inherit;
     }
 }
 </style>
