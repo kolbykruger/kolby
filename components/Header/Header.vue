@@ -55,6 +55,7 @@ export default {
     z-index: 150;
 
     .container {
+        padding: 0 calc(270px - 2em);
     }
 
     &.-open {
