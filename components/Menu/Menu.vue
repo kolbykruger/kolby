@@ -29,14 +29,14 @@
                     <ul ref="navSmall" class="navigation-items navigation-items-sm">
                         <li class="navigation-item navigation-item-sm">
                             <div class="navigation-item-bit">
-                                <nuxt-link data-stick data-cursor="lg" class="navigation-link" to="/blog">
-                                    <span data-text="Blog">Blog</span>
+                                <nuxt-link data-stick data-cursor="xl" class="navigation-link" to="/articles">
+                                    <span data-text="Articles">Articles</span>
                                 </nuxt-link>
                             </div>
                         </li>
                         <li class="navigation-item navigation-item-sm">
                             <div class="navigation-item-bit">
-                                <nuxt-link data-stick data-cursor="lg" class="navigation-link" to="/lab">
+                                <nuxt-link data-stick data-cursor="xl" class="navigation-link" to="/lab">
                                     <span data-text="LinkedIn">LinkedIn</span>
                                 </nuxt-link>
                             </div>
@@ -45,7 +45,7 @@
                             <div class="navigation-item-bit">
                                 <a
                                     data-stick
-                                    data-cursor="lg"
+                                    data-cursor="xl"
                                     class="navigation-link"
                                     to="https://github.com/kolbykruger"
                                 >
@@ -56,11 +56,11 @@
                     </ul>
                 </nav>
                 <aside>
-                    <p>Inquiries</p>
                     <p>
-                        <a>
-                            hello@kolby.dev
+                        <a data-stick data-cursor="xxl" href="mailto:hi@kolby.dev">
+                            hi@kolby.dev
                         </a>
+                        <span>Inquiries</span>
                     </p>
                 </aside>
             </div>
@@ -206,12 +206,34 @@ export default {
     }
 
     p {
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: flex-start;
         margin: 0;
         color: c('background');
+        transform: translateY(1em);
 
-        &:not(:last-of-type) {
-            margin-bottom: 0.25em;
-            opacity: 0.25;
+        a {
+            padding: 1em;
+
+            &:hover,
+            &:focus {
+                ~ span {
+                    opacity: 0;
+                    transition: 0s;
+                }
+            }
+        }
+
+        span {
+            display: block;
+            margin-bottom: 0;
+            color: c('base-5');
+            padding: 0 1em;
+            transform: translateY(1em);
+            pointer-events: none;
+            user-select: none;
+            transition: 0.6s ease;
         }
     }
 
