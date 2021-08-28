@@ -67,7 +67,7 @@
         <!-- <Stats :document="document" /> -->
         <slice-zone type="case-study" :uid="$route.params.uid" />
 
-        <Neighbor :document="document" />
+        <Neighbor :page="nextCaseStudy" />
 
         <div class="cs-return">
             <nuxt-link to="/work">
@@ -86,14 +86,14 @@
 <script>
 import SliceZone from 'vue-slicezone'
 import Pageheading from '~/components/Pageheading/Pageheading.vue'
-// import Stats from '@/components/CaseStudy/Stats.vue'
 import Neighbor from '@/components/CaseStudy/Neighbor.vue'
+import { CaseStudyMeta } from '@/mixins/meta/CaseStudyMeta.js'
 
 export default {
+    mixins: [CaseStudyMeta],
     components: {
         SliceZone,
         Pageheading,
-        // Stats,
         Neighbor
     },
     computed: {
@@ -112,8 +112,15 @@ export default {
     },
     async asyncData({ $prismic, params, error }) {
         const document = await $prismic.api.getByUID('case-study', params.uid)
+        const nextCaseStudy = (
+            await $prismic.api.query($prismic.predicates.at('document.type', 'case-study'), {
+                pageSize: 3,
+                after: `${document.id}`,
+                orderings: '[my.post.date]'
+            })
+        ).results[0]
         if (document) {
-            return { document }
+            return { document, nextCaseStudy }
         } else {
             error({ statusCode: 404, message: 'Page not found' })
         }
@@ -138,6 +145,9 @@ export default {
     }
 
     &-tagline {
+        display: grid;
+        grid-template-columns: 3fr 1fr;
+        grid-gap: 10vw;
         margin-top: 0;
     }
 
