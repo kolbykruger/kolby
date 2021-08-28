@@ -18,7 +18,7 @@
 
 <script>
 // import SliceZone from 'vue-slicezone'
-import Pageheading from '~/components/Pageheading/Pageheading'
+import Pageheading from '~/components/Pageheading/Pageheading.vue'
 
 export default {
     components: {
