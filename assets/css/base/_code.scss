@@ -1,13 +1,16 @@
 pre,
 code,
-span[class="code"] {
-    font-family: 'Source Code Pro', monospace;
+span[class='code'] {
+    // font-family: 'Source Code Pro', monospace;
+    font-family: 'Fira Mono', monospace;
+    font-kerning: none;
     font-weight: 500;
+    // font-weight: 400;
     line-height: 1.5;
 }
 
 pre {
-    font-size: 1rem;
+    font-size: 1.125rem;
     padding: 1em;
     margin: 1.5em auto;
     max-width: 100%;
@@ -20,20 +23,19 @@ pre {
     code {
         color: #c0cefc;
         line-height: 1.5;
-        overflow: auto;
         white-space: pre;
         word-spacing: normal;
         word-break: normal;
         word-wrap: normal;
         tab-size: 4;
         hyphens: none;
+        overflow: auto;
         padding: 0;
         font-size: inherit;
         background: transparent;
     }
 
     .token {
-
         &.property,
         &.tag,
         &.boolean,
@@ -72,11 +74,10 @@ pre {
         &.comment {
             color: #444b6a;
         }
-
     }
 }
 
-span[class="code"] {
+span[class='code'] {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -88,11 +89,11 @@ span[class="code"] {
     font-size: 1rem;
     font-weight: 500;
 
-    + span[class="code"] {
+    + span[class='code'] {
         margin-left: 0.25em;
     }
 }
 
-p span[class="code"] {
+p span[class='code'] {
     word-break: break-all;
 }
