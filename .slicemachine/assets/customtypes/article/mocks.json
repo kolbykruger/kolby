@@ -1,0 +1,53 @@
+{
+  "id": "8c8cf45a-04eb-41d7-9cd2-7424df7c74ba",
+  "uid": "blanditiis-deserunt-non",
+  "type": "article",
+  "data": {
+    "Name": [
+      {
+        "type": "heading1",
+        "text": "Incubate distributed infrastructures",
+        "spans": []
+      }
+    ],
+    "Summary": [
+      {
+        "type": "paragraph",
+        "text": "Ipsum quis ullamco in non dolor. Reprehenderit ea ullamco dolore.",
+        "spans": []
+      }
+    ],
+    "Read": 4377,
+    "Category": "Code",
+    "meta_title": "whiteboard out-of-the-box schemas",
+    "meta_description": "incentivize robust e-markets",
+    "social_cards": [
+      {
+        "social_card_image": {
+          "dimensions": {
+            "width": 900,
+            "height": 500
+          },
+          "alt": "Placeholder image",
+          "copyright": null,
+          "url": "https://images.unsplash.com/photo-1587653915936-5623ea0b949a?w=900&h=500&fit=crop"
+        },
+        "social_card_title": "utilize compelling web services",
+        "social_card_description": "architect value-added e-services"
+      },
+      {
+        "social_card_image": {
+          "dimensions": {
+            "width": 900,
+            "height": 500
+          },
+          "alt": "Placeholder image",
+          "copyright": null,
+          "url": "https://images.unsplash.com/photo-1587613865763-4b8b0d19e8ab?w=900&h=500&fit=crop"
+        },
+        "social_card_title": "architect collaborative interfaces",
+        "social_card_description": "facilitate magnetic interfaces"
+      }
+    ]
+  }
+}

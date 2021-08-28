@@ -1,0 +1,40 @@
+{
+  "id": "code_block",
+  "type": "SharedSlice",
+  "name": "CodeBlock",
+  "description": "CodeBlock",
+  "variations": [
+    {
+      "id": "default-slice",
+      "name": "Default slice",
+      "docURL": "...",
+      "version": "sktwi1xtmkfgx8626",
+      "description": "CodeBlock",
+      "primary": {
+        "Language": {
+          "config": {
+            "label": "Language",
+            "placeholder": "",
+            "options": [
+              "html",
+              "scss",
+              "javascript"
+            ],
+            "default_value": "html"
+          },
+          "type": "Select"
+        },
+        "Code": {
+          "config": {
+            "label": "Code",
+            "placeholder": "",
+            "allowTargetBlank": false,
+            "single": "preformatted"
+          },
+          "type": "StructuredText"
+        }
+      },
+      "items": {}
+    }
+  ]
+}
