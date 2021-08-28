@@ -14,7 +14,7 @@
                     class="list-item"
                     v-for="(item, i) in slice.items"
                     :key="`slice-item-${i}`"
-                    v-html="$prismic.asHtml(item.Item, optionalHtmlSerializer)"
+                    v-html="$prismic.asHtml(item.Item)"
                 />
             </ol>
         </div>
@@ -51,6 +51,7 @@ export default {
         grid-template-columns: repeat(3, 1fr);
         //grid-auto-flow: column;
         grid-gap: 1.5em;
+        grid-row-gap: 0.5em;
     }
 
     &-item {
