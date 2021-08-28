@@ -37,8 +37,6 @@ export const Cursor = {
     },
     methods: {
         render(pointer) {
-            const rail = this.$store.state.rail.elem
-
             // Default cursor active
             if (!this.stick.active) {
                 this.props.circle.x.current = this.cursor.x - this.props.bounds.circle.width / 2
@@ -62,9 +60,7 @@ export const Cursor = {
                 )
             }
 
-            if (!rail) {
-                this.move(this.props.circle.x.previous, this.props.circle.y.previous, 0.2, pointer.cursor)
-            }
+            this.move(this.props.circle.x.previous, this.props.circle.y.previous, 0.2, pointer.cursor)
 
             requestAnimationFrame(() => {
                 this.render(pointer)
