@@ -4,13 +4,13 @@ https://www.slicemachine.dev/documentation/nuxt/add-the-slice-zone-to-your-page
 -->
 <template>
     <main class="page">
-        <Pageheading :name="$route.params.uid" />
+        <Pageheading :name="document.data.Name" />
         <slice-zone type="page" :uid="$route.params.uid" />
     </main>
 </template>
 
 <script>
-import Pageheading from '@/components/pageheading/Pageheading'
+import Pageheading from '~/components/Pageheading/Pageheading.vue'
 import SliceZone from 'vue-slicezone'
 
 export default {
