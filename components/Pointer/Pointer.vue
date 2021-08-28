@@ -40,6 +40,7 @@ export default {
         top: 0;
         left: 0;
         pointer-events: none;
+        user-select: none;
         mix-blend-mode: exclusion;
         z-index: 200;
 
@@ -132,6 +133,28 @@ export default {
                     }
                 }
             }
+            &-xl {
+                .pointer-circle {
+                    transform: scale(3.2);
+                }
+
+                &.-active {
+                    .pointer-circle {
+                        transform: scale(3);
+                    }
+                }
+            }
+            &-xxl {
+                .pointer-circle {
+                    transform: scale(4.2);
+                }
+
+                &.-active {
+                    .pointer-circle {
+                        transform: scale(4);
+                    }
+                }
+            }
             &-mark {
                 .pointer-circle {
                     transform: scale(3);
@@ -139,6 +162,16 @@ export default {
                 &.-active {
                     .pointer-circle {
                         transform: scale(2.6);
+                    }
+                }
+            }
+            &-huge {
+                .pointer-circle {
+                    transform: scale(50);
+                }
+                &.-active {
+                    .pointer-circle {
+                        transform: scale(50);
                     }
                 }
             }
