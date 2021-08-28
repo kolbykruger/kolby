@@ -2,6 +2,28 @@
 <html {{ HTML_ATTRS }}>
     <head {{ HEAD_ATTRS }}>
         {{ HEAD }}
+
+        <!-- Schema -->
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "LocalBusiness",
+                "name": "Kolby Kruger",
+                "founder": "Kolby Kruger",
+                "@id": "https://kolby.dev/",
+                "url": "https://kolby.dev/",
+                "email": "hi@kolby.dev",
+                "priceRange": "$$",
+                "openingHoursSpecification": [
+                    {
+                        "@type": "OpeningHoursSpecification",
+                        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+                        "opens": "09:00",
+                        "closes": "16:00"
+                    }
+                ]
+            }
+        </script>
     </head>
     <body {{ BODY_ATTRS }}>
         {{ APP }}
