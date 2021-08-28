@@ -51,6 +51,7 @@ export default {
     plugins: [
         { src: '~/plugins/flickity.js', ssr: false },
         { src: '~/plugins/dat-gui.js', ssr: false }
+        // { src: '~/plugins/prism', mode: 'client' }
     ],
     // Auto import components (https://go.nuxtjs.dev/config-components)
     components: true,
