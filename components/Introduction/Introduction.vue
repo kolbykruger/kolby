@@ -39,10 +39,10 @@
 </template>
 
 <script>
-import { Canvas } from '~/mixins/intro/Canvas.js'
+//import { Canvas } from '~/mixins/intro/Canvas.js'
 export default {
     name: 'Introduction',
-    mixins: [Canvas],
+    //mixins: [Canvas],
     data() {
         return {
             noise: true

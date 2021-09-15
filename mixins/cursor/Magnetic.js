@@ -20,6 +20,8 @@ export const Magnetic = {
         magnetics() {
             const magnetic = document.querySelectorAll('[data-magnetic]')
 
+            console.log(magnetic)
+
             if (!magnetic) {
                 return false
             }
@@ -67,10 +69,5 @@ export const Magnetic = {
     },
     mounted() {
         this.magnetics()
-    },
-    watch: {
-        $route() {
-            this.magnetics()
-        }
     }
 }

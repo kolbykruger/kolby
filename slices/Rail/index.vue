@@ -94,6 +94,15 @@ export default {
     }
 
     .flickity {
+        &-viewport {
+            &.is-pointer-down {
+                .rail-item {
+                    transform: scale(0.9);
+                    transition: opacity 0.4s ease, transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+                }
+            }
+        }
+
         &-slider {
             position: relative;
             margin: 0 auto;
@@ -107,7 +116,7 @@ export default {
         margin-right: 10vw;
         width: min-content;
         opacity: 0.5;
-        transition: opacity 0.4s ease;
+        transition: opacity 0.4s ease, transform 0.9s cubic-bezier(0.23, 1, 0.32, 1);
         user-select: none;
 
         &.is-selected {

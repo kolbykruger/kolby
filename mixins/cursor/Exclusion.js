@@ -20,5 +20,10 @@ export const Exclusion = {
     },
     mounted() {
         this.exclusion()
+    },
+    updated() {
+        this.$nextTick(() => {
+            this.exclusion()
+        })
     }
 }

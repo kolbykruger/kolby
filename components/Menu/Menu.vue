@@ -90,7 +90,6 @@ export default {
             let playing = false
 
             link.addEventListener('mouseenter', () => {
-                console.log(playing)
                 if (playing) {
                     return false
                 }

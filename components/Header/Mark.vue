@@ -56,14 +56,17 @@ export default {
         font-kerning: none;
         letter-spacing: 0.025em;
         opacity: 0;
+        visibility: hidden;
 
         &.-exclusion {
             color: c('background');
             opacity: 1;
+            visibility: visible;
         }
 
         &.-visible {
             opacity: 1;
+            visibility: visible;
         }
     }
 }

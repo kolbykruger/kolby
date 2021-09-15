@@ -55,7 +55,6 @@ export default {
     bottom: 0;
     left: 0;
     z-index: 199;
-    pointer-events: none;
     user-select: none;
     animation: swipe-out 0s forwards;
 
