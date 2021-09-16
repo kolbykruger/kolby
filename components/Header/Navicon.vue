@@ -1,6 +1,6 @@
 <template>
     <div class="navicon" :class="{ '-open': status }">
-        <button data-magnetic data-stick data-cursor="lg" class="navicon-button" @click="toggleMenu">
+        <button data-magnetic="0.3, 0.3, 0.18" data-stick data-cursor="lg" class="navicon-button" @click="toggleMenu">
             <div class="navicon-track">
                 <span class="navicon-text navicon-text-close" :aria-hidden="!status">Close</span>
                 <span class="navicon-text navicon-text-open" :aria-hidden="status">Menu</span>
@@ -29,6 +29,7 @@ export default {
 .navicon {
     position: relative;
     justify-self: end;
+    color: c('menu-navicon');
 
     // &::before {
     //     content: '';
@@ -50,7 +51,7 @@ export default {
     &.-open {
         button,
         small {
-            color: c('background');
+            color: c('menu-color');
         }
 
         .navicon-track {

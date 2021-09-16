@@ -50,7 +50,7 @@ export default {
         padding: 1em;
         text-decoration: none;
         transition: opacity 0.3s ease;
-        color: c('base-0');
+        color: c('menu-navicon');
         font-family: $font-1;
         font-weight: 600;
         font-kerning: none;
@@ -59,7 +59,7 @@ export default {
         visibility: hidden;
 
         &.-exclusion {
-            color: c('background');
+            color: c('menu-color');
             opacity: 1;
             visibility: visible;
         }

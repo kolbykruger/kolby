@@ -53,11 +53,16 @@
                                 </a>
                             </div>
                         </li>
+                        <li class="navigation-item navigation-item-sm">
+                            <div class="navigation-item-bit">
+                                <Theme />
+                            </div>
+                        </li>
                     </ul>
                 </nav>
                 <aside>
                     <p>
-                        <a data-stick data-cursor="xxl" href="mailto:hi@kolby.dev">
+                        <a data-stick data-cursor="xxl" data-shift href="mailto:hi@kolby.dev">
                             hi@kolby.dev
                         </a>
                         <span>Inquiries</span>
@@ -71,9 +76,13 @@
 
 <script>
 import { gsap, TimelineLite } from 'gsap'
+import Theme from '@/components/Theme/Theme.vue'
 
 export default {
     name: 'Menu',
+    components: {
+        Theme
+    },
     computed: {
         status() {
             return this.$store.state.menu.open
@@ -201,7 +210,7 @@ export default {
     a {
         display: inline-flex;
         text-decoration: none;
-        color: c('background');
+        color: c('menu-color');
     }
 
     p {
@@ -209,7 +218,7 @@ export default {
         flex-direction: column-reverse;
         align-items: flex-start;
         margin: 0;
-        color: c('background');
+        color: c('menu-color');
         transform: translateY(1em);
 
         a {
@@ -237,7 +246,7 @@ export default {
     }
 
     &-background {
-        background: c('base-0');
+        background: c('menu-background');
         position: absolute;
         top: 0;
         left: 0;
@@ -289,7 +298,7 @@ export default {
             &-sm {
                 padding-right: 5vw;
 
-                @for $i from 1 through 3 {
+                @for $i from 1 through 4 {
                     &:nth-child(#{$i}) .navigation-item-bit {
                         animation-delay: $i * 0.1s + 0.48s;
                     }
