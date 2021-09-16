@@ -18,17 +18,18 @@
                                 :style="{ color: document.data.Accent ? document.data.Accent : '#000' }"
                             >
                                 <span>Visit website </span>
+
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
-                                    width="24"
-                                    height="24"
-                                    viewBox="0 0 24 24"
+                                    width="168"
+                                    height="169"
+                                    viewBox="0 0 168 169"
                                     fill="none"
                                 >
                                     <path
                                         fill-rule="evenodd"
                                         clip-rule="evenodd"
-                                        d="M7.64997 6.00002C7.64997 5.5858 7.98576 5.25002 8.39997 5.25002H18C18.4142 5.25002 18.75 5.5858 18.75 6.00002V15.6C18.75 16.0142 18.4142 16.35 18 16.35C17.5858 16.35 17.25 16.0142 17.25 15.6V7.81068L6.53033 18.5303C6.23744 18.8232 5.76257 18.8232 5.46967 18.5303C5.17678 18.2375 5.17678 17.7626 5.46967 17.4697L16.1893 6.75002H8.39997C7.98576 6.75002 7.64997 6.41423 7.64997 6.00002Z"
+                                        d="M99.841 58.9134C82.8693 62.2172 65.2546 59.7876 53.3788 49.0933 52.558 48.3541 52.5589 47.0812 53.34 46.3001L59.6444 39.9957C60.4255 39.2147 61.6876 39.2218 62.5289 39.9376 78.3822 53.4271 110.419 46.8282 127.107 31.5825 127.923 30.8375 129.185 30.8353 129.966 31.6163L130.081 31.731C130.09 31.7397 130.099 31.7486 130.108 31.7575L136.613 38.2629C137.394 39.044 137.392 40.3065 136.647 41.1219 121.396 57.8086 114.736 89.791 128.292 105.701 129.008 106.542 129.015 107.804 128.234 108.585L121.93 114.889C121.149 115.67 119.876 115.671 119.136 114.85 108.442 102.975 106.013 85.3602 109.316 68.3885L40.4466 137.258C39.6655 138.039 38.3992 138.039 37.6181 137.258L30.9713 130.611C30.1903 129.83 30.1903 128.564 30.9713 127.783L99.841 58.9134z"
                                         :style="{ fill: document.data.Accent ? document.data.Accent : '#000' }"
                                     />
                                 </svg>
@@ -70,14 +71,14 @@
         <Neighbor :page="nextCaseStudy" />
 
         <div class="cs-return">
-            <nuxt-link to="/work">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <nuxt-link to="/work" data-stick data-cursor="lg">
+                <!-- <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                     <path
                         d="M12.4569 4.02802C12.281 3.63211 11.7191 3.63211 11.5431 4.02802L4.48451 19.9099C4.30442 20.3151 4.70178 20.7368 5.11698 20.5811L11.8245 18.0658C11.9377 18.0234 12.0624 18.0234 12.1756 18.0658L18.8831 20.5811C19.2983 20.7368 19.6956 20.3151 19.5155 19.9099L12.4569 4.02802Z"
                         fill="#22282F"
                     />
-                </svg>
-                <span>Projects</span>
+                </svg> -->
+                <span>Work</span>
             </nuxt-link>
         </div>
     </main>
@@ -86,7 +87,7 @@
 <script>
 import SliceZone from 'vue-slicezone'
 import Pageheading from '~/components/Pageheading/Pageheading.vue'
-import Neighbor from '@/components/CaseStudy/Neighbor.vue'
+import Neighbor from '@/components/Neighbor/Neighbor.vue'
 import { CaseStudyMeta } from '@/mixins/meta/CaseStudyMeta.js'
 
 export default {
@@ -167,9 +168,10 @@ export default {
 
             svg {
                 margin-left: 0.4em;
-                margin-bottom: 0.2em;
-                width: 32px;
-                height: 32px;
+                margin-bottom: 0.25em;
+                --size: 28px;
+                width: var(--size);
+                height: var(--size);
             }
         }
     }
@@ -198,22 +200,22 @@ export default {
 
     &-return {
         position: fixed;
-        bottom: 2em;
-        left: 4em;
-        transform: rotate(-90deg);
-        transform-origin: bottom left;
-        opacity: 0.125;
+        bottom: 50%;
+        left: 3vw;
+        transform: translate(-50%, -50%) rotate(-90deg);
+        transform-origin: bottom center;
+        //opacity: 0.125;
 
         a {
             display: inline-flex;
             align-items: center;
             justify-content: center;
             text-decoration: none;
-            color: #000;
+            color: c('base-0');
             font-size: 1.5rem;
             letter-spacing: 0.05em;
             text-transform: uppercase;
-            font-weight: 500;
+            font-weight: 400;
 
             svg {
                 margin-right: 0.4em;
