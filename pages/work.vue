@@ -2,13 +2,23 @@
     <main class="page">
         <Pageheading name="Work" />
 
-        <section class="case-studies">
+        <section class="work-intro">
             <div class="container">
-                <ul>
-                    <li v-for="study in cases.results" :key="study.id">
-                        <nuxt-link :to="'/case-study/' + study.uid">{{ study.data.Name[0].text }}</nuxt-link>
+                <p>
+                    Since 2016, I've worked on over 100 projects
+                </p>
+            </div>
+        </section>
+
+        <section class="case-studies" v-if="cases">
+            <div class="container">
+                <!-- <ul>
+                    <li >
+                        <nuxt-link :to="'/works/' + study.uid">{{ study.data.Name[0].text }}</nuxt-link>
                     </li>
-                </ul>
+                </ul> -->
+
+                <CaseStudyItem v-for="study in cases.results" :key="study.id" :item="study" />
             </div>
         </section>
 
@@ -19,10 +29,12 @@
 <script>
 // import SliceZone from 'vue-slicezone'
 import Pageheading from '~/components/Pageheading/Pageheading.vue'
+import CaseStudyItem from '~/components/CaseStudyItem/CaseStudyItem.vue'
 
 export default {
     components: {
-        Pageheading
+        Pageheading,
+        CaseStudyItem
     },
     async asyncData({ $prismic, params, error }) {
         const cases = await $prismic.api.query($prismic.predicates.at('document.type', 'case-study'), {
@@ -37,3 +49,16 @@ export default {
     }
 }
 </script>
+
+<style lang="scss">
+.case-studies {
+    .container {
+    }
+
+    ul {
+    }
+
+    li {
+    }
+}
+</style>
