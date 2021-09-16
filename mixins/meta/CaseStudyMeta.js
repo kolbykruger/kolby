@@ -3,7 +3,7 @@ export const CaseStudyMeta = {
     computed: {
         title() {
             //return document.data.Name
-            return this.document.data.Name[0].text + ' - Kolby Kruger'
+            return this.document.data.Name[0].text + ' // Kolby Kruger'
         },
         description() {
             return this.$prismic.asText(this.document.data.Summary)
