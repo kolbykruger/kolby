@@ -27,7 +27,8 @@ export default {
     methods: {
         setOffset() {
             const header = this.$refs.header
-            const bounds = header.getBoundingClientRect()
+
+            const bounds = header ? header.getBoundingClientRect() : 0
             document.documentElement.style.setProperty('--offset', bounds.height + 60 + 'px')
         }
     },
