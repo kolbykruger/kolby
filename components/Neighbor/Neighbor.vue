@@ -2,7 +2,7 @@
     <section class="case-study-neighbor" v-if="page">
         <div class="container">
             <p>Next project</p>
-            <nuxt-link data-magnetic data-cursor="lg" :to="'/case-study/' + page.uid">
+            <nuxt-link data-magnetic data-cursor="lg" :to="'/works/' + page.uid">
                 <h2>{{ page.data.Name[0].text }}</h2>
             </nuxt-link>
         </div>
@@ -30,7 +30,7 @@ export default {
     a {
         display: grid;
         place-content: center;
-        color: #000;
+        color: c('base-0');
         text-decoration: none;
         padding: 1em;
     }
