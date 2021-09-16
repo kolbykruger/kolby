@@ -36,7 +36,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .list {
     padding: 8vh 0;
 
@@ -77,6 +77,7 @@ export default {
 
             &::before {
                 content: '0' counter(listCounter) '.';
+                font-variant-numeric: tabular-nums;
                 margin-right: 0.35em;
             }
 
