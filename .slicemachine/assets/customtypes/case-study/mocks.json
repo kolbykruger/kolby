@@ -1,33 +1,40 @@
 {
-  "id": "88278783-5778-4441-9037-2c370b4fc4c5",
-  "uid": "hic-sed-quod",
+  "id": "91e26a39-1488-484a-82b6-efe6743ae4d6",
+  "uid": "aut-omnis-sit",
   "type": "case-study",
   "data": {
     "Name": [
       {
         "type": "heading1",
-        "text": "Incubate value-added content",
+        "text": "Harness vertical e-tailers",
         "spans": []
       }
     ],
-    "Tagline": "architect cutting-edge bandwidth",
+    "Tagline": "optimize transparent e-commerce",
+    "View": [
+      {
+        "type": "paragraph",
+        "text": "Ea aliqua ea cillum minim labore Lorem id amet. Quis amet ullamco anim velit. Commodo pariatur fugiat commodo dolore et elit nisi voluptate excepteur officia.",
+        "spans": []
+      }
+    ],
     "Summary": [
       {
         "type": "paragraph",
-        "text": "Magna culpa esse deserunt velit eiusmod tempor aliquip sit ex in magna enim. Velit magna id ea qui id eiusmod proident nisi quis non.",
+        "text": "Irure irure cupidatat qui nulla pariatur dolore consequat do ea cupidatat ad consectetur.",
         "spans": []
       }
     ],
-    "Role": "cultivate proactive synergies",
-    "Client": "reinvent rich blockchains",
-    "Date": "2013-11-05",
+    "Role": "optimize dynamic networks",
+    "Client": "deploy end-to-end content",
+    "Date": "2021-01-15",
     "Website": {
       "link_type": "Web",
-      "url": "http://google.com"
+      "url": "http://twitter.com"
     },
-    "Accent": "#29baef",
-    "meta_title": "architect holistic web-readiness",
-    "meta_description": "generate clicks-and-mortar applications",
+    "Accent": "#8e4ad6",
+    "meta_title": "enable value-added functionalities",
+    "meta_description": "matrix visionary blockchains",
     "social_cards": [
       {
         "social_card_image": {
@@ -37,10 +44,10 @@
           },
           "alt": "Placeholder image",
           "copyright": null,
-          "url": "https://images.unsplash.com/photo-1504198070170-4ca53bb1c1fa?w=900&h=500&fit=crop"
+          "url": "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=900&h=500&fit=crop"
         },
-        "social_card_title": "expedite visionary vortals",
-        "social_card_description": "matrix granular web-readiness"
+        "social_card_title": "repurpose e-business channels",
+        "social_card_description": "reintermediate intuitive methodologies"
       },
       {
         "social_card_image": {
@@ -50,36 +57,10 @@
           },
           "alt": "Placeholder image",
           "copyright": null,
-          "url": "https://images.unsplash.com/photo-1600804931749-2da4ce26c869?w=900&h=500&fit=crop"
+          "url": "https://images.unsplash.com/photo-1589321578146-4c1ba445cc88?w=900&h=500&fit=crop"
         },
-        "social_card_title": "unleash robust solutions",
-        "social_card_description": "embrace global paradigms"
-      },
-      {
-        "social_card_image": {
-          "dimensions": {
-            "width": 900,
-            "height": 500
-          },
-          "alt": "Placeholder image",
-          "copyright": null,
-          "url": "https://images.unsplash.com/photo-1586952518485-11b180e92764?w=900&h=500&fit=crop"
-        },
-        "social_card_title": "integrate integrated initiatives",
-        "social_card_description": "evolve rich synergies"
-      },
-      {
-        "social_card_image": {
-          "dimensions": {
-            "width": 900,
-            "height": 500
-          },
-          "alt": "Placeholder image",
-          "copyright": null,
-          "url": "https://images.unsplash.com/photo-1493119508027-2b584f234d6c?w=900&h=500&fit=crop"
-        },
-        "social_card_title": "facilitate virtual e-tailers",
-        "social_card_description": "iterate open-source e-tailers"
+        "social_card_title": "enhance interactive markets",
+        "social_card_description": "envisioneer cross-media eyeballs"
       }
     ]
   }

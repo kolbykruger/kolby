@@ -18,7 +18,7 @@ export const _DefaultSlice = () => ({
   },
   data() {
     return {
-      mock: {"variation":"default-slice","name":"Default slice","slice_type":"textblock","items":[],"primary":{"Index":3600,"Eyebrow":"facilitate virtual synergies","title":[{"type":"heading2","text":"Architect robust e-tailers","spans":[]}],"description":[{"type":"paragraph","text":"Anim veniam enim nulla Lorem occaecat cupidatat aute reprehenderit dolore reprehenderit occaecat ut excepteur do et.","spans":[]}]},"id":"_DefaultSlice"}
+      mock: {"variation":"default-slice","name":"Default slice","slice_type":"textblock","items":[],"primary":{"Index":4541,"Eyebrow":"engineer world-class content","title":[{"type":"heading2","text":"Extend dot-com methodologies","spans":[]}],"description":[{"type":"paragraph","text":"Dolore elit id minim cillum aliquip excepteur laboris esse nisi qui. Minim ullamco cillum do sit magna eu mollit qui anim anim sint quis exercitation in excepteur. Mollit deserunt est aliquip.","spans":[]}]},"id":"_DefaultSlice"}
     }
   },
   template: '<SliceZone :slices="[mock]" :resolver="resolve" />'
@@ -37,7 +37,7 @@ export const _TextblockWithGridList = () => ({
   },
   data() {
     return {
-      mock: {"variation":"textblockWithGridList","name":"Textblock - with Grid List","slice_type":"textblock","items":[{"Name":"incubate synergistic e-commerce","Outline":"enable robust content"},{"Name":"generate magnetic technologies","Outline":"brand synergistic technologies"},{"Name":"engage one-to-one web services","Outline":"benchmark synergistic portals"},{"Name":"seize innovative content","Outline":"brand impactful bandwidth"}],"primary":{"Index":5896,"Eyebrow":"aggregate value-added portals","title":[{"type":"heading2","text":"Reinvent synergistic mindshare","spans":[]}],"description":[{"type":"paragraph","text":"Sunt aliquip minim commodo Lorem exercitation ut eiusmod consequat. Ipsum aute aliquip id anim voluptate occaecat non pariatur ullamco enim Lorem cupidatat fugiat dolore culpa.","spans":[]}]},"id":"_TextblockWithGridList"}
+      mock: {"variation":"textblockWithGridList","name":"Textblock - with Grid List","slice_type":"textblock","items":[{"Name":"recontextualize synergistic e-services","Outline":"visualize ubiquitous e-services"},{"Name":"matrix revolutionary interfaces","Outline":"expedite proactive applications"},{"Name":"brand viral portals","Outline":"visualize synergistic communities"},{"Name":"exploit next-generation blockchains","Outline":"incentivize proactive markets"}],"primary":{"Index":1209,"Eyebrow":"redefine clicks-and-mortar bandwidth","title":[{"type":"heading2","text":"Architect 24/365 e-services","spans":[]}],"description":[{"type":"paragraph","text":"Non esse labore consequat elit aute est mollit qui veniam officia deserunt tempor ad ea. Exercitation non id reprehenderit proident ullamco proident veniam in nostrud est laboris labore. Ea aute mollit minim labore sint.","spans":[]}]},"id":"_TextblockWithGridList"}
     }
   },
   template: '<SliceZone :slices="[mock]" :resolver="resolve" />'

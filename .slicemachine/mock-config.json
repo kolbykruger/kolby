@@ -28,7 +28,9 @@
     "Rail": {},
     "Gallery": {},
     "ArticleBlock": {},
-    "CodeBlock": {}
+    "CodeBlock": {},
+    "Timeline": {},
+    "Artwork": {}
   },
   "_cts": {
     "page": {
@@ -47,6 +49,12 @@
         }
       },
       "Summary": {
+        "config": {
+          "patternType": "PARAGRAPH",
+          "blocks": 1
+        }
+      },
+      "View": {
         "config": {
           "patternType": "PARAGRAPH",
           "blocks": 1
