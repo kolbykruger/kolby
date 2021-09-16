@@ -18,26 +18,23 @@ import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
 export default {
     name: 'Footer',
     mounted() {
-        const footer = this.$refs.footer
-        const footerRail = footer.querySelector('.footer-rail')
-        const footerRailAnimate = footer.querySelector('.footer-rail-animate')
-        gsap.registerPlugin(ScrollTrigger)
-
-        ScrollTrigger.defaults({
-            toggleActions: 'restart complete restart reset',
-            start: '0% bottom',
-            end: '100% bottom',
-            scrub: 0.6,
-            markers: true,
-            toggleClass: '-active'
-        })
-
-        gsap.timeline({
-            scrollTrigger: {
-                trigger: footer
-            }
-        }).fromTo(footerRailAnimate, { y: '-50%' }, { y: 0, ease: 'cubic-bezier(0.23, 1, 0.32, 1)' })
-
+        // const footer = this.$refs.footer
+        // const footerRail = footer.querySelector('.footer-rail')
+        // const footerRailAnimate = footer.querySelector('.footer-rail-animate')
+        // gsap.registerPlugin(ScrollTrigger)
+        // ScrollTrigger.defaults({
+        //     toggleActions: 'restart complete restart reset',
+        //     start: '0% bottom',
+        //     end: '100% bottom',
+        //     scrub: 0.6,
+        //     markers: true,
+        //     toggleClass: '-active'
+        // })
+        // gsap.timeline({
+        //     scrollTrigger: {
+        //         trigger: footer
+        //     }
+        // }).fromTo(footerRailAnimate, { y: '-50%' }, { y: 0, ease: 'cubic-bezier(0.23, 1, 0.32, 1)' })
         // ScrollTrigger.create({
         //     onUpdate: self => {
         //         let skew = self.getVelocity()
