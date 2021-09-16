@@ -10,4 +10,17 @@ html {
             --color-#{$name}: #{$color};
         }
     }
+
+    &[theme='dark'] {
+        //colors
+        @each $name, $color in $dark {
+            @if type-of($color) == 'map' {
+                @each $subname, $subcolor in $color {
+                    --color-#{$name}-#{$subname}: #{$subcolor};
+                }
+            } @else {
+                --color-#{$name}: #{$color};
+            }
+        }
+    }
 }
