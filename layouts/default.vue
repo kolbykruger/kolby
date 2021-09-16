@@ -1,11 +1,11 @@
 <template>
     <div class="layout-default">
-        {{ counter }}
         <Header />
         <Menu />
         <Nuxt />
         <Footer />
         <Splash />
+        <Traveler />
         <Pointer :counter="counter" />
     </div>
 </template>
@@ -16,6 +16,7 @@ import Menu from '@/components/Menu/Menu.vue'
 import Footer from '@/components/Footer/Footer.vue'
 import Pointer from '@/components/Pointer/Pointer.vue'
 import Splash from '@/components/Splash/Splash.vue'
+import Traveler from '@/components/Traveler/Traveler.vue'
 
 export default {
     data() {
@@ -28,7 +29,8 @@ export default {
         Menu,
         Footer,
         Pointer,
-        Splash
+        Splash,
+        Traveler
     },
     watch: {
         $route() {
