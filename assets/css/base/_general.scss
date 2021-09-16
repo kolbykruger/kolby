@@ -13,9 +13,11 @@ body {
 }
 
 main {
-    background-color: c('background');
+    position: relative;
+    //background-color: c('background');
     min-height: 100vh;
     padding-top: var(--offset);
+    z-index: 5;
 }
 
 section,
