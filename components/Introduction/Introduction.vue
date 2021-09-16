@@ -7,7 +7,7 @@
                 I have a passion for design, programming, motion animation, and web apps.
             </p>
         </div>
-        <span v-if="noise" class="introduction-noise"></span>
+        <span class="introduction-noise"></span>
         <span class="introduction-line">
             <svg xmlns="http://www.w3.org/2000/svg" width="1440" height="614" viewBox="0 0 1440 614" fill="none">
                 <path
@@ -39,25 +39,22 @@
 </template>
 
 <script>
-//import { Canvas } from '~/mixins/intro/Canvas.js'
+import { Canvas } from '~/mixins/intro/Canvas.js'
 export default {
     name: 'Introduction',
-    //mixins: [Canvas],
-    data() {
-        return {
-            noise: true
-        }
-    }
+    mixins: [Canvas]
 }
 </script>
 
 <style lang="scss">
 .introduction {
+    position: relative;
     margin-top: calc(var(--offset) * -1);
     display: grid;
     align-items: center;
     justify-content: flex-start;
     min-height: 100vh;
+    background: c('background');
     overflow: hidden;
 
     .container {
@@ -69,7 +66,7 @@ export default {
         position: relative;
         display: grid;
         place-content: center;
-        z-index: 3;
+        z-index: 4;
     }
 
     canvas {
@@ -94,11 +91,13 @@ export default {
         left: 0;
         width: 100%;
         height: 100%;
+        // background-image: url('/noise/noise-2.png');
         background-image: url('/noise/noise-2.png');
         background-size: auto;
         background-repeat: repeat;
         mix-blend-mode: overlay;
-        opacity: 0.2;
+        // opacity: 0.2;
+        opacity: 0.3;
         pointer-events: none;
         user-select: none;
         z-index: 3;
