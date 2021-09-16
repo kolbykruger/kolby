@@ -1,3 +1,5 @@
+import { lerp } from '~/plugins/utils'
+
 export const Magnetic = {
     name: 'Magnetic',
     data() {
@@ -18,15 +20,32 @@ export const Magnetic = {
     },
     methods: {
         magnetics() {
+            const $this = this
             const magnetic = document.querySelectorAll('[data-magnetic]')
-
-            console.log(magnetic)
 
             if (!magnetic) {
                 return false
             }
 
             magnetic.forEach(magnet => {
+                const attr = magnet.dataset.magnetic
+                const vals = attr ? attr.split(',') : null
+                const options = {
+                    x: vals ? vals[0] : this.options.x,
+                    y: vals ? vals[1] : this.options.y,
+                    s: vals ? vals[2] : this.magnetic.s
+                }
+                const pos = {
+                    x: {
+                        previous: 0,
+                        current: 0
+                    },
+                    y: {
+                        previous: 0,
+                        current: 0
+                    }
+                }
+
                 magnet.addEventListener('mouseenter', () => {
                     this.setState('-magnetic')
                     this.magnetic.active = true
@@ -36,14 +55,7 @@ export const Magnetic = {
                     this.magnetic.y = bounds.top //- window.pageYOffset
                     this.magnetic.width = bounds.width
                     this.magnetic.height = bounds.height
-                    this.magnetic.s = 0.2
-
-                    if (magnet.dataset.magnetic) {
-                        //this.options = JSON.parse(magnet.dataset.magnetic)
-                        const data = JSON.parse(magnet.dataset.magnetic)
-                        this.options.x = data[0] ? data[0] : 0.2
-                        this.options.y = data[1] ? data[1] : 0.2
-                    }
+                    this.magnetic.s = 0.01
                 })
                 magnet.addEventListener('mouseleave', () => {
                     this.removeState('-magnetic')
@@ -56,13 +68,29 @@ export const Magnetic = {
                     })
                 })
                 magnet.addEventListener('mousemove', () => {
-                    const x = (this.cursor.x - this.magnetic.x - this.magnetic.width / 2) * this.options.x
-                    const y = (this.cursor.y - this.magnetic.y - this.magnetic.height / 2) * this.options.y
+                    pos.x.current = (this.cursor.x - this.magnetic.x - this.magnetic.width / 2) * options.x
+                    pos.y.current = (this.cursor.y - this.magnetic.y - this.magnetic.height / 2) * options.y
 
-                    requestAnimationFrame(() => {
-                        // global gsap move function
-                        this.move(x, y, this.magnetic.s, magnet)
-                    })
+                    function looper(pos, options, magnet) {
+                        pos.x.previous = lerp(pos.x.previous, pos.x.current, $this.magnetic.s)
+                        pos.y.previous = lerp(pos.y.previous, pos.y.current, $this.magnetic.s)
+
+                        $this.move(pos.x.previous, pos.y.previous, 0, magnet)
+
+                        if (!$this.magnetic.active) {
+                            requestAnimationFrame(() => {
+                                // global gsap move function
+                                $this.move(0, 0, $this.magnetic.s, magnet)
+                            })
+                            return false
+                        }
+
+                        requestAnimationFrame(() => {
+                            looper(pos, options, magnet)
+                        })
+                    }
+
+                    looper(pos, options, magnet)
                 })
             })
         }
