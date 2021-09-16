@@ -81,7 +81,7 @@ export default {
         right: 0;
         bottom: 0;
         left: 0;
-        background-color: #fff;
+        background-color: c('background');
         z-index: 1;
     }
 
@@ -94,8 +94,8 @@ export default {
         display: flex;
         align-items: center;
         justify-content: center;
-        background-color: #000;
-        color: #fff;
+        background-color: c('splash-background');
+        color: c('background');
         z-index: 2;
     }
 
