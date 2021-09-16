@@ -2,7 +2,7 @@
     <section class="textblock">
         <div class="container">
             <div class="textblock-snap">
-                <p class="textblock-eyebrow">
+                <p class="textblock-eyebrow" v-if="slice.primary.Index">
                     <span>0{{ slice.primary.Index || '01' }}</span>
                 </p>
                 <prismic-rich-text :field="slice.primary.title" class="textblock-title" />
