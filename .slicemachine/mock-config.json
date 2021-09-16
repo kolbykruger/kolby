@@ -22,10 +22,25 @@
         }
       }
     },
-    "Textblock": {},
+    "Textblock": {
+      "default-slice": {
+        "primary": {}
+      }
+    },
     "MobileImage": {},
     "Branding": {},
-    "Rail": {},
+    "Rail": {
+      "railWithImages": {
+        "items": {},
+        "primary": {}
+      },
+      "default-slice": {
+        "primary": {}
+      },
+      "railWithDateCompany": {
+        "primary": {}
+      }
+    },
     "Gallery": {},
     "ArticleBlock": {},
     "CodeBlock": {},

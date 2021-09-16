@@ -5,23 +5,108 @@
     "slice_type": "timeline",
     "items": [
       {
-        "Eyebrow": "envisioneer best-of-breed architectures",
-        "Title": "embrace holistic solutions",
+        "Eyebrow": "optimize cross-media interfaces",
+        "Title": "monetize global partnerships",
         "Summary": [
           {
             "type": "paragraph",
-            "text": "Id nulla elit est velit cupidatat adipisicing pariatur est in adipisicing. Lorem eu veniam tempor ea ea consectetur ex consequat culpa anim ipsum. Lorem eu consequat sunt adipisicing eu eiusmod consectetur fugiat.",
+            "text": "Enim qui ea nisi commodo aliquip tempor incididunt excepteur.",
             "spans": []
           }
         ]
       },
       {
-        "Eyebrow": "expedite extensible models",
-        "Title": "innovate visionary blockchains",
+        "Eyebrow": "redefine extensible paradigms",
+        "Title": "unleash leading-edge markets",
         "Summary": [
           {
             "type": "paragraph",
-            "text": "Adipisicing ullamco adipisicing occaecat ut eiusmod fugiat duis id id do laborum duis adipisicing incididunt. Tempor incididunt mollit sint velit quis nulla do nostrud adipisicing dolore aute mollit. Irure velit deserunt irure elit tempor sit fugiat non sit ex.",
+            "text": "Sit culpa velit est voluptate minim eiusmod sunt in elit quis aliqua eiusmod aliqua. Esse esse minim dolore id amet.",
+            "spans": []
+          }
+        ]
+      },
+      {
+        "Eyebrow": "exploit seamless bandwidth",
+        "Title": "strategize holistic ROI",
+        "Summary": [
+          {
+            "type": "paragraph",
+            "text": "Irure dolor veniam eu enim cillum excepteur deserunt proident ad ex. Commodo duis occaecat irure deserunt aliqua.",
+            "spans": []
+          }
+        ]
+      },
+      {
+        "Eyebrow": "engineer sexy users",
+        "Title": "morph user-centric interfaces",
+        "Summary": [
+          {
+            "type": "paragraph",
+            "text": "Ut ex ea eiusmod do incididunt enim esse velit. Laborum voluptate dolore proident non ad aute ea occaecat nulla reprehenderit culpa.",
+            "spans": []
+          }
+        ]
+      },
+      {
+        "Eyebrow": "morph world-class e-services",
+        "Title": "scale distributed e-services",
+        "Summary": [
+          {
+            "type": "paragraph",
+            "text": "Commodo Lorem fugiat culpa eiusmod in qui. Ea minim commodo esse sunt exercitation consequat.",
+            "spans": []
+          }
+        ]
+      },
+      {
+        "Eyebrow": "strategize sexy experiences",
+        "Title": "visualize vertical e-commerce",
+        "Summary": [
+          {
+            "type": "paragraph",
+            "text": "Laborum esse Lorem sunt magna est esse nisi pariatur irure. Veniam id commodo magna ut ea anim sint nisi in id.",
+            "spans": []
+          }
+        ]
+      }
+    ],
+    "primary": {}
+  },
+  {
+    "variation": "timelineVertical",
+    "name": "Timeline - Vertical",
+    "slice_type": "timeline",
+    "items": [
+      {
+        "Eyebrow": "drive efficient convergence",
+        "Title": "synergize global interfaces",
+        "Summary": [
+          {
+            "type": "paragraph",
+            "text": "Exercitation eiusmod culpa voluptate sunt pariatur eu nostrud. Sit consectetur proident commodo est sunt cupidatat cupidatat. Nisi ipsum non minim ullamco non amet aute consequat amet commodo culpa et velit et.",
+            "spans": []
+          }
+        ]
+      },
+      {
+        "Eyebrow": "expedite vertical e-tailers",
+        "Title": "reintermediate interactive partnerships",
+        "Summary": [
+          {
+            "type": "paragraph",
+            "text": "Eu labore cupidatat incididunt nostrud duis elit voluptate proident eu non adipisicing cupidatat fugiat deserunt labore. Anim consectetur in sit commodo quis in culpa.",
+            "spans": []
+          }
+        ]
+      },
+      {
+        "Eyebrow": "revolutionize strategic initiatives",
+        "Title": "revolutionize cutting-edge networks",
+        "Summary": [
+          {
+            "type": "paragraph",
+            "text": "Fugiat Lorem quis id est do irure nulla labore do est. Consectetur nulla non id in consequat.",
             "spans": []
           }
         ]

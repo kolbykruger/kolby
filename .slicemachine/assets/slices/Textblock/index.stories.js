@@ -18,7 +18,7 @@ export const _DefaultSlice = () => ({
   },
   data() {
     return {
-      mock: {"variation":"default-slice","name":"Default slice","slice_type":"textblock","items":[],"primary":{"Index":4541,"Eyebrow":"engineer world-class content","title":[{"type":"heading2","text":"Extend dot-com methodologies","spans":[]}],"description":[{"type":"paragraph","text":"Dolore elit id minim cillum aliquip excepteur laboris esse nisi qui. Minim ullamco cillum do sit magna eu mollit qui anim anim sint quis exercitation in excepteur. Mollit deserunt est aliquip.","spans":[]}]},"id":"_DefaultSlice"}
+      mock: {"variation":"default-slice","name":"Default slice","slice_type":"textblock","items":[],"primary":{"Index":"expedite wireless solutions","Eyebrow":"orchestrate compelling e-tailers","title":[{"type":"heading2","text":"Iterate enterprise initiatives","spans":[]}],"description":[{"type":"paragraph","text":"Fugiat ad cupidatat ullamco anim ex ad amet nisi aliquip sint aliqua nisi et ex quis. Incididunt tempor consectetur ad fugiat ea ex sunt fugiat enim proident aute ipsum.","spans":[]}]},"id":"_DefaultSlice"}
     }
   },
   template: '<SliceZone :slices="[mock]" :resolver="resolve" />'
@@ -37,7 +37,7 @@ export const _TextblockWithGridList = () => ({
   },
   data() {
     return {
-      mock: {"variation":"textblockWithGridList","name":"Textblock - with Grid List","slice_type":"textblock","items":[{"Name":"recontextualize synergistic e-services","Outline":"visualize ubiquitous e-services"},{"Name":"matrix revolutionary interfaces","Outline":"expedite proactive applications"},{"Name":"brand viral portals","Outline":"visualize synergistic communities"},{"Name":"exploit next-generation blockchains","Outline":"incentivize proactive markets"}],"primary":{"Index":1209,"Eyebrow":"redefine clicks-and-mortar bandwidth","title":[{"type":"heading2","text":"Architect 24/365 e-services","spans":[]}],"description":[{"type":"paragraph","text":"Non esse labore consequat elit aute est mollit qui veniam officia deserunt tempor ad ea. Exercitation non id reprehenderit proident ullamco proident veniam in nostrud est laboris labore. Ea aute mollit minim labore sint.","spans":[]}]},"id":"_TextblockWithGridList"}
+      mock: {"variation":"textblockWithGridList","name":"Textblock - with Grid List","slice_type":"textblock","items":[{"Name":"benchmark front-end niches","Outline":"brand enterprise models"},{"Name":"repurpose efficient e-markets","Outline":"scale granular e-markets"},{"Name":"evolve killer users","Outline":"engineer customized functionalities"}],"primary":{"Index":9942,"Eyebrow":"transition enterprise deliverables","title":[{"type":"heading2","text":"Implement distributed users","spans":[]}],"description":[{"type":"paragraph","text":"Labore ea qui velit eiusmod nisi pariatur adipisicing dolor excepteur. Do dolor voluptate cupidatat ea.","spans":[]}]},"id":"_TextblockWithGridList"}
     }
   },
   template: '<SliceZone :slices="[mock]" :resolver="resolve" />'
