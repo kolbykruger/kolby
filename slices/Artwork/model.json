@@ -1,0 +1,30 @@
+{
+  "id": "artwork",
+  "type": "SharedSlice",
+  "name": "Artwork",
+  "description": "Artwork",
+  "variations": [
+    {
+      "id": "default-slice",
+      "name": "Default slice",
+      "docURL": "...",
+      "version": "sktwi1xtmkfgx8626",
+      "description": "Artwork",
+      "primary": {
+        "Type": {
+          "config": {
+            "label": "Type",
+            "placeholder": "",
+            "options": [
+              "Conic Gradient 1",
+              "Conic Gradient 2"
+            ],
+            "default_value": "Conic Gradient 1"
+          },
+          "type": "Select"
+        }
+      },
+      "items": {}
+    }
+  ]
+}
