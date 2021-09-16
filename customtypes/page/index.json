@@ -43,6 +43,12 @@
             },
             "list": {
               "type": "SharedSlice"
+            },
+            "timeline": {
+              "type": "SharedSlice"
+            },
+            "artwork": {
+              "type": "SharedSlice"
             }
           }
         }

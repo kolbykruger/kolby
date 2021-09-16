@@ -28,6 +28,15 @@
         },
         "type": "Text"
       },
+      "View": {
+        "config": {
+          "label": "View",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "single": "paragraph"
+        },
+        "type": "StructuredText"
+      },
       "Summary": {
         "config": {
           "label": "Summary",
