@@ -30,22 +30,37 @@ export default {
         counter: Number
     },
     mixins: [Cursor, Visibility, Interactivity, Size, Magnetic, Stick, Invisible, Shift, Caption, Move, State, Reset],
+    computed: {
+        loadingStatus() {
+            return this.$store.state.loading.loading
+        }
+    },
+    methods: {
+        initPointer() {
+            this.$nextTick(() => {
+                setTimeout(() => {
+                    this.sizes()
+                    this.magnetics()
+                    this.sticks()
+                    this.captions()
+                    this.visibility()
+                    this.invisibility()
+                    this.shift()
+                }, 1100) // page animation transition length
+            })
+        }
+    },
     updated() {
-        this.$nextTick(() => {
-            setTimeout(() => {
-                this.sizes()
-                this.magnetics()
-                this.sticks()
-                this.captions()
-                this.visibility()
-                this.invisibility()
-                this.shift()
-            }, 1050) // page animation transition length
-        })
+        this.initPointer()
     },
     watch: {
         $route() {
             this.reset()
+        },
+        loadingStatus(value) {
+            if (!value) {
+                this.initPointer()
+            }
         }
     }
 }
