@@ -101,6 +101,7 @@ export default {
             xxl: 2560
         }
     },
+    loading: '~/components/Loading/Loading.vue',
     // Transitions
     // pageTransition: {
     //     name: 'page',
