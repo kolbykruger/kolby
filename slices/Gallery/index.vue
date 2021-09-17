@@ -40,5 +40,9 @@ export default {
     .container {
         padding-bottom: 10vh;
     }
+
+    &-items {
+        margin-top: 5vh;
+    }
 }
 </style>
