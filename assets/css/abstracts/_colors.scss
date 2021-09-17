@@ -8,14 +8,14 @@ $colors: (
     splash: (
         background: #000000
     ),
+    traveler: (
+        background: #f4f1ee
+    ),
     base: (
         0: #0b0e11,
-        //Rich Black FOGRA 39
-            1: #13161b,
-        // Rich Black FOGRA 29
-            2: #1c1f26,
-        // Rasin Black
-            3: #000000,
+        1: #13161b,
+        2: #1c1f26,
+        3: #000000,
         4: #181e24,
         5: #252f39,
         6: #8b97ac,
@@ -44,14 +44,14 @@ $dark: (
     splash: (
         background: #000000
     ),
+    traveler: (
+        background: #13161b
+    ),
     base: (
         9: #0b0e11,
-        //Rich Black FOGRA 39
-            8: #13161b,
-        // Rich Black FOGRA 29
-            7: #1c1f26,
-        // Rasin Black
-            6: #000000,
+        8: #13161b,
+        7: #1c1f26,
+        6: #000000,
         5: #b1bac8,
         4: #252f39,
         3: #8b97ac,
