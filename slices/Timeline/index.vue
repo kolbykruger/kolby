@@ -1,5 +1,5 @@
 <template>
-    <section class="timeline">
+    <section class="timeline" :class="{ 'timeline-vertical': slice.variation == 'timelineVertical' }">
         <div class="container">
             <div class="timeline-rail" :style="{ '--count': count }">
                 <div class="timeline-item" v-for="(item, index) in slice.items" :key="index">
@@ -45,8 +45,38 @@ export default {
 
 <style lang="scss">
 .timeline {
-    margin-top: 6vh;
-    margin-bottom: 12vh;
+    .container {
+        padding-top: 6vh;
+    }
+
+    &-vertical {
+        .timeline {
+            &-rail {
+                grid-template-columns: 100%;
+                grid-template-rows: repeat(var(--count), 1fr);
+                grid-gap: 5vh;
+
+                &::before {
+                    right: auto;
+                    top: 0.55em;
+                    bottom: 0;
+                    height: 100%;
+                    width: 1px;
+                }
+            }
+
+            &-item {
+                padding: 0 3.75em;
+
+                &::before {
+                    top: 0.55em;
+                    left: -0.75em;
+                    width: 1.5em;
+                    height: 0.35em;
+                }
+            }
+        }
+    }
 
     &-rail {
         position: relative;
@@ -102,13 +132,14 @@ export default {
     }
 
     &-summary {
+        max-width: 50em;
+
         & > p {
-            font-family: $font-2;
-            font-size: 1.125rem;
-            font-weight: 500;
+            //font-family: $font-2;
+            font-size: 1.5rem;
             //text-transform: uppercase;
-            margin-top: 1.5em;
-            color: c('base-7');
+            margin-top: 1em;
+            color: c('base-5');
         }
     }
 }
