@@ -3,7 +3,7 @@
         <div class="container">
             <div class="textblock-snap">
                 <p class="textblock-eyebrow" v-if="slice.primary.Index">
-                    <span>0{{ slice.primary.Index || '01' }}</span>
+                    <span>{{ slice.primary.Index || '01' }}</span>
                 </p>
                 <prismic-rich-text :field="slice.primary.title" class="textblock-title" />
                 <prismic-rich-text :field="slice.primary.description" class="textblock-description" />
@@ -56,7 +56,7 @@ export default {
         }
 
         span {
-            font-family: monospace;
+            font-family: $font-2;
             font-weight: 500;
             opacity: 0.25;
         }
