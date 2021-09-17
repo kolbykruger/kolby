@@ -6,7 +6,7 @@
                     class="list-item"
                     v-for="(item, i) in slice.items"
                     :key="`slice-item-${i}`"
-                    v-html="$prismic.asHtml(item.Item, optionalHtmlSerializer)"
+                    v-html="$prismic.asHtml(item.Item)"
                 />
             </ul>
             <ol class="list-items" v-if="slice.variation == 'orderedList'">
