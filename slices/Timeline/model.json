@@ -36,6 +36,39 @@
           "type": "StructuredText"
         }
       }
+    },
+    {
+      "id": "timelineVertical",
+      "name": "Timeline - Vertical",
+      "docURL": "...",
+      "version": "sktwi1xtmkfgx8626",
+      "description": "Timeline",
+      "primary": {},
+      "items": {
+        "Eyebrow": {
+          "config": {
+            "label": "Eyebrow",
+            "placeholder": ""
+          },
+          "type": "Text"
+        },
+        "Title": {
+          "config": {
+            "label": "Title",
+            "placeholder": ""
+          },
+          "type": "Text"
+        },
+        "Summary": {
+          "config": {
+            "label": "Summary",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "paragraph"
+          },
+          "type": "StructuredText"
+        }
+      }
     }
   ]
 }

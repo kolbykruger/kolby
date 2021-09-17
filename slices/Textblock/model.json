@@ -14,9 +14,9 @@
         "Index": {
           "config": {
             "label": "Index",
-            "placeholder": ""
+            "placeholder": "01"
           },
-          "type": "Number"
+          "type": "Text"
         },
         "Eyebrow": {
           "config": {

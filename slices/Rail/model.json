@@ -28,6 +28,18 @@
             "multi": "paragraph,preformatted,strong,em,hyperlink,list-item,o-list-item"
           },
           "type": "StructuredText"
+        },
+        "Background": {
+          "config": {
+            "label": "Background",
+            "placeholder": "",
+            "options": [
+              "Light",
+              "Dark"
+            ],
+            "default_value": "Light"
+          },
+          "type": "Select"
         }
       },
       "items": {
@@ -82,6 +94,18 @@
             "multi": "paragraph,preformatted,strong,em,hyperlink,list-item,o-list-item"
           },
           "type": "StructuredText"
+        },
+        "Background": {
+          "config": {
+            "label": "Background",
+            "placeholder": "",
+            "options": [
+              "Light",
+              "Dark"
+            ],
+            "default_value": "Light"
+          },
+          "type": "Select"
         }
       },
       "items": {
@@ -107,6 +131,76 @@
             "allowTargetBlank": false
           },
           "type": "Link"
+        },
+        "Title": {
+          "config": {
+            "label": "Title",
+            "placeholder": "",
+            "allowTargetBlank": false,
+            "single": "heading3"
+          },
+          "type": "StructuredText"
+        },
+        "Summary": {
+          "config": {
+            "label": "Summary",
+            "placeholder": "",
+            "allowTargetBlank": false,
+            "single": "paragraph,strong,em"
+          },
+          "type": "StructuredText"
+        }
+      }
+    },
+    {
+      "id": "railWithImages",
+      "name": "Rail - with Images",
+      "docURL": "...",
+      "version": "sktwi1xtmkfgx8626",
+      "description": "Rail",
+      "primary": {
+        "Title": {
+          "config": {
+            "label": "Title",
+            "placeholder": "",
+            "allowTargetBlank": false,
+            "single": "heading2,strong,em"
+          },
+          "type": "StructuredText"
+        },
+        "Summary": {
+          "config": {
+            "label": "Summary",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,preformatted,strong,em,hyperlink,list-item,o-list-item"
+          },
+          "type": "StructuredText"
+        },
+        "Background": {
+          "config": {
+            "label": "Background",
+            "placeholder": "",
+            "options": [
+              "Light",
+              "Dark"
+            ],
+            "default_value": "Light"
+          },
+          "type": "Select"
+        }
+      },
+      "items": {
+        "Image": {
+          "config": {
+            "label": "Image",
+            "constraint": {
+              "width": null,
+              "height": null
+            },
+            "thumbnails": []
+          },
+          "type": "Image"
         },
         "Title": {
           "config": {
