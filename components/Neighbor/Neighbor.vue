@@ -3,7 +3,7 @@
         <div class="container">
             <p>Next project</p>
             <nuxt-link data-magnetic data-cursor="lg" :to="'/works/' + page.uid">
-                <h2>{{ page.data.Name[0].text }}</h2>
+                <h2>{{ page.data.Name[0].text || 'Project Name' }}</h2>
             </nuxt-link>
         </div>
     </section>
