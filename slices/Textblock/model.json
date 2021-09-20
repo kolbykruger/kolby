@@ -58,7 +58,7 @@
             "label": "Index",
             "placeholder": ""
           },
-          "type": "Number"
+          "type": "Text"
         },
         "Eyebrow": {
           "config": {
