@@ -113,5 +113,6 @@ export default {
     transition: {
         name: 'page',
         mode: 'out-in'
-    }
+    },
+    scrollToTop: true
 }
