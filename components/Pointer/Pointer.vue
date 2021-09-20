@@ -140,6 +140,11 @@ export default {
                     transform: scale(0);
                 }
             }
+            &-xs {
+                .pointer-circle {
+                    transform: scale(0.5);
+                }
+            }
             &-sm {
                 .pointer-circle {
                     transform: scale(1.32);
