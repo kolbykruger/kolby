@@ -1,5 +1,5 @@
 <template>
-    <section class="rail" :class="background">
+    <section class="rail" :class="[background, variation]">
         <div class="container" v-if="slice.primary.Title">
             <prismic-rich-text class="rail-title" :field="slice.primary.Title" />
             <prismic-rich-text class="rail-summary" :field="slice.primary.Summary" />
@@ -23,8 +23,14 @@
                 <span class="visually-hidden">Navigate to previous slide</span>
             </button> -->
             <Flickity ref="flickity" class="rail-slider" :options="flickityOptions" @init="onInit">
-                <div class="rail-item" v-for="(item, i) in slice.items" :key="`slice-item-${i}`">
+                <div
+                    class="rail-item"
+                    v-for="(item, i) in slice.items"
+                    :key="`slice-item-${i}`"
+                    :style="{ '--aspect-ratio': aspectRatio(item.Image), '--width': imageWidth(item.Image) }"
+                >
                     <div v-if="slice.variation == 'railWithImages'">
+                        {{ item.Image.dimensions }}
                         <prismic-image class="rail-item-image" data-exclusion :field="item.Image" />
                     </div>
                     <div v-if="slice.variation == 'railWithDateCompany'">
@@ -103,6 +109,9 @@ export default {
     computed: {
         background() {
             return 'rail-' + this.slice.primary.Background ? this.slice.primary.Background : 'default'
+        },
+        variation() {
+            return 'rail-' + this.slice.variation.toLowerCase()
         }
     },
     methods: {
@@ -124,6 +133,12 @@ export default {
             evt.on('change', event => {
                 this.selectedIndex = event
             })
+        },
+        aspectRatio(image) {
+            return image ? image.dimensions.width / image.dimensions.height : null
+        },
+        imageWidth(image) {
+            return image ? image.dimensions.width / 4 : null
         }
     },
     mounted() {}
@@ -223,7 +238,7 @@ export default {
 
         &-image {
             height: 100%;
-            min-height: 600px;
+            //min-height: 600px;
             max-height: 600px;
             width: 100%;
             object-fit: contain;
@@ -264,6 +279,18 @@ export default {
 
         &-summary {
             margin-top: 3em;
+        }
+    }
+
+    &-railwithimages {
+        .rail {
+            &-item {
+                min-width: unset;
+                min-height: unset;
+                margin-right: 0;
+                aspect-ratio: var(--aspect-ratio);
+                width: var(--width);
+            }
         }
     }
 }
