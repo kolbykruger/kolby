@@ -21,11 +21,26 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .headline {
     .container {
         padding-top: 10vh;
         padding-bottom: 10vh;
+    }
+
+    + .headline {
+        .container {
+            padding-top: 0;
+            margin-top: -10vh;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5 {
+            margin-top: 0;
+        }
     }
 }
 </style>
