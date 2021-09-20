@@ -22,25 +22,10 @@
         }
       }
     },
-    "Textblock": {
-      "default-slice": {
-        "primary": {}
-      }
-    },
+    "Textblock": {},
     "MobileImage": {},
     "Branding": {},
-    "Rail": {
-      "railWithImages": {
-        "items": {},
-        "primary": {}
-      },
-      "default-slice": {
-        "primary": {}
-      },
-      "railWithDateCompany": {
-        "primary": {}
-      }
-    },
+    "Rail": {},
     "Gallery": {},
     "ArticleBlock": {},
     "CodeBlock": {},
@@ -99,6 +84,9 @@
           "blocks": 1
         }
       }
+    },
+    "projects": {
+      "Projects": {}
     }
   }
 }

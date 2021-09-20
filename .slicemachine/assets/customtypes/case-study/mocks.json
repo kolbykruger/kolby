@@ -1,40 +1,49 @@
 {
-  "id": "91e26a39-1488-484a-82b6-efe6743ae4d6",
-  "uid": "aut-omnis-sit",
+  "id": "276036aa-11f6-41db-b1d9-282799ac3919",
+  "uid": "eum-et-magnam",
   "type": "case-study",
   "data": {
     "Name": [
       {
         "type": "heading1",
-        "text": "Harness vertical e-tailers",
+        "text": "Monetize proactive initiatives",
         "spans": []
       }
     ],
-    "Tagline": "optimize transparent e-commerce",
+    "Tagline": "enhance mission-critical platforms",
     "View": [
       {
         "type": "paragraph",
-        "text": "Ea aliqua ea cillum minim labore Lorem id amet. Quis amet ullamco anim velit. Commodo pariatur fugiat commodo dolore et elit nisi voluptate excepteur officia.",
+        "text": "Veniam commodo officia quis magna veniam. Exercitation do sint Lorem fugiat mollit proident ullamco duis veniam. Irure ex excepteur ut ex ipsum aute dolor veniam deserunt voluptate do tempor.",
         "spans": []
       }
     ],
     "Summary": [
       {
         "type": "paragraph",
-        "text": "Irure irure cupidatat qui nulla pariatur dolore consequat do ea cupidatat ad consectetur.",
+        "text": "Ea veniam ea eiusmod aliqua eiusmod. Voluptate nisi enim proident in nulla nulla nulla ex non amet. Commodo dolore quis aute officia excepteur dolor minim anim ut dolor minim ad culpa excepteur amet.",
         "spans": []
       }
     ],
-    "Role": "optimize dynamic networks",
-    "Client": "deploy end-to-end content",
-    "Date": "2021-01-15",
+    "Role": "synergize web-enabled e-tailers",
+    "Client": "maximize dynamic users",
+    "Date": "2020-10-23",
     "Website": {
       "link_type": "Web",
-      "url": "http://twitter.com"
+      "url": "http://google.com"
     },
-    "Accent": "#8e4ad6",
-    "meta_title": "enable value-added functionalities",
-    "meta_description": "matrix visionary blockchains",
+    "Accent": "#94082a",
+    "Cover": {
+      "dimensions": {
+        "width": 2560,
+        "height": 1440
+      },
+      "alt": "Placeholder image",
+      "copyright": null,
+      "url": "https://images.unsplash.com/photo-1504198070170-4ca53bb1c1fa?w=2560&h=1440&fit=crop"
+    },
+    "meta_title": "evolve end-to-end initiatives",
+    "meta_description": "monetize web-enabled models",
     "social_cards": [
       {
         "social_card_image": {
@@ -44,10 +53,10 @@
           },
           "alt": "Placeholder image",
           "copyright": null,
-          "url": "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=900&h=500&fit=crop"
+          "url": "https://images.unsplash.com/photo-1515378960530-7c0da6231fb1?w=900&h=500&fit=crop"
         },
-        "social_card_title": "repurpose e-business channels",
-        "social_card_description": "reintermediate intuitive methodologies"
+        "social_card_title": "recontextualize magnetic niches",
+        "social_card_description": "facilitate best-of-breed models"
       },
       {
         "social_card_image": {
@@ -57,10 +66,49 @@
           },
           "alt": "Placeholder image",
           "copyright": null,
-          "url": "https://images.unsplash.com/photo-1589321578146-4c1ba445cc88?w=900&h=500&fit=crop"
+          "url": "https://images.unsplash.com/photo-1571126770897-2d612d1f7b89?w=900&h=500&fit=crop"
         },
-        "social_card_title": "enhance interactive markets",
-        "social_card_description": "envisioneer cross-media eyeballs"
+        "social_card_title": "streamline collaborative metrics",
+        "social_card_description": "scale transparent e-tailers"
+      },
+      {
+        "social_card_image": {
+          "dimensions": {
+            "width": 900,
+            "height": 500
+          },
+          "alt": "Placeholder image",
+          "copyright": null,
+          "url": "https://images.unsplash.com/photo-1547394765-185e1e68f34e?w=900&h=500&fit=crop"
+        },
+        "social_card_title": "strategize front-end communities",
+        "social_card_description": "redefine real-time synergies"
+      },
+      {
+        "social_card_image": {
+          "dimensions": {
+            "width": 900,
+            "height": 500
+          },
+          "alt": "Placeholder image",
+          "copyright": null,
+          "url": "https://images.unsplash.com/photo-1579931794097-0ad001e51edb?w=900&h=500&fit=crop"
+        },
+        "social_card_title": "empower global deliverables",
+        "social_card_description": "unleash strategic ROI"
+      },
+      {
+        "social_card_image": {
+          "dimensions": {
+            "width": 900,
+            "height": 500
+          },
+          "alt": "Placeholder image",
+          "copyright": null,
+          "url": "https://images.unsplash.com/photo-1494173853739-c21f58b16055?w=900&h=500&fit=crop"
+        },
+        "social_card_title": "exploit vertical bandwidth",
+        "social_card_description": "matrix B2C solutions"
       }
     ]
   }

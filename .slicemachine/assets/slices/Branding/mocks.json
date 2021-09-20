@@ -5,12 +5,16 @@
     "slice_type": "branding",
     "items": [
       {
-        "Color": "#dc42d2",
-        "ColorName": "empower best-of-breed users"
+        "Color": "#194568",
+        "ColorName": "implement sexy content"
       },
       {
-        "Color": "#ff11de",
-        "ColorName": "strategize 24/7 synergies"
+        "Color": "#99c3ca",
+        "ColorName": "synthesize proactive systems"
+      },
+      {
+        "Color": "#bd1018",
+        "ColorName": "grow synergistic ROI"
       }
     ],
     "primary": {
@@ -21,7 +25,7 @@
         },
         "alt": "Placeholder image",
         "copyright": null,
-        "url": "https://images.unsplash.com/photo-1471897488648-5eae4ac6686b?w=1024&h=682&fit=crop"
+        "url": "https://images.unsplash.com/photo-1547082299-de196ea013d6?w=1024&h=682&fit=crop"
       },
       "Logo": {
         "dimensions": {
@@ -30,7 +34,7 @@
         },
         "alt": "Placeholder image",
         "copyright": null,
-        "url": "https://images.unsplash.com/photo-1579931794097-0ad001e51edb?w=1024&h=682&fit=crop"
+        "url": "https://images.unsplash.com/photo-1606248897732-2c5ffe759c04?w=1024&h=682&fit=crop"
       }
     }
   }

@@ -18,7 +18,7 @@ export const _DefaultSlice = () => ({
   },
   data() {
     return {
-      mock: {"variation":"default-slice","name":"Default slice","slice_type":"textblock","items":[],"primary":{"Index":"expedite wireless solutions","Eyebrow":"orchestrate compelling e-tailers","title":[{"type":"heading2","text":"Iterate enterprise initiatives","spans":[]}],"description":[{"type":"paragraph","text":"Fugiat ad cupidatat ullamco anim ex ad amet nisi aliquip sint aliqua nisi et ex quis. Incididunt tempor consectetur ad fugiat ea ex sunt fugiat enim proident aute ipsum.","spans":[]}]},"id":"_DefaultSlice"}
+      mock: {"variation":"default-slice","name":"Default slice","slice_type":"textblock","items":[],"primary":{"Index":"unleash impactful bandwidth","Eyebrow":"empower synergistic systems","title":[{"type":"heading2","text":"Mesh vertical e-business","spans":[]}],"description":[{"type":"paragraph","text":"Consequat commodo eu aute non duis deserunt laboris ad et voluptate proident laborum.","spans":[]}]},"id":"_DefaultSlice"}
     }
   },
   template: '<SliceZone :slices="[mock]" :resolver="resolve" />'
@@ -37,7 +37,7 @@ export const _TextblockWithGridList = () => ({
   },
   data() {
     return {
-      mock: {"variation":"textblockWithGridList","name":"Textblock - with Grid List","slice_type":"textblock","items":[{"Name":"benchmark front-end niches","Outline":"brand enterprise models"},{"Name":"repurpose efficient e-markets","Outline":"scale granular e-markets"},{"Name":"evolve killer users","Outline":"engineer customized functionalities"}],"primary":{"Index":9942,"Eyebrow":"transition enterprise deliverables","title":[{"type":"heading2","text":"Implement distributed users","spans":[]}],"description":[{"type":"paragraph","text":"Labore ea qui velit eiusmod nisi pariatur adipisicing dolor excepteur. Do dolor voluptate cupidatat ea.","spans":[]}]},"id":"_TextblockWithGridList"}
+      mock: {"variation":"textblockWithGridList","name":"Textblock - with Grid List","slice_type":"textblock","items":[{"Name":"architect turn-key platforms","Outline":"harness cross-media web services"},{"Name":"brand B2C paradigms","Outline":"utilize web-enabled supply-chains"},{"Name":"architect B2C niches","Outline":"harness innovative infrastructures"},{"Name":"reinvent end-to-end methodologies","Outline":"architect strategic schemas"}],"primary":{"Index":"utilize plug-and-play markets","Eyebrow":"e-enable killer users","title":[{"type":"heading2","text":"Revolutionize strategic initiatives","spans":[]}],"description":[{"type":"paragraph","text":"Non laborum occaecat aliqua dolor labore labore deserunt reprehenderit laborum mollit est dolore veniam occaecat. Cupidatat aliqua consequat qui nisi mollit sit eiusmod qui voluptate irure in consequat sit amet aliqua.","spans":[]}]},"id":"_TextblockWithGridList"}
     }
   },
   template: '<SliceZone :slices="[mock]" :resolver="resolve" />'
