@@ -2,6 +2,11 @@
     <section class="code-block">
         <div class="container">
             <prismic-rich-text :field="slice.primary.Code" :htmlSerializer="codeSerializer" />
+            <div>
+                <p class="code-block-language">
+                    <small>{{ slice.primary.Language || 'html' }}</small>
+                </p>
+            </div>
         </div>
     </section>
 </template>
@@ -46,6 +51,26 @@ export default {
     padding-bottom: 4vh;
 
     .container {
+        position: relative;
+    }
+
+    &-language {
+        position: absolute;
+        bottom: 1.25em;
+        right: 0.75em;
+        font-family: $font-2;
+        text-transform: uppercase;
+        opacity: 0.5;
+
+        small {
+            font-size: 1.125rem;
+            font-weight: 500;
+            color: c('base-6');
+
+            html[theme='dark'] & {
+                color: c('base-5');
+            }
+        }
     }
 }
 </style>
