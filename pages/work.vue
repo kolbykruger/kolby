@@ -4,9 +4,17 @@
 
         <section class="work-intro">
             <div class="container">
-                <p>Since 2016, I've worked on over {{ projectsCount }} projects</p>
+                <div class="work-intro-details">
+                    <p>
+                        I've had the opportunity to work on some amazing projects with some marvelous people. I'm lucky
+                        enough to have been part of over
+                        <span style="color: var(--color-primary-base);">{{ projectsCount + 14 }}</span> creative
+                        experiences & products.
+                    </p>
+                </div>
             </div>
         </section>
+        <Scroller />
 
         <section class="case-studies" v-if="cases">
             <div class="container">
@@ -88,6 +96,17 @@ export default {
 </script>
 
 <style lang="scss">
+.work-intro {
+    margin-bottom: 6vh;
+
+    .container {
+    }
+
+    &-details {
+        max-width: 50em;
+    }
+}
+
 .case-studies {
     .container {
     }
@@ -122,6 +141,17 @@ export default {
         white-space: nowrap;
         animation: scroll-projects-list var(--speed) linear infinite;
 
+        // &::before {
+        //     content: '';
+        //     position: absolute;
+        //     top: calc(50% + 0.125em);
+        //     left: 0;
+        //     width: 100%;
+        //     height: 1px;
+        //     background: ;
+        //     opacity: 0.1;
+        // }
+
         &:hover,
         &:focus,
         &:focus-within {
@@ -152,7 +182,7 @@ export default {
             margin-left: 0.75em;
             margin-right: 0.75em;
             margin-bottom: 0.125em;
-            background: #8b97ac;
+            background: c('base-7');
             left: 100%;
             top: calc(50% + 0.125em);
         }
