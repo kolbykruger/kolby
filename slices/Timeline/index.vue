@@ -4,7 +4,10 @@
             <div class="timeline-rail" :style="{ '--count': count }">
                 <div class="timeline-item" v-for="(item, index) in slice.items" :key="index">
                     <p class="timeline-label">{{ item.Eyebrow }}</p>
-                    <p class="timeline-title">{{ firstWord(item.Title) }}<br />{{ otherWords(item.Title) }}</p>
+                    <p class="timeline-title">
+                        <span>{{ firstWord(item.Title) }}</span
+                        ><span>{{ otherWords(item.Title) }}</span>
+                    </p>
                     <prismic-rich-text class="timeline-summary" v-if="item.Summary" :field="item.Summary" />
                 </div>
             </div>
@@ -129,6 +132,10 @@ export default {
         //width: min-content;
         max-width: 60%;
         line-height: 1.2;
+
+        span {
+            display: block;
+        }
     }
 
     &-summary {
