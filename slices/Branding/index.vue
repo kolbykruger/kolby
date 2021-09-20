@@ -95,6 +95,10 @@ export default {
             mix-blend-mode: difference;
             margin: 0;
             font-weight: 500;
+
+            html[theme='dark'] & {
+                mix-blend-mode: multiply;
+            }
         }
     }
 }
