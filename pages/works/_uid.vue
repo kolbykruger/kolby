@@ -1,5 +1,5 @@
 <template>
-    <main class="page case-study">
+    <main class="page case-study" :data-traveler="document.data.Accent">
         <Pageheading :name="document.data.Name" />
 
         <section class="cs-intro">
