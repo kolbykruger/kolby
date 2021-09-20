@@ -78,7 +78,7 @@
                         fill="#22282F"
                     />
                 </svg> -->
-                <span>Work</span>
+                <span>— Work —</span>
             </nuxt-link>
         </div>
     </main>
