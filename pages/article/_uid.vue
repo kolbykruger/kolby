@@ -13,7 +13,7 @@
                         <div data-sticky class="article-details">
                             <div class="article-details-container">
                                 <ul class="article-details-group">
-                                    <li class="article-details-label">Date</li>
+                                    <li class="article-details-label">Updated</li>
                                     <li class="article-details-item">
                                         <span>{{ formatDate }}</span>
                                     </li>
