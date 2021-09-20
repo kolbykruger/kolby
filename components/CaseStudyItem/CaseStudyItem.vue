@@ -1,7 +1,9 @@
 <template>
-    <div class="case-study-card" ref="caseStudy">
+    <div class="case-study-card" ref="caseStudy" :data-traveler="item.data.Accent">
         <div class="case-study-card-cover">
-            <nuxt-link data-magnetic="0.1, 0.1, 0.3" :to="'/works/' + item.uid"> </nuxt-link>
+            <nuxt-link data-magnetic="0.1, 0.1, 0.3" :to="'/works/' + item.uid">
+                <prismic-image data-exclusion :field="item.data.Cover" v-if="item.data.Cover" />
+            </nuxt-link>
         </div>
 
         <div class="case-study-card-details">
@@ -68,6 +70,12 @@ export default {
             &:focus {
                 //transform: scale(0.9);
             }
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
     }
 
