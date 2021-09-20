@@ -138,21 +138,26 @@ export default {
 
     &-expand-icon {
         position: absolute;
-        top: 1em;
-        right: 1em;
-        --size: 3em;
+        top: 50%;
+        left: 50%;
+        --size: 5em;
         width: var(--size);
         height: var(--size);
         padding: 0.5em;
         opacity: 0;
         visibility: hidden;
-        mix-blend-mode: color-burn;
+        mix-blend-mode: exclusion;
+        transform: translate(-50%, -50%);
         transition: 0.66s cubic-bezier(0.075, 0.82, 0.165, 1);
 
         svg {
-            --size: 2em;
+            --size: 4em;
             width: var(--size);
             height: var(--size);
+
+            path {
+                fill: #fff;
+            }
         }
     }
 
