@@ -1,0 +1,33 @@
+{
+  "id": "projects",
+  "label": "Projects",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "Projects": {
+        "config": {
+          "label": "",
+          "placeholder": "",
+          "fields": {
+            "Company": {
+              "config": {
+                "label": "Company",
+                "placeholder": ""
+              },
+              "type": "Text"
+            },
+            "Date": {
+              "config": {
+                "label": "Date",
+                "placeholder": ""
+              },
+              "type": "Date"
+            }
+          }
+        },
+        "type": "Group"
+      }
+    }
+  }
+}

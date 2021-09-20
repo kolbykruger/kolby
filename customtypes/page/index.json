@@ -49,6 +49,9 @@
             },
             "artwork": {
               "type": "SharedSlice"
+            },
+            "gallery": {
+              "type": "SharedSlice"
             }
           }
         }

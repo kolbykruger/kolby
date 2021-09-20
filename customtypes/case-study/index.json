@@ -83,6 +83,17 @@
         },
         "type": "Color"
       },
+      "Cover": {
+        "config": {
+          "label": "Cover",
+          "constraint": {
+            "width": 2560,
+            "height": 1440
+          },
+          "thumbnails": []
+        },
+        "type": "Image"
+      },
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",
