@@ -5,7 +5,7 @@
         <Nuxt />
         <Footer />
         <Splash />
-        <Traveler />
+        <Traveler :counter="counter" />
         <Pointer :counter="counter" />
     </div>
 </template>
