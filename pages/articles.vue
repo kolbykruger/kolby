@@ -1,6 +1,38 @@
 <template>
-    <main class="page">
+    <main class="page articles-content">
         <Pageheading name="Articles" />
+
+        <section class="articles-filters">
+            <div class="container">
+                <ul class="articles-filters-categories">
+                    <li>
+                        <button
+                            data-stick
+                            data-cursor="lg"
+                            class="button"
+                            :class="{ '-active': category == 'all' }"
+                            @click="$router.push({ path: '/articles' })"
+                        >
+                            Latest
+                        </button>
+                    </li>
+                    <li v-for="(item, index) in categories" :key="index">
+                        <button
+                            data-stick
+                            data-cursor="lg"
+                            class="button"
+                            :class="{ '-active': category.toLowerCase() == item.toLowerCase() }"
+                            @click="$router.push({ path: '/articles', query: { category: item } })"
+                        >
+                            {{ item }}
+                        </button>
+                    </li>
+                </ul>
+                <p v-if="filteredArticles">
+                    {{ filteredArticles.length }} {{ filteredArticles.length > 1 ? 'articles' : 'article' }}
+                </p>
+            </div>
+        </section>
 
         <section class="articles">
             <div class="container">
@@ -28,34 +60,6 @@
                                 </div>
                             </nuxt-link>
                         </li>
-                    </ul>
-                    <ul class="articles-categories">
-                        <li>
-                            <p>Categories</p>
-                        </li>
-                        <li>
-                            <button
-                                data-stick
-                                data-cursor="lg"
-                                class="button"
-                                :class="{ '-active': category == 'all' }"
-                                @click="$router.push({ path: '/articles' })"
-                            >
-                                Latest
-                            </button>
-                        </li>
-                        <li v-for="(item, index) in categories" :key="index">
-                            <button
-                                data-stick
-                                data-cursor="lg"
-                                class="button"
-                                :class="{ '-active': category.toLowerCase() == item.toLowerCase() }"
-                                @click="$router.push({ path: '/articles', query: { category: item } })"
-                            >
-                                {{ item }}
-                            </button>
-                        </li>
-                        <li v-if="articles">{{ filteredArticles.length }} articles</li>
                     </ul>
                 </div>
             </div>
@@ -120,10 +124,83 @@ export default {
     .container {
     }
 
+    &-content {
+        .pageheading {
+            .container {
+                max-width: calc(50em + 18em + 6em);
+                padding: 0;
+            }
+        }
+    }
+
+    &-filters {
+        position: relative;
+        margin-bottom: 8vh;
+
+        .container {
+            display: grid;
+            grid-template-columns: 50em 18em;
+            grid-gap: 6em;
+            place-content: center;
+        }
+
+        &::after {
+            content: '';
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: c('base-7');
+        }
+
+        &-categories {
+            display: flex;
+            flex-flow: row wrap;
+            align-items: center;
+            margin-bottom: 0;
+
+            li {
+                margin-bottom: 0;
+
+                button {
+                    position: relative;
+                    margin-right: 1em;
+                    color: c('base-6');
+                    outline: none;
+
+                    html[theme='dark'] & {
+                        color: c('base-4');
+                    }
+
+                    &.-active {
+                        color: c('base-4');
+
+                        html[theme='dark'] & {
+                            color: c('base-0');
+                        }
+
+                        &::after {
+                            content: '';
+                            position: absolute;
+                            top: calc(100% + 1px);
+                            left: 0;
+                            width: 100%;
+                            height: 4px;
+                            background: c('primary-base');
+                            z-index: 2;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
     &-grid {
         display: grid;
-        grid-template-columns: 800px 250px;
+        grid-template-columns: 50em 18em;
         grid-gap: 6em;
+        place-content: center;
     }
 
     &-list {
