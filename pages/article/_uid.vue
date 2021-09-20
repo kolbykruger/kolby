@@ -1,5 +1,5 @@
 <template>
-    <main class="page case-study">
+    <main class="page article-content">
         <Pageheading :name="document.data.Name" />
 
         <article class="article">
@@ -26,10 +26,18 @@
                                     </li>
                                 </ul>
 
-                                <ul class="article-details-group">
+                                <ul class="article-details-group" v-if="document.data.Category">
                                     <li class="article-details-label">Category</li>
                                     <li class="article-details-item">
-                                        <span>{{ document.data.Category || 'Category' }}</span>
+                                        <span>
+                                            <nuxt-link
+                                                :to="{
+                                                    path: '/articles',
+                                                    query: { category: document.data.Category }
+                                                }"
+                                                >{{ document.data.Category }}</nuxt-link
+                                            >
+                                        </span>
                                     </li>
                                 </ul>
                             </div>
@@ -39,7 +47,7 @@
             </div>
         </article>
 
-        <pre><code>{{ document }}</code></pre>
+        <!-- <pre><code>{{ document }}</code></pre> -->
     </main>
 </template>
 
@@ -85,11 +93,21 @@ export default {
 @import url('https://fonts.googleapis.com/css2?family=Fira+Mono:wght@500&display=swap');
 
 .article {
+    &-content {
+        .pageheading {
+            .container {
+                max-width: calc(50em + 18em + 6em);
+                padding: 0;
+            }
+        }
+    }
+
     .article-grid {
         display: grid;
-        grid-template-columns: auto 800px auto;
-        grid-template-columns: 800px auto;
-        grid-gap: 6vw;
+        //grid-template-columns: auto 800px auto;
+        grid-template-columns: 50em 18em;
+        grid-gap: 6em;
+        place-content: center;
     }
 
     .article-track {
