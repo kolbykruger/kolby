@@ -13,6 +13,12 @@ import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
 
 export default {
     name: 'Traveler',
+    data() {
+        return {
+            animations: null,
+            elems: null
+        }
+    },
     props: {
         counter: Number
     },
@@ -21,40 +27,61 @@ export default {
             this.resetTraveler()
             this.$nextTick(() => {
                 setTimeout(() => {
-                    this.traveler()
+                    this.getTravelers()
                 }, 1100)
             })
         },
-        traveler() {
-            const tr = this.$refs.travelerBackground
+        getTravelers() {
             const travelers = document.querySelectorAll('[data-traveler]')
-            //console.log(travelers)
 
             if (!travelers) {
                 return false
             }
 
+            this.resetTraveler()
+
             gsap.registerPlugin(TweenLite)
             gsap.registerPlugin(ScrollTrigger)
 
-            // sizes structure
-            travelers.forEach(traveler => {
-                const color = traveler.dataset.traveler
-
-                ScrollTrigger.create({
-                    trigger: traveler,
-                    start: 'top 50%',
-                    end: 'bottom',
-                    markers: false,
-                    onToggle: self => {
-                        self.isActive
-                    },
-                    onUpdate: self => {
-                        TweenLite.to(tr, 1.5, {
-                            backgroundColor: color ? color : 'transparent'
-                        })
+            this.elems = travelers
+            this.createAnimations()
+        },
+        createAnimations() {
+            this.animations = gsap.utils.toArray(this.elems).map(el => {
+                const color = el.dataset.traveler ? el.dataset.traveler : 'transparent'
+                return gsap.from(el, {
+                    scrollTrigger: {
+                        trigger: el,
+                        start: 'top 50%',
+                        end: 'bottom',
+                        markers: true,
+                        animation: this.tl,
+                        onToggle: self => {
+                            self.isActive
+                        },
+                        onUpdate: self => {
+                            self.isActive ? this.animateColor(color) : this.animateColor('transparent')
+                        }
                     }
                 })
+            })
+        },
+        destroyAnimations() {
+            if (!this.animations) {
+                return false
+            }
+            ScrollTrigger.refresh()
+            this.animations.forEach(anim => {
+                if (anim) {
+                    anim.kill()
+                }
+            })
+        },
+        animateColor(color) {
+            const tr = this.$refs.travelerBackground
+
+            TweenLite.to(tr, 1.5, {
+                backgroundColor: color ? color : 'transparent'
             })
         },
         resetTraveler() {
@@ -62,6 +89,8 @@ export default {
             TweenLite.to(tr, 1.5, {
                 backgroundColor: 'transparent'
             })
+            this.destroyAnimations()
+            this.elems = null
         }
     },
     mounted() {
