@@ -54,7 +54,7 @@ export default {
                         trigger: el,
                         start: 'top 50%',
                         end: 'bottom',
-                        markers: true,
+                        markers: false,
                         animation: this.tl,
                         onToggle: self => {
                             self.isActive
