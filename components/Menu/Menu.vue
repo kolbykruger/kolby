@@ -6,21 +6,21 @@
                     <ul ref="navLarge" class="navigation-items navigation-items-lg">
                         <li class="navigation-item navigation-item-lg">
                             <div class="navigation-item-bit">
-                                <nuxt-link data-magnetic class="navigation-link" to="/work">
+                                <nuxt-link data-magnetic="0.1, 0.1, 0.08" class="navigation-link" to="/work">
                                     <span data-text="Work">Work</span>
                                 </nuxt-link>
                             </div>
                         </li>
                         <li class="navigation-item navigation-item-lg">
                             <div class="navigation-item-bit">
-                                <nuxt-link data-magnetic class="navigation-link" to="/process">
+                                <nuxt-link data-magnetic="0.1, 0.1, 0.08" class="navigation-link" to="/process">
                                     <span data-text="Process">Process</span>
                                 </nuxt-link>
                             </div>
                         </li>
                         <li class="navigation-item navigation-item-lg">
                             <div class="navigation-item-bit">
-                                <nuxt-link data-magnetic class="navigation-link" to="/about">
+                                <nuxt-link data-magnetic="0.1, 0.1, 0.08" class="navigation-link" to="/about">
                                     <span data-text="About">About</span>
                                 </nuxt-link>
                             </div>
@@ -37,7 +37,21 @@
                         <li class="navigation-item navigation-item-sm">
                             <div class="navigation-item-bit">
                                 <nuxt-link data-stick data-cursor="xl" class="navigation-link" to="/lab">
-                                    <span data-text="LinkedIn">LinkedIn</span>
+                                    <span data-text="LinkedIn">Spotify</span>
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        width="168"
+                                        height="169"
+                                        viewBox="0 0 168 169"
+                                        fill="none"
+                                    >
+                                        <path
+                                            fill-rule="evenodd"
+                                            clip-rule="evenodd"
+                                            d="M99.841 58.9134C82.8693 62.2172 65.2546 59.7876 53.3788 49.0933C52.558 48.3541 52.5589 47.0812 53.34 46.3001L59.6444 39.9957C60.4255 39.2147 61.6876 39.2218 62.5289 39.9376C78.3822 53.4271 110.419 46.8282 127.107 31.5825C127.923 30.8375 129.185 30.8353 129.966 31.6163L130.081 31.731C130.09 31.7397 130.099 31.7486 130.108 31.7575L136.613 38.2629C137.394 39.044 137.392 40.3065 136.647 41.1219C121.396 57.8086 114.736 89.791 128.292 105.701C129.008 106.542 129.015 107.804 128.234 108.585L121.93 114.889C121.149 115.67 119.876 115.671 119.136 114.85C108.442 102.975 106.013 85.3602 109.316 68.3885L40.4466 137.258C39.6655 138.039 38.3992 138.039 37.6181 137.258L30.9713 130.611C30.1903 129.83 30.1903 128.564 30.9713 127.783L99.841 58.9134Z"
+                                            fill="#0B0E11"
+                                        />
+                                    </svg>
                                 </nuxt-link>
                             </div>
                         </li>
@@ -50,6 +64,20 @@
                                     to="https://github.com/kolbykruger"
                                 >
                                     <span data-text="Github">Github</span>
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        width="168"
+                                        height="169"
+                                        viewBox="0 0 168 169"
+                                        fill="none"
+                                    >
+                                        <path
+                                            fill-rule="evenodd"
+                                            clip-rule="evenodd"
+                                            d="M99.841 58.9134C82.8693 62.2172 65.2546 59.7876 53.3788 49.0933C52.558 48.3541 52.5589 47.0812 53.34 46.3001L59.6444 39.9957C60.4255 39.2147 61.6876 39.2218 62.5289 39.9376C78.3822 53.4271 110.419 46.8282 127.107 31.5825C127.923 30.8375 129.185 30.8353 129.966 31.6163L130.081 31.731C130.09 31.7397 130.099 31.7486 130.108 31.7575L136.613 38.2629C137.394 39.044 137.392 40.3065 136.647 41.1219C121.396 57.8086 114.736 89.791 128.292 105.701C129.008 106.542 129.015 107.804 128.234 108.585L121.93 114.889C121.149 115.67 119.876 115.671 119.136 114.85C108.442 102.975 106.013 85.3602 109.316 68.3885L40.4466 137.258C39.6655 138.039 38.3992 138.039 37.6181 137.258L30.9713 130.611C30.1903 129.83 30.1903 128.564 30.9713 127.783L99.841 58.9134Z"
+                                            fill="#0B0E11"
+                                        />
+                                    </svg>
                                 </a>
                             </div>
                         </li>
@@ -61,8 +89,14 @@
                     </ul>
                 </nav>
                 <aside>
-                    <p>
-                        <a data-stick data-cursor="xxl" data-shift href="mailto:hi@kolby.dev">
+                    <p class="navigation-item navigation-item-sm">
+                        <a
+                            class="navigation-item-bit"
+                            data-stick
+                            data-cursor="xxl"
+                            data-shift
+                            href="mailto:hi@kolby.dev"
+                        >
                             hi@kolby.dev
                         </a>
                         <span>Inquiries</span>
@@ -70,12 +104,16 @@
                 </aside>
             </div>
         </div>
-        <div class="menu-background"></div>
+        <div class="menu-background">
+            <span class="menu-background-noise"></span>
+            <span class="menu-background-artwork"></span>
+            <span class="menu-background-color"></span>
+        </div>
     </section>
 </template>
 
 <script>
-import { gsap, TimelineLite } from 'gsap'
+import { gsap } from 'gsap'
 import Theme from '@/components/Theme/Theme.vue'
 
 export default {
@@ -86,59 +124,34 @@ export default {
     computed: {
         status() {
             return this.$store.state.menu.open
+        },
+        mode() {
+            return this.$store.state.theme.mode
         }
     },
-    mounted() {
-        const navLarge = this.$refs.navLarge
-        const links = navLarge.querySelectorAll('.navigation-link')
-
-        links.forEach(link => {
-            const linkText = link.querySelector('span')
-            gsap.registerPlugin(TimelineLite)
-            const tl = new TimelineLite()
-            let playing = false
-
-            link.addEventListener('mouseenter', () => {
-                if (playing) {
-                    return false
-                }
-
-                playing = true
-
-                tl.to(linkText, 1.2, {
-                    y: '-100%',
-                    ease: 'Power3.easeOut',
-                    overwrite: 'auto'
-                })
-                tl.to(linkText, 0, {
-                    y: '0%',
-                    overwrite: 'auto',
-                    onComplete: () => {
-                        playing = false
-                    }
-                })
-            })
-            link.addEventListener('mouseleave', () => {
-                tl.to(linkText, 0, {
-                    y: '0%',
-                    overwrite: false
-                })
-            })
-        })
-    },
+    mounted() {},
     watch: {
         $route() {
             this.$store.commit('menu/close')
-            const bg = this.$refs.menu.querySelector('.menu-background')
+            const bg = this.$refs.menu
+            const bgColor = bg.querySelector('.menu-background-color')
+            const bgNoise = bg.querySelector('.menu-background-noise')
+            const toColor = this.mode == 'dark' ? '#000' : '#fff'
 
-            gsap.to(bg, {
-                background: '#fff',
+            gsap.to(bgColor, {
+                background: toColor,
                 duration: 0.5
             })
+            gsap.to(bgNoise, 0, {
+                opacity: 0
+            })
             setTimeout(() => {
-                gsap.to(bg, {
+                gsap.to(bgColor, {
                     background: '#0b0e11',
                     duration: 0
+                })
+                gsap.to(bgNoise, 0, {
+                    opacity: 0.1
                 })
             }, 2000)
         }
@@ -163,11 +176,7 @@ export default {
         .navigation {
             &-item {
                 &-bit {
-                    animation: link-in 0.3s cubic-bezier(0.23, 1, 0.32, 1) forwards;
-                }
-
-                span::after {
-                    animation: link-opacity 0s 0.8s ease forwards;
+                    animation: link-in 0.92s cubic-bezier(0.23, 1, 0.32, 1) forwards;
                 }
             }
         }
@@ -182,20 +191,20 @@ export default {
             &-item {
                 &-bit {
                     transform: translateY(0%);
-                    animation: link-out 0.3s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+                    animation: link-out 0.66s cubic-bezier(0.23, 1, 0.32, 1) forwards;
                 }
 
                 &-lg {
                     @for $i from 1 through 3 {
                         &:nth-child(#{$i}) .navigation-item-bit {
-                            animation-delay: $i * 0.08s + 0.12s;
+                            animation-delay: $i * 0.03s + 0.08s;
                         }
                     }
                 }
                 &-sm {
-                    @for $i from 1 through 3 {
+                    @for $i from 1 through 4 {
                         &:nth-child(#{$i}) .navigation-item-bit {
-                            animation-delay: $i * 0.08s + 0.18s;
+                            animation-delay: $i * 0.03s + 0.06s;
                         }
                     }
                 }
@@ -211,6 +220,24 @@ export default {
         display: inline-flex;
         text-decoration: none;
         color: c('menu-color');
+
+        svg {
+            --size: 1em;
+            width: var(--size);
+            height: var(--size);
+            margin-left: 0.25em;
+            margin-bottom: 0.25em;
+
+            path {
+                fill: c('base-0');
+            }
+
+            &.-tiny {
+                --size: 0.75em;
+                width: var(--size);
+                height: var(--size);
+            }
+        }
     }
 
     p {
@@ -246,13 +273,52 @@ export default {
     }
 
     &-background {
-        background: c('menu-background');
         position: absolute;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
         z-index: -1;
+
+        &-noise,
+        &-artwork,
+        &-color {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        &-noise {
+            z-index: 3;
+            background-image: url('/noise/noise.gif');
+            opacity: 0.1;
+            mix-blend-mode: overlay;
+        }
+
+        &-artwork {
+            --size: 60vw;
+            width: var(--size);
+            height: var(--size);
+            background: c('base-6');
+            z-index: 2;
+            filter: blur(var(--size));
+            border-radius: 50%;
+            transform: translate(-25%, -25%);
+            opacity: 0.3;
+            transition: background 0.66s cubic-bezier(0.075, 0.82, 0.165, 1);
+
+            html[theme='dark'] & {
+                background: c('primary-base');
+            }
+        }
+
+        &-color {
+            z-index: 1;
+            background-color: c('menu-background');
+        }
     }
 
     &-navigation {
@@ -287,11 +353,11 @@ export default {
 
             &-lg {
                 font-size: 4.5vw;
-                font-family: 'Ogg';
+                font-family: $font-1;
 
                 @for $i from 1 through 3 {
                     &:nth-child(#{$i}) .navigation-item-bit {
-                        animation-delay: $i * 0.12s + 0.28s;
+                        animation-delay: $i * 0.03s + 0.28s;
                     }
                 }
             }
@@ -300,40 +366,47 @@ export default {
 
                 @for $i from 1 through 4 {
                     &:nth-child(#{$i}) .navigation-item-bit {
-                        animation-delay: $i * 0.1s + 0.48s;
+                        animation-delay: $i * 0.03s + 0.48s;
+                    }
+                }
+
+                a {
+                    &::after {
+                        display: none;
                     }
                 }
             }
 
             a {
+                position: relative;
+
+                &:after {
+                    content: '';
+                    position: absolute;
+                    bottom: 12%;
+                    left: -0.125em;
+                    right: -0.125em;
+                    height: 0.35em;
+                    background: c('primary-base');
+                    transform: scaleX(0);
+                    opacity: 0;
+                    transform-origin: 0 50%;
+                    transition: transform 0.66s cubic-bezier(0.42, 0.39, 0.17, 1), opacity 0.66s ease;
+                    z-index: -1;
+                }
                 &:hover,
                 &:focus {
-                    // span {
-                    //     animation: link-enter 1.2s cubic-bezier(0.23, 1, 0.32, 1) forwards;
-
-                    //     &::after {
-                    //         transform: translateY(100%) skew(0deg);
-                    //         opacity: 1;
-                    //     }
-                    // }
+                    &::after {
+                        transform: scaleX(1);
+                        opacity: 0.5;
+                        transition: transform 0.92s cubic-bezier(0.42, 0.39, 0.17, 1);
+                    }
                 }
             }
 
             span {
                 position: relative;
                 display: inline-flex;
-                // animation: link-exit 1.2s cubic-bezier(0.23, 1, 0.32, 1) forwards;
-
-                &::after {
-                    content: attr(data-text);
-                    display: block;
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    opacity: 0;
-                    transform: translateY(100%);
-                    transition: opacity 0s, transform 0.3s cubic-bezier(0.23, 1, 0.32, 1);
-                }
             }
         }
     }
@@ -362,46 +435,19 @@ export default {
 
     @keyframes link-in {
         0% {
-            transform: translateY(-100%) skew(-4deg);
+            transform: translate(0%, -150%) rotate(-5deg);
         }
         to {
-            transform: translateY(0%) skew(0deg);
+            transform: translate(0%, 0%) rotate(0deg);
         }
     }
 
     @keyframes link-out {
         0% {
-            transform: translateY(0%) skew(0deg);
+            transform: translate(0%, 0%) rotate(0deg);
         }
         to {
-            transform: translateY(-100%) skew(-4deg);
-        }
-    }
-
-    @keyframes link-enter {
-        0% {
-            transform: translateY(0%);
-        }
-        to {
-            transform: translateY(-100%);
-        }
-    }
-
-    @keyframes link-exit {
-        0% {
-            transform: translateY(-100%);
-        }
-        to {
-            transform: translateY(0%);
-        }
-    }
-
-    @keyframes link-opacity {
-        0% {
-            opacity: 0;
-        }
-        to {
-            opacity: 1;
+            transform: translate(0%, -150%) rotate(-5deg);
         }
     }
 }
