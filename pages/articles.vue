@@ -4,33 +4,38 @@
 
         <section class="articles-filters">
             <div class="container">
-                <ul class="articles-filters-categories">
-                    <li>
-                        <button
-                            data-stick
-                            data-cursor="lg"
-                            class="button"
-                            :class="{ '-active': category == 'all' }"
-                            @click="$router.push({ path: '/articles' })"
+                <div class="articles-filters-grid">
+                    <ul class="articles-filters-categories">
+                        <li>
+                            <button
+                                data-stick
+                                data-cursor="lg"
+                                class="button"
+                                :class="{ '-active': category == 'all' }"
+                                @click="$router.push({ path: '/articles' })"
+                            >
+                                <small>Latest</small>
+                            </button>
+                        </li>
+                        <li v-for="(item, index) in categories" :key="index">
+                            <button
+                                data-stick
+                                data-cursor="lg"
+                                class="button"
+                                :class="{ '-active': category.toLowerCase() == item.toLowerCase() }"
+                                @click="$router.push({ path: '/articles', query: { category: item } })"
+                            >
+                                <small>{{ item }}</small>
+                            </button>
+                        </li>
+                    </ul>
+                    <p class="articles-filters-count" v-if="filteredArticles">
+                        <small
+                            >{{ filteredArticles.length }}
+                            {{ filteredArticles.length > 1 ? 'articles' : 'article' }}</small
                         >
-                            Latest
-                        </button>
-                    </li>
-                    <li v-for="(item, index) in categories" :key="index">
-                        <button
-                            data-stick
-                            data-cursor="lg"
-                            class="button"
-                            :class="{ '-active': category.toLowerCase() == item.toLowerCase() }"
-                            @click="$router.push({ path: '/articles', query: { category: item } })"
-                        >
-                            {{ item }}
-                        </button>
-                    </li>
-                </ul>
-                <p v-if="filteredArticles">
-                    {{ filteredArticles.length }} {{ filteredArticles.length > 1 ? 'articles' : 'article' }}
-                </p>
+                    </p>
+                </div>
             </div>
         </section>
 
@@ -38,28 +43,9 @@
             <div class="container">
                 <div class="articles-grid">
                     <ul class="articles-list" v-if="articles">
-                        <li class="article-item" v-for="article in filteredArticles" :key="article.id">
-                            <nuxt-link data-cursor="lg" :to="'/article/' + article.uid">
-                                <!-- <p class="article-item-category">Self</p> -->
-                                <h2 class="article-item-title">{{ article.data.Name[0].text }}</h2>
-
-                                <prismic-rich-text class="article-item-summary" :field="article.data.Summary" />
-
-                                <div class="article-item-details">
-                                    <p class="article-item-date">
-                                        {{ formatDate(article.last_publication_date) }}
-                                    </p>
-                                    <span v-if="article.data.Read"> — </span>
-                                    <p class="article-item-read" v-if="article.data.Read">
-                                        {{ article.data.Read }} min read
-                                    </p>
-                                    <span v-if="article.data.Category"> — </span>
-                                    <p class="article-item-category" v-if="article.data.Category">
-                                        {{ article.data.Category }}
-                                    </p>
-                                </div>
-                            </nuxt-link>
-                        </li>
+                        <transition-group name="list-complete" tag="div">
+                            <ArticleItem v-for="article in filteredArticles" :key="article.id" :article="article" />
+                        </transition-group>
                     </ul>
                 </div>
             </div>
@@ -88,16 +74,6 @@ export default {
             return { articles }
         } else {
             error({ statusCode: 404, message: 'Page not found' })
-        }
-    },
-    methods: {
-        formatDate(d) {
-            const date = new Date(d)
-            const options = {
-                month: 'long',
-                day: 'numeric'
-            }
-            return date.toLocaleString('en-us', options)
         }
     },
     computed: {
@@ -134,24 +110,29 @@ export default {
     }
 
     &-filters {
-        position: relative;
         margin-bottom: 8vh;
 
         .container {
+        }
+
+        &-grid {
+            position: relative;
             display: grid;
             grid-template-columns: 50em 18em;
             grid-gap: 6em;
             place-content: center;
-        }
+            max-width: calc(50em + 18em + 6em);
+            margin: 0 auto;
 
-        &::after {
-            content: '';
-            position: absolute;
-            top: 100%;
-            left: 0;
-            width: 100%;
-            height: 1px;
-            background: c('base-7');
+            &::after {
+                content: '';
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                height: 1px;
+                background: c('base-7');
+            }
         }
 
         &-categories {
@@ -166,7 +147,7 @@ export default {
                 button {
                     position: relative;
                     margin-right: 1em;
-                    color: c('base-6');
+                    color: c('base-4');
                     outline: none;
 
                     html[theme='dark'] & {
@@ -174,7 +155,7 @@ export default {
                     }
 
                     &.-active {
-                        color: c('base-4');
+                        color: c('base-0');
 
                         html[theme='dark'] & {
                             color: c('base-0');
@@ -183,16 +164,21 @@ export default {
                         &::after {
                             content: '';
                             position: absolute;
-                            top: calc(100% + 1px);
+                            top: 100%;
                             left: 0;
                             width: 100%;
-                            height: 4px;
-                            background: c('primary-base');
+                            height: 6px;
+                            background: c('base-0');
                             z-index: 2;
                         }
                     }
                 }
             }
+        }
+
+        &-count {
+            text-align: right;
+            padding-right: 0.5em;
         }
     }
 
@@ -201,6 +187,8 @@ export default {
         grid-template-columns: 50em 18em;
         grid-gap: 6em;
         place-content: center;
+        max-width: calc(50em + 18em + 6em);
+        margin: 0 auto;
     }
 
     &-list {
@@ -216,49 +204,19 @@ export default {
     }
 }
 
-.article {
-    &-item {
-        max-width: 800px;
-        margin-bottom: 10vh;
+.list-complete-item {
+    transition: all 1s;
+    display: inline-block;
+    margin-right: 10px;
+}
 
-        a {
-            display: inline-block;
-            text-decoration: none;
-            color: currentColor;
-        }
+.list-complete-enter,
+.list-complete-leave-to {
+    opacity: 0;
+    transform: translateY(30px);
+}
 
-        &-category {
-        }
-
-        &-title {
-            font-size: clamp(3.998rem, -0.875rem + 8.333vw, 3.998rem);
-            margin: 0;
-            margin-bottom: 0.25em;
-        }
-
-        &-summary {
-        }
-
-        &-details {
-            display: flex;
-            align-items: center;
-            margin-top: 0.5em;
-            opacity: 0.5;
-
-            span {
-                margin: 0 0.35em;
-            }
-
-            p {
-                margin: 0;
-            }
-        }
-
-        &-date {
-        }
-
-        &-read {
-        }
-    }
+.list-complete-leave-active {
+    position: absolute;
 }
 </style>
