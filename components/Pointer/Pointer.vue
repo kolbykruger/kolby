@@ -53,6 +53,9 @@ export default {
             }
         },
         initPointer() {
+            if (!this.enabled) {
+                return false
+            }
             this.$nextTick(() => {
                 setTimeout(() => {
                     this.sizes()
