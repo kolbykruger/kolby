@@ -110,7 +110,7 @@ export default {
     //         console.log('Before enter...')
     //     }
     // }
-    transition: {
+    pageTransition: {
         name: 'page',
         mode: 'out-in'
     },
