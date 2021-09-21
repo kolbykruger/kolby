@@ -71,26 +71,28 @@ export const Magnetic = {
                     pos.x.current = (this.cursor.x - this.magnetic.x - this.magnetic.width / 2) * options.x
                     pos.y.current = (this.cursor.y - this.magnetic.y - this.magnetic.height / 2) * options.y
 
-                    function looper(pos, options, magnet) {
-                        pos.x.previous = lerp(pos.x.previous, pos.x.current, $this.magnetic.s)
-                        pos.y.previous = lerp(pos.y.previous, pos.y.current, $this.magnetic.s)
+                    $this.move(pos.x.current, pos.y.current, 0, magnet)
 
-                        $this.move(pos.x.previous, pos.y.previous, 0, magnet)
+                    // function looper(pos, options, magnet) {
+                    //     pos.x.previous = lerp(pos.x.previous, pos.x.current, $this.magnetic.s)
+                    //     pos.y.previous = lerp(pos.y.previous, pos.y.current, $this.magnetic.s)
 
-                        if (!$this.magnetic.active) {
-                            requestAnimationFrame(() => {
-                                // global gsap move function
-                                $this.move(0, 0, $this.magnetic.s, magnet)
-                            })
-                            return false
-                        }
+                    //     $this.move(pos.x.previous, pos.y.previous, 0, magnet)
 
-                        requestAnimationFrame(() => {
-                            looper(pos, options, magnet)
-                        })
-                    }
+                    //     if (!$this.magnetic.active) {
+                    //         requestAnimationFrame(() => {
+                    //             // global gsap move function
+                    //             $this.move(0, 0, $this.magnetic.s, magnet)
+                    //         })
+                    //         return false
+                    //     }
 
-                    looper(pos, options, magnet)
+                    //     requestAnimationFrame(() => {
+                    //         looper(pos, options, magnet)
+                    //     })
+                    // }
+
+                    // looper(pos, options, magnet)
                 })
             })
         }
