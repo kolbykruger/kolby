@@ -1,8 +1,13 @@
 <template>
     <section class="case-study-neighbor" v-if="page">
         <div class="container">
-            <p>Next project</p>
-            <nuxt-link data-magnetic data-cursor="lg" :to="'/works/' + page.uid">
+            <style>
+                .case-study-neighbor a::after {
+                    background: {{accent}};
+                }
+            </style>
+            <p>Next</p>
+            <nuxt-link data-magnetic="0.1, 0.1, 0.1" data-cursor="lg" :to="'/works/' + page.uid">
                 <h2>{{ page.data.Name[0].text || 'Project Name' }}</h2>
             </nuxt-link>
         </div>
@@ -14,6 +19,12 @@ export default {
     name: 'Neighbor',
     props: {
         page: Object
+    },
+    computed: {
+        accent() {
+            const accent = this.page.data.Accent
+            return accent ? accent : 'var(--color-primary-base)'
+        }
     }
 }
 </script>
@@ -28,11 +39,34 @@ export default {
     }
 
     a {
-        display: grid;
+        display: inline-grid;
         place-content: center;
         color: c('base-0');
         text-decoration: none;
         padding: 1em;
+
+        &:after {
+            content: '';
+            position: absolute;
+            bottom: 12%;
+            left: -0.125em;
+            right: -0.125em;
+            height: 2.5em;
+            //background: attr(data-accent);
+            transform: scaleX(0);
+            opacity: 0;
+            transform-origin: 0 50%;
+            transition: transform 0.66s cubic-bezier(0.42, 0.39, 0.17, 1), opacity 0.66s ease;
+            z-index: -1;
+        }
+        &:hover,
+        &:focus {
+            &::after {
+                transform: scaleX(1);
+                opacity: 0.5;
+                transition: transform 0.92s cubic-bezier(0.42, 0.39, 0.17, 1);
+            }
+        }
     }
 
     h2 {
