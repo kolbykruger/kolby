@@ -35,7 +35,14 @@
                 </div>
             </div>
 
-            <div class="gallery-expanded" ref="galleryExpanded" v-show="expanded" :class="{ '-active': expanded }">
+            <div
+                class="gallery-expanded"
+                ref="galleryExpanded"
+                v-show="expanded"
+                :class="{ '-active': expanded }"
+                :style="{ background: mode == 'light' ? 'rgba(255,255,255,0.5)' : 'rgba(0,0,0,0.5)' }"
+            >
+                <a class="gallery-expanded-background" @click.prevent="closeExpandedImage"></a>
                 <div class="gallery-expanded-container" v-if="expanded">
                     <span class="gallery-expanded-loading" aria-label="loading image...">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -47,9 +54,12 @@
                             />
                         </svg>
                     </span>
-                    <a class="gallery-expanded-background" @click.prevent="closeExpandedImage"></a>
-                    <prismic-image :field="expanded" />
-                    {{ focus }}
+                    <prismic-image
+                        class="gallery-expanded-image"
+                        :field="expanded"
+                        @load="imageLoaded"
+                        :class="{ '-loaded': loaded }"
+                    />
                     <a class="gallery-expanded-exit" @click.prevent="closeExpandedImage">
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -87,18 +97,27 @@ export default {
     data() {
         return {
             expanded: null,
-            focus: null
+            focus: null,
+            loaded: false
+        }
+    },
+    computed: {
+        mode() {
+            return this.$store.state.theme.mode
         }
     },
     methods: {
         expandImage(img) {
             this.expanded = img
             const exp = this.$refs.galleryExpanded
-            console.log(exp)
             exp.focus()
         },
         closeExpandedImage() {
             this.expanded = null
+            this.loaded = false
+        },
+        imageLoaded() {
+            this.loaded = true
         }
     }
 }
@@ -170,19 +189,40 @@ export default {
         padding: 3em;
         background: rgba(0, 0, 0, 0.5);
         z-index: 9999;
-        animation: gallery-expanded-image-exit 0.66s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
+        user-select: none;
+
+        &-image {
+            animation: gallery-expanded-image-exit 0.66s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
+        }
+
+        &-backgrond {
+            animation: gallery-expanded-bg-exit 0.66s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
+        }
 
         &.-active {
-            animation: gallery-expanded-image-enter 0.66s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
+            .gallery-expanded-image.-loaded {
+                animation: gallery-expanded-image-enter 0.92s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
 
-            @keyframes gallery-expanded-image-enter {
-                from {
-                    transform: scale(0.98);
-                    opacity: 0;
+                @keyframes gallery-expanded-image-enter {
+                    from {
+                        transform: scale(0.96);
+                    }
+                    to {
+                        transform: scale(1);
+                    }
                 }
-                to {
-                    transform: scale(1);
-                    opacity: 1;
+            }
+
+            &.gallery-expanded-background {
+                animation: gallery-expanded-bg-enter 0.66s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
+
+                @keyframes gallery-expanded-bg-enter {
+                    from {
+                        opacity: 0;
+                    }
+                    to {
+                        opacity: 1;
+                    }
                 }
             }
         }
@@ -193,7 +233,16 @@ export default {
                 opacity: 1;
             }
             to {
-                transform: scale(0.98);
+                transform: scale(0.96);
+                opacity: 0;
+            }
+        }
+
+        @keyframes gallery-expanded-bg-exit {
+            from {
+                opacity: 1;
+            }
+            to {
                 opacity: 0;
             }
         }
@@ -238,6 +287,10 @@ export default {
                 --size: 3em;
                 width: var(--size);
                 height: var(--size);
+
+                path {
+                    fill: c('base-0');
+                }
             }
         }
 
@@ -258,7 +311,7 @@ export default {
                 animation: expanded-loading 0.96s linear infinite;
 
                 path {
-                    fill: c('background');
+                    fill: c('base-0');
                 }
 
                 @keyframes expanded-loading {
