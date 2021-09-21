@@ -34,15 +34,15 @@
                 </defs>
             </svg>
         </span>
-        <canvas ref="canvas"></canvas>
+        <!-- <canvas ref="canvas"></canvas> -->
     </section>
 </template>
 
 <script>
-import { Canvas } from '~/mixins/intro/Canvas.js'
+//import { Canvas } from '~/mixins/intro/Canvas.js'
 export default {
-    name: 'Introduction',
-    mixins: [Canvas]
+    name: 'Introduction'
+    //mixins: [Canvas]
 }
 </script>
 
@@ -104,7 +104,6 @@ export default {
     }
 
     &-line {
-        display: none;
         position: absolute;
         top: 0;
         left: -10vw;
