@@ -180,6 +180,14 @@ export default {
                 }
             }
         }
+
+        .menu {
+            &-background {
+                &-artwork {
+                    animation: none;
+                }
+            }
+        }
     }
 
     &.-closed {
@@ -210,6 +218,14 @@ export default {
                 }
             }
         }
+
+        .menu {
+            &-background {
+                &-artwork {
+                    animation: artwork-out 0.33s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+                }
+            }
+        }
     }
 
     .container {
@@ -229,7 +245,7 @@ export default {
             margin-bottom: 0.25em;
 
             path {
-                fill: c('base-0');
+                fill: c('menu-color');
             }
 
             &.-tiny {
@@ -448,6 +464,24 @@ export default {
         }
         to {
             transform: translate(0%, -150%) rotate(-5deg);
+        }
+    }
+
+    @keyframes artwork-in {
+        0% {
+            opacity: 0;
+        }
+        to {
+            opacity: 0.3;
+        }
+    }
+
+    @keyframes artwork-out {
+        0% {
+            opacity: 0.3;
+        }
+        to {
+            opacity: 0;
         }
     }
 }
