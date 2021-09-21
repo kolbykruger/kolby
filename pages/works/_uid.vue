@@ -1,5 +1,12 @@
 <template>
     <main class="page case-study" :data-traveler="document.data.Accent">
+        <div class="case-study-magic">
+            <span
+                class="case-study-magic-artwork"
+                :style="{ background: document.data.Accent ? document.data.Accent : '#000' }"
+            ></span>
+        </div>
+
         <Pageheading :name="document.data.Name" />
 
         <section class="cs-intro">
@@ -69,18 +76,6 @@
         <slice-zone type="case-study" :uid="$route.params.uid" />
 
         <Neighbor :page="nextCaseStudy" />
-
-        <div class="cs-return">
-            <nuxt-link to="/work" data-stick data-cursor="lg">
-                <!-- <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                    <path
-                        d="M12.4569 4.02802C12.281 3.63211 11.7191 3.63211 11.5431 4.02802L4.48451 19.9099C4.30442 20.3151 4.70178 20.7368 5.11698 20.5811L11.8245 18.0658C11.9377 18.0234 12.0624 18.0234 12.1756 18.0658L18.8831 20.5811C19.2983 20.7368 19.6956 20.3151 19.5155 19.9099L12.4569 4.02802Z"
-                        fill="#22282F"
-                    />
-                </svg> -->
-                <span>— Work —</span>
-            </nuxt-link>
-        </div>
     </main>
 </template>
 
@@ -131,6 +126,36 @@ export default {
 
 <style lang="scss">
 .case-study {
+    &-magic {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+
+        &-artwork {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            --size: 60vw;
+            width: var(--size);
+            height: var(--size);
+            z-index: 2;
+            filter: blur(var(--size));
+            border-radius: 50%;
+            transform: translate(-25%, -25%);
+            opacity: 0.2;
+            transition: background 0.66s cubic-bezier(0.075, 0.82, 0.165, 1);
+
+            html[theme='dark'] & {
+                background: c('primary-base');
+            }
+        }
+    }
 }
 
 .cs {
@@ -195,32 +220,6 @@ export default {
         &-label,
         &-item {
             font-size: clamp(1.25rem, -0.875rem + 8.333vw, 1.414rem);
-        }
-    }
-
-    &-return {
-        position: fixed;
-        bottom: 50%;
-        left: 3vw;
-        transform: translate(-50%, -50%) rotate(-90deg);
-        transform-origin: bottom center;
-        //opacity: 0.125;
-
-        a {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            color: c('base-0');
-            font-size: 1.5rem;
-            letter-spacing: 0.05em;
-            text-transform: uppercase;
-            font-weight: 400;
-
-            svg {
-                margin-right: 0.4em;
-                margin-bottom: 0.2em;
-            }
         }
     }
 }
