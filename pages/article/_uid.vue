@@ -11,7 +11,12 @@
                     </div>
                     <aside class="article-track">
                         <div data-sticky class="article-details">
+                            <span class="article-details-background">
+                                <div class="article-details-border"></div>
+                            </span>
                             <div class="article-details-container">
+                                <Author />
+
                                 <ul class="article-details-group">
                                     <li class="article-details-label">Updated</li>
                                     <li class="article-details-item">
@@ -19,10 +24,13 @@
                                     </li>
                                 </ul>
 
-                                <ul class="article-details-group">
+                                <ul class="article-details-group" v-if="document.data.Read">
                                     <li class="article-details-label">Read time</li>
                                     <li class="article-details-item">
-                                        <span>{{ document.data.Read + ' minutes' || 'Read time' }}</span>
+                                        <span
+                                            >{{ document.data.Read }}
+                                            {{ document.data.Read > 1 ? 'minutes' : 'minute' }}</span
+                                        >
                                     </li>
                                 </ul>
 
@@ -31,6 +39,8 @@
                                     <li class="article-details-item">
                                         <span>
                                             <nuxt-link
+                                                data-stick
+                                                data-cursor="lg"
                                                 :to="{
                                                     path: '/articles',
                                                     query: { category: document.data.Category }
@@ -46,7 +56,6 @@
                 </div>
             </div>
         </article>
-
         <!-- <pre><code>{{ document }}</code></pre> -->
     </main>
 </template>
@@ -94,6 +103,8 @@ export default {
 
 .article {
     &-content {
+        margin-bottom: 6vh;
+
         .pageheading {
             .container {
                 max-width: calc(50em + 18em + 6em);
@@ -113,7 +124,7 @@ export default {
     .article-track {
         > [data-sticky] {
             position: sticky;
-            top: 10vh;
+            top: 6vh;
         }
     }
 
@@ -171,6 +182,59 @@ export default {
     }
 
     &-details {
+        position: relative;
+        padding-left: 2em;
+        padding-top: 2em;
+        padding-bottom: 1px;
+
+        &-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+
+            &::before,
+            &::after {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+            }
+
+            &::after {
+                width: 100%;
+                height: 100%;
+                pointer-events: none;
+                background: radial-gradient(ellipse at 0% 0%, var(--color-base-0), transparent 75%);
+                opacity: 0.1;
+                filter: blur(var(--size));
+            }
+        }
+
+        &-border {
+            &::before,
+            &::after {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+            }
+
+            &::before {
+                width: 100%;
+                height: 1px;
+                background: linear-gradient(to right, c('base-7'), transparent);
+            }
+
+            &::after {
+                width: 1px;
+                height: 100%;
+                background: linear-gradient(to bottom, c('base-7'), transparent);
+            }
+        }
+
         &-container {
         }
 
@@ -189,6 +253,11 @@ export default {
         &-label,
         &-item {
             font-size: clamp(1.25rem, -0.875rem + 8.333vw, 1.414rem);
+
+            a {
+                text-decoration: none;
+                color: c('primary-base');
+            }
         }
     }
 }
