@@ -30,12 +30,28 @@ export default {
         counter: Number
     },
     mixins: [Cursor, Visibility, Interactivity, Size, Magnetic, Stick, Invisible, Shift, Caption, Move, State, Reset],
+    data() {
+        return {
+            enabled: false
+        }
+    },
     computed: {
         loadingStatus() {
             return this.$store.state.loading.loading
         }
     },
     methods: {
+        checkPerformance() {
+            try {
+                var canvas = document.createElement('canvas')
+                return (
+                    !!window.WebGLRenderingContext &&
+                    (canvas.getContext('webgl') || canvas.getContext('experimental-webgl'))
+                )
+            } catch (e) {
+                return false
+            }
+        },
         initPointer() {
             this.$nextTick(() => {
                 setTimeout(() => {
@@ -52,6 +68,10 @@ export default {
     },
     updated() {
         this.initPointer()
+    },
+    mounted() {
+        //Check device performance
+        this.enabled = this.checkPerformance() ? true : false
     },
     watch: {
         $route() {
@@ -191,7 +211,7 @@ export default {
             }
             &-xxl {
                 .pointer-circle {
-                    transform: scale(4.2);
+                    transform: scale(4.75);
                 }
 
                 &.-active {
