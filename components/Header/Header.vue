@@ -56,7 +56,29 @@ export default {
     z-index: 150;
 
     .container {
-        padding: 0 calc(270px - 2em);
+        padding: 0 calc(20px - 2em);
+
+        @media (min-width: 360px) {
+            padding: 0 calc(30px - 2em);
+        }
+        @media (min-width: 768px) {
+            padding: 0 calc(100px - 2em);
+        }
+        @media (min-width: 1024px) {
+            padding: 0 calc(120px - 2em);
+        }
+        @media (min-width: 1200px) {
+            padding: 0 calc(150px - 2em);
+        }
+        @media (min-width: 1350px) {
+            padding: 0 calc(180px - 2em);
+        }
+        @media (min-width: 1600px) {
+            padding: 0 calc(220px - 2em);
+        }
+        @media (min-width: 1920px) {
+            padding: 0 calc(270px - 2em);
+        }
     }
 
     &.-open {
