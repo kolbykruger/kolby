@@ -1,5 +1,5 @@
 <template>
-    <main class="page article-content">
+    <main class="page article-content" id="content">
         <Pageheading :name="document.data.Name" />
 
         <article class="article">

@@ -1,5 +1,5 @@
 <template>
-    <main class="page">
+    <main class="page" id="content">
         <Pageheading name="Work" />
 
         <section class="work-intro">

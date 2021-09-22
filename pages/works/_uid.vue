@@ -1,5 +1,5 @@
 <template>
-    <main class="page case-study" :data-traveler="document.data.Accent">
+    <main class="page case-study" id="content" :data-traveler="document.data.Accent">
         <div class="case-study-magic">
             <span
                 class="case-study-magic-artwork"

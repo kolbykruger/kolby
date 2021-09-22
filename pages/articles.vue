@@ -1,5 +1,5 @@
 <template>
-    <main class="page articles-content">
+    <main class="page articles-content" id="content">
         <Pageheading name="Articles" />
 
         <section class="articles-filters">

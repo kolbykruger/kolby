@@ -1,5 +1,5 @@
 <template>
-    <main class="page">
+    <main class="page" id="content">
         <Introduction />
         <!-- <slice-zone type="page" uid="home" /> -->
     </main>
