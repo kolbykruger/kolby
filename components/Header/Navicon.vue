@@ -1,5 +1,5 @@
 <template>
-    <div class="navicon" :class="{ '-open': status }">
+    <div class="navicon" :class="{ '-open': status }" id="navigation">
         <button data-magnetic="0.3, 0.3, 0.18" data-stick data-cursor="lg" class="navicon-button" @click="toggleMenu">
             <div class="navicon-track">
                 <span class="navicon-text navicon-text-close" :aria-hidden="!status">Close</span>
