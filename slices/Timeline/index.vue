@@ -1,5 +1,11 @@
 <template>
-    <section class="timeline" :class="{ 'timeline-vertical': slice.variation == 'timelineVertical' }">
+    <section
+        class="timeline"
+        ref="timeline"
+        :class="{
+            'timeline-vertical': slice.variation == 'timelineVertical'
+        }"
+    >
         <div class="container">
             <div class="timeline-rail" :style="{ '--count': count }">
                 <div class="timeline-item" v-for="(item, index) in slice.items" :key="index">
@@ -27,9 +33,18 @@ export default {
             }
         }
     },
+    data() {
+        return {
+            observer: null,
+            offset: null
+        }
+    },
     computed: {
         count() {
             return this.slice.items.length
+        },
+        path() {
+            return this.$route.path
         }
     },
     methods: {
