@@ -1,5 +1,6 @@
 <template>
     <div class="layout-default">
+        <Accessibility />
         <Header />
         <Menu />
         <Nuxt />
@@ -11,6 +12,7 @@
 </template>
 
 <script>
+import Accessibility from '@/components/Accessibility/Accessibility.vue'
 import Header from '@/components/Header/Header.vue'
 import Menu from '@/components/Menu/Menu.vue'
 import Footer from '@/components/Footer/Footer.vue'
@@ -25,6 +27,7 @@ export default {
         }
     },
     components: {
+        Accessibility,
         Header,
         Menu,
         Footer,
