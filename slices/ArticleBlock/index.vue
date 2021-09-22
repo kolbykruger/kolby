@@ -1,12 +1,14 @@
 <template>
     <section class="article-block">
         <div class="container">
-            <prismic-rich-text :field="slice.primary.Content" />
+            <prismic-rich-text :field="slice.primary.Content" :htmlSerializer="htmlSerializer" />
         </div>
     </section>
 </template>
 
 <script>
+import { Serializer } from '~/mixins/serializer/Serializer.js'
+
 export default {
     name: 'ArticleBlock',
     props: {
@@ -17,7 +19,8 @@ export default {
                 return {}
             }
         }
-    }
+    },
+    mixins: [Serializer]
 }
 </script>
 

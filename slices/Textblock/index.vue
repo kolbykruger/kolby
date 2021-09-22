@@ -5,7 +5,11 @@
                 <p class="textblock-eyebrow" v-if="slice.primary.Index">
                     <span>{{ slice.primary.Index || '01' }}</span>
                 </p>
-                <prismic-rich-text :field="slice.primary.title" class="textblock-title" />
+                <prismic-rich-text
+                    :field="slice.primary.title"
+                    class="textblock-title"
+                    :htmlSerializer="htmlSerializer"
+                />
                 <prismic-rich-text :field="slice.primary.description" class="textblock-description" />
 
                 <div class="textblock-list-grid" v-if="slice.variation == 'textblockWithGridList'">
@@ -24,6 +28,8 @@
 </template>
 
 <script>
+import { Serializer } from '~/mixins/serializer/Serializer.js'
+
 export default {
     name: 'Textblock',
     props: {
@@ -34,7 +40,8 @@ export default {
                 return {}
             }
         }
-    }
+    },
+    mixins: [Serializer]
 }
 </script>
 
