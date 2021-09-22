@@ -1,0 +1,62 @@
+{
+  "id": "anchors",
+  "type": "SharedSlice",
+  "name": "Anchors",
+  "description": "Anchors",
+  "variations": [
+    {
+      "id": "default-slice",
+      "name": "Default slice",
+      "docURL": "...",
+      "version": "sktwi1xtmkfgx8626",
+      "description": "Anchors",
+      "primary": {
+        "Label": {
+          "config": {
+            "label": "Label",
+            "placeholder": ""
+          },
+          "type": "Text"
+        },
+        "Page": {
+          "config": {
+            "label": "Page",
+            "select": "document",
+            "customtypes": [
+              "about",
+              "article",
+              "case-study",
+              "menu",
+              "page",
+              "projects"
+            ]
+          },
+          "type": "Link"
+        }
+      },
+      "items": {
+        "Index": {
+          "config": {
+            "label": "Index",
+            "placeholder": ""
+          },
+          "type": "Text"
+        },
+        "Name": {
+          "config": {
+            "label": "Name",
+            "placeholder": ""
+          },
+          "type": "Text"
+        },
+        "Anchor": {
+          "config": {
+            "label": "Anchor",
+            "placeholder": ""
+          },
+          "type": "Text"
+        }
+      }
+    }
+  ]
+}

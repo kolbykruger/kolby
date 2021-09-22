@@ -1,17 +1,17 @@
 {
-  "id": "c8e0bb4b-9d30-4912-b622-2c06559555ef",
-  "uid": "consequatur-suscipit-nulla",
+  "id": "621c39d9-b3aa-4345-8b43-4fbf51496e5e",
+  "uid": "sunt-id-saepe",
   "type": "page",
   "data": {
     "Name": [
       {
         "type": "heading1",
-        "text": "Engage cutting-edge experiences",
+        "text": "Unleash B2B functionalities",
         "spans": []
       }
     ],
-    "meta_title": "maximize dot-com supply-chains",
-    "meta_description": "iterate bricks-and-clicks synergies",
+    "meta_title": "exploit enterprise e-business",
+    "meta_description": "synergize viral e-tailers",
     "social_cards": [
       {
         "social_card_image": {
@@ -21,10 +21,36 @@
           },
           "alt": "Placeholder image",
           "copyright": null,
-          "url": "https://images.unsplash.com/photo-1607582278038-6bebbd4d7b72?w=900&h=500&fit=crop"
+          "url": "https://images.unsplash.com/photo-1593642633279-1796119d5482?w=900&h=500&fit=crop"
         },
-        "social_card_title": "harness one-to-one communities",
-        "social_card_description": "monetize distributed web services"
+        "social_card_title": "drive seamless portals",
+        "social_card_description": "brand magnetic solutions"
+      },
+      {
+        "social_card_image": {
+          "dimensions": {
+            "width": 900,
+            "height": 500
+          },
+          "alt": "Placeholder image",
+          "copyright": null,
+          "url": "https://images.unsplash.com/photo-1589652717521-10c0d092dea9?w=900&h=500&fit=crop"
+        },
+        "social_card_title": "target granular relationships",
+        "social_card_description": "visualize leading-edge blockchains"
+      },
+      {
+        "social_card_image": {
+          "dimensions": {
+            "width": 900,
+            "height": 500
+          },
+          "alt": "Placeholder image",
+          "copyright": null,
+          "url": "https://images.unsplash.com/photo-1606248897732-2c5ffe759c04?w=900&h=500&fit=crop"
+        },
+        "social_card_title": "expedite integrated users",
+        "social_card_description": "scale e-business e-tailers"
       },
       {
         "social_card_image": {
@@ -36,34 +62,8 @@
           "copyright": null,
           "url": "https://images.unsplash.com/photo-1607582278038-6bebbd4d7b72?w=900&h=500&fit=crop"
         },
-        "social_card_title": "disintermediate global niches",
-        "social_card_description": "recontextualize customized infrastructures"
-      },
-      {
-        "social_card_image": {
-          "dimensions": {
-            "width": 900,
-            "height": 500
-          },
-          "alt": "Placeholder image",
-          "copyright": null,
-          "url": "https://images.unsplash.com/photo-1593642532973-d31b6557fa68?w=900&h=500&fit=crop"
-        },
-        "social_card_title": "transform scalable niches",
-        "social_card_description": "utilize bleeding-edge platforms"
-      },
-      {
-        "social_card_image": {
-          "dimensions": {
-            "width": 900,
-            "height": 500
-          },
-          "alt": "Placeholder image",
-          "copyright": null,
-          "url": "https://images.unsplash.com/photo-1576662712957-9c79ae1280f8?w=900&h=500&fit=crop"
-        },
-        "social_card_title": "extend revolutionary ROI",
-        "social_card_description": "whiteboard turn-key systems"
+        "social_card_title": "whiteboard cross-platform initiatives",
+        "social_card_description": "drive impactful experiences"
       }
     ]
   }

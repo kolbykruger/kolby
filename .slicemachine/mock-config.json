@@ -30,7 +30,13 @@
     "ArticleBlock": {},
     "CodeBlock": {},
     "Timeline": {},
-    "Artwork": {}
+    "Artwork": {},
+    "Anchors": {
+      "default-slice": {
+        "items": {},
+        "primary": {}
+      }
+    }
   },
   "_cts": {
     "page": {

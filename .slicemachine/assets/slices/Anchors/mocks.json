@@ -1,0 +1,31 @@
+[
+  {
+    "variation": "default-slice",
+    "name": "Default slice",
+    "slice_type": "anchors",
+    "items": [
+      {
+        "Index": "e-enable mission-critical e-business",
+        "Name": "scale real-time functionalities",
+        "Anchor": "benchmark bricks-and-clicks methodologies"
+      },
+      {
+        "Index": "exploit innovative channels",
+        "Name": "benchmark scalable ROI",
+        "Anchor": "aggregate bricks-and-clicks functionalities"
+      },
+      {
+        "Index": "repurpose robust e-services",
+        "Name": "transform turn-key ROI",
+        "Anchor": "architect back-end infomediaries"
+      }
+    ],
+    "primary": {
+      "Label": "embrace turn-key users",
+      "Page": {
+        "link_type": "Web",
+        "url": "https://slicemachine.dev"
+      }
+    }
+  }
+]

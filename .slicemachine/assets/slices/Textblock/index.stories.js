@@ -18,7 +18,7 @@ export const _DefaultSlice = () => ({
   },
   data() {
     return {
-      mock: {"variation":"default-slice","name":"Default slice","slice_type":"textblock","items":[],"primary":{"Index":"unleash impactful bandwidth","Eyebrow":"empower synergistic systems","title":[{"type":"heading2","text":"Mesh vertical e-business","spans":[]}],"description":[{"type":"paragraph","text":"Consequat commodo eu aute non duis deserunt laboris ad et voluptate proident laborum.","spans":[]}]},"id":"_DefaultSlice"}
+      mock: {"variation":"default-slice","name":"Default slice","slice_type":"textblock","items":[],"primary":{"Index":"orchestrate sticky niches","Eyebrow":"incentivize efficient portals","title":[{"type":"heading2","text":"Seize B2B e-business","spans":[]}],"description":[{"type":"paragraph","text":"Culpa sunt ullamco tempor dolore elit nostrud. Dolor reprehenderit incididunt magna proident. Ut excepteur minim pariatur consectetur anim.","spans":[]}]},"id":"_DefaultSlice"}
     }
   },
   template: '<SliceZone :slices="[mock]" :resolver="resolve" />'
@@ -37,7 +37,7 @@ export const _TextblockWithGridList = () => ({
   },
   data() {
     return {
-      mock: {"variation":"textblockWithGridList","name":"Textblock - with Grid List","slice_type":"textblock","items":[{"Name":"architect turn-key platforms","Outline":"harness cross-media web services"},{"Name":"brand B2C paradigms","Outline":"utilize web-enabled supply-chains"},{"Name":"architect B2C niches","Outline":"harness innovative infrastructures"},{"Name":"reinvent end-to-end methodologies","Outline":"architect strategic schemas"}],"primary":{"Index":"utilize plug-and-play markets","Eyebrow":"e-enable killer users","title":[{"type":"heading2","text":"Revolutionize strategic initiatives","spans":[]}],"description":[{"type":"paragraph","text":"Non laborum occaecat aliqua dolor labore labore deserunt reprehenderit laborum mollit est dolore veniam occaecat. Cupidatat aliqua consequat qui nisi mollit sit eiusmod qui voluptate irure in consequat sit amet aliqua.","spans":[]}]},"id":"_TextblockWithGridList"}
+      mock: {"variation":"textblockWithGridList","name":"Textblock - with Grid List","slice_type":"textblock","items":[{"Name":"seize out-of-the-box partnerships","Outline":"harness vertical synergies"},{"Name":"transition sticky action-items","Outline":"reintermediate 24/7 solutions"},{"Name":"engage cross-platform systems","Outline":"envisioneer granular technologies"}],"primary":{"Index":"mesh global functionalities","Eyebrow":"cultivate transparent experiences","title":[{"type":"heading2","text":"Mesh proactive blockchains","spans":[]}],"description":[{"type":"paragraph","text":"Minim non id laboris fugiat ea dolore enim officia qui ut. Laboris est fugiat cillum. Ullamco in labore sit voluptate culpa nulla labore aliqua excepteur.","spans":[]}]},"id":"_TextblockWithGridList"}
     }
   },
   template: '<SliceZone :slices="[mock]" :resolver="resolve" />'

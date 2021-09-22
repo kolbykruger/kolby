@@ -52,6 +52,9 @@
             },
             "gallery": {
               "type": "SharedSlice"
+            },
+            "anchors": {
+              "type": "SharedSlice"
             }
           }
         }
