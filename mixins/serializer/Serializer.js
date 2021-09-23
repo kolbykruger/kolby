@@ -4,7 +4,7 @@ export const Serializer = {
         htmlSerializer(type, element, content, children) {
             if (type == 'heading2') {
                 const id = element.text.replace(/\W+/g, '-').toLowerCase()
-                return '<h2 id="' + id + '">' + children.join('') + '</h2>'
+                return `<a class="anchor-link" name="${id}"></a><h2>${children.join('')}</h2>`
             }
         }
     }
