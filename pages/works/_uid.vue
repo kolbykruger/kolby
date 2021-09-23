@@ -1,81 +1,83 @@
 <template>
     <main class="page case-study" id="content" :data-traveler="document.data.Accent">
-        <div class="case-study-magic">
-            <span
-                class="case-study-magic-artwork"
-                :style="{ background: document.data.Accent ? document.data.Accent : '#000' }"
-            ></span>
-        </div>
+        <div class="page-contents">
+            <div class="case-study-magic">
+                <span
+                    class="case-study-magic-artwork"
+                    :style="{ background: document.data.Accent ? document.data.Accent : '#000' }"
+                ></span>
+            </div>
 
-        <Pageheading :name="document.data.Name" />
+            <Pageheading :name="document.data.Name" />
 
-        <section class="cs-intro">
-            <div class="container">
-                <h2 class="cs-tagline">{{ document.data.Tagline }}</h2>
+            <section class="cs-intro">
+                <div class="container">
+                    <h2 class="cs-tagline">{{ document.data.Tagline }}</h2>
 
-                <div class="cs-grid grid">
-                    <div>
-                        <prismic-rich-text class="cs-summary" :field="document.data.Summary" />
-                        <p class="cs-website" v-if="document.data.Website">
-                            <a
-                                data-magnetic
-                                :href="document.data.Website.url"
-                                target="_blank"
-                                rel="nofollow norefer"
-                                :style="{ color: document.data.Accent ? document.data.Accent : '#000' }"
-                            >
-                                <span>Visit website </span>
-
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    width="168"
-                                    height="169"
-                                    viewBox="0 0 168 169"
-                                    fill="none"
+                    <div class="cs-grid grid">
+                        <div>
+                            <prismic-rich-text class="cs-summary" :field="document.data.Summary" />
+                            <p class="cs-website" v-if="document.data.Website">
+                                <a
+                                    data-magnetic
+                                    :href="document.data.Website.url"
+                                    target="_blank"
+                                    rel="nofollow norefer"
+                                    :style="{ color: document.data.Accent ? document.data.Accent : '#000' }"
                                 >
-                                    <path
-                                        fill-rule="evenodd"
-                                        clip-rule="evenodd"
-                                        d="M99.841 58.9134C82.8693 62.2172 65.2546 59.7876 53.3788 49.0933 52.558 48.3541 52.5589 47.0812 53.34 46.3001L59.6444 39.9957C60.4255 39.2147 61.6876 39.2218 62.5289 39.9376 78.3822 53.4271 110.419 46.8282 127.107 31.5825 127.923 30.8375 129.185 30.8353 129.966 31.6163L130.081 31.731C130.09 31.7397 130.099 31.7486 130.108 31.7575L136.613 38.2629C137.394 39.044 137.392 40.3065 136.647 41.1219 121.396 57.8086 114.736 89.791 128.292 105.701 129.008 106.542 129.015 107.804 128.234 108.585L121.93 114.889C121.149 115.67 119.876 115.671 119.136 114.85 108.442 102.975 106.013 85.3602 109.316 68.3885L40.4466 137.258C39.6655 138.039 38.3992 138.039 37.6181 137.258L30.9713 130.611C30.1903 129.83 30.1903 128.564 30.9713 127.783L99.841 58.9134z"
-                                        :style="{ fill: document.data.Accent ? document.data.Accent : '#000' }"
-                                    />
-                                </svg>
-                            </a>
-                        </p>
-                    </div>
+                                    <span>Visit website </span>
 
-                    <div class="cs-stats">
-                        <div class="cs-stats-container">
-                            <ul class="cs-stats-group">
-                                <li class="cs-stats-label">Role</li>
-                                <li class="cs-stats-item" v-for="(role, index) in roles" :key="index">
-                                    <span>{{ role }}</span>
-                                </li>
-                            </ul>
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        width="168"
+                                        height="169"
+                                        viewBox="0 0 168 169"
+                                        fill="none"
+                                    >
+                                        <path
+                                            fill-rule="evenodd"
+                                            clip-rule="evenodd"
+                                            d="M99.841 58.9134C82.8693 62.2172 65.2546 59.7876 53.3788 49.0933 52.558 48.3541 52.5589 47.0812 53.34 46.3001L59.6444 39.9957C60.4255 39.2147 61.6876 39.2218 62.5289 39.9376 78.3822 53.4271 110.419 46.8282 127.107 31.5825 127.923 30.8375 129.185 30.8353 129.966 31.6163L130.081 31.731C130.09 31.7397 130.099 31.7486 130.108 31.7575L136.613 38.2629C137.394 39.044 137.392 40.3065 136.647 41.1219 121.396 57.8086 114.736 89.791 128.292 105.701 129.008 106.542 129.015 107.804 128.234 108.585L121.93 114.889C121.149 115.67 119.876 115.671 119.136 114.85 108.442 102.975 106.013 85.3602 109.316 68.3885L40.4466 137.258C39.6655 138.039 38.3992 138.039 37.6181 137.258L30.9713 130.611C30.1903 129.83 30.1903 128.564 30.9713 127.783L99.841 58.9134z"
+                                            :style="{ fill: document.data.Accent ? document.data.Accent : '#000' }"
+                                        />
+                                    </svg>
+                                </a>
+                            </p>
+                        </div>
 
-                            <ul class="cs-stats-group">
-                                <li class="cs-stats-label">Client</li>
-                                <li class="cs-stats-item">
-                                    <span>{{ document.data.Client || 'Client name' }}</span>
-                                </li>
-                            </ul>
+                        <div class="cs-stats">
+                            <div class="cs-stats-container">
+                                <ul class="cs-stats-group">
+                                    <li class="cs-stats-label">Role</li>
+                                    <li class="cs-stats-item" v-for="(role, index) in roles" :key="index">
+                                        <span>{{ role }}</span>
+                                    </li>
+                                </ul>
 
-                            <ul class="cs-stats-group">
-                                <li class="cs-stats-label">Date</li>
-                                <li class="cs-stats-item">
-                                    <span>{{ formatDate }}</span>
-                                </li>
-                            </ul>
+                                <ul class="cs-stats-group">
+                                    <li class="cs-stats-label">Client</li>
+                                    <li class="cs-stats-item">
+                                        <span>{{ document.data.Client || 'Client name' }}</span>
+                                    </li>
+                                </ul>
+
+                                <ul class="cs-stats-group">
+                                    <li class="cs-stats-label">Date</li>
+                                    <li class="cs-stats-item">
+                                        <span>{{ formatDate }}</span>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <!-- <Stats :document="document" /> -->
-        <slice-zone type="case-study" :uid="$route.params.uid" />
+            <!-- <Stats :document="document" /> -->
+            <slice-zone type="case-study" :uid="$route.params.uid" />
 
-        <Neighbor :page="nextCaseStudy" />
+            <Neighbor :page="nextCaseStudy" />
+        </div>
     </main>
 </template>
 

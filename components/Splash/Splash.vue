@@ -24,6 +24,11 @@ export default {
     animation: fade-out 0s ease forwards;
     animation-delay: 1s;
 
+    .page-contents {
+        animation: fade-out 0.92s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
+        animation-delay: 0s;
+    }
+
     ~ .splash {
         animation: swipe-in 0s forwards;
 
@@ -37,6 +42,12 @@ export default {
 .page-enter-active {
     animation: fade-in 0s ease forwards;
     animation-delay: 0.8s;
+
+    .page-contents {
+        opacity: 0;
+        animation: fade-in-up 0.16s ease forwards;
+        animation-delay: 0.38s;
+    }
 
     ~ .splash {
         animation: swipe-in 0s forwards;
@@ -145,6 +156,17 @@ export default {
     to {
         opacity: 0;
         visibility: hidden;
+    }
+}
+
+@keyframes fade-in-up {
+    0% {
+        opacity: 0;
+        visibility: hidden;
+    }
+    to {
+        opacity: 1;
+        visibility: visible;
     }
 }
 </style>

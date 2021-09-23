@@ -1,49 +1,51 @@
 <template>
     <main class="page" id="content">
-        <Pageheading name="Work" />
+        <div class="page-contents">
+            <Pageheading name="Work" />
 
-        <section class="work-intro">
-            <div class="container">
-                <div class="work-intro-details">
-                    <p>
-                        I've had the opportunity to work on some amazing projects with some marvelous people. I'm lucky
-                        enough to have been part of over
-                        <span style="color: var(--color-primary-base);">{{ projectsCount + 14 }}</span> creative
-                        experiences & products.
-                    </p>
+            <section class="work-intro">
+                <div class="container">
+                    <div class="work-intro-details">
+                        <p>
+                            I've had the opportunity to work on some amazing projects with some marvelous people. I'm
+                            lucky enough to have been part of over
+                            <span style="color: var(--color-primary-base);">{{ projectsCount + 14 }}</span> creative
+                            experiences & products.
+                        </p>
+                    </div>
                 </div>
-            </div>
-        </section>
-        <Scroller />
+            </section>
+            <Scroller />
 
-        <section class="case-studies" v-if="cases">
-            <div class="container">
-                <!-- <ul>
+            <section class="case-studies" v-if="cases">
+                <div class="container">
+                    <!-- <ul>
                     <li >
                         <nuxt-link :to="'/works/' + study.uid">{{ study.data.Name[0].text }}</nuxt-link>
                     </li>
                 </ul> -->
 
-                <CaseStudyItem v-for="study in cases.results" :key="study.id" :item="study" />
-            </div>
-        </section>
+                    <CaseStudyItem v-for="study in cases.results" :key="study.id" :item="study" />
+                </div>
+            </section>
 
-        <section class="projects-list" v-if="projects">
-            <div class="container">
-                <ul
-                    class="projects-group"
-                    :style="{ '--speed': projectsCount ? projectsCount * 2 + 's' : null, '--count': projectsCount }"
-                >
-                    <li class="projects-list-item" v-for="project in projects" :key="project.index">
-                        <p class="projects-list-item-index">#{{ project.index }}</p>
-                        <p class="projects-list-item-company">{{ project.company }}</p>
-                        <p class="projects-list-item-date">{{ project.date }}</p>
-                    </li>
-                </ul>
-            </div>
-        </section>
+            <section class="projects-list" v-if="projects">
+                <div class="container">
+                    <ul
+                        class="projects-group"
+                        :style="{ '--speed': projectsCount ? projectsCount * 2 + 's' : null, '--count': projectsCount }"
+                    >
+                        <li class="projects-list-item" v-for="project in projects" :key="project.index">
+                            <p class="projects-list-item-index">#{{ project.index }}</p>
+                            <p class="projects-list-item-company">{{ project.company }}</p>
+                            <p class="projects-list-item-date">{{ project.date }}</p>
+                        </li>
+                    </ul>
+                </div>
+            </section>
 
-        <!-- <slice-zone type="work" uid="work" /> -->
+            <!-- <slice-zone type="work" uid="work" /> -->
+        </div>
     </main>
 </template>
 

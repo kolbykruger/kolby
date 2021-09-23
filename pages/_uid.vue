@@ -4,8 +4,10 @@ https://www.slicemachine.dev/documentation/nuxt/add-the-slice-zone-to-your-page
 -->
 <template>
     <main class="page" id="content">
-        <Pageheading :name="document.data.Name" />
-        <slice-zone type="page" :uid="$route.params.uid" />
+        <div class="page-contents">
+            <Pageheading :name="document.data.Name" />
+            <slice-zone type="page" :uid="$route.params.uid" />
+        </div>
     </main>
 </template>
 

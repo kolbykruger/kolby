@@ -1,55 +1,57 @@
 <template>
     <main class="page articles-content" id="content">
-        <Pageheading name="Articles" />
+        <div class="page-contents">
+            <Pageheading name="Articles" />
 
-        <section class="articles-filters">
-            <div class="container">
-                <div class="articles-filters-grid">
-                    <ul class="articles-filters-categories">
-                        <li>
-                            <button
-                                data-stick
-                                data-cursor="lg"
-                                class="button"
-                                :class="{ '-active': category == 'all' }"
-                                @click="$router.push({ path: '/articles' })"
+            <section class="articles-filters">
+                <div class="container">
+                    <div class="articles-filters-grid">
+                        <ul class="articles-filters-categories">
+                            <li>
+                                <button
+                                    data-stick
+                                    data-cursor="lg"
+                                    class="button"
+                                    :class="{ '-active': category == 'all' }"
+                                    @click="$router.push({ path: '/articles' })"
+                                >
+                                    <small>Latest</small>
+                                </button>
+                            </li>
+                            <li v-for="(item, index) in categories" :key="index">
+                                <button
+                                    data-stick
+                                    data-cursor="lg"
+                                    class="button"
+                                    :class="{ '-active': category.toLowerCase() == item.toLowerCase() }"
+                                    @click="$router.push({ path: '/articles', query: { category: item } })"
+                                >
+                                    <small>{{ item }}</small>
+                                </button>
+                            </li>
+                        </ul>
+                        <p class="articles-filters-count" v-if="filteredArticles">
+                            <small
+                                >{{ filteredArticles.length }}
+                                {{ filteredArticles.length > 1 ? 'articles' : 'article' }}</small
                             >
-                                <small>Latest</small>
-                            </button>
-                        </li>
-                        <li v-for="(item, index) in categories" :key="index">
-                            <button
-                                data-stick
-                                data-cursor="lg"
-                                class="button"
-                                :class="{ '-active': category.toLowerCase() == item.toLowerCase() }"
-                                @click="$router.push({ path: '/articles', query: { category: item } })"
-                            >
-                                <small>{{ item }}</small>
-                            </button>
-                        </li>
-                    </ul>
-                    <p class="articles-filters-count" v-if="filteredArticles">
-                        <small
-                            >{{ filteredArticles.length }}
-                            {{ filteredArticles.length > 1 ? 'articles' : 'article' }}</small
-                        >
-                    </p>
+                        </p>
+                    </div>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <section class="articles">
-            <div class="container">
-                <div class="articles-grid">
-                    <ul class="articles-list" v-if="articles">
-                        <transition-group name="list-complete" tag="div">
-                            <ArticleItem v-for="article in filteredArticles" :key="article.id" :article="article" />
-                        </transition-group>
-                    </ul>
+            <section class="articles">
+                <div class="container">
+                    <div class="articles-grid">
+                        <ul class="articles-list" v-if="articles">
+                            <transition-group name="list-complete" tag="div">
+                                <ArticleItem v-for="article in filteredArticles" :key="article.id" :article="article" />
+                            </transition-group>
+                        </ul>
+                    </div>
                 </div>
-            </div>
-        </section>
+            </section>
+        </div>
     </main>
 </template>
 

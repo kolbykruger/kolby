@@ -1,42 +1,45 @@
 <template>
     <main class="page about" id="content">
-        <section class="about-intro">
-            <div class="container">
-                <h1 class="about-intro-title">
-                    <span>kolby</span>
-                    <span>kruger</span>
-                </h1>
-                <div
-                    class="about-intro-image"
-                    :style="{
-                        'aspect-ratio': document.data.Cover.dimensions.width / document.data.Cover.dimensions.height
-                    }"
-                >
-                    <prismic-image :field="document.data.Cover" />
+        <div class="page-contents">
+            <section class="about-intro">
+                <div class="container">
+                    <h1 class="about-intro-title">
+                        <span>kolby</span>
+                        <span>kruger</span>
+                    </h1>
+                    <div
+                        class="about-intro-image"
+                        :style="{
+                            'aspect-ratio': document.data.Cover.dimensions.width / document.data.Cover.dimensions.height
+                        }"
+                    >
+                        <prismic-image :field="document.data.Cover" />
+                    </div>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <section class="about-bio">
-            <div class="container">
-                <p>
-                    Hi, I'm Kolby Kruger, a twenty-eight year old from Vermont who has a passion for creativity. I'm a
-                    web designer & developer, however my interests expand into motion design, animation, and UX / UI
-                    design.
-                </p>
-                <p>
-                    I live with my girlfriend <span ref="lizzy" data-stick data-cursor="mark">Lizzy</span>, and our
-                    quirky cat,
-                    <span data-cursor-img="/wasabi.jpg" ref="wasabi" data-stick data-cursor="mark">Wasabi</span>. Most
-                    weekends you'll find us adventuring outdoors, sailing & paddleboarding in the summers, and skiing in
-                    the winters. We're avid hikers, and like to adventure and enjoy what nature has to offer.
-                </p>
-            </div>
-        </section>
+            <section class="about-bio">
+                <div class="container">
+                    <p>
+                        Hi, I'm Kolby Kruger, a twenty-eight year old from Vermont who has a passion for creativity. I'm
+                        a web designer & developer, however my interests expand into motion design, animation, and UX /
+                        UI design.
+                    </p>
+                    <p>
+                        I live with my girlfriend <span ref="lizzy" data-stick data-cursor="mark">Lizzy</span>, and our
+                        quirky cat,
+                        <span data-cursor-img="/wasabi.jpg" ref="wasabi" data-stick data-cursor="mark">Wasabi</span>.
+                        Most weekends you'll find us adventuring outdoors, sailing & paddleboarding in the summers, and
+                        skiing in the winters. We're avid hikers, and like to adventure and enjoy what nature has to
+                        offer.
+                    </p>
+                </div>
+            </section>
 
-        <slice-zone type="about" uid="about" />
+            <slice-zone type="about" uid="about" />
 
-        <canvas class="about-canvas" aria-hidden="true" ref="canvas"></canvas>
+            <canvas class="about-canvas" aria-hidden="true" ref="canvas"></canvas>
+        </div>
     </main>
 </template>
 

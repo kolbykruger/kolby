@@ -1,22 +1,24 @@
 <template>
     <main class="page article-content" id="content">
-        <Pageheading :name="document.data.Name" />
+        <div class="page-contents">
+            <Pageheading :name="document.data.Name" />
 
-        <article class="article">
-            <div class="container">
-                <div class="article-grid">
-                    <!-- <aside class="article-track"></aside> -->
-                    <div class="article-content">
-                        <slice-zone type="article" :uid="$route.params.uid" />
+            <article class="article">
+                <div class="container">
+                    <div class="article-grid">
+                        <!-- <aside class="article-track"></aside> -->
+                        <div class="article-content">
+                            <slice-zone type="article" :uid="$route.params.uid" />
+                        </div>
+                        <aside class="article-track">
+                            <ArticleDetails :document="document" />
+                            <TableOfContents :document="document" />
+                        </aside>
                     </div>
-                    <aside class="article-track">
-                        <ArticleDetails :document="document" />
-                        <TableOfContents :document="document" />
-                    </aside>
                 </div>
-            </div>
-        </article>
-        <!-- <pre><code>{{ document }}</code></pre> -->
+            </article>
+            <!-- <pre><code>{{ document }}</code></pre> -->
+        </div>
     </main>
 </template>
 
