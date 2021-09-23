@@ -1,5 +1,5 @@
 <template>
-    <div class="splash splash-loading" ref="splash" aria-hidden="true">
+    <div class="splash splash-loading" ref="splash" aria-hidden="true" :data-state="state">
         <div class="splash-fade"></div>
         <div class="splash-swipe" data-exclusion>
             <span class="splash-strap"></span>
@@ -10,11 +10,28 @@
 <script>
 export default {
     name: 'Splash',
+    methods: {
+        splash() {
+            const splash = this.$refs.splash
+            setTimeout(() => {
+                splash.classList.remove('splash-loading')
+            }, 2500)
+        }
+    },
+    computed: {
+        state(value) {
+            return this.$store.state.loading.loading
+        }
+    },
     mounted() {
-        const splash = this.$refs.splash
-        setTimeout(() => {
-            splash.classList.remove('splash-loading')
-        }, 2500)
+        this.splash()
+    },
+    watch: {
+        state: function(value) {
+            if (!value) {
+                this.splash()
+            }
+        }
     }
 }
 </script>
