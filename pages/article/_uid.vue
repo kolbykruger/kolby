@@ -10,48 +10,8 @@
                         <slice-zone type="article" :uid="$route.params.uid" />
                     </div>
                     <aside class="article-track">
-                        <div data-sticky class="article-details">
-                            <span class="article-details-background">
-                                <div class="article-details-border"></div>
-                            </span>
-                            <div class="article-details-container">
-                                <Author />
-
-                                <ul class="article-details-group">
-                                    <li class="article-details-label">Updated</li>
-                                    <li class="article-details-item">
-                                        <span>{{ formatDate }}</span>
-                                    </li>
-                                </ul>
-
-                                <ul class="article-details-group" v-if="document.data.Read">
-                                    <li class="article-details-label">Read time</li>
-                                    <li class="article-details-item">
-                                        <span
-                                            >{{ document.data.Read }}
-                                            {{ document.data.Read > 1 ? 'minutes' : 'minute' }}</span
-                                        >
-                                    </li>
-                                </ul>
-
-                                <ul class="article-details-group" v-if="document.data.Category">
-                                    <li class="article-details-label">Category</li>
-                                    <li class="article-details-item">
-                                        <span>
-                                            <nuxt-link
-                                                data-stick
-                                                data-cursor="lg"
-                                                :to="{
-                                                    path: '/articles',
-                                                    query: { category: document.data.Category }
-                                                }"
-                                                >{{ document.data.Category }}</nuxt-link
-                                            >
-                                        </span>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
+                        <ArticleDetails :document="document" />
+                        <TableOfContents :document="document" />
                     </aside>
                 </div>
             </div>
@@ -63,23 +23,18 @@
 <script>
 import SliceZone from 'vue-slicezone'
 import Pageheading from '~/components/Pageheading/Pageheading.vue'
+import ArticleDetails from '~/components/ArticleDetails/ArticleDetails.vue'
+import TableOfContents from '~/components/TableOfContents/TableOfContents.vue'
+import { Animations } from '~/mixins/animations/Animations.js'
 
 export default {
     components: {
         SliceZone,
-        Pageheading
+        Pageheading,
+        TableOfContents
     },
-    computed: {
-        formatDate() {
-            const date = new Date(this.document.last_publication_date)
-            const options = {
-                year: 'numeric',
-                day: 'numeric',
-                month: 'long'
-            }
-            return date.toLocaleDateString('en-us', options)
-        }
-    },
+    mixins: [Animations],
+    computed: {},
     async asyncData({ $prismic, params, error }) {
         const document = await $prismic.api.getByUID('article', params.uid)
         // const nextArticle = (
@@ -128,16 +83,6 @@ export default {
         }
     }
 
-    // .article-content {
-    //     > div section:first-of-type {
-    //         h2,
-    //         h3,
-    //         p {
-    //             margin-top: 0;
-    //         }
-    //     }
-    // }
-
     section {
         position: relative;
         margin: 0 auto;
@@ -181,13 +126,14 @@ export default {
         font-size: clamp(1.414rem, -0.875rem + 8.333vw, 1.414rem);
     }
 
-    &-details {
+    aside > div {
         position: relative;
         padding-left: 2em;
         padding-top: 2em;
         padding-bottom: 1px;
+        margin-bottom: 3em;
 
-        &-background {
+        .article-aside-background {
             position: absolute;
             top: 0;
             left: 0;
@@ -209,11 +155,10 @@ export default {
                 pointer-events: none;
                 background: radial-gradient(ellipse at 0% 0%, var(--color-base-0), transparent 75%);
                 opacity: 0.1;
-                filter: blur(var(--size));
             }
         }
 
-        &-border {
+        .article-aside-border {
             &::before,
             &::after {
                 content: '';
@@ -232,31 +177,6 @@ export default {
                 width: 1px;
                 height: 100%;
                 background: linear-gradient(to bottom, c('base-7'), transparent);
-            }
-        }
-
-        &-container {
-        }
-
-        &-group {
-            margin-bottom: 3vh;
-        }
-
-        &-label {
-            font-weight: 500;
-        }
-
-        &-item {
-            opacity: 0.75;
-        }
-
-        &-label,
-        &-item {
-            font-size: clamp(1.25rem, -0.875rem + 8.333vw, 1.414rem);
-
-            a {
-                text-decoration: none;
-                color: c('primary-base');
             }
         }
     }
