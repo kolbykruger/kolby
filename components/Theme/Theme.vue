@@ -41,8 +41,8 @@ export default {
     beforeMount() {
         let colorSetting = window.localStorage.getItem('theme')
         if (!colorSetting) {
-            window.localStorage.setItem('theme', 'light')
-            colorSetting = 'light'
+            window.localStorage.setItem('theme', 'dark')
+            colorSetting = 'dark'
         } else {
             window.localStorage.setItem('theme', colorSetting)
         }
