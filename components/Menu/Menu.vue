@@ -1,5 +1,5 @@
 <template>
-    <section class="menu" ref="menu" :class="{ '-open': status, '-closed': !status }">
+    <section class="menu" ref="menu" tabindex="-1" :class="{ '-open': status, '-closed': !status }">
         <div class="container">
             <div class="menu-navigation grid">
                 <nav>
