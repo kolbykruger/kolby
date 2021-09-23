@@ -51,12 +51,14 @@
 // import SliceZone from 'vue-slicezone'
 import Pageheading from '~/components/Pageheading/Pageheading.vue'
 import CaseStudyItem from '~/components/CaseStudyItem/CaseStudyItem.vue'
+import { Animations } from '~/mixins/animations/Animations.js'
 
 export default {
     components: {
         Pageheading,
         CaseStudyItem
     },
+    mixins: [Animations],
     async asyncData({ $prismic, params, error }) {
         const cases = await $prismic.api.query($prismic.predicates.at('document.type', 'case-study'), {
             orderings: '[document.first_publication_date ]'

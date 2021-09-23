@@ -42,12 +42,14 @@
 
 <script>
 import SliceZone from 'vue-slicezone'
+import { Animations } from '~/mixins/animations/Animations.js'
 
 export default {
     components: {
         //Pageheading
         SliceZone
     },
+    mixins: [Animations],
     async asyncData({ $prismic, params, error }) {
         const document = await $prismic.api.getSingle('about')
 

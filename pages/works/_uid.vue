@@ -84,6 +84,7 @@ import SliceZone from 'vue-slicezone'
 import Pageheading from '~/components/Pageheading/Pageheading.vue'
 import Neighbor from '@/components/Neighbor/Neighbor.vue'
 import { CaseStudyMeta } from '@/mixins/meta/CaseStudyMeta.js'
+import { Animations } from '~/mixins/animations/Animations.js'
 
 export default {
     mixins: [CaseStudyMeta],
@@ -92,6 +93,7 @@ export default {
         Pageheading,
         Neighbor
     },
+    mixins: [Animations],
     computed: {
         formatDate() {
             const date = new Date(this.document.data.Date)

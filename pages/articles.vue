@@ -56,6 +56,7 @@
 <script>
 // import SliceZone from 'vue-slicezone'
 import Pageheading from '~/components/Pageheading/Pageheading.vue'
+import { Animations } from '~/mixins/animations/Animations.js'
 
 export default {
     data() {
@@ -63,6 +64,7 @@ export default {
             categories: ['Code', 'Guide']
         }
     },
+    mixins: [Animations],
     components: {
         Pageheading
     },

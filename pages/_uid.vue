@@ -12,12 +12,14 @@ https://www.slicemachine.dev/documentation/nuxt/add-the-slice-zone-to-your-page
 <script>
 import Pageheading from '~/components/Pageheading/Pageheading.vue'
 import SliceZone from 'vue-slicezone'
+import { Animations } from '~/mixins/animations/Animations.js'
 
 export default {
     components: {
         Pageheading,
         SliceZone
     },
+    mixins: [Animations],
     async asyncData({ $prismic, params, error }) {
         const document = await $prismic.api.getByUID('page', params.uid)
         if (document) {
