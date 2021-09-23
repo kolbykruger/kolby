@@ -13,6 +13,12 @@ a:not([class]) {
     }
 }
 
+a[name] {
+    display: block;
+    width: 1px;
+    height: 1px;
+}
+
 .link__gradient {
     .link__gradient--colorized {
         display: inline;
