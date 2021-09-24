@@ -114,6 +114,7 @@
 
 <script>
 import { gsap } from 'gsap'
+import { CustomEase } from 'gsap/dist/CustomEase'
 import Theme from '@/components/Theme/Theme.vue'
 
 export default {
@@ -123,7 +124,12 @@ export default {
     },
     data() {
         return {
-            open: true
+            open: true,
+            routing: false,
+            timeline: null,
+            largeLinkTimeline: null,
+            smallLinkTimeline: null,
+            ease: null
         }
     },
     computed: {
@@ -134,34 +140,52 @@ export default {
             return this.$store.state.theme.mode
         }
     },
-    mounted() {},
+    mounted() {
+        gsap.registerPlugin(CustomEase)
+        this.ease = CustomEase.create('custom', 'M0,0 C0.23,1 0.32,1 1,1 ')
+
+        this.timeline = gsap.timeline()
+        this.largeLinkTimeline = gsap.timeline()
+        this.smallLinkTimeline = gsap.timeline()
+
+        const menu = this.$refs.menu
+
+        this.timeline.set(menu, {
+            y: '-100%'
+        })
+    },
     watch: {
         $route() {
+            const menu = this.$refs.menu
+            this.routing = true
+            this.timeline.to(menu, {
+                y: '-100%',
+                delay: 1,
+                duration: 0
+            })
             this.$store.commit('menu/close')
-            const bg = this.$refs.menu
-            const bgColor = bg.querySelector('.menu-background-color')
-            const bgNoise = bg.querySelector('.menu-background-noise')
-            const toColor = this.mode == 'dark' ? '#000' : '#fff'
-
-            // gsap.to(bgColor, {
-            //     background: toColor,
-            //     duration: 0.5
-            // })
-            // gsap.to(bgNoise, 0, {
-            //     opacity: 0
-            // })
-            // setTimeout(() => {
-            //     gsap.to(bgColor, {
-            //         background: '#0b0e11',
-            //         duration: 0
-            //     })
-            //     gsap.to(bgNoise, 0, {
-            //         opacity: 0.1
-            //     })
-            // }, 2000)
+            this.routing = false
         },
         status: function(value) {
+            const menu = this.$refs.menu
             this.open = value
+
+            if (this.open) {
+                this.timeline.to(menu, {
+                    y: '0%',
+                    duration: 0.8,
+                    ease: this.ease
+                })
+            } else {
+                if (!this.routing) {
+                    this.timeline.to(menu, {
+                        y: '-100%',
+                        duration: 0.6,
+                        delay: 0.45,
+                        ease: this.ease
+                    })
+                }
+            }
         }
     }
 }
@@ -176,11 +200,8 @@ export default {
     height: 110vh;
     padding-bottom: 10vh;
     z-index: 100;
-    transform: translateY(-100%);
 
     &.-open {
-        animation: menu-in 0.8s cubic-bezier(0.23, 1, 0.32, 1) forwards;
-
         .navigation {
             &-item {
                 &-bit {
@@ -199,10 +220,6 @@ export default {
     }
 
     &.-closed {
-        transform: translateY(0%);
-        animation: menu-out 0.6s cubic-bezier(0.23, 1, 0.32, 1) forwards;
-        animation-delay: 0.45s;
-
         .navigation {
             &-item {
                 &-bit {
