@@ -1,35 +1,116 @@
 <template>
-    <div class="splash splash-loading" ref="splash" aria-hidden="true" :data-state="state">
-        <div class="splash-fade"></div>
+    <div class="splash" ref="splash" aria-hidden="true">
         <div class="splash-swipe" data-exclusion>
-            <span class="splash-strap"></span>
+            <span class="splash-strap" ref="strap" :class="{ '-hidden': !initialLoad }">
+                <span class="splash-strap-text-container">
+                    <span class="splash-strap-text" ref="strapText" aria-label="kolby.">
+                        <span class="splash-strap-text-letter" data-letter="k" aria-hidden="true">k</span>
+                        <span class="splash-strap-text-letter" data-letter="o" aria-hidden="true">o</span>
+                        <span class="splash-strap-text-letter" data-letter="l" aria-hidden="true">l</span>
+                        <span class="splash-strap-text-letter" data-letter="b" aria-hidden="true">b</span>
+                        <span class="splash-strap-text-letter" data-letter="y" aria-hidden="true">y</span>
+                        <span class="splash-strap-text-letter" data-letter="." aria-hidden="true">.</span>
+                    </span>
+                </span>
+            </span>
         </div>
     </div>
 </template>
 
 <script>
+import { mapState } from 'vuex'
+import { gsap } from 'gsap'
+import { CustomEase } from 'gsap/dist/CustomEase'
+
 export default {
     name: 'Splash',
-    methods: {
-        splash() {
-            const splash = this.$refs.splash
-            setTimeout(() => {
-                splash.classList.remove('splash-loading')
-            }, 2500)
+    data() {
+        return {
+            timeline: null,
+            textTimeline: null,
+            ease: null,
+            initialLoad: true
         }
     },
     computed: {
-        state(value) {
+        page() {
+            return mapState(['page'])
+        },
+        loading() {
             return this.$store.state.loading.loading
         }
     },
     mounted() {
-        this.splash()
+        gsap.registerPlugin(CustomEase)
+
+        this.ease = CustomEase.create('custom', 'M0,0 C0.23,1 0.32,1 1,1 ')
+
+        // initial load
+        this.timeline = gsap.timeline()
+        this.textTimeline = gsap.timeline()
+        const splash = this.$refs.splash
+        const strapText = this.$refs.strapText
+
+        this.timeline
+            .set(splash, {
+                y: '0%'
+            })
+            .to(splash, {
+                y: '-100%',
+                duration: 1,
+                delay: 1.2,
+                ease: this.ease
+            })
+
+        this.textTimeline
+            .set(strapText, {
+                y: '150%',
+                rotate: '3deg'
+            })
+            .to(strapText, {
+                y: '0',
+                rotate: '0deg',
+                duration: 0.8,
+                ease: this.ease
+            })
+
+        setTimeout(() => {
+            this.textTimeline.to(strapText, {
+                y: '-150%',
+                rotate: '-3deg',
+                duration: 0.8,
+                delay: 0,
+                ease: this.ease
+            })
+            this.initialLoad = false
+        }, 900)
     },
     watch: {
-        state: function(value) {
-            if (!value) {
-                this.splash()
+        loading: function(value) {
+            const splash = this.$refs.splash
+            const strapText = this.$refs.strapText
+            if (value) {
+                this.timeline
+                    .set(splash, {
+                        y: '100%',
+                        duration: 0
+                    })
+                    .to(splash, {
+                        y: '0%',
+                        duration: 0.8,
+                        ease: this.ease
+                    })
+            } else {
+                this.timeline
+                    .set(splash, {
+                        y: '0%'
+                    })
+                    .to(splash, {
+                        y: '-100%',
+                        duration: 1,
+                        delay: 0.4,
+                        ease: this.ease
+                    })
             }
         }
     }
@@ -37,42 +118,25 @@ export default {
 </script>
 
 <style lang="scss">
-.page-leave-active {
-    animation: fade-out 0s ease forwards;
-    animation-delay: 1s;
+.page-enter-active {
+    transition-duration: 0.5s;
 
     .page-contents {
-        animation: fade-out 0.92s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
-        animation-delay: 0s;
-    }
-
-    ~ .splash {
-        animation: swipe-in 0s forwards;
-
-        .splash-swipe {
-            animation: swipe-in 0.8s cubic-bezier(0.23, 1, 0.32, 1) forwards;
-            animation-delay: 0s;
-        }
+        transition: opacity 0.25s ease-out;
+        transition-delay: 0.5s;
     }
 }
 
-.page-enter-active {
-    animation: fade-in 0s ease forwards;
-    animation-delay: 0.8s;
+.page-leave-active {
+    .page-contents {
+        transition: opacity 0.25s ease-in;
+    }
+}
 
+.page-enter,
+.page-leave-active {
     .page-contents {
         opacity: 0;
-        animation: fade-in-up 0.16s ease forwards;
-        animation-delay: 0.38s;
-    }
-
-    ~ .splash {
-        animation: swipe-in 0s forwards;
-
-        .splash-swipe {
-            animation: swipe-out 0.8s cubic-bezier(0.23, 1, 0.32, 1) forwards;
-            animation-delay: 0s;
-        }
     }
 }
 
@@ -80,110 +144,53 @@ export default {
     position: fixed;
     top: 0;
     right: 0;
-    bottom: 0;
+    height: 110%;
     left: 0;
     z-index: 199;
+    background-color: c('splash-background');
     user-select: none;
-    animation: swipe-out 0s forwards;
 
-    &-loading {
-        animation: swipe-in 0s forwards;
-
-        .splash {
-            &-fade {
-                display: block;
-                animation: fade-out 0.5s ease forwards;
-                animation-delay: 2s;
-            }
-            &-swipe {
-                animation: swipe-out 1s cubic-bezier(0.23, 1, 0.32, 1) forwards;
-                animation-delay: 1s;
-            }
-        }
-    }
-
-    &-fade {
-        position: fixed;
-        display: none;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        background-color: c('background');
-        z-index: 1;
-    }
-
-    &-swipe {
+    &-strap {
         position: fixed;
         top: 0;
         right: 0;
-        height: 110vh;
         left: 0;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background-color: c('splash-background');
-        color: c('background');
-        z-index: 2;
+        height: 100%;
+        display: grid;
+        place-content: center;
     }
 
     &-strap {
-        font-size: 10vw;
-    }
-}
+        color: c('menu-color');
+        font-size: 2vw;
+        font-family: $font-1;
+        font-weight: 600;
+        font-feature-settings: 'kern' off;
+        font-kerning: none;
+        letter-spacing: 0.025em;
+        z-index: 3;
 
-@keyframes swipe-in {
-    0% {
-        transform: translateY(100%);
-        clip-path: polygon(0 0, 100% 20%, 100% 100%, 0 100%);
-    }
-    to {
-        transform: translateY(0%);
-        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-    }
-}
+        &.-hidden {
+            .splash-strap-text {
+                animation: strap-out 0.92s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+                animation-delay: 0.3s;
+            }
+        }
 
-@keyframes swipe-out {
-    0% {
-        transform: translateY(0);
-        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 80%);
-    }
-    to {
-        transform: translateY(-100%);
-        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-    }
-}
+        &-text-container {
+            line-height: 1.2;
+            clip-path: polygon(-100% 0, 200% 0, 200% 100%, -100% 100%);
+            overflow: hidden;
+        }
 
-@keyframes fade-in {
-    0% {
-        opacity: 0;
-        visibility: hidden;
-    }
-    to {
-        opacity: 1;
-        visibility: visible;
-    }
-}
+        &-text {
+            display: inline-flex;
+            transform: translateY(150%);
 
-@keyframes fade-out {
-    0% {
-        opacity: 1;
-        visibility: visible;
-    }
-    to {
-        opacity: 0;
-        visibility: hidden;
-    }
-}
-
-@keyframes fade-in-up {
-    0% {
-        opacity: 0;
-        visibility: hidden;
-    }
-    to {
-        opacity: 1;
-        visibility: visible;
+            &-letter {
+                position: relative;
+            }
+        }
     }
 }
 </style>
