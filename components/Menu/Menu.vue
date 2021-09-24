@@ -1,5 +1,5 @@
 <template>
-    <section class="menu" ref="menu" tabindex="-1" :class="{ '-open': status, '-closed': !status }">
+    <section class="menu" ref="menu" tabindex="-1" :class="{ '-open': status, '-closed': !open }">
         <div class="container">
             <div class="menu-navigation grid">
                 <nav>
@@ -121,6 +121,11 @@ export default {
     components: {
         Theme
     },
+    data() {
+        return {
+            open: true
+        }
+    },
     computed: {
         status() {
             return this.$store.state.menu.open
@@ -138,22 +143,25 @@ export default {
             const bgNoise = bg.querySelector('.menu-background-noise')
             const toColor = this.mode == 'dark' ? '#000' : '#fff'
 
-            gsap.to(bgColor, {
-                background: toColor,
-                duration: 0.5
-            })
-            gsap.to(bgNoise, 0, {
-                opacity: 0
-            })
-            setTimeout(() => {
-                gsap.to(bgColor, {
-                    background: '#0b0e11',
-                    duration: 0
-                })
-                gsap.to(bgNoise, 0, {
-                    opacity: 0.1
-                })
-            }, 2000)
+            // gsap.to(bgColor, {
+            //     background: toColor,
+            //     duration: 0.5
+            // })
+            // gsap.to(bgNoise, 0, {
+            //     opacity: 0
+            // })
+            // setTimeout(() => {
+            //     gsap.to(bgColor, {
+            //         background: '#0b0e11',
+            //         duration: 0
+            //     })
+            //     gsap.to(bgNoise, 0, {
+            //         opacity: 0.1
+            //     })
+            // }, 2000)
+        },
+        status: function(value) {
+            this.open = value
         }
     }
 }
