@@ -127,6 +127,8 @@ export default {
             open: true,
             routing: false,
             timeline: null,
+            largeLinks: null,
+            smallLinks: null,
             largeLinkTimeline: null,
             smallLinkTimeline: null,
             ease: null
@@ -149,6 +151,8 @@ export default {
         this.smallLinkTimeline = gsap.timeline()
 
         const menu = this.$refs.menu
+        this.largeLinks = menu.querySelectorAll('.navigation-item-lg .navigation-item-bit')
+        this.smallLinks = menu.querySelectorAll('.navigation-item-sm .navigation-item-bit')
 
         this.timeline.set(menu, {
             y: '-100%'
@@ -176,6 +180,38 @@ export default {
                     duration: 0.8,
                     ease: this.ease
                 })
+
+                this.largeLinkTimeline
+                    .set(this.largeLinks, {
+                        y: '-100%',
+                        rotate: '-5deg'
+                    })
+                    .to(this.largeLinks, {
+                        y: '0%',
+                        rotate: '0deg',
+                        duration: 0.92,
+                        delay: 0.28,
+                        ease: this.ease,
+                        stagger: {
+                            amount: 0.03
+                        }
+                    })
+
+                this.smallLinkTimeline
+                    .set(this.smallLinks, {
+                        y: '-100%',
+                        rotate: '-5deg'
+                    })
+                    .to(this.smallLinks, {
+                        y: '0%',
+                        rotate: '0deg',
+                        duration: 0.92,
+                        delay: 0.48,
+                        ease: this.ease,
+                        stagger: {
+                            amount: 0.03
+                        }
+                    })
             } else {
                 if (!this.routing) {
                     this.timeline.to(menu, {
@@ -184,6 +220,38 @@ export default {
                         delay: 0.45,
                         ease: this.ease
                     })
+
+                    this.largeLinkTimeline
+                        .set(this.largeLinks, {
+                            y: '0%',
+                            rotate: '0deg'
+                        })
+                        .to(this.largeLinks, {
+                            y: '-150%',
+                            rotate: '-5deg',
+                            duration: 0.92,
+                            delay: 0.08,
+                            ease: this.ease,
+                            stagger: {
+                                amount: 0.03
+                            }
+                        })
+
+                    this.smallLinkTimeline
+                        .set(this.smallLinks, {
+                            y: '0%',
+                            rotate: '0deg'
+                        })
+                        .to(this.smallLinks, {
+                            y: '-150%',
+                            rotate: '-5deg',
+                            duration: 0.92,
+                            delay: 0.06,
+                            ease: this.ease,
+                            stagger: {
+                                amount: 0.03
+                            }
+                        })
                 }
             }
         }
@@ -202,14 +270,6 @@ export default {
     z-index: 100;
 
     &.-open {
-        .navigation {
-            &-item {
-                &-bit {
-                    animation: link-in 0.92s cubic-bezier(0.23, 1, 0.32, 1) forwards;
-                }
-            }
-        }
-
         .menu {
             &-background {
                 &-artwork {
@@ -220,30 +280,6 @@ export default {
     }
 
     &.-closed {
-        .navigation {
-            &-item {
-                &-bit {
-                    transform: translateY(0%);
-                    animation: link-out 0.66s cubic-bezier(0.23, 1, 0.32, 1) forwards;
-                }
-
-                &-lg {
-                    @for $i from 1 through 3 {
-                        &:nth-child(#{$i}) .navigation-item-bit {
-                            animation-delay: $i * 0.03s + 0.08s;
-                        }
-                    }
-                }
-                &-sm {
-                    @for $i from 1 through 4 {
-                        &:nth-child(#{$i}) .navigation-item-bit {
-                            animation-delay: $i * 0.03s + 0.06s;
-                        }
-                    }
-                }
-            }
-        }
-
         .menu {
             &-background {
                 &-artwork {
@@ -271,12 +307,6 @@ export default {
 
             path {
                 fill: c('menu-color');
-            }
-
-            &.-tiny {
-                --size: 0.75em;
-                width: var(--size);
-                height: var(--size);
             }
         }
     }
@@ -396,22 +426,25 @@ export default {
             }
 
             &-lg {
-                font-size: 4.5vw;
+                font-size: 20vw;
                 font-family: $font-1;
 
-                @for $i from 1 through 3 {
-                    &:nth-child(#{$i}) .navigation-item-bit {
-                        animation-delay: $i * 0.03s + 0.28s;
-                    }
+                @media (min-width: 600px) {
+                    font-size: 7vw;
+                }
+                @media (min-width: 960px) {
+                    font-size: 7vw;
+                }
+                @media (min-width: 1600px) {
+                    font-size: 4.5vw;
                 }
             }
             &-sm {
+                display: none;
                 padding-right: 5vw;
 
-                @for $i from 1 through 4 {
-                    &:nth-child(#{$i}) .navigation-item-bit {
-                        animation-delay: $i * 0.03s + 0.48s;
-                    }
+                @media (min-width: 600px) {
+                    display: block;
                 }
 
                 a {
@@ -452,46 +485,6 @@ export default {
                 position: relative;
                 display: inline-flex;
             }
-        }
-    }
-
-    @keyframes menu-in {
-        0% {
-            transform: translateY(-100%);
-            clip-path: polygon(0 0, 100% 0, 100% 80%, 0% 100%);
-        }
-        to {
-            transform: translateY(0%);
-            clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-        }
-    }
-
-    @keyframes menu-out {
-        0% {
-            transform: translateY(0%);
-            clip-path: polygon(0 0, 100% 0, 100% 100%, 0 80%);
-        }
-        to {
-            transform: translateY(-100%);
-            clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-        }
-    }
-
-    @keyframes link-in {
-        0% {
-            transform: translate(0%, -150%) rotate(-5deg);
-        }
-        to {
-            transform: translate(0%, 0%) rotate(0deg);
-        }
-    }
-
-    @keyframes link-out {
-        0% {
-            transform: translate(0%, 0%) rotate(0deg);
-        }
-        to {
-            transform: translate(0%, -150%) rotate(-5deg);
         }
     }
 
