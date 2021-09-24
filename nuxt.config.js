@@ -117,6 +117,7 @@ export default {
     },
     //scrollToTop: true,
     router: {
+        middleware: 'pages',
         scrollBehavior
     }
 }
