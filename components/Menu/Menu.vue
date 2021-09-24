@@ -334,9 +334,12 @@ export default {
 
         &-noise {
             z-index: 3;
-            background-image: url('/noise/noise.gif');
-            opacity: 0.1;
-            mix-blend-mode: overlay;
+
+            @media (min-width: 768px) {
+                background-image: url('/noise/noise.gif');
+                opacity: 0.1;
+                mix-blend-mode: overlay;
+            }
         }
 
         &-artwork {
