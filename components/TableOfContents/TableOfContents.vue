@@ -69,7 +69,7 @@ export default {
         this.$nextTick(() => {
             setTimeout(() => {
                 this.getAnchorLinks()
-            }, 1100)
+            }, 500)
         })
     },
     updated() {
