@@ -23,6 +23,7 @@ import { Caption } from '~/mixins/cursor/Caption.js'
 import { Move } from '~/mixins/cursor/Move.js'
 import { State } from '~/mixins/cursor/State.js'
 import { Reset } from '~/mixins/cursor/Reset.js'
+import { mapGetters } from 'vuex'
 
 export default {
     name: 'Pointer',
@@ -30,32 +31,46 @@ export default {
         counter: Number
     },
     mixins: [Cursor, Visibility, Interactivity, Size, Magnetic, Stick, Invisible, Shift, Caption, Move, State, Reset],
-    data() {
-        return {
-            enabled: false
-        }
-    },
     computed: {
         loadingStatus() {
             return this.$store.state.loading.loading
-        }
-    },
-    methods: {
+        },
         checkPerformance() {
             try {
-                var canvas = document.createElement('canvas')
+                const canvas = document.createElement('canvas')
                 return (
-                    !!window.WebGLRenderingContext &&
-                    (canvas.getContext('webgl') || canvas.getContext('experimental-webgl'))
+                    (!!window.WebGLRenderingContext && canvas.getContext('webgl')) ||
+                    canvas.getContext('experimental-webgl')
                 )
             } catch (e) {
                 return false
             }
         },
+        checkPointer() {
+            return window.matchMedia('(pointer: fine)').matches
+        },
+        checkHover() {
+            return window.matchMedia('(hover: hover)').matches
+        },
+        checkSize() {
+            return window.matchMedia('(min-width: 968px)').matches
+        },
+        deviceCheck() {
+            const arr = {
+                performance: this.checkPerformance,
+                pointer: this.checkPointer,
+                hover: this.checkHover,
+                size: this.checkSize
+            }
+            return Object.values(arr).every(Boolean)
+        }
+    },
+    methods: {
         initPointer() {
-            if (!this.enabled) {
+            if (!this.deviceCheck) {
                 return false
             }
+
             this.$nextTick(() => {
                 setTimeout(() => {
                     this.sizes()
@@ -73,8 +88,7 @@ export default {
         this.initPointer()
     },
     mounted() {
-        //Check device performance
-        this.enabled = this.checkPerformance() ? true : false
+        this.initPointer()
     },
     watch: {
         $route() {

@@ -98,6 +98,9 @@ export const Magnetic = {
         }
     },
     mounted() {
+        if (!this.deviceCheck) {
+            return false
+        }
         this.magnetics()
     }
 }

@@ -36,6 +36,14 @@ export const Stick = {
         }
     },
     mounted() {
+        if (!this.deviceCheck) {
+            return false
+        }
         this.sticks()
+    },
+    watch: {
+        $route() {
+            this.stick.active = false
+        }
     }
 }
