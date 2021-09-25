@@ -119,7 +119,8 @@ export default {
 
 <style lang="scss">
 .page-enter-active {
-    transition-duration: 0.5s;
+    transition-duration: opacity 0.25s ease-out;
+    transition-delay: 1s;
 
     .page-contents {
         transition: opacity 0.25s ease-out;
@@ -135,6 +136,8 @@ export default {
 
 .page-enter,
 .page-leave-active {
+    opacity: 0;
+
     .page-contents {
         opacity: 0;
     }
