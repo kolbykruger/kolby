@@ -9,11 +9,13 @@
                     <small>Table of contents</small>
                 </li>
                 <li class="toc-list-item" v-for="(link, index) in links" :key="index">
-                    <nuxt-link :to="{ path: path, hash: hash(link.id) }">
+                    <nuxt-link :to="{ path: path, hash: hash(link.id) }" :class="{ '-active': checkActive(link) }">
                         {{ link.name ? link.name : link.id }}
                     </nuxt-link>
                 </li>
             </ul>
+            <pre><code>{{ activeItem }}</code></pre>
+            <pre><code>{{ links[1] }}</code></pre>
         </div>
     </div>
 </template>
@@ -26,7 +28,8 @@ export default {
     },
     data() {
         return {
-            links: []
+            links: [],
+            activeItem: null
         }
     },
     computed: {
@@ -42,7 +45,6 @@ export default {
             return str.replace(/\W+/g, '-').toLowerCase()
         },
         getAnchorLinks() {
-            console.log('RUNNING')
             this.links = []
 
             const anchors = document.querySelectorAll('a[name]')
@@ -50,18 +52,39 @@ export default {
             anchors.forEach(item => {
                 const id = item.getAttribute('name')
                 const name = item.nextElementSibling.textContent
+                const offset = item.getBoundingClientRect().top - 10
                 this.links.push({
                     id,
-                    name
+                    name,
+                    offset
                 })
             })
 
             if (this.links.length > 0) {
                 this.links.unshift({
                     id: 'content',
-                    name: 'Top'
+                    name: 'Top',
+                    offset: 0
                 })
                 this.$refs.toc.classList.add('-active')
+            }
+
+            window.addEventListener('scroll', event => {
+                const arr = this.links.filter(item => {
+                    return item.offset <= window.scrollY
+                })
+                const [activeItem] = arr.slice(-1)
+                this.activeItem = [activeItem]
+            })
+        },
+        checkActive(item) {
+            if (this.activeItem) {
+                const name = item.name ? item.name : item.id
+                const ai = item.name ? this.activeItem[0].name : this.activeItem[0].id
+                if (name == ai) {
+                    return true
+                }
+                return false
             }
         }
     },
@@ -124,14 +147,29 @@ export default {
             }
 
             a {
+                position: relative;
                 display: inline-flex;
                 text-decoration: none;
                 padding: 0.25em 0;
                 color: c('base-0');
                 transition: 0.66s cubic-bezier(0.075, 0.82, 0.165, 1);
 
-                &:hover,
-                &:focus {
+                &.-active {
+                    &::before {
+                        content: '';
+                        position: absolute;
+                        right: 100%;
+                        top: 50%;
+                        --size: 7px;
+                        width: var(--size);
+                        height: var(--size);
+                        border-radius: 50%;
+                        background: c('primary-base');
+                        transform: translate(-150%, -100%);
+                    }
+                }
+
+                &:hover {
                     color: c('primary-base');
                 }
             }
