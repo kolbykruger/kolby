@@ -1,6 +1,7 @@
 <template>
     <section class="menu" ref="menu" tabindex="-1" :class="{ '-open': status, '-closed': !open }">
         <div class="menu-background">
+            <span class="menu-background-noise"></span>
             <span class="menu-background-artwork"></span>
             <span class="menu-background-color"></span>
         </div>
@@ -282,7 +283,7 @@ export default {
         .menu {
             &-background {
                 &-artwork {
-                    animation: artwork-out 0.33s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+                    animation: artwork-out 0.92s cubic-bezier(0.23, 1, 0.32, 1) forwards;
                 }
             }
         }
@@ -350,6 +351,7 @@ export default {
         height: 100%;
         z-index: -1;
 
+        &-noise,
         &-artwork,
         &-color {
             position: absolute;
@@ -358,6 +360,16 @@ export default {
             width: 100%;
             height: 100%;
             pointer-events: none;
+        }
+
+        &-noise {
+            z-index: 3;
+
+            @media (min-width: 768px) {
+                background-image: url('/noise/noise.gif');
+                opacity: 0.1;
+                mix-blend-mode: overlay;
+            }
         }
 
         &-artwork {
