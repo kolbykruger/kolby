@@ -124,6 +124,8 @@ export default {
 
 .projects-list {
     min-height: 30vh;
+    max-width: 100%;
+    overflow: hidden;
 
     .container {
         position: relative;
