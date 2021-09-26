@@ -10,12 +10,10 @@ if (!smConfig.apiEndpoint) {
 const { getStoriesPaths } = require('slice-machine-ui/helpers/storybook')
 
 export default {
-    // Target (https://go.nuxtjs.dev/config-target)
     target: 'static',
     globalName: 'app',
-    // Global page headers (https://go.nuxtjs.dev/config-head)
     head: {
-        title: 'Home - Kolby Kruger',
+        title: 'Home // Kolby Kruger',
         meta: [
             {
                 charset: 'utf-8'
@@ -38,7 +36,6 @@ export default {
             }
         ]
     },
-    // Global CSS (https://go.nuxtjs.dev/config-css)
     css: [
         '@/assets/css/vendors/preflight.scss',
         '@/assets/css/style.scss',
@@ -48,18 +45,10 @@ export default {
     styleResources: {
         scss: ['@/assets/css/internals.scss']
     },
-    // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
-    plugins: [
-        { src: '~/plugins/flickity.js', ssr: false }
-        // { src: '~/plugins/prism', mode: 'client' }
-    ],
-    // Auto import components (https://go.nuxtjs.dev/config-components)
+    plugins: [{ src: '~/plugins/flickity.js', ssr: false }],
     components: true,
-    // Modules for dev and build (recommended) (https://go.nuxtjs.dev/config-modules)
     buildModules: ['@nuxt/image'],
-    // Transpile
     transpile: ['gsap', 'three'],
-    // Modules (https://go.nuxtjs.dev/config-modules)
     modules: [
         '@nuxt/image',
         '@nuxtjs/style-resources',
@@ -82,18 +71,15 @@ export default {
     generate: {
         fallback: true
     },
-    // Build Configuration (https://go.nuxtjs.dev/config-build)
     build: {
         transpile: ['vue-slicezone', 'nuxt-sm']
     },
     storybook: {
-        stories: [...getStoriesPaths() /*...*/]
+        stories: [...getStoriesPaths()]
     },
     image: {
         provider: 'prismic',
-        prismic: {
-            //baseURL: 'https://images.unsplash.com'
-        },
+        prismic: {},
         screens: {
             sm: 600,
             md: 800,
@@ -103,14 +89,6 @@ export default {
         }
     },
     loading: '~/components/Loading/Loading.vue',
-    // Transitions
-    // pageTransition: {
-    //     name: 'page',
-    //     mode: 'out-in',
-    //     beforeEnter(el) {
-    //         console.log('Before enter...')
-    //     }
-    // }
     pageTransition: {
         name: 'page',
         mode: 'out-in'
