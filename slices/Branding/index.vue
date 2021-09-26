@@ -91,10 +91,26 @@ export default {
         justify-content: flex-end;
         padding: 10%;
 
+        // &::before {
+        //     content: '';
+        //     position: absolute;
+        //     top: 0;
+        //     left: 0;
+        //     width: 100%;
+        //     height: 100%;
+        //     background: url('/noise/noise-2.png');
+        //     z-index: 1;
+        //     mix-blend-mode: overlay;
+        //     pointer-events: none;
+        //     opacity: 0.1;
+        // }
+
         p {
+            position: relative;
             mix-blend-mode: difference;
             margin: 0;
             font-weight: 500;
+            z-index: 2;
 
             html[theme='dark'] & {
                 mix-blend-mode: multiply;
