@@ -1,12 +1,12 @@
 <template>
     <div class="layout-default">
         <Accessibility />
+        <Traveler :counter="counter" />
         <Header />
         <Menu />
         <Nuxt />
         <Footer />
         <Splash />
-        <Traveler :counter="counter" />
         <Pointer :counter="counter" />
     </div>
 </template>

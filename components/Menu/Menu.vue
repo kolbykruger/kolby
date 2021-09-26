@@ -1,5 +1,9 @@
 <template>
     <section class="menu" ref="menu" tabindex="-1" :class="{ '-open': status, '-closed': !open }">
+        <div class="menu-background">
+            <span class="menu-background-artwork"></span>
+            <span class="menu-background-color"></span>
+        </div>
         <div class="container">
             <div class="menu-navigation grid">
                 <nav>
@@ -103,11 +107,6 @@
                     </p>
                 </aside>
             </div>
-        </div>
-        <div class="menu-background">
-            <span class="menu-background-noise"></span>
-            <span class="menu-background-artwork"></span>
-            <span class="menu-background-color"></span>
         </div>
     </section>
 </template>
@@ -351,7 +350,6 @@ export default {
         height: 100%;
         z-index: -1;
 
-        &-noise,
         &-artwork,
         &-color {
             position: absolute;
@@ -360,16 +358,6 @@ export default {
             width: 100%;
             height: 100%;
             pointer-events: none;
-        }
-
-        &-noise {
-            z-index: 3;
-
-            @media (min-width: 768px) {
-                background-image: url('/noise/noise.gif');
-                opacity: 0.1;
-                mix-blend-mode: overlay;
-            }
         }
 
         &-artwork {

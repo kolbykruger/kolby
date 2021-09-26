@@ -114,18 +114,12 @@ export default {
 
 <style lang="scss">
 .traveler {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
     pointer-events: none;
     user-select: none;
     mix-blend-mode: overlay;
-    z-index: 1;
 
     span {
-        position: absolute;
+        position: fixed;
         top: 0;
         left: 0;
         width: 100%;
@@ -134,20 +128,21 @@ export default {
     }
 
     &-background {
+        z-index: -1;
     }
 
     &-noise {
-        z-index: 2;
+        z-index: 1000;
 
         @media (min-width: 768px) {
             background-image: url('/noise/noise.gif');
             background-size: auto;
             background-repeat: repeat;
-            opacity: 0.3;
+            opacity: 0.1;
         }
 
         html[theme='dark'] & {
-            opacity: 0.2;
+            opacity: 0.1;
         }
     }
 }

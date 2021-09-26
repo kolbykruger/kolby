@@ -88,7 +88,7 @@ export default {
 
                 &::before {
                     top: 0.55em;
-                    left: -0.75em;
+                    left: -0.5em;
                     width: 1.5em;
                     height: 0.35em;
                 }
@@ -111,6 +111,20 @@ export default {
             height: 1px;
             background: c('base-7');
         }
+
+        @media (max-width: 640px) {
+            grid-template-columns: 100%;
+            grid-template-rows: repeat(var(--count), 1fr);
+            grid-gap: 5vh;
+
+            &::before {
+                right: auto;
+                top: 0.55em;
+                bottom: 0;
+                height: 100%;
+                width: 1px;
+            }
+        }
     }
 
     &-item {
@@ -125,6 +139,17 @@ export default {
             width: 0.35em;
             height: 1.5em;
             background: c('base-0');
+        }
+
+        @media (max-width: 640px) {
+            padding: 0 3.75em;
+
+            &::before {
+                top: 0.55em;
+                left: -0.5em;
+                width: 1.5em;
+                height: 0.35em;
+            }
         }
     }
 

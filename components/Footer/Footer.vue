@@ -130,11 +130,13 @@ export default {
         display: flex;
         align-items: center;
         justify-content: space-between;
+        flex-flow: row wrap;
     }
 
     &-links {
         display: flex;
         align-items: center;
+        flex-flow: row wrap;
         gap: 2em;
         margin-bottom: 0;
         padding-bottom: 0;
