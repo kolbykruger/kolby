@@ -11,14 +11,14 @@
                     <ul ref="navLarge" class="navigation-items navigation-items-lg">
                         <li class="navigation-item navigation-item-lg">
                             <div class="navigation-item-bit">
-                                <nuxt-link data-cursor="lg" class="navigation-link" to="/work">
+                                <nuxt-link data-cursor="md" class="navigation-link" to="/work">
                                     <span data-text="Work">Work</span>
                                 </nuxt-link>
                             </div>
                         </li>
                         <li class="navigation-item navigation-item-lg">
                             <div class="navigation-item-bit">
-                                <nuxt-link data-cursor="lg" class="navigation-link" to="/process">
+                                <nuxt-link data-cursor="md" class="navigation-link" to="/process">
                                     <span data-text="Process">Process</span>
                                 </nuxt-link>
                             </div>
@@ -26,7 +26,7 @@
                         <li class="navigation-item navigation-item-lg">
                             <div class="navigation-item-bit">
                                 <nuxt-link class="navigation-link" to="/about">
-                                    <span data-cursor="lg" data-text="About">About</span>
+                                    <span data-cursor="md" data-text="About">About</span>
                                 </nuxt-link>
                             </div>
                         </li>
@@ -433,15 +433,19 @@ export default {
                 font-size: 20vw;
                 font-family: $font-1;
 
-                @media (min-width: 600px) {
-                    font-size: 7vw;
-                }
-                @media (min-width: 960px) {
-                    font-size: 7vw;
-                }
-                @media (min-width: 1600px) {
-                    font-size: 4.5vw;
-                }
+                font-size: clamp(3.052rem, -0.875rem + 8.333vw, 4.5vw);
+
+                // @media (min-width: 600px) {
+                //     font-size: 7vw;
+                // }
+                // @media (min-width: 960px) {
+                //     font-size: 7vw;
+                // }
+                // @media (min-width: 1600px) {
+                //     font-size: 4.5vw;
+                //     font-size: clamp(3.052rem, -0.875rem + 8.333vw, 7.451rem);
+
+                // }
             }
             &-sm {
                 display: none;
