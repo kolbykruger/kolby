@@ -133,13 +133,10 @@ export default {
 
     &-noise {
         z-index: 1000;
-
-        @media (min-width: 768px) {
-            background-image: url('/noise/noise.gif');
-            background-size: auto;
-            background-repeat: repeat;
-            opacity: 0.1;
-        }
+        background-image: url('/noise/noise.gif');
+        background-size: auto;
+        background-repeat: repeat;
+        opacity: 0.3;
 
         html[theme='dark'] & {
             opacity: 0.1;

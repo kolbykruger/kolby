@@ -268,6 +268,7 @@ export default {
     height: 110vh;
     padding-bottom: 10vh;
     z-index: 100;
+    will-change: transform;
 
     &.-open {
         .menu {
@@ -383,6 +384,7 @@ export default {
             transform: translate(-25%, -25%);
             opacity: 0.3;
             transition: background 0.66s cubic-bezier(0.075, 0.82, 0.165, 1);
+            will-change: opacity;
 
             html[theme='dark'] & {
                 background: c('primary-base');
@@ -423,6 +425,7 @@ export default {
                 position: relative;
                 display: inline-flex;
                 transform: translateY(-100%);
+                will-change: transform;
             }
 
             &-lg {
