@@ -14,7 +14,7 @@ export async function scrollBehavior(to, from, savedPosition) {
         let el = await findElem(to.hash)
 
         if ('scrollBehavior' in document.documentElement.style) {
-            const offset = el.getBoundingClientRect().top + window.scrollY
+            const offset = el.getBoundingClientRect().top + window.scrollY - 32
             return window.scrollTo({ top: offset, behavior: 'smooth' })
         } else {
             return window.scrollTo(0, el.offsetTop)

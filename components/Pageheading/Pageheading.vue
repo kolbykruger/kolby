@@ -46,7 +46,7 @@ export default {
         h1 {
             transform: translateY(150%);
             animation: pageheading-in 0.92s cubic-bezier(0.23, 1, 0.32, 1) forwards;
-            animation-delay: 0.12s;
+            animation-delay: 1.32s;
 
             @keyframes pageheading-in {
                 0% {

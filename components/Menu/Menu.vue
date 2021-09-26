@@ -11,22 +11,22 @@
                     <ul ref="navLarge" class="navigation-items navigation-items-lg">
                         <li class="navigation-item navigation-item-lg">
                             <div class="navigation-item-bit">
-                                <nuxt-link data-magnetic="0.1, 0.1, 0.08" class="navigation-link" to="/work">
+                                <nuxt-link data-cursor="lg" class="navigation-link" to="/work">
                                     <span data-text="Work">Work</span>
                                 </nuxt-link>
                             </div>
                         </li>
                         <li class="navigation-item navigation-item-lg">
                             <div class="navigation-item-bit">
-                                <nuxt-link data-magnetic="0.1, 0.1, 0.08" class="navigation-link" to="/process">
+                                <nuxt-link data-cursor="lg" class="navigation-link" to="/process">
                                     <span data-text="Process">Process</span>
                                 </nuxt-link>
                             </div>
                         </li>
                         <li class="navigation-item navigation-item-lg">
                             <div class="navigation-item-bit">
-                                <nuxt-link data-magnetic="0.1, 0.1, 0.08" class="navigation-link" to="/about">
-                                    <span data-text="About">About</span>
+                                <nuxt-link class="navigation-link" to="/about">
+                                    <span data-cursor="lg" data-text="About">About</span>
                                 </nuxt-link>
                             </div>
                         </li>
@@ -368,7 +368,7 @@ export default {
 
             @media (min-width: 768px) {
                 background-image: url('/noise/noise.gif');
-                opacity: 0.1;
+                opacity: 0.15;
                 mix-blend-mode: overlay;
             }
         }
@@ -419,7 +419,8 @@ export default {
         }
         &-item {
             margin-bottom: 0;
-            clip-path: polygon(-100% 0, 200% 0, 200% 100%, -100% 100%);
+            //clip-path: polygon(-100% 0, 200% 0, 200% 100%, -100% 100%);
+            overflow: hidden;
 
             &-bit {
                 position: relative;

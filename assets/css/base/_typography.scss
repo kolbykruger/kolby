@@ -15,7 +15,8 @@ li,
 table,
 small {
     // font-size: clamp(1.25rem, calc(#{1rem} + 0.5vw), 1.414rem);
-    font-size: clamp(1.25rem, -0.875rem + 8.333vw, 1.999rem);
+    // font-size: clamp(1.25rem, -0.875rem + 8.333vw, 1.999rem);
+    font-size: clamp(1.563rem, -0.875rem + 8.333vw, 1.953rem);
     line-height: 1.375;
     margin-bottom: 0.5rem;
     font-weight: 400;
@@ -42,31 +43,55 @@ p {
 }
 
 small {
-    font-size: clamp(1.25rem, -0.875rem + 8.333vw, 1.414rem);
+    font-size: clamp(1.25rem, -0.875rem + 8.333vw, 1.563rem);
 }
+
+// h1 {
+//     font-family: $font-1;
+//     font-size: clamp(3.998rem, -0.875rem + 8.333vw, 7.993rem); //11.302rem
+//     font-weight: 600;
+// }
+
+// h2 {
+//     font-family: $font-1;
+//     font-size: clamp(3.998rem, -0.875rem + 8.333vw, 5.653rem);
+//     font-weight: 600;
+// }
+
+// h3 {
+//     font-size: clamp(3.998rem, -0.875rem + 8.333vw, 3.998rem);
+// }
+
+// h4 {
+//     font-size: clamp(3.998rem, -0.875rem + 8.333vw, 2.827rem);
+// }
+
+// h5 {
+//     font-size: clamp(3.998rem, -0.875rem + 8.333vw, 1.999rem);
+// }
 
 h1 {
     font-family: $font-1;
-    font-size: clamp(3.998rem, -0.875rem + 8.333vw, 7.993rem); //11.302rem
+    font-size: clamp(3.815rem, -0.875rem + 8.333vw, 11.642rem);
     font-weight: 600;
 }
 
 h2 {
     font-family: $font-1;
-    font-size: clamp(3.998rem, -0.875rem + 8.333vw, 5.653rem);
+    font-size: clamp(3.052rem, -0.875rem + 8.333vw, 5.96rem);
     font-weight: 600;
 }
 
 h3 {
-    font-size: clamp(3.998rem, -0.875rem + 8.333vw, 3.998rem);
+    font-size: clamp(2.441rem, -0.875rem + 8.333vw, 3.815rem);
 }
 
 h4 {
-    font-size: clamp(3.998rem, -0.875rem + 8.333vw, 2.827rem);
+    font-size: clamp(1.953rem, -0.875rem + 8.333vw, 2.441rem);
 }
 
 h5 {
-    font-size: clamp(3.998rem, -0.875rem + 8.333vw, 1.999rem);
+    font-size: clamp(1.563rem, -0.875rem + 8.333vw, 1.953rem);
 }
 
 h1,

@@ -76,6 +76,7 @@ export default {
     }
 
     &-title {
+        margin-bottom: 0;
     }
 
     &-subtitle {

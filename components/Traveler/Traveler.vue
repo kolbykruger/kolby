@@ -136,10 +136,10 @@ export default {
         background-image: url('/noise/noise.gif');
         background-size: auto;
         background-repeat: repeat;
-        opacity: 0.3;
+        opacity: 0.4;
 
         html[theme='dark'] & {
-            opacity: 0.1;
+            opacity: 0.12;
         }
     }
 }

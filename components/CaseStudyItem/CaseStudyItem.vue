@@ -53,13 +53,23 @@ export default {
 .case-study-card {
     display: flex;
     align-items: center;
+    flex-flow: row wrap;
     gap: 3em;
-    margin-bottom: 15vh;
+    margin-bottom: 5vh;
+
+    @include mq('desktop-small') {
+        margin-bottom: 15vh;
+    }
 
     &-cover {
-        flex: 3;
-        order: 1;
         aspect-ratio: 3 / 2;
+        margin-left: -30px;
+        margin-right: -30px;
+
+        @include mq('desktop-small') {
+            flex: 3;
+            order: 1;
+        }
 
         a {
             display: block;
@@ -83,8 +93,19 @@ export default {
 
     &-details {
         position: relative;
-        flex: 2;
-        max-width: 50%;
+
+        @include mq('desktop-small') {
+            flex: 2;
+            max-width: 50%;
+        }
+    }
+
+    &-title {
+        margin-top: 0;
+
+        @include mq('desktop-small') {
+            max-width: 80%;
+        }
     }
 
     &-link {
@@ -92,9 +113,13 @@ export default {
         display: inline-flex;
         align-items: center;
         height: 64px;
-        margin-top: 1.5em;
+        margin-top: 0.5em;
         text-decoration: none;
         color: c('base-0');
+
+        @include mq('desktop-small') {
+            margin-top: 1.5em;
+        }
 
         svg {
             margin-left: 0.4em;

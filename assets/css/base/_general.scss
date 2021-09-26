@@ -32,25 +32,25 @@ article {
         margin: 0 auto;
         padding: 0 20px;
 
-        @media (min-width: 360px) {
+        @include mq('phone-small') {
             padding: 0 30px;
         }
-        @media (min-width: 768px) {
+        @include mq('phone-large') {
             padding: 0 100px;
         }
-        @media (min-width: 1024px) {
+        @include mq('laptop-small') {
             padding: 0 120px;
         }
-        @media (min-width: 1200px) {
+        @include mq('laptop') {
             padding: 0 150px;
         }
-        @media (min-width: 1350px) {
+        @include mq('laptop-large') {
             padding: 0 180px;
         }
-        @media (min-width: 1600px) {
+        @include mq('desktop-small') {
             padding: 0 220px;
         }
-        @media (min-width: 1920px) {
+        @include mq('desktop') {
             padding: 0 270px;
         }
     }

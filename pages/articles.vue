@@ -108,7 +108,8 @@ export default {
         .pageheading {
             .container {
                 max-width: calc(50em + 18em + 6em);
-                padding: 0;
+                padding-left: 0;
+                padding-right: 0;
             }
         }
     }
