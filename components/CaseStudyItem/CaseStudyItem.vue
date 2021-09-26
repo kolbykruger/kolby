@@ -63,8 +63,6 @@ export default {
 
     &-cover {
         aspect-ratio: 3 / 2;
-        margin-left: -30px;
-        margin-right: -30px;
 
         @include mq('desktop-small') {
             flex: 3;
