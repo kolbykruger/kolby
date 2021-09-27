@@ -44,7 +44,7 @@
                 <div class="container">
                     <div class="articles-grid">
                         <ul class="articles-list" v-if="articles">
-                            <transition-group name="list-complete" tag="div">
+                            <transition-group name="fade" tag="div">
                                 <ArticleItem v-for="article in filteredArticles" :key="article.id" :article="article" />
                             </transition-group>
                         </ul>
@@ -107,9 +107,11 @@ export default {
     &-content {
         .pageheading {
             .container {
-                max-width: calc(50em + 18em + 6em);
-                padding-left: 0;
-                padding-right: 0;
+                @include mq('laptop-large') {
+                    max-width: calc(50em + 18em + 6em);
+                    padding-left: 0;
+                    padding-right: 0;
+                }
             }
         }
     }
@@ -122,12 +124,15 @@ export default {
 
         &-grid {
             position: relative;
-            display: grid;
-            grid-template-columns: 50em 18em;
-            grid-gap: 6em;
-            place-content: center;
-            max-width: calc(50em + 18em + 6em);
-            margin: 0 auto;
+
+            @include mq('laptop-large') {
+                display: grid;
+                grid-template-columns: 50em 18em;
+                grid-gap: 6em;
+                place-content: center;
+                max-width: calc(50em + 18em + 6em);
+                margin: 0 auto;
+            }
 
             &::after {
                 content: '';
@@ -152,6 +157,7 @@ export default {
                 button {
                     position: relative;
                     margin-right: 1em;
+                    padding: 0 0.25em;
                     color: c('base-4');
                     outline: none;
 
@@ -182,24 +188,33 @@ export default {
         }
 
         &-count {
-            text-align: right;
-            padding-right: 0.5em;
+            display: none;
+
+            @include mq('laptop-large') {
+                display: block;
+                text-align: right;
+                padding-right: 0.5em;
+            }
         }
     }
 
     &-grid {
-        display: grid;
-        grid-template-columns: 50em 18em;
-        grid-gap: 6em;
-        place-content: center;
-        max-width: calc(50em + 18em + 6em);
-        margin: 0 auto;
+        @include mq('laptop-large') {
+            display: grid;
+            grid-template-columns: 50em 18em;
+            grid-gap: 6em;
+            place-content: center;
+            max-width: calc(50em + 18em + 6em);
+            margin: 0 auto;
+        }
     }
 
     &-list {
         list-style: none;
         padding: 0;
         margin: 0;
+        display: flex;
+        flex-flow: column;
     }
 
     &-categories {
@@ -209,19 +224,19 @@ export default {
     }
 }
 
-.list-complete-item {
-    transition: all 1s;
-    display: inline-block;
-    margin-right: 10px;
+.fade-enter-active,
+.fade-leave-active {
+    transition: all 0.5s;
 }
 
-.list-complete-enter,
-.list-complete-leave-to {
+.fade-enter,
+.fade-leave-to {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(1em);
 }
 
-.list-complete-leave-active {
+.fade-leave-active {
     position: absolute;
+    opacity: 0;
 }
 </style>

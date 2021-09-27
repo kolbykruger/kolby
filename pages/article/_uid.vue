@@ -64,19 +64,25 @@ export default {
 
         .pageheading {
             .container {
-                max-width: calc(50em + 18em + 6em);
-                padding-left: 0;
-                padding-right: 0;
+                @include mq('laptop-large') {
+                    max-width: calc(50em + 18em + 6em);
+                    padding-left: 0;
+                    padding-right: 0;
+                }
             }
         }
     }
 
     .article-grid {
-        display: grid;
-        //grid-template-columns: auto 800px auto;
-        grid-template-columns: 50em 18em;
-        grid-gap: 6em;
-        place-content: center;
+        display: flex;
+        flex-direction: column-reverse;
+
+        @include mq('laptop-large') {
+            display: grid;
+            grid-template-columns: 50em 18em;
+            grid-gap: 6em;
+            place-content: center;
+        }
     }
 
     .article-track {

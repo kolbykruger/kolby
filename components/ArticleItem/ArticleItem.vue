@@ -66,7 +66,7 @@ export default {
         }
 
         &-title {
-            font-size: clamp(3.998rem, -0.875rem + 8.333vw, 3.998rem);
+            font-size: clamp(3.052rem, -0.875rem + 8.333vw, 3.815rem);
             margin: 0;
             margin-bottom: 0.25em;
             transition: color 0.66s cubic-bezier(0.075, 0.82, 0.165, 1);

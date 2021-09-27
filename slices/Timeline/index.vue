@@ -99,56 +99,58 @@ export default {
     &-rail {
         position: relative;
         display: grid;
-        grid-template-columns: repeat(var(--count), 1fr);
-        grid-gap: 3em;
+        grid-template-rows: repeat(var(--count), 1fr);
+        grid-gap: 5vh;
 
         &::before {
             content: '';
             position: absolute;
-            left: 0;
-            right: 0;
-            top: 0;
-            height: 1px;
+            right: auto;
+            top: 0.55em;
+            bottom: 0;
+            height: 100%;
+            width: 1px;
             background: c('base-7');
         }
 
-        @media (max-width: 640px) {
-            grid-template-columns: 100%;
-            grid-template-rows: repeat(var(--count), 1fr);
-            grid-gap: 5vh;
+        @include mq('tablet') {
+            grid-template-columns: repeat(var(--count), 1fr);
+            grid-template-rows: 100%;
+            grid-gap: 3em;
 
             &::before {
-                right: auto;
-                top: 0.55em;
-                bottom: 0;
-                height: 100%;
-                width: 1px;
+                left: 0;
+                right: 0;
+                top: 0;
+                height: 1px;
+                width: 100%;
             }
         }
     }
 
     &-item {
         position: relative;
-        padding: 3em 0;
+        padding: 0;
+        padding-left: 2.75em;
 
         &::before {
             content: '';
             position: absolute;
-            top: -0.75em;
-            left: 0;
-            width: 0.35em;
-            height: 1.5em;
+            top: 0.55em;
+            left: -0.5em;
+            width: 1.5em;
+            height: 0.35em;
             background: c('base-0');
         }
 
-        @media (max-width: 640px) {
-            padding: 0 3.75em;
+        @include mq('tablet') {
+            padding: 3em 0;
 
             &::before {
-                top: 0.55em;
-                left: -0.5em;
-                width: 1.5em;
-                height: 0.35em;
+                top: -0.75em;
+                left: 0;
+                width: 0.35em;
+                height: 1.5em;
             }
         }
     }
@@ -163,13 +165,11 @@ export default {
         font-family: $font-2;
         font-size: 1.125rem;
         font-weight: 500;
-        //text-transform: uppercase;
         margin-bottom: 1.5em;
         color: c('base-5');
     }
 
     &-title {
-        //width: min-content;
         max-width: 60%;
         line-height: 1.2;
 
@@ -179,12 +179,16 @@ export default {
     }
 
     &-summary {
-        max-width: 50em;
+        @media (min-width: 640px) {
+            max-width: 50em;
+        }
+
+        @include mq('tablet') {
+            max-width: 80%;
+        }
 
         & > p {
-            //font-family: $font-2;
             font-size: 1.5rem;
-            //text-transform: uppercase;
             margin-top: 1em;
             color: c('base-5');
         }

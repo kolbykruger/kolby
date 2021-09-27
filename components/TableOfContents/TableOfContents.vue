@@ -14,8 +14,6 @@
                     </nuxt-link>
                 </li>
             </ul>
-            <pre><code>{{ activeItem }}</code></pre>
-            <pre><code>{{ links[1] }}</code></pre>
         </div>
     </div>
 </template>
