@@ -17,13 +17,15 @@ dl,
 li,
 table,
 small {
-    // font-size: clamp(1.25rem, calc(#{1rem} + 0.5vw), 1.414rem);
-    // font-size: clamp(1.25rem, -0.875rem + 8.333vw, 1.999rem);
-    font-size: clamp(1.563rem, -0.875rem + 8.333vw, 1.953rem);
-    line-height: 1.375;
+    font-size: clamp(1.375rem, -0.875rem + 8.333vw, 1.953rem);
+    line-height: 1.45;
     margin-bottom: 0.5rem;
     font-weight: 400;
     color: c('base-5');
+
+    @include mq('tablet') {
+        line-height: 1.275;
+    }
 
     + h2,
     + h3,
@@ -46,7 +48,7 @@ p {
 }
 
 small {
-    font-size: clamp(1.25rem, -0.875rem + 8.333vw, 1.563rem);
+    font-size: clamp(1.125rem, -0.875rem + 8.333vw, 1.563rem);
 }
 
 // h1 {
