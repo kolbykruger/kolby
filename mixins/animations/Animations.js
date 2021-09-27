@@ -38,7 +38,7 @@ export const Animations = {
                     scrollTrigger: {
                         trigger: el,
                         start: 'top bottom',
-                        markers: false,
+                        markers: true,
                         animation: this.tl,
                         onEnter: ({ self, progress, direction, isActive }) => {
                             // gsap.to(el, {
