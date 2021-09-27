@@ -1,12 +1,10 @@
 <template>
-    <section class="pageheading">
-        <div class="container" :data-type="type">
-            <div class="pageheading-name" v-if="typeof name == 'object'">
-                <h1>{{ name[0].text }}</h1>
-            </div>
-
-            <div class="pageheading-name" v-else>
-                <h1>{{ name || 'Pageheading' }}</h1>
+    <section class="pageheading" ref="pageheading">
+        <div class="container">
+            <div class="pageheading-name">
+                <h1 aria-hidden="true" :aria-label="pagename" class="pageheading-title" ref="pageheadingTitle">
+                    {{ pagename }}
+                </h1>
             </div>
         </div>
     </section>
@@ -14,6 +12,8 @@
 
 <script>
 import { gsap } from 'gsap'
+import { SplitText } from 'gsap/dist/SplitText'
+import { CustomEase } from 'gsap/dist/CustomEase'
 
 export default {
     name: 'pageheading',
@@ -21,13 +21,35 @@ export default {
         name: [String, Object, Array]
     },
     computed: {
-        type() {
-            return typeof this.name
-        },
-        letter() {
-            const type = this.type
-            return type == 'object' ? this.name[0].text.charAt(0) : this.name.charAt(0)
+        pagename() {
+            let name = typeof this.name == 'object' ? this.name[0].text : this.name
+            return name
         }
+    },
+    mounted() {
+        gsap.registerPlugin(SplitText)
+        gsap.registerPlugin(CustomEase)
+        const ease = CustomEase.create('custom', 'M0,0 C0.23,1 0.32,1 1,1 ')
+        const tl = gsap.timeline()
+        const title = this.$refs.pageheadingTitle
+        const splitText = new SplitText(title, {
+            type: 'lines,words,chars',
+            charsClass: 'pageheading-char',
+            wordsClass: 'pageheading-word',
+            linesClass: 'pageheading-line'
+        })
+        tl.set(splitText.chars, {
+            y: '100%'
+        }).staggerTo(
+            splitText.chars,
+            1,
+            {
+                y: '0%',
+                ease: ease,
+                delay: 1.4
+            },
+            0.014
+        )
     }
 }
 </script>
@@ -41,22 +63,17 @@ export default {
     }
 
     &-name {
-        clip-path: polygon(-100% 0, 200% 0, 200% 100%, -100% 100%);
+        max-width: 80em;
+    }
 
-        h1 {
-            transform: translateY(150%);
-            animation: pageheading-in 0.92s cubic-bezier(0.23, 1, 0.32, 1) forwards;
-            animation-delay: 1.32s;
+    &-title {
+    }
 
-            @keyframes pageheading-in {
-                0% {
-                    transform: translate(0%, 150%) rotate(5deg);
-                }
-                100% {
-                    transform: translate(0%, 0%) rotate(0deg);
-                }
-            }
-        }
+    &-line {
+        overflow: hidden;
+    }
+
+    &-word {
     }
 }
 </style>
