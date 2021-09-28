@@ -5,15 +5,16 @@
 
             <section class="articles-filters">
                 <div class="container">
-                    <div class="articles-filters-grid">
+                    <div class="articles-filters-grid" ref="articlesFilterGrid">
                         <ul class="articles-filters-categories">
                             <li>
                                 <button
                                     data-stick
                                     data-cursor="lg"
                                     class="button"
-                                    :class="{ '-active': category == 'all' }"
-                                    @click="$router.push({ path: '/articles' })"
+                                    data-category=""
+                                    :class="{ '-active': !category }"
+                                    @click=";[filterArticles($event, null)]"
                                 >
                                     <small>Latest</small>
                                 </button>
@@ -23,12 +24,14 @@
                                     data-stick
                                     data-cursor="lg"
                                     class="button"
-                                    :class="{ '-active': category.toLowerCase() == item.toLowerCase() }"
-                                    @click="$router.push({ path: '/articles', query: { category: item } })"
+                                    :data-category="item.toLowerCase()"
+                                    :class="{ '-active': category == item.toLowerCase() }"
+                                    @click=";[filterArticles($event, item)]"
                                 >
                                     <small>{{ item }}</small>
                                 </button>
                             </li>
+                            <span class="articles-filters-categories-marker" ref="marker"></span>
                         </ul>
                         <p class="articles-filters-count" v-if="filteredArticles">
                             <small
@@ -57,13 +60,16 @@
 
 <script>
 // import SliceZone from 'vue-slicezone'
+import { gsap } from 'gsap'
+import { CustomEase } from 'gsap/dist/CustomEase'
 import Pageheading from '~/components/Pageheading/Pageheading.vue'
 import { Animations } from '~/mixins/animations/Animations.js'
 
 export default {
     data() {
         return {
-            categories: ['Code', 'Guide']
+            categories: ['Code', 'Guide'],
+            ease: null
         }
     },
     mixins: [Animations],
@@ -93,7 +99,56 @@ export default {
         },
         category() {
             const category = this.$route.query.category
-            return category ? category : 'all'
+            return category ? category.toLowerCase() : null
+        },
+        path() {
+            return this.$route.path
+        }
+    },
+    methods: {
+        filterArticles(event, item) {
+            const path = this.path
+            const hash = item ? item : null
+            const query = hash ? { category: hash } : null
+            this.$router.push({ path: path, query: query })
+
+            const marker = this.$refs.marker
+            const bounds = event.target.getBoundingClientRect()
+            const afBounds = this.$refs.articlesFilterGrid.getBoundingClientRect()
+
+            this.moveMarker(marker, bounds.left - afBounds.left, bounds.width)
+        },
+        moveMarker(elem, x, width) {
+            gsap.to(elem, 0.66, {
+                x: x - 8 + 'px',
+                width: width + 16 + 'px',
+                ease: this.ease
+            })
+        }
+    },
+    mounted() {
+        gsap.registerPlugin(CustomEase)
+        this.ease = CustomEase.create('custom', 'M0,0 C0.23,1 0.32,1 1,1 ')
+
+        const category = this.category
+
+        const marker = this.$refs.marker
+        const afBounds = this.$refs.articlesFilterGrid.getBoundingClientRect()
+        if (category) {
+            const elem = document.querySelector(
+                `.articles-filters-categories button[data-category="${category.toLowerCase()}"`
+            )
+
+            if (elem) {
+                const bounds = elem.getBoundingClientRect()
+                this.moveMarker(marker, bounds.left - afBounds.left, bounds.width)
+            }
+        } else {
+            const elem = document.querySelector(`.articles-filters-categories button[data-category=""]`)
+            if (elem) {
+                const bounds = elem.getBoundingClientRect()
+                this.moveMarker(marker, bounds.left - afBounds.left, bounds.width)
+            }
         }
     }
 }
@@ -146,16 +201,30 @@ export default {
         }
 
         &-categories {
+            position: relative;
             display: flex;
             flex-flow: row wrap;
             align-items: center;
             margin-bottom: 0;
 
+            &-marker {
+                //--width: 80px;
+                position: absolute;
+                top: calc(100% - 2px);
+                left: 0;
+                display: inline-block;
+                height: 5px;
+                //width: var(--width);
+                //transform: translateX(var(--offset));
+                transition: 0.66s cubic-bezier(0.075, 0.82, 0.165, 1);
+                background: c('base-0');
+                z-index: 2;
+            }
+
             li {
                 margin-bottom: 0;
 
                 button {
-                    position: relative;
                     margin-right: 1em;
                     padding: 0 0.25em;
                     color: c('base-4');
@@ -170,17 +239,6 @@ export default {
 
                         html[theme='dark'] & {
                             color: c('base-0');
-                        }
-
-                        &::after {
-                            content: '';
-                            position: absolute;
-                            top: 100%;
-                            left: 0;
-                            width: 100%;
-                            height: 6px;
-                            background: c('base-0');
-                            z-index: 2;
                         }
                     }
                 }
