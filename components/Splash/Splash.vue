@@ -165,13 +165,17 @@ export default {
 
     &-strap {
         color: c('menu-color');
-        font-size: 2vw;
+        font-size: 10vw;
         font-family: $font-1;
         font-weight: 600;
         font-feature-settings: 'kern' off;
         font-kerning: none;
         letter-spacing: 0.025em;
         z-index: 3;
+
+        @include mq('tablet') {
+            font-size: 2vw;
+        }
 
         &.-hidden {
             .splash-strap-text {

@@ -6,7 +6,7 @@
             <span class="menu-background-color"></span>
         </div>
         <div class="container">
-            <div class="menu-navigation grid">
+            <div class="menu-navigation">
                 <nav>
                     <ul ref="navLarge" class="navigation-items navigation-items-lg">
                         <li class="navigation-item navigation-item-lg">
@@ -86,7 +86,7 @@
                                 </a>
                             </div>
                         </li>
-                        <li class="navigation-item navigation-item-sm">
+                        <li class="navigation-item navigation-item-sm navigation-item-sm--theme">
                             <div class="navigation-item-bit">
                                 <Theme />
                             </div>
@@ -294,6 +294,18 @@ export default {
         height: 100%;
     }
 
+    nav {
+        width: 100%;
+    }
+
+    aside {
+        display: none;
+
+        @include mq('tablet') {
+            display: block;
+        }
+    }
+
     a {
         display: inline-flex;
         text-decoration: none;
@@ -398,11 +410,18 @@ export default {
     }
 
     &-navigation {
-        display: grid;
-        grid-template-columns: 3fr 1fr;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
         height: 100%;
-        align-items: end;
-        padding-bottom: 10vh;
+        align-items: center;
+
+        @include mq('tablet') {
+            display: grid;
+            align-items: end;
+            grid-template-columns: 3fr 1fr;
+            padding-bottom: 10vh;
+        }
     }
 
     .navigation {
@@ -414,7 +433,12 @@ export default {
             }
             &-sm {
                 display: flex;
-                align-items: center;
+                flex-direction: column;
+
+                @include mq('tablet') {
+                    flex-direction: row;
+                    align-items: center;
+                }
             }
         }
         &-item {
@@ -448,16 +472,27 @@ export default {
                 // }
             }
             &-sm {
-                display: none;
                 padding-right: 5vw;
 
-                @media (min-width: 600px) {
+                @include mq('tablet') {
                     display: block;
                 }
 
                 a {
                     &::after {
                         display: none;
+                    }
+                }
+
+                &--theme {
+                    position: absolute;
+                    bottom: 4.5em;
+                    right: 0;
+
+                    @include mq('tablet') {
+                        position: relative;
+                        bottom: auto;
+                        right: auto;
                     }
                 }
             }
