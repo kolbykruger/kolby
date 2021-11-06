@@ -34,7 +34,7 @@ export default {
 <style lang="scss">
 .footer {
     position: relative;
-    padding: 6vh 0 18vh;
+    padding-bottom: 18vh;
     z-index: 2;
 
     .container {
