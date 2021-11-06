@@ -3,13 +3,13 @@ $colors: (
     menu: (
         background: #0b0e11,
         color: #f4f1ee,
-        navicon: #0b0e11
+        navicon: #0b0e11,
     ),
     splash: (
-        background: #000000
+        background: #000000,
     ),
     traveler: (
-        background: #f4f1ee
+        background: #f4f1ee,
     ),
     base: (
         0: #0b0e11,
@@ -21,17 +21,35 @@ $colors: (
         6: #8b97ac,
         7: #b1bac8,
         8: #d8dce3,
-        9: #eceef1
+        9: #eceef1,
     ),
     primary: (
-        lightest: lighten(tomato, 24%),
-        lighter: lighten(tomato, 16%),
-        light: lighten(tomato, 8%),
-        base: tomato,
-        dark: darken(tomato, 8%),
-        darker: darken(tomato, 16%),
-        darkest: darken(tomato, 24%)
-    )
+        lightest: lighten(#f87853, 24%),
+        lighter: lighten(#f87853, 16%),
+        light: lighten(#f87853, 8%),
+        base: #f87853,
+        dark: darken(#f87853, 8%),
+        darker: darken(#f87853, 16%),
+        darkest: darken(#f87853, 24%),
+    ),
+    secondary: (
+        lightest: lighten(#8e76dc, 24%),
+        lighter: lighten(#8e76dc, 16%),
+        light: lighten(#8e76dc, 8%),
+        base: #8e76dc,
+        dark: darken(#8e76dc, 8%),
+        darker: darken(#8e76dc, 16%),
+        darkest: darken(#8e76dc, 24%),
+    ),
+    tertiary: (
+        lightest: lighten(#fbb254, 24%),
+        lighter: lighten(#fbb254, 16%),
+        light: lighten(#fbb254, 8%),
+        base: #fbb254,
+        dark: darken(#fbb254, 8%),
+        darker: darken(#fbb254, 16%),
+        darkest: darken(#fbb254, 24%),
+    ),
 );
 
 $dark: (
@@ -39,13 +57,13 @@ $dark: (
     menu: (
         background: #0b0e11,
         color: #f4f1ee,
-        navicon: #f4f1ee
+        navicon: #f4f1ee,
     ),
     splash: (
-        background: #000000
+        background: #000000,
     ),
     traveler: (
-        background: #13161b
+        background: #13161b,
     ),
     base: (
         9: #0b0e11,
@@ -57,17 +75,8 @@ $dark: (
         3: #8b97ac,
         2: #b1bac8,
         1: #d8dce3,
-        0: #eceef1
+        0: #eceef1,
     ),
-    primary: (
-        lightest: lighten(tomato, 24%),
-        lighter: lighten(tomato, 16%),
-        light: lighten(tomato, 8%),
-        base: tomato,
-        dark: darken(tomato, 8%),
-        darker: darken(tomato, 16%),
-        darkest: darken(tomato, 24%)
-    )
 );
 
 // primary: (
