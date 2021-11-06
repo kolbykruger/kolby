@@ -1,6 +1,6 @@
 <template>
     <div data-stick data-cursor="xxl" class="compass">
-        <a href="">
+        <a href="mailto:kolbykruger@gmail.com">
             <div class="compass-spinner">
                 <svg
                     enable-background="new 0 0 612 792"
@@ -129,7 +129,7 @@
                     />
                 </svg>
             </div>
-            <div class="compass-spoiler">
+            <div data-magnetic data-stick class="compass-spoiler">
                 <span class="compass-spoiler-passive">Say hello</span>
                 <span class="compass-spoiler-active">hi@kolby.dev</span>
             </div>
@@ -151,6 +151,7 @@ export default {
     margin-left: auto;
     margin-right: 0;
     transform: translateY(25%);
+    clip-path: circle(50% at 50% 50%);
     overflow: hidden;
 
     a {
@@ -161,7 +162,7 @@ export default {
         &:focus {
             .compass {
                 &-spinner {
-                    animation-play-state: paused;
+                    // animation-play-state: paused;
                 }
                 &-spoiler {
                     &-passive {
@@ -223,7 +224,7 @@ export default {
         &-active {
             opacity: 0;
             transform: translateY(150%);
-            color: c('tertiary-base');
+            color: c('primary-base');
         }
 
         &-passive {
@@ -235,6 +236,7 @@ export default {
             display: grid;
             place-content: center;
             font-size: 3vw;
+            color: c('base-0');
         }
     }
 }
