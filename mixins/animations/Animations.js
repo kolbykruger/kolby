@@ -20,6 +20,7 @@ export const Animations = {
         },
         getAnimations() {
             const sections = document.querySelectorAll('[data-anim]')
+            console.log(sections)
 
             if (!sections) {
                 return false
@@ -38,13 +39,18 @@ export const Animations = {
                     scrollTrigger: {
                         trigger: el,
                         start: 'top bottom',
-                        markers: true,
+                        markers: false,
                         animation: this.tl,
-                        onEnter: ({ self, progress, direction, isActive }) => {
-                            // gsap.to(el, {
-                            //     rotate: +180
+                        onEnter: () => {
+                            el.classList.add('anim--active')
+                            // gsap.to(el, 0.95, {
+                            //     y: '0%',
+                            //     rotateX: 0,
+                            //     d: 0,
+                            //     opacity: 1,
+                            //     ease: 'Power2.easeOut',
+                            //     delay: 1.16
                             // })
-                            self.isActive
                         }
                     }
                 })
