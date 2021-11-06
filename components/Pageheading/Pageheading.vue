@@ -1,5 +1,5 @@
 <template>
-    <section class="pageheading" :class="size ? 'pageheading-size-' + size : ''" ref="pageheading">
+    <section class="pageheading" v-if="name" :class="size ? 'pageheading-size-' + size : ''" ref="pageheading">
         <div class="container">
             <div class="pageheading-name">
                 <h1 aria-hidden="true" :aria-label="pagename" class="pageheading-title" ref="pageheadingTitle">
@@ -23,7 +23,7 @@ export default {
     },
     computed: {
         pagename() {
-            let name = typeof this.name == 'object' ? this.name[0].text : this.name
+            let name = this.name ? (typeof this.name == 'object' ? this.name[0].text : this.name) : ''
             return name
         },
     },
