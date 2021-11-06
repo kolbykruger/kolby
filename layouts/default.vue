@@ -23,7 +23,7 @@ import Traveler from '@/components/Traveler/Traveler.vue'
 export default {
     data() {
         return {
-            counter: 0
+            counter: 0,
         }
     },
     components: {
@@ -33,12 +33,12 @@ export default {
         Footer,
         Pointer,
         Splash,
-        Traveler
+        Traveler,
     },
     watch: {
         $route() {
             this.counter++
-        }
-    }
+        },
+    },
 }
 </script>
