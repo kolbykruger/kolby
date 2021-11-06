@@ -7,7 +7,7 @@
                 I have a passion for design, programming, motion animation, and web apps.
             </p>
         </div>
-        <span class="introduction-noise"></span>
+        <!-- <span class="introduction-noise"></span>
         <span class="introduction-line">
             <svg xmlns="http://www.w3.org/2000/svg" width="1440" height="614" viewBox="0 0 1440 614" fill="none">
                 <path
@@ -33,7 +33,7 @@
                     </linearGradient>
                 </defs>
             </svg>
-        </span>
+        </span> -->
         <!-- <canvas ref="canvas"></canvas> -->
     </section>
 </template>
@@ -54,7 +54,7 @@ export default {
     align-items: center;
     justify-content: flex-start;
     min-height: 100vh;
-    background: c('background');
+    // background: c('background');
     overflow: hidden;
 
     .container {
@@ -86,40 +86,40 @@ export default {
         max-width: 18em;
     }
 
-    &-noise {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        // background-image: url('/noise/noise-2.png');
-        background-image: url('/noise/noise-2.png');
-        background-size: auto;
-        background-repeat: repeat;
-        mix-blend-mode: overlay;
-        // opacity: 0.2;
-        opacity: 0.3;
-        pointer-events: none;
-        user-select: none;
-        z-index: 3;
-    }
+    // &-noise {
+    //     position: absolute;
+    //     top: 0;
+    //     left: 0;
+    //     width: 100%;
+    //     height: 100%;
+    //     // background-image: url('/noise/noise-2.png');
+    //     background-image: url('/noise/noise-2.png');
+    //     background-size: auto;
+    //     background-repeat: repeat;
+    //     mix-blend-mode: overlay;
+    //     // opacity: 0.2;
+    //     opacity: 0.3;
+    //     pointer-events: none;
+    //     user-select: none;
+    //     z-index: 3;
+    // }
 
-    &-line {
-        position: absolute;
-        top: 0;
-        left: -10vw;
-        width: 120vw;
-        height: 100%;
-        pointer-events: none;
-        user-select: none;
-        z-index: 2;
-        opacity: 0.3;
+    // &-line {
+    //     position: absolute;
+    //     top: 0;
+    //     left: -10vw;
+    //     width: 120vw;
+    //     height: 100%;
+    //     pointer-events: none;
+    //     user-select: none;
+    //     z-index: 2;
+    //     opacity: 0.3;
 
-        svg {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-    }
+    //     svg {
+    //         width: 100%;
+    //         height: 100%;
+    //         object-fit: cover;
+    //     }
+    // }
 }
 </style>
