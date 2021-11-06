@@ -1,5 +1,5 @@
 <template>
-    <section class="pageheading" ref="pageheading">
+    <section class="pageheading" :class="size ? 'pageheading-size-' + size : ''" ref="pageheading">
         <div class="container">
             <div class="pageheading-name">
                 <h1 aria-hidden="true" :aria-label="pagename" class="pageheading-title" ref="pageheadingTitle">
@@ -18,13 +18,14 @@ import { CustomEase } from 'gsap/dist/CustomEase'
 export default {
     name: 'pageheading',
     props: {
-        name: [String, Object, Array]
+        name: [String, Object, Array],
+        size: String,
     },
     computed: {
         pagename() {
             let name = typeof this.name == 'object' ? this.name[0].text : this.name
             return name
-        }
+        },
     },
     mounted() {
         gsap.registerPlugin(SplitText)
@@ -36,12 +37,12 @@ export default {
             type: 'lines,words,chars',
             charsClass: 'pageheading-char',
             wordsClass: 'pageheading-word',
-            linesClass: 'pageheading-line'
+            linesClass: 'pageheading-line',
         })
         tl.set(splitText.chars, {
             y: '100%',
             rotateX: 110,
-            d: 1300
+            d: 1300,
         }).staggerTo(
             splitText.chars,
             0.95,
@@ -50,11 +51,11 @@ export default {
                 rotateX: 0,
                 d: 0,
                 ease: 'Power2.easeOut',
-                delay: 1.16
+                delay: 1.16,
             },
             0.014
         )
-    }
+    },
 }
 </script>
 
@@ -64,6 +65,12 @@ export default {
 
     .container {
         padding-top: 10vh;
+    }
+
+    &-size-small {
+        h1 {
+            font-size: clamp(3.815rem, -0.875rem + 8.333vw, 7.451rem);
+        }
     }
 
     &-name {
