@@ -2,17 +2,24 @@
     <section class="gallery">
         <div class="container">
             <prismic-rich-text :field="slice.primary.title" class="title" />
-            <prismic-rich-text :field="slice.primary.description" />
+            <prismic-rich-text :field="slice.primary.description" v-if="slice.primary.description" />
 
             <div class="gallery-items grid grid-col-4 grid-gap-lg">
-                <div class="gallery-item" v-for="(item, i) in slice.items" :key="`slice-item-${i}`">
+                <div
+                    class="gallery-item"
+                    :class="'gallery-item-' + item.Size.toLowerCase()"
+                    v-for="(item, i) in slice.items"
+                    :key="`slice-item-${i}`"
+                >
                     <div
                         class="gallery-img"
                         :style="{
-                            'aspect-ratio': item.Image.crop.dimensions.width / item.Image.crop.dimensions.height
+                            'aspect-ratio': item.Image.crop.dimensions.width / item.Image.crop.dimensions.height,
                         }"
                     >
                         <a @click.prevent="expandImage(item.Image)" data-cursor="lg">
+                            <link rel="prefetch" :href="item.Image.url" />
+                            <!-- <link rel="preload" :href="item.Image.url" /> -->
                             <prismic-image :field="item.Image.crop" />
                             <span class="gallery-expand-icon">
                                 <svg
@@ -91,20 +98,20 @@ export default {
             required: true,
             default() {
                 return {}
-            }
-        }
+            },
+        },
     },
     data() {
         return {
             expanded: null,
             focus: null,
-            loaded: false
+            loaded: false,
         }
     },
     computed: {
         mode() {
             return this.$store.state.theme.mode
-        }
+        },
     },
     methods: {
         expandImage(img) {
@@ -118,8 +125,8 @@ export default {
         },
         imageLoaded() {
             this.loaded = true
-        }
-    }
+        },
+    },
 }
 </script>
 
@@ -135,6 +142,11 @@ export default {
 
     &-item {
         position: relative;
+
+        &-large {
+            grid-column: span 2;
+            grid-row: span 2;
+        }
 
         a {
             display: block;

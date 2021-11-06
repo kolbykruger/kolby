@@ -1,5 +1,5 @@
 <template>
-    <section class="textblock">
+    <section class="textblock" data-anim>
         <div class="container">
             <div class="textblock-snap">
                 <p class="textblock-eyebrow" v-if="slice.primary.Index">

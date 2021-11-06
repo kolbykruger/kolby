@@ -41,6 +41,16 @@ export default {
         h5 {
             margin-top: 0;
         }
+
+        h3,
+        h4,
+        h5 {
+            font-weight: 400;
+
+            @media (min-width: 768px) {
+                max-width: 52vw;
+            }
+        }
     }
 }
 </style>

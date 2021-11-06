@@ -2,7 +2,7 @@
     <section class="rail" :class="[background, variation]">
         <div class="container" v-if="slice.primary.Title">
             <prismic-rich-text class="rail-title" :field="slice.primary.Title" />
-            <prismic-rich-text class="rail-summary" :field="slice.primary.Summary" />
+            <prismic-rich-text class="rail-summary" :field="slice.primary.Summary" v-if="slice.primary.Summary" />
         </div>
         <div class="rail-container" data-cursor="invisible">
             <!-- <button
@@ -86,8 +86,8 @@ export default {
             required: true,
             default() {
                 return {}
-            }
-        }
+            },
+        },
     },
     data() {
         return {
@@ -101,9 +101,9 @@ export default {
                 prevNextButtons: false,
                 pageDots: false,
                 selectedAttraction: 0.01,
-                friction: 0.2
+                friction: 0.2,
             },
-            selectedIndex: 0
+            selectedIndex: 0,
         }
     },
     computed: {
@@ -112,13 +112,13 @@ export default {
         },
         variation() {
             return 'rail-' + this.slice.variation.toLowerCase()
-        }
+        },
     },
     methods: {
         formatDate(d) {
             const date = new Date(d)
             const options = {
-                year: 'numeric'
+                year: 'numeric',
             }
             return date.toLocaleDateString('en-us', options)
         },
@@ -139,9 +139,9 @@ export default {
         },
         imageWidth(image) {
             return image ? image.dimensions.width / 4 : null
-        }
+        },
     },
-    mounted() {}
+    mounted() {},
 }
 </script>
 
