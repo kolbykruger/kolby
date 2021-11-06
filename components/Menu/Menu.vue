@@ -120,7 +120,7 @@ import Theme from '@/components/Theme/Theme.vue'
 export default {
     name: 'Menu',
     components: {
-        Theme
+        Theme,
     },
     data() {
         return {
@@ -131,7 +131,7 @@ export default {
             smallLinks: null,
             largeLinkTimeline: null,
             smallLinkTimeline: null,
-            ease: null
+            ease: null,
         }
     },
     computed: {
@@ -140,7 +140,7 @@ export default {
         },
         mode() {
             return this.$store.state.theme.mode
-        }
+        },
     },
     mounted() {
         gsap.registerPlugin(CustomEase)
@@ -155,7 +155,7 @@ export default {
         this.smallLinks = menu.querySelectorAll('.navigation-item-sm .navigation-item-bit')
 
         this.timeline.set(menu, {
-            y: '-100%'
+            y: '-100%',
         })
     },
     watch: {
@@ -165,12 +165,12 @@ export default {
             this.timeline.to(menu, {
                 y: '-100%',
                 delay: 1,
-                duration: 0
+                duration: 0,
             })
             this.$store.commit('menu/close')
             this.routing = false
         },
-        status: function(value) {
+        status: function (value) {
             const menu = this.$refs.menu
             this.open = value
 
@@ -178,13 +178,13 @@ export default {
                 this.timeline.to(menu, {
                     y: '0%',
                     duration: 0.8,
-                    ease: this.ease
+                    ease: this.ease,
                 })
 
                 this.largeLinkTimeline
                     .set(this.largeLinks, {
                         y: '-100%',
-                        rotate: '-5deg'
+                        rotate: '-5deg',
                     })
                     .to(this.largeLinks, {
                         y: '0%',
@@ -193,14 +193,14 @@ export default {
                         delay: 0.28,
                         ease: this.ease,
                         stagger: {
-                            amount: 0.03
-                        }
+                            amount: 0.03,
+                        },
                     })
 
                 this.smallLinkTimeline
                     .set(this.smallLinks, {
                         y: '-100%',
-                        rotate: '-5deg'
+                        rotate: '-5deg',
                     })
                     .to(this.smallLinks, {
                         y: '0%',
@@ -209,8 +209,8 @@ export default {
                         delay: 0.48,
                         ease: this.ease,
                         stagger: {
-                            amount: 0.03
-                        }
+                            amount: 0.03,
+                        },
                     })
             } else {
                 if (!this.routing) {
@@ -218,13 +218,13 @@ export default {
                         y: '-100%',
                         duration: 0.6,
                         delay: 0.45,
-                        ease: this.ease
+                        ease: this.ease,
                     })
 
                     this.largeLinkTimeline
                         .set(this.largeLinks, {
                             y: '0%',
-                            rotate: '0deg'
+                            rotate: '0deg',
                         })
                         .to(this.largeLinks, {
                             y: '-150%',
@@ -233,14 +233,14 @@ export default {
                             delay: 0.08,
                             ease: this.ease,
                             stagger: {
-                                amount: 0.03
-                            }
+                                amount: 0.03,
+                            },
                         })
 
                     this.smallLinkTimeline
                         .set(this.smallLinks, {
                             y: '0%',
-                            rotate: '0deg'
+                            rotate: '0deg',
                         })
                         .to(this.smallLinks, {
                             y: '-150%',
@@ -249,13 +249,13 @@ export default {
                             delay: 0.06,
                             ease: this.ease,
                             stagger: {
-                                amount: 0.03
-                            }
+                                amount: 0.03,
+                            },
                         })
                 }
             }
-        }
-    }
+        },
+    },
 }
 </script>
 
@@ -386,17 +386,24 @@ export default {
         }
 
         &-artwork {
-            --size: 60vw;
+            --size: 150vw;
             width: var(--size);
             height: var(--size);
             background: c('base-6');
             z-index: 2;
             filter: blur(var(--size));
             border-radius: 50%;
-            transform: translate(-25%, -25%);
-            opacity: 0.3;
+            transform: translate(-35%, -25%);
+            opacity: 0.5;
             transition: background 0.66s cubic-bezier(0.075, 0.82, 0.165, 1);
             will-change: opacity;
+
+            @include mq('tablet') {
+                --size: 60vw;
+                transform: translate(-25%, -25%);
+                filter: blur(var(--size));
+                opacity: 0.3;
+            }
 
             html[theme='dark'] & {
                 background: c('primary-base');
@@ -473,10 +480,6 @@ export default {
             }
             &-sm {
                 padding-right: 5vw;
-
-                @include mq('tablet') {
-                    display: block;
-                }
 
                 a {
                     &::after {
