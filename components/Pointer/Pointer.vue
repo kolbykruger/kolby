@@ -28,7 +28,7 @@ import { mapGetters } from 'vuex'
 export default {
     name: 'Pointer',
     props: {
-        counter: Number
+        counter: Number,
     },
     mixins: [Cursor, Visibility, Interactivity, Size, Magnetic, Stick, Invisible, Shift, Caption, Move, State, Reset],
     computed: {
@@ -60,10 +60,10 @@ export default {
                 performance: this.checkPerformance,
                 pointer: this.checkPointer,
                 hover: this.checkHover,
-                size: this.checkSize
+                size: this.checkSize,
             }
             return Object.values(arr).every(Boolean)
-        }
+        },
     },
     methods: {
         initPointer() {
@@ -82,7 +82,7 @@ export default {
                     this.shift()
                 }, 1100) // page animation transition length
             })
-        }
+        },
     },
     updated() {
         this.initPointer()
@@ -98,8 +98,8 @@ export default {
             if (!value) {
                 this.initPointer()
             }
-        }
-    }
+        },
+    },
 }
 </script>
 
@@ -259,32 +259,32 @@ export default {
             }
         }
 
-        &.-shift {
-            .pointer-circle {
-                animation: color-shift 2.8s ease-in-out infinite;
+        // &.-shift {
+        //     .pointer-circle {
+        //         animation: color-shift 2.8s ease-in-out infinite;
 
-                @keyframes color-shift {
-                    0% {
-                        background: #b267e6;
-                    }
-                    20% {
-                        background: #f7768e;
-                    }
-                    40% {
-                        background: #ffdb69;
-                    }
-                    60% {
-                        background: #11c9c3;
-                    }
-                    80% {
-                        background: #89ddff;
-                    }
-                    100% {
-                        background: #b267e6;
-                    }
-                }
-            }
-        }
+        //         @keyframes color-shift {
+        //             0% {
+        //                 background: #b267e6;
+        //             }
+        //             20% {
+        //                 background: #f7768e;
+        //             }
+        //             40% {
+        //                 background: #ffdb69;
+        //             }
+        //             60% {
+        //                 background: #11c9c3;
+        //             }
+        //             80% {
+        //                 background: #89ddff;
+        //             }
+        //             100% {
+        //                 background: #b267e6;
+        //             }
+        //         }
+        //     }
+        // }
 
         &-invisible {
             .pointer-circle {
@@ -324,19 +324,19 @@ export default {
             transition: transform 0.3s ease-in-out, opacity 0.1s;
             z-index: 2;
 
-            &::before {
-                content: '';
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                background-image: url('/noise/noise.gif');
-                background-size: 200%;
-                background-position: center;
-                z-index: -1;
-                opacity: 0.08;
-            }
+            // &::before {
+            //     content: '';
+            //     position: absolute;
+            //     top: 0;
+            //     left: 0;
+            //     width: 100%;
+            //     height: 100%;
+            //     background-image: url('/noise/noise.gif');
+            //     background-size: 200%;
+            //     background-position: center;
+            //     z-index: -1;
+            //     opacity: 0.08;
+            // }
 
             // &::before {
             //     content: '';
