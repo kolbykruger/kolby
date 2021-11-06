@@ -1,7 +1,12 @@
 <template>
     <div class="traveler" ref="traveler" aria-hidden="true">
-        <span ref="travelerBackground" class="traveler-background"></span>
-        <span ref="travelerNoise" class="traveler-noise"></span>
+        <div class="traveler-blend">
+            <span ref="travelerBackground" class="traveler-background"></span>
+            <span ref="travelerNoise" class="traveler-noise"></span>
+        </div>
+        <div class="traveler-overlay">
+            <span class="traveler-dots"></span>
+        </div>
         <span class="visually-hidden">{{ counter }}</span>
     </div>
 </template>
@@ -116,7 +121,10 @@ export default {
 .traveler {
     pointer-events: none;
     user-select: none;
-    mix-blend-mode: overlay;
+
+    &-blend {
+        mix-blend-mode: overlay;
+    }
 
     span {
         position: fixed;
@@ -142,5 +150,40 @@ export default {
             opacity: 0.12;
         }
     }
+
+    // &-dots {
+    //     background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAACBJREFUeNpiWLly5X8gYCCEGUEEMYCJgUgwqhAvAAgwANmrIO6kDMxtAAAAAElFTkSuQmCC');
+    //     background-size: 10px 10px;
+    //     margin-top: calc(var(--offset) + 10vh - 1em);
+
+    //     @include mq('phone-small') {
+    //         margin-left: calc(30px - 1em);
+    //         margin-right: calc(30px - 1em);
+    //     }
+    //     @include mq('phone-large') {
+    //         margin-left: calc(100px - 1em);
+    //         margin-right: calc(100px - 1em);
+    //     }
+    //     @include mq('laptop-small') {
+    //         margin-left: calc(120px - 1em);
+    //         margin-right: calc(120px - 1em);
+    //     }
+    //     @include mq('laptop') {
+    //         margin-left: calc(150px - 1em);
+    //         margin-right: calc(150px - 1em);
+    //     }
+    //     @include mq('laptop-large') {
+    //         margin-left: calc(180px - 1em);
+    //         margin-right: calc(180px - 1em);
+    //     }
+    //     @include mq('desktop-small') {
+    //         margin-left: calc(220px - 1em);
+    //         margin-right: calc(220px - 1em);
+    //     }
+    //     @include mq('desktop') {
+    //         margin-left: calc(270px - 1em);
+    //         margin-right: calc(270px - 1em);
+    //     }
+    // }
 }
 </style>
