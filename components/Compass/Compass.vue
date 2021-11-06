@@ -1,6 +1,6 @@
 <template>
     <div data-stick data-cursor="xxl" class="compass">
-        <a href="mailto:kolbykruger@gmail.com">
+        <a href="mailto:hi@kolby.dev">
             <div class="compass-spinner">
                 <svg
                     enable-background="new 0 0 612 792"
