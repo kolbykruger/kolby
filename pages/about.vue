@@ -3,36 +3,42 @@
         <div class="page-contents">
             <section class="about-intro">
                 <div class="container">
-                    <h1 class="about-intro-title">
-                        <span>kolby</span>
-                        <span>kruger</span>
-                    </h1>
                     <div
                         class="about-intro-image"
                         :style="{
-                            'aspect-ratio': document.data.Cover.dimensions.width / document.data.Cover.dimensions.height
+                            'aspect-ratio':
+                                document.data.Cover.dimensions.width / document.data.Cover.dimensions.height,
                         }"
                     >
                         <prismic-image :field="document.data.Cover" />
                     </div>
-                </div>
-            </section>
-
-            <section class="about-bio">
-                <div class="container">
-                    <p>
-                        Hi, I'm Kolby Kruger, a twenty-eight year old from Vermont who has a passion for creativity. I'm
-                        a web designer & developer, however my interests expand into motion design, animation, and UX /
-                        UI design.
-                    </p>
-                    <p>
-                        I live with my girlfriend <span ref="lizzy" data-stick data-cursor="mark">Lizzy</span>, and our
-                        quirky cat,
-                        <span data-cursor-img="/wasabi.jpg" ref="wasabi" data-stick data-cursor="mark">Wasabi</span>.
-                        Most weekends you'll find us adventuring outdoors, sailing & paddleboarding in the summers, and
-                        skiing in the winters. We're avid hikers, and like to adventure and enjoy what nature has to
-                        offer.
-                    </p>
+                    <div class="swip">
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="1321"
+                            height="625"
+                            viewBox="0 0 1321 625"
+                            fill="none"
+                        >
+                            <g clip-path="url(#clip0_701:9)">
+                                <path
+                                    class="swip-thick"
+                                    d="M-16 519.92C46.5 454.067 151.5 331.569 287.5 350.067C490.479 377.675 583 606.069 526 606.069C478.5 606.069 344.883 296.772 469 200.567C678 38.569 835 534.068 763.5 564.567C724.084 581.38 665.5 268.068 810 97.567C944.927 -61.6383 1254.33 63.0867 1347 107.42"
+                                    stroke-width="30"
+                                />
+                                <path
+                                    class="swip-thin"
+                                    d="M-42 519.92C20.5 454.067 125.5 331.569 261.5 350.067C464.479 377.675 557 606.069 500 606.069C452.5 606.069 318.883 296.772 443 200.567C652 38.569 809 534.068 737.5 564.567C698.084 581.38 639.5 268.068 784 97.567C918.927 -61.6383 1228.33 63.0867 1321 107.42"
+                                    stroke="black"
+                                />
+                            </g>
+                            <defs>
+                                <clipPath id="clip0_701:9">
+                                    <rect width="1321" height="625" fill="white" />
+                                </clipPath>
+                            </defs>
+                        </svg>
+                    </div>
                 </div>
             </section>
 
@@ -50,7 +56,7 @@ import { Animations } from '~/mixins/animations/Animations.js'
 export default {
     components: {
         //Pageheading
-        SliceZone
+        SliceZone,
     },
     mixins: [Animations],
     async asyncData({ $prismic, params, error }) {
@@ -61,7 +67,7 @@ export default {
         } else {
             error({ statusCode: 404, message: 'Page not found' })
         }
-    }
+    },
 }
 </script>
 
@@ -69,8 +75,8 @@ export default {
 .about {
     &-intro {
         position: relative;
-        padding-top: 10vh;
-        padding-bottom: 10vh;
+        padding-top: 0;
+        padding-bottom: 0;
 
         &-title {
             position: absolute;
@@ -91,22 +97,21 @@ export default {
         }
         &-image {
             position: relative;
-            width: 58vw;
             margin: 0 auto;
             margin-top: 14vh;
             background: lighten(#0b0e11, 80%);
             overflow: hidden;
 
-            &::before {
-                content: '';
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 50%;
-                background: linear-gradient(to top, rgba(244, 241, 238, 0), rgba(244, 241, 238, 0.75));
-                //clip-path: circle(25.8% at 50% 50%);
-            }
+            // &::before {
+            //     content: '';
+            //     position: absolute;
+            //     top: 0;
+            //     left: 0;
+            //     width: 100%;
+            //     height: 50%;
+            //     background: linear-gradient(to top, rgba(244, 241, 238, 0), rgba(244, 241, 238, 0.75));
+            //     //clip-path: circle(25.8% at 50% 50%);
+            // }
 
             img {
                 object-fit: cover;
@@ -142,6 +147,33 @@ export default {
         pointer-events: none;
         user-select: none;
         z-index: 1;
+    }
+
+    .swip {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+
+        svg {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            //mix-blend-mode: soft-light;
+            transform: scale(1.25) translate(-9%, 6%);
+        }
+
+        &-thick {
+            stroke: c('secondary-base');
+
+            html[theme='dark'] & {
+                stroke: c('tertiary-base');
+            }
+        }
+        &-thin {
+            stroke: c('base-0');
+        }
     }
 }
 </style>
