@@ -39,14 +39,18 @@ export default {
             linesClass: 'pageheading-line'
         })
         tl.set(splitText.chars, {
-            y: '100%'
+            y: '100%',
+            rotateX: 110,
+            d: 1300
         }).staggerTo(
             splitText.chars,
-            1,
+            0.95,
             {
                 y: '0%',
-                ease: ease,
-                delay: 1.4
+                rotateX: 0,
+                d: 0,
+                ease: 'Power2.easeOut',
+                delay: 1.16
             },
             0.014
         )
@@ -74,6 +78,8 @@ export default {
     }
 
     &-word {
+        perspective: 1000px;
+        transform-style: preserve-3d;
     }
 }
 </style>
