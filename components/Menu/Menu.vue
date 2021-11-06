@@ -41,27 +41,6 @@
                         </li>
                         <li class="navigation-item navigation-item-sm">
                             <div class="navigation-item-bit">
-                                <nuxt-link data-stick data-cursor="xl" class="navigation-link" to="/lab">
-                                    <span data-text="LinkedIn">Spotify</span>
-                                    <svg
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        width="168"
-                                        height="169"
-                                        viewBox="0 0 168 169"
-                                        fill="none"
-                                    >
-                                        <path
-                                            fill-rule="evenodd"
-                                            clip-rule="evenodd"
-                                            d="M99.841 58.9134C82.8693 62.2172 65.2546 59.7876 53.3788 49.0933C52.558 48.3541 52.5589 47.0812 53.34 46.3001L59.6444 39.9957C60.4255 39.2147 61.6876 39.2218 62.5289 39.9376C78.3822 53.4271 110.419 46.8282 127.107 31.5825C127.923 30.8375 129.185 30.8353 129.966 31.6163L130.081 31.731C130.09 31.7397 130.099 31.7486 130.108 31.7575L136.613 38.2629C137.394 39.044 137.392 40.3065 136.647 41.1219C121.396 57.8086 114.736 89.791 128.292 105.701C129.008 106.542 129.015 107.804 128.234 108.585L121.93 114.889C121.149 115.67 119.876 115.671 119.136 114.85C108.442 102.975 106.013 85.3602 109.316 68.3885L40.4466 137.258C39.6655 138.039 38.3992 138.039 37.6181 137.258L30.9713 130.611C30.1903 129.83 30.1903 128.564 30.9713 127.783L99.841 58.9134Z"
-                                            fill="#0B0E11"
-                                        />
-                                    </svg>
-                                </nuxt-link>
-                            </div>
-                        </li>
-                        <li class="navigation-item navigation-item-sm">
-                            <div class="navigation-item-bit">
                                 <a
                                     data-stick
                                     data-cursor="xl"
@@ -86,6 +65,27 @@
                                 </a>
                             </div>
                         </li>
+                        <li class="navigation-item navigation-item-sm">
+                            <div class="navigation-item-bit">
+                                <nuxt-link data-stick data-cursor="xl" class="navigation-link" to="/lab">
+                                    <span data-text="LinkedIn">LinkedIn</span>
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        width="168"
+                                        height="169"
+                                        viewBox="0 0 168 169"
+                                        fill="none"
+                                    >
+                                        <path
+                                            fill-rule="evenodd"
+                                            clip-rule="evenodd"
+                                            d="M99.841 58.9134C82.8693 62.2172 65.2546 59.7876 53.3788 49.0933C52.558 48.3541 52.5589 47.0812 53.34 46.3001L59.6444 39.9957C60.4255 39.2147 61.6876 39.2218 62.5289 39.9376C78.3822 53.4271 110.419 46.8282 127.107 31.5825C127.923 30.8375 129.185 30.8353 129.966 31.6163L130.081 31.731C130.09 31.7397 130.099 31.7486 130.108 31.7575L136.613 38.2629C137.394 39.044 137.392 40.3065 136.647 41.1219C121.396 57.8086 114.736 89.791 128.292 105.701C129.008 106.542 129.015 107.804 128.234 108.585L121.93 114.889C121.149 115.67 119.876 115.671 119.136 114.85C108.442 102.975 106.013 85.3602 109.316 68.3885L40.4466 137.258C39.6655 138.039 38.3992 138.039 37.6181 137.258L30.9713 130.611C30.1903 129.83 30.1903 128.564 30.9713 127.783L99.841 58.9134Z"
+                                            fill="#0B0E11"
+                                        />
+                                    </svg>
+                                </nuxt-link>
+                            </div>
+                        </li>
                         <li class="navigation-item navigation-item-sm navigation-item-sm--theme">
                             <div class="navigation-item-bit">
                                 <Theme />
@@ -96,15 +96,15 @@
                 <aside>
                     <p class="navigation-item navigation-item-sm">
                         <a
-                            class="navigation-item-bit"
+                            class="navigation-item-bit navigation-item-spoiler"
                             data-stick
+                            data-magnetic
                             data-cursor="xxl"
-                            data-shift
                             href="mailto:hi@kolby.dev"
                         >
-                            hi@kolby.dev
+                            <span class="navigation-item-spoiler-passive">Say hello</span>
+                            <span class="navigation-item-spoiler-active">hi@kolby.dev</span>
                         </a>
-                        <span>Inquiries</span>
                     </p>
                 </aside>
             </div>
@@ -265,10 +265,14 @@ export default {
     top: 0;
     left: 0;
     width: 100%;
-    height: 110vh;
+    height: 100vh;
     padding-bottom: 10vh;
     z-index: 100;
     will-change: transform;
+
+    @media (min-width: 968px) {
+        height: 110vh;
+    }
 
     &.-open {
         .menu {
@@ -299,10 +303,12 @@ export default {
     }
 
     aside {
-        display: none;
+        display: block;
+        margin-top: 6vh;
 
         @include mq('tablet') {
             display: block;
+            margin-top: 0;
         }
     }
 
@@ -330,7 +336,6 @@ export default {
         align-items: flex-start;
         margin: 0;
         color: c('menu-color');
-        transform: translateY(1em);
 
         a {
             padding: 1em;
@@ -346,11 +351,7 @@ export default {
 
         span {
             display: block;
-            margin-bottom: 0;
-            color: c('base-5');
             padding: 0 1em;
-            transform: translateY(1em);
-            pointer-events: none;
             user-select: none;
             transition: 0.6s ease;
         }
@@ -378,7 +379,7 @@ export default {
         &-noise {
             z-index: 3;
 
-            @media (min-width: 768px) {
+            @include mq('tablet') {
                 background-image: url('/noise/noise.gif');
                 opacity: 0.15;
                 mix-blend-mode: overlay;
@@ -421,12 +422,14 @@ export default {
         flex-direction: column;
         justify-content: center;
         height: 100%;
-        align-items: center;
+        // align-items: center;
+        padding-top: 10vh;
 
         @include mq('tablet') {
             display: grid;
             align-items: end;
             grid-template-columns: 3fr 1fr;
+            padding-top: 0;
             padding-bottom: 10vh;
         }
     }
@@ -489,7 +492,7 @@ export default {
 
                 &--theme {
                     position: absolute;
-                    bottom: 4.5em;
+                    bottom: 1em;
                     right: 0;
 
                     @include mq('tablet') {
@@ -527,9 +530,71 @@ export default {
                 }
             }
 
-            span {
-                position: relative;
-                display: inline-flex;
+            &-spoiler {
+                display: block;
+                padding: 0;
+
+                @include mq('tablet') {
+                    padding: 0.5em;
+                    margin-top: 0;
+                    text-align: center;
+                }
+
+                &:hover,
+                &:focus {
+                    .navigation-item-spoiler {
+                        &-passive {
+                            @include mq('tablet') {
+                                opacity: 0;
+                                transform: translateY(-150%);
+                            }
+                        }
+
+                        &-active {
+                            @include mq('tablet') {
+                                opacity: 1;
+                                transform: translateY(0%);
+                            }
+                        }
+                    }
+                }
+
+                &-active,
+                &-passive {
+                    display: block;
+                    padding: 0;
+
+                    @include mq('tablet') {
+                        padding: 0 1em;
+                    }
+                }
+
+                &-active {
+                    color: c('primary-base');
+
+                    @include mq('tablet') {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        display: grid;
+                        place-content: center;
+                        text-align: center;
+                        opacity: 0;
+                        transform: translateY(100%);
+                    }
+                }
+
+                &-passive {
+                    color: c('menu-color');
+                    transform: translate(0, 0);
+
+                    @include mq('tablet') {
+                        display: grid;
+                        place-content: center;
+                    }
+                }
             }
         }
     }
