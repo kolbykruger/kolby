@@ -3,7 +3,6 @@
     "BannerImage": {},
     "Accordion": {},
     "List": {},
-    "Headline": {},
     "Text": {
       "default-slice": {
         "primary": {
@@ -22,11 +21,18 @@
         }
       }
     },
-    "Textblock": {},
     "MobileImage": {},
     "Branding": {},
     "Rail": {},
-    "Gallery": {},
+    "Gallery": {
+      "default-slice": {
+        "items": {
+          "Size": {
+            "content": "Small"
+          }
+        }
+      }
+    },
     "ArticleBlock": {},
     "CodeBlock": {},
     "Timeline": {},
@@ -93,6 +99,14 @@
     },
     "projects": {
       "Projects": {}
+    },
+    "work": {
+      "Name": {
+        "config": {
+          "patternType": "HEADING",
+          "blocks": 1
+        }
+      }
     }
   }
 }

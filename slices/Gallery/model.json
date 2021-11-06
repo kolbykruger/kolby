@@ -45,6 +45,18 @@
             ]
           },
           "type": "Image"
+        },
+        "Size": {
+          "config": {
+            "label": "Size",
+            "placeholder": "",
+            "options": [
+              "Small",
+              "Large"
+            ],
+            "default_value": "Small"
+          },
+          "type": "Select"
         }
       }
     }

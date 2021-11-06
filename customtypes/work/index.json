@@ -1,0 +1,40 @@
+{
+  "id": "work",
+  "label": "Work",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "Name": {
+        "config": {
+          "label": "Name",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "single": "heading1"
+        },
+        "type": "StructuredText"
+      },
+      "uid": {
+        "config": {
+          "label": "uid",
+          "placeholder": ""
+        },
+        "type": "UID"
+      },
+      "slices": {
+        "type": "Slices",
+        "fieldset": "Slice Zone",
+        "config": {
+          "choices": {
+            "headline": {
+              "type": "SharedSlice"
+            },
+            "textblock": {
+              "type": "SharedSlice"
+            }
+          }
+        }
+      }
+    }
+  }
+}

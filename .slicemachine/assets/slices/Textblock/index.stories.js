@@ -18,7 +18,7 @@ export const _DefaultSlice = () => ({
   },
   data() {
     return {
-      mock: {"variation":"default-slice","name":"Default slice","slice_type":"textblock","items":[],"primary":{"Index":"orchestrate sticky niches","Eyebrow":"incentivize efficient portals","title":[{"type":"heading2","text":"Seize B2B e-business","spans":[]}],"description":[{"type":"paragraph","text":"Culpa sunt ullamco tempor dolore elit nostrud. Dolor reprehenderit incididunt magna proident. Ut excepteur minim pariatur consectetur anim.","spans":[]}]},"id":"_DefaultSlice"}
+      mock: {"variation":"default-slice","name":"Default slice","slice_type":"textblock","items":[],"primary":{"Index":"monetize extensible e-commerce","Eyebrow":"deploy impactful deliverables","title":[{"type":"heading2","text":"Cultivate integrated e-business","spans":[]}],"description":[{"type":"paragraph","text":"Enim ullamco aliquip eiusmod occaecat ut nisi sint mollit laboris.","spans":[]}]},"id":"_DefaultSlice"}
     }
   },
   template: '<SliceZone :slices="[mock]" :resolver="resolve" />'
@@ -37,7 +37,7 @@ export const _TextblockWithGridList = () => ({
   },
   data() {
     return {
-      mock: {"variation":"textblockWithGridList","name":"Textblock - with Grid List","slice_type":"textblock","items":[{"Name":"seize out-of-the-box partnerships","Outline":"harness vertical synergies"},{"Name":"transition sticky action-items","Outline":"reintermediate 24/7 solutions"},{"Name":"engage cross-platform systems","Outline":"envisioneer granular technologies"}],"primary":{"Index":"mesh global functionalities","Eyebrow":"cultivate transparent experiences","title":[{"type":"heading2","text":"Mesh proactive blockchains","spans":[]}],"description":[{"type":"paragraph","text":"Minim non id laboris fugiat ea dolore enim officia qui ut. Laboris est fugiat cillum. Ullamco in labore sit voluptate culpa nulla labore aliqua excepteur.","spans":[]}]},"id":"_TextblockWithGridList"}
+      mock: {"variation":"textblockWithGridList","name":"Textblock - with Grid List","slice_type":"textblock","items":[{"Name":"incentivize interactive web-readiness","Outline":"maximize 24/7 portals"},{"Name":"matrix distributed interfaces","Outline":"evolve extensible platforms"},{"Name":"maximize innovative functionalities","Outline":"leverage extensible applications"},{"Name":"transform customized platforms","Outline":"whiteboard synergistic action-items"}],"primary":{"Index":"reintermediate value-added users","Eyebrow":"incubate dot-com bandwidth","title":[{"type":"heading2","text":"Integrate efficient blockchains","spans":[]}],"description":[{"type":"paragraph","text":"Cupidatat incididunt veniam elit adipisicing cupidatat.","spans":[]}]},"id":"_TextblockWithGridList"}
     }
   },
   template: '<SliceZone :slices="[mock]" :resolver="resolve" />'
