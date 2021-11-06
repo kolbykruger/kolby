@@ -1,4 +1,5 @@
 import smConfig from './sm.json'
+import { getStoriesPaths } from 'slice-machine-ui/helpers/storybook'
 import { scrollBehavior } from './plugins/route.js'
 
 if (!smConfig.apiEndpoint) {
@@ -7,8 +8,6 @@ if (!smConfig.apiEndpoint) {
     )
 }
 
-const { getStoriesPaths } = require('slice-machine-ui/helpers/storybook')
-
 export default {
     target: 'static',
     globalName: 'app',
@@ -16,36 +15,41 @@ export default {
         title: 'Home // Kolby Kruger',
         meta: [
             {
-                charset: 'utf-8'
+                charset: 'utf-8',
             },
             {
                 name: 'viewport',
-                content: 'width=device-width, initial-scale=1'
+                content: 'width=device-width, initial-scale=1',
             },
             {
                 hid: 'description',
                 name: 'description',
-                content: ''
-            }
+                content: '',
+            },
         ],
         link: [
             {
                 rel: 'icon',
                 type: 'image/x-icon',
-                href: '/favicon.ico'
-            }
-        ]
+                href: '/favicon.ico',
+            },
+        ],
     },
     css: [
         '@/assets/css/vendors/preflight.scss',
         '@/assets/css/style.scss',
         '@/assets/fonts/ogg/ogg.css',
-        '@/assets/fonts/tt-commons/tt-commons.css'
+        '@/assets/fonts/tt-commons/tt-commons.css',
     ],
     styleResources: {
-        scss: ['@/assets/css/internals.scss']
+        scss: ['@/assets/css/internals.scss'],
     },
-    plugins: [{ src: '~/plugins/flickity.js', ssr: false }],
+    plugins: [
+        {
+            src: '~/plugins/flickity.js',
+            ssr: false,
+        },
+    ],
     components: true,
     buildModules: ['@nuxt/image'],
     transpile: ['gsap', 'three'],
@@ -60,22 +64,22 @@ export default {
                     routes: [
                         {
                             type: 'page',
-                            path: '/:uid'
-                        }
-                    ]
-                }
-            }
+                            path: '/:uid',
+                        },
+                    ],
+                },
+            },
         ],
-        ['nuxt-sm']
+        ['nuxt-sm'],
     ],
     generate: {
-        fallback: true
+        fallback: true,
     },
     build: {
-        transpile: ['vue-slicezone', 'nuxt-sm']
+        transpile: ['vue-slicezone', 'nuxt-sm'],
     },
     storybook: {
-        stories: [...getStoriesPaths()]
+        stories: [...getStoriesPaths(), '../styles/globals.css'],
     },
     image: {
         provider: 'prismic',
@@ -85,17 +89,18 @@ export default {
             md: 800,
             lg: 1200,
             xl: 1920,
-            xxl: 2560
-        }
+            xxl: 2560,
+        },
     },
     loading: '~/components/Loading/Loading.vue',
     pageTransition: {
         name: 'page',
-        mode: 'out-in'
+        mode: 'out-in',
     },
     //scrollToTop: true,
     router: {
         middleware: 'pages',
-        scrollBehavior
-    }
+        scrollBehavior,
+    },
+    ignore: [...getStoriesPaths().map(path => path.replace('../', '~/'))],
 }
