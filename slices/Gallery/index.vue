@@ -7,7 +7,7 @@
             <div class="gallery-items grid grid-col-4 grid-gap-lg">
                 <div
                     class="gallery-item"
-                    :class="'gallery-item-' + item.Size.toLowerCase()"
+                    :class="'gallery-item-' + item.Size ? item.Size.toLowerCase() : ''"
                     v-for="(item, i) in slice.items"
                     :key="`slice-item-${i}`"
                 >
