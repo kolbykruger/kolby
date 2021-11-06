@@ -9,7 +9,7 @@
                         <p>
                             I've had the opportunity to work on some amazing projects with some marvelous people. I'm
                             lucky enough to have been part of over
-                            <span style="color: var(--color-primary-base);">{{ projectsCount + 14 }}</span> creative
+                            <span style="color: var(--color-primary-base)">{{ projectsCount + 14 }}</span> creative
                             experiences & products.
                         </p>
                     </div>
@@ -44,13 +44,13 @@
                 </div>
             </section>
 
-            <!-- <slice-zone type="work" uid="work" /> -->
+            <slice-zone type="work" uid="work" />
         </div>
     </main>
 </template>
 
 <script>
-// import SliceZone from 'vue-slicezone'
+import SliceZone from 'vue-slicezone'
 import Pageheading from '~/components/Pageheading/Pageheading.vue'
 import CaseStudyItem from '~/components/CaseStudyItem/CaseStudyItem.vue'
 import { Animations } from '~/mixins/animations/Animations.js'
@@ -58,12 +58,13 @@ import { Animations } from '~/mixins/animations/Animations.js'
 export default {
     components: {
         Pageheading,
-        CaseStudyItem
+        CaseStudyItem,
+        SliceZone,
     },
     mixins: [Animations],
     async asyncData({ $prismic, params, error }) {
         const cases = await $prismic.api.query($prismic.predicates.at('document.type', 'case-study'), {
-            orderings: '[document.first_publication_date ]'
+            orderings: '[document.first_publication_date ]',
         })
         const document = await $prismic.api.query($prismic.predicates.at('document.type', 'work'))
         const projectsList = await $prismic.api.query($prismic.predicates.at('document.type', 'projects'))
@@ -73,13 +74,13 @@ export default {
                 const d = new Date(item.Date)
                 const o = {
                     year: 'numeric',
-                    month: 'long'
+                    month: 'long',
                 }
                 const date = d.toLocaleDateString('en-us', o)
                 return {
                     index: index + 1,
                     company: item.Company,
-                    date: date
+                    date: date,
                 }
             })
 
@@ -94,8 +95,8 @@ export default {
         projectsCount() {
             const projects = this.projects
             return projects ? projects.length : null
-        }
-    }
+        },
+    },
 }
 </script>
 
