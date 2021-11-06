@@ -9,8 +9,18 @@
             @click="toggleMenu"
         >
             <div class="navicon-track">
-                <span class="navicon-text navicon-text-close" :aria-hidden="!status">Close</span>
-                <span class="navicon-text navicon-text-open" :aria-hidden="status">Menu</span>
+                <span
+                    class="navicon-text navicon-text-close"
+                    :aria-hidden="!status"
+                    :style="{ visibility: !status ? 'hidden' : 'visible' }"
+                    >Close</span
+                >
+                <span
+                    class="navicon-text navicon-text-open"
+                    :aria-hidden="status"
+                    :style="{ visibility: status ? 'hidden' : 'visible' }"
+                    >Menu</span
+                >
             </div>
         </button>
     </div>
@@ -22,13 +32,13 @@ export default {
     computed: {
         status() {
             return this.$store.state.menu.open
-        }
+        },
     },
     methods: {
         toggleMenu() {
             this.$store.commit('menu/toggle')
-        }
-    }
+        },
+    },
 }
 </script>
 
@@ -57,6 +67,7 @@ export default {
         color: c('base-0');
         padding: 0;
         font-size: 1.616rem;
+        border-radius: 50%;
         overflow: hidden;
         outline: none;
     }
