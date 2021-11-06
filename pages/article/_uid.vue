@@ -1,7 +1,7 @@
 <template>
     <main class="page article-content" id="content">
         <div class="page-contents">
-            <Pageheading :name="document.data.Name" />
+            <Pageheading :name="document.data.Name" size="small" />
 
             <article class="article">
                 <div class="container">
@@ -33,7 +33,7 @@ export default {
     components: {
         SliceZone,
         Pageheading,
-        TableOfContents
+        TableOfContents,
     },
     mixins: [Animations],
     computed: {},
@@ -51,7 +51,7 @@ export default {
         } else {
             error({ statusCode: 404, message: 'Page not found' })
         }
-    }
+    },
 }
 </script>
 
