@@ -6,7 +6,7 @@
 
             <prismic-rich-text class="article-item-summary" :field="article.data.Summary" />
 
-            <div class="article-item-details">
+            <!-- <div class="article-item-details">
                 <p class="article-item-date">
                     <small>{{ formatDate }}</small>
                 </p>
@@ -18,7 +18,7 @@
                 <p class="article-item-category" v-if="article.data.Category">
                     <small>{{ article.data.Category }}</small>
                 </p>
-            </div>
+            </div> -->
         </nuxt-link>
     </li>
 </template>
@@ -27,7 +27,7 @@
 export default {
     name: 'ArticleItem',
     props: {
-        article: Object
+        article: Object,
     },
     computed: {
         formatDate() {
@@ -35,11 +35,11 @@ export default {
             const date = new Date(d)
             const options = {
                 month: 'long',
-                day: 'numeric'
+                day: 'numeric',
             }
             return date.toLocaleString('en-us', options)
-        }
-    }
+        },
+    },
 }
 </script>
 
