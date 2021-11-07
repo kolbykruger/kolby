@@ -64,7 +64,9 @@ export default {
     position: relative;
 
     .container {
-        padding-top: 10vh;
+        @include mq('tablet') {
+            padding-top: 10vh;
+        }
     }
 
     &-size-small {
