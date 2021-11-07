@@ -11,11 +11,15 @@
             </div>
             <div class="branding-colors" :style="{ '--count': slice.items.length }">
                 <div class="branding-color" v-for="(item, i) in slice.items" :key="`slice-item-${i}`">
-                    <div class="branding-swatch" :style="`background-color: ${item.Color}`">
-                        <p>
+                    <div
+                        class="branding-swatch"
+                        :class="{ 'branding-swatch-color-reversed': reverseColor(item.Color) }"
+                        :style="`background-color: ${item.Color}`"
+                    >
+                        <p class="branding-swatch-label">
                             <small>{{ item.Color }}</small>
                         </p>
-                        <p>{{ item.ColorName }}</p>
+                        <p class="branding-swatch-name">{{ item.ColorName }}</p>
                     </div>
                 </div>
             </div>
@@ -32,9 +36,15 @@ export default {
             required: true,
             default() {
                 return {}
-            }
-        }
-    }
+            },
+        },
+    },
+    methods: {
+        reverseColor(color) {
+            console.log(color)
+            return color == '#000000' ? true : false
+        },
+    },
 }
 </script>
 
@@ -53,15 +63,15 @@ export default {
 
     &-type,
     &-logo {
-        img {
-            width: 100%;
-        }
-    }
-
-    &-logo {
         border-radius: 0.125em;
         box-shadow: 0 18px 35px rgba(50, 50, 93, 0.1), -1px 0 15px rgba(0, 0, 0, 0.07);
         overflow: hidden;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
     }
 
     &-colors {
@@ -107,13 +117,28 @@ export default {
 
         p {
             position: relative;
-            mix-blend-mode: difference;
             margin: 0;
+            mix-blend-mode: difference;
             font-weight: 500;
             z-index: 2;
 
             html[theme='dark'] & {
                 mix-blend-mode: multiply;
+            }
+        }
+
+        &-label {
+            text-transform: uppercase;
+        }
+
+        &-color-reversed {
+            p {
+                color: #fff;
+
+                &,
+                html[theme='dark'] & {
+                    mix-blend-mode: unset;
+                }
             }
         }
     }
