@@ -19,12 +19,6 @@
 
             <section class="case-studies" v-if="cases">
                 <div class="container">
-                    <!-- <ul>
-                    <li >
-                        <nuxt-link :to="'/works/' + study.uid">{{ study.data.Name[0].text }}</nuxt-link>
-                    </li>
-                </ul> -->
-
                     <CaseStudyItem v-for="study in cases.results" :key="study.id" :item="study" />
                 </div>
             </section>
