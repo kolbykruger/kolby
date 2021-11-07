@@ -17,12 +17,12 @@ export default {
     name: 'Header',
     components: {
         Mark,
-        Navicon
+        Navicon,
     },
     computed: {
         menuStatus() {
             return this.$store.state.menu.open
-        }
+        },
     },
     methods: {
         setOffset() {
@@ -30,7 +30,7 @@ export default {
 
             const bounds = header ? header.getBoundingClientRect() : 0
             document.documentElement.style.setProperty('--offset', bounds.height + 60 + 'px')
-        }
+        },
     },
     mounted() {
         this.setOffset()
@@ -42,18 +42,22 @@ export default {
     watch: {
         $route() {
             this.setOffset()
-        }
-    }
+        },
+    },
 }
 </script>
 
 <style lang="scss" scoped>
 .header {
     position: absolute;
-    top: 3.75em;
+    top: 1.25em;
     left: 0;
     width: 100%;
     z-index: 150;
+
+    @include mq('tablet') {
+        top: 3.75em;
+    }
 
     .container {
         padding: 0 calc(20px - 2em);
