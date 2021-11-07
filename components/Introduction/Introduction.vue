@@ -23,6 +23,7 @@ export default {
     align-items: center;
     justify-content: flex-start;
     min-height: 100vh;
+    margin-top: calc(#{var(--offset)} * -1);
     overflow: hidden;
 
     .container {
