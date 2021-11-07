@@ -93,7 +93,7 @@ export default {
     components: {
         SliceZone,
         Pageheading,
-        Neighbor
+        Neighbor,
     },
     mixins: [Animations],
     computed: {
@@ -101,30 +101,41 @@ export default {
             const date = new Date(this.document.data.Date)
             const options = {
                 year: 'numeric',
-                month: 'long'
+                month: 'long',
             }
             return date.toLocaleDateString('en-us', options)
         },
         roles() {
             const roles = this.document.data.Role
             return roles.split(',')
-        }
+        },
     },
     async asyncData({ $prismic, params, error }) {
         const document = await $prismic.api.getByUID('case-study', params.uid)
-        const nextCaseStudy = (
+
+        let nextCaseStudy = (
             await $prismic.api.query($prismic.predicates.at('document.type', 'case-study'), {
                 pageSize: 3,
                 after: `${document.id}`,
-                orderings: '[my.post.date]'
+                orderings: '[my.post.date]',
             })
         ).results[0]
+
+        let firstCaseStudy = (
+            await $prismic.api.query($prismic.predicates.at('document.type', 'case-study'), {
+                orderings: '[document.first_publication_date ]',
+            })
+        ).results[0]
+
+        // Fallback to first case study if there isn't a next case
+        nextCaseStudy = !nextCaseStudy ? firstCaseStudy : nextCaseStudy
+
         if (document) {
             return { document, nextCaseStudy }
         } else {
             error({ statusCode: 404, message: 'Page not found' })
         }
-    }
+    },
 }
 </script>
 
