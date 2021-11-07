@@ -18,7 +18,7 @@ export const _DefaultSlice = () => ({
   },
   data() {
     return {
-      mock: {"variation":"default-slice","name":"Default slice","slice_type":"branding","items":[{"Color":"#194568","ColorName":"implement sexy content"},{"Color":"#99c3ca","ColorName":"synthesize proactive systems"},{"Color":"#bd1018","ColorName":"grow synergistic ROI"}],"primary":{"Typography":{"dimensions":{"width":1024,"height":682},"alt":"Placeholder image","copyright":null,"url":"https://images.unsplash.com/photo-1547082299-de196ea013d6?w=1024&h=682&fit=crop"},"Logo":{"dimensions":{"width":1024,"height":682},"alt":"Placeholder image","copyright":null,"url":"https://images.unsplash.com/photo-1606248897732-2c5ffe759c04?w=1024&h=682&fit=crop"}},"id":"_DefaultSlice"}
+      mock: {"variation":"default-slice","name":"Default slice","slice_type":"branding","items":[{"Color":"#7bcc68","ColorName":"seize 24/7 e-tailers"},{"Color":"#722042","ColorName":"harness sexy architectures"},{"Color":"#a9e38a","ColorName":"syndicate front-end networks"},{"Color":"#f7a0f7","ColorName":"envisioneer global e-business"}],"primary":{"Typography":{"dimensions":{"width":1024,"height":682},"alt":"Placeholder image","copyright":null,"url":"https://images.unsplash.com/photo-1448932223592-d1fc686e76ea?w=1024&h=682&fit=crop"},"Logo":{"dimensions":{"width":1024,"height":682},"alt":"Placeholder image","copyright":null,"url":"https://images.unsplash.com/photo-1607582278038-6bebbd4d7b72?w=1024&h=682&fit=crop"}},"id":"_DefaultSlice"}
     }
   },
   template: '<SliceZone :slices="[mock]" :resolver="resolve" />'

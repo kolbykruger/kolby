@@ -1,8 +1,6 @@
 {
   "slices": {
-    "BannerImage": {},
     "Accordion": {},
-    "List": {},
     "Text": {
       "default-slice": {
         "primary": {
@@ -21,8 +19,6 @@
         }
       }
     },
-    "MobileImage": {},
-    "Branding": {},
     "Rail": {},
     "Gallery": {
       "default-slice": {

@@ -116,6 +116,9 @@
             },
             "branding": {
               "type": "SharedSlice"
+            },
+            "embed": {
+              "type": "SharedSlice"
             }
           }
         }
