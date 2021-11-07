@@ -24,8 +24,8 @@ export default {
             required: true,
             default() {
                 return {}
-            }
-        }
+            },
+        },
     },
     computed: {
         size() {
@@ -35,8 +35,8 @@ export default {
         layout() {
             const layout = this.slice.primary.Layout
             return layout ? `mobile-layout-${layout.toLowerCase()}` : null
-        }
-    }
+        },
+    },
 }
 </script>
 
@@ -49,10 +49,17 @@ export default {
 
     &-grid {
         display: grid;
-        grid-template-columns: repeat(var(--count), 1fr);
-        grid-gap: 3vw;
+        grid-gap: 5vh;
         max-width: 1600px;
         margin: 0 auto;
+
+        @include mq('tablet') {
+            grid-gap: 3vw;
+            grid-template-columns: repeat(calc(#{var(--count)} / 2), 1fr);
+        }
+        @include mq('mobile') {
+            grid-template-columns: repeat(var(--count), 1fr);
+        }
 
         &-sm {
             max-width: 100%;

@@ -46,6 +46,7 @@ export default {
     &-list {
         display: flex;
         align-items: flex-start;
+        flex-flow: row wrap;
         margin-left: -2rem;
     }
 

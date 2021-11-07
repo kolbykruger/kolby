@@ -41,7 +41,6 @@ export default {
     },
     methods: {
         reverseColor(color) {
-            console.log(color)
             return color == '#000000' ? true : false
         },
     },
@@ -57,8 +56,12 @@ export default {
 
     &-graphics {
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        grid-gap: 1.5vw;
+        grid-gap: 5vh;
+
+        @include mq('tablet') {
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 1.5vw;
+        }
     }
 
     &-type,
@@ -76,9 +79,14 @@ export default {
 
     &-colors {
         display: grid;
-        grid-template-columns: repeat(var(--count), 1fr);
-        grid-gap: 1.5vw;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 1vh;
         margin-top: 5vh;
+
+        @include mq('tablet') {
+            grid-template-columns: repeat(var(--count), 1fr);
+            grid-gap: 1.5vw;
+        }
     }
 
     &-color {
@@ -99,21 +107,11 @@ export default {
         flex-flow: column;
         align-items: flex-start;
         justify-content: flex-end;
-        padding: 10%;
+        padding: 6%;
 
-        // &::before {
-        //     content: '';
-        //     position: absolute;
-        //     top: 0;
-        //     left: 0;
-        //     width: 100%;
-        //     height: 100%;
-        //     background: url('/noise/noise-2.png');
-        //     z-index: 1;
-        //     mix-blend-mode: overlay;
-        //     pointer-events: none;
-        //     opacity: 0.1;
-        // }
+        @include mq('tablet') {
+            padding: 10%;
+        }
 
         p {
             position: relative;
@@ -129,6 +127,14 @@ export default {
 
         &-label {
             text-transform: uppercase;
+        }
+
+        &-name {
+            display: none;
+
+            @include mq('tablet') {
+                display: block;
+            }
         }
 
         &-color-reversed {

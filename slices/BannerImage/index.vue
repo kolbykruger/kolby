@@ -19,24 +19,32 @@ export default {
     props: {
         slice: {
             type: Object,
-            required: true
-        }
-    }
+            required: true,
+        },
+    },
 }
 </script>
 
 <style lang="scss">
 .banner-image {
-    max-height: 100vh;
-    height: 100%;
+    overflow: hidden;
+
+    @include mq('tablet') {
+        max-height: 100vh;
+        height: 100%;
+    }
 
     &-container {
     }
 
     img {
         width: 100%;
-        height: 100vh;
+        height: auto;
         object-fit: cover;
+
+        @include mq('tablet') {
+            height: 100vh;
+        }
     }
 }
 </style>

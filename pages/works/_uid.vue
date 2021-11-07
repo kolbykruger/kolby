@@ -180,9 +180,12 @@ export default {
 
     &-grid {
         display: grid;
-        grid-template-columns: 3fr 1fr;
-        grid-gap: 10vw;
         margin-top: 8vh;
+
+        @include mq('tablet') {
+            grid-template-columns: 3fr 1fr;
+            grid-gap: 10vw;
+        }
     }
 
     &-tagline {
@@ -217,6 +220,12 @@ export default {
     }
 
     &-stats {
+        margin-top: 4vh;
+
+        @include mq('tablet') {
+            margin-top: 0;
+        }
+
         &-container {
         }
 

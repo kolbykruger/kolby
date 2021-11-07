@@ -34,8 +34,11 @@ export default {
 <style lang="scss">
 .footer {
     position: relative;
-    padding-bottom: 18vh;
     z-index: 2;
+
+    @include mq('tablet') {
+        padding-bottom: 18vh;
+    }
 
     .container {
     }
@@ -60,8 +63,10 @@ export default {
     }
 
     &-grid {
-        display: flex;
-        justify-content: space-between;
+        @include mq('tablet') {
+            display: flex;
+            justify-content: space-between;
+        }
     }
 
     &-copy,

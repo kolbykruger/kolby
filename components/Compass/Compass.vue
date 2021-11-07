@@ -146,13 +146,17 @@ export default {
 <style lang="scss">
 .compass {
     position: relative;
-    max-width: 20vw;
     width: 100%;
-    margin-left: auto;
-    margin-right: 0;
-    transform: translateY(25%);
+    margin: 0 auto;
     clip-path: circle(50% at 50% 50%);
     overflow: hidden;
+
+    @include mq('tablet') {
+        max-width: 20vw;
+        transform: translateY(25%);
+        margin-left: auto;
+        margin-right: 0;
+    }
 
     a {
         text-decoration: none;
