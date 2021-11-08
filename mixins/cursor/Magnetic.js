@@ -10,12 +10,12 @@ export const Magnetic = {
                 y: 0,
                 width: 0,
                 height: 0,
-                s: 0.2
+                s: 0.2,
             },
             options: {
                 x: 0.2,
-                y: 0.2
-            }
+                y: 0.2,
+            },
         }
     },
     methods: {
@@ -33,17 +33,17 @@ export const Magnetic = {
                 const options = {
                     x: vals ? vals[0] : this.options.x,
                     y: vals ? vals[1] : this.options.y,
-                    s: vals ? vals[2] : this.magnetic.s
+                    s: vals ? vals[2] : this.magnetic.s,
                 }
                 const pos = {
                     x: {
                         previous: 0,
-                        current: 0
+                        current: 0,
                     },
                     y: {
                         previous: 0,
-                        current: 0
-                    }
+                        current: 0,
+                    },
                 }
 
                 magnet.addEventListener('mouseenter', () => {
@@ -72,35 +72,14 @@ export const Magnetic = {
                     pos.y.current = (this.cursor.y - this.magnetic.y - this.magnetic.height / 2) * options.y
 
                     $this.move(pos.x.current, pos.y.current, 0, magnet)
-
-                    // function looper(pos, options, magnet) {
-                    //     pos.x.previous = lerp(pos.x.previous, pos.x.current, $this.magnetic.s)
-                    //     pos.y.previous = lerp(pos.y.previous, pos.y.current, $this.magnetic.s)
-
-                    //     $this.move(pos.x.previous, pos.y.previous, 0, magnet)
-
-                    //     if (!$this.magnetic.active) {
-                    //         requestAnimationFrame(() => {
-                    //             // global gsap move function
-                    //             $this.move(0, 0, $this.magnetic.s, magnet)
-                    //         })
-                    //         return false
-                    //     }
-
-                    //     requestAnimationFrame(() => {
-                    //         looper(pos, options, magnet)
-                    //     })
-                    // }
-
-                    // looper(pos, options, magnet)
                 })
             })
-        }
+        },
     },
     mounted() {
         if (!this.deviceCheck) {
             return false
         }
         this.magnetics()
-    }
+    },
 }

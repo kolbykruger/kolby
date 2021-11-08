@@ -7,11 +7,12 @@ export const Move = {
             gsap.to(elem, {
                 x: x,
                 y: y,
+                rotate: '0deg',
                 force3D: true,
                 overwrite: true,
                 duration: duration || 0.2,
-                opacity: 1
+                opacity: 1,
             })
-        }
-    }
+        },
+    },
 }

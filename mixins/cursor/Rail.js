@@ -10,7 +10,7 @@ export const Rail = {
             this.$nextTick(() => {
                 return this.$store.state.rail.elem
             })
-        }
+        },
     },
     methods: {
         railRender(pointer) {
@@ -29,11 +29,11 @@ export const Rail = {
             requestAnimationFrame(() => {
                 this.railRender(pointer)
             })
-        }
+        },
     },
     mounted() {
         const flickity = this.flickity
-        console.log(flickity)
+        // console.log(flickity)
         // this.$nextTick(() => {
         //     console.log(flickity)
         // })
@@ -62,5 +62,5 @@ export const Rail = {
         // requestAnimationFrame(() => {
         //     this.railRender({ cursor, circle, text })
         // })
-    }
+    },
 }
