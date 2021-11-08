@@ -8,25 +8,10 @@
             id="navigation"
             @click="toggleMenu"
         >
-            <div class="navicon-track">
-                <span
-                    class="navicon-text navicon-text-close"
-                    :aria-hidden="!status"
-                    :style="{ visibility: !status ? 'hidden' : 'visible' }"
-                    >Close</span
-                >
-                <span
-                    class="navicon-text navicon-text-open"
-                    :aria-hidden="status"
-                    :style="{ visibility: status ? 'hidden' : 'visible' }"
-                    >Menu</span
-                >
-
-                <span class="navicon-icon" :class="{ 'navicon-icon-open': status }">
-                    <span class="navicon-icon-line"></span>
-                    <span class="navicon-icon-line"></span>
-                </span>
-            </div>
+            <span class="navicon-icon" :class="{ 'navicon-icon-open': status }">
+                <span class="navicon-icon-line"></span>
+                <span class="navicon-icon-line"></span>
+            </span>
         </button>
     </div>
 </template>
@@ -51,7 +36,14 @@ export default {
 .navicon {
     position: relative;
     justify-self: end;
+    margin-right: 1em;
+    margin-bottom: 0.25em;
     color: c('menu-navicon');
+
+    @include mq('tablet') {
+        margin-right: 0;
+        margin-bottom: 0;
+    }
 
     &.-open {
         button,
@@ -59,21 +51,33 @@ export default {
             color: c('menu-color');
         }
 
-        .navicon-track {
-            @include mq('tablet') {
-                transform: translateY(50%);
+        .navicon-button {
+            &:hover {
+                .navicon {
+                    &-icon {
+                        &-line {
+                            transform: rotate(45deg) scale(1.1);
+
+                            &:nth-of-type(2) {
+                                transform: rotate(-45deg) scale(1.1);
+                            }
+                        }
+                    }
+                }
             }
         }
     }
 
     &-button {
-        position: relative;
         --size: 64px;
-        font-size: 1.22rem;
+        position: relative;
         width: var(--size);
         height: var(--size);
+        display: grid;
+        place-content: center;
         color: c('base-0');
         padding: 0;
+        font-size: 1.22rem;
         overflow: hidden;
         outline: none;
 
@@ -82,40 +86,17 @@ export default {
             font-size: 1.616rem;
             border-radius: 50%;
         }
-    }
 
-    &-track {
-        display: grid;
-        place-content: center;
-        text-align: center;
-        height: 100%;
-        transition: 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+        &:hover {
+            .navicon-icon {
+                &-line {
+                    transform: translate(0, -2px);
 
-        @include mq('tablet') {
-            transform: translateY(-50%);
-        }
-    }
-
-    &-text {
-        display: none;
-        place-content: center;
-        text-align: center;
-        --size: 64px;
-        font-weight: 500;
-        width: var(--size);
-        height: var(--size);
-        line-height: 1;
-
-        @include mq('tablet') {
-            display: grid;
-            --size: 96px;
-        }
-
-        &-close {
-            position: relative;
-        }
-
-        &-open {
+                    &:nth-of-type(2) {
+                        transform: translate(0, 2px);
+                    }
+                }
+            }
         }
     }
 
@@ -123,9 +104,7 @@ export default {
         position: relative;
         display: block;
         height: 100%;
-        margin-right: 1.25em;
-        margin-bottom: 0.5em;
-        --size: 1.25em;
+        --size: 1.5em;
         width: var(--size);
         height: var(--size);
 
@@ -159,9 +138,9 @@ export default {
             }
         }
 
-        @include mq('tablet') {
-            display: none;
-        }
+        // @include mq('tablet') {
+        //     display: none;
+        // }
     }
 }
 </style>
