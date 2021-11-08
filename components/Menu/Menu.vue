@@ -11,22 +11,32 @@
                     <ul ref="navLarge" class="navigation-items navigation-items-lg">
                         <li class="navigation-item navigation-item-lg">
                             <div class="navigation-item-bit">
-                                <nuxt-link data-cursor="md" class="navigation-link" to="/work">
+                                <nuxt-link
+                                    data-cursor="md"
+                                    class="navigation-link"
+                                    to="/work"
+                                    @click.native="setMenuStatus('/work')"
+                                >
                                     <span data-text="Work">Work</span>
                                 </nuxt-link>
                             </div>
                         </li>
                         <li class="navigation-item navigation-item-lg">
                             <div class="navigation-item-bit">
-                                <nuxt-link data-cursor="md" class="navigation-link" to="/process">
-                                    <span data-text="Process">Process</span>
+                                <nuxt-link class="navigation-link" to="/about" @click.native="setMenuStatus('/about')">
+                                    <span data-cursor="md" data-text="About">About</span>
                                 </nuxt-link>
                             </div>
                         </li>
                         <li class="navigation-item navigation-item-lg">
                             <div class="navigation-item-bit">
-                                <nuxt-link class="navigation-link" to="/about">
-                                    <span data-cursor="md" data-text="About">About</span>
+                                <nuxt-link
+                                    data-cursor="md"
+                                    class="navigation-link"
+                                    to="/technology"
+                                    @click.native="setMenuStatus('/technology')"
+                                >
+                                    <span data-text="Technology">Tech</span>
                                 </nuxt-link>
                             </div>
                         </li>
@@ -34,7 +44,13 @@
                     <ul ref="navSmall" class="navigation-items navigation-items-sm">
                         <li class="navigation-item navigation-item-sm">
                             <div class="navigation-item-bit">
-                                <nuxt-link data-stick data-cursor="xl" class="navigation-link" to="/articles">
+                                <nuxt-link
+                                    data-stick
+                                    data-cursor="xl"
+                                    class="navigation-link"
+                                    to="/articles"
+                                    @click.native="setMenuStatus('/articles')"
+                                >
                                     <span data-text="Articles">Articles</span>
                                 </nuxt-link>
                             </div>
@@ -45,7 +61,8 @@
                                     data-stick
                                     data-cursor="xl"
                                     class="navigation-link"
-                                    to="https://github.com/kolbykruger"
+                                    href="https://github.com/kolbykruger"
+                                    rel="noopener norefer"
                                 >
                                     <span data-text="Github">Github</span>
                                     <svg
@@ -67,7 +84,13 @@
                         </li>
                         <li class="navigation-item navigation-item-sm">
                             <div class="navigation-item-bit">
-                                <nuxt-link data-stick data-cursor="xl" class="navigation-link" to="/lab">
+                                <a
+                                    data-stick
+                                    data-cursor="xl"
+                                    class="navigation-link"
+                                    href="https://github.com/kolbykruger"
+                                    rel="noopener norefer"
+                                >
                                     <span data-text="LinkedIn">LinkedIn</span>
                                     <svg
                                         xmlns="http://www.w3.org/2000/svg"
@@ -83,7 +106,7 @@
                                             fill="#0B0E11"
                                         />
                                     </svg>
-                                </nuxt-link>
+                                </a>
                             </div>
                         </li>
                         <li class="navigation-item navigation-item-sm navigation-item-sm--theme">
@@ -140,6 +163,14 @@ export default {
         },
         mode() {
             return this.$store.state.theme.mode
+        },
+    },
+    methods: {
+        setMenuStatus(loc) {
+            if (loc == this.$route.path) {
+                this.$store.commit('menu/close')
+                this.routing = false
+            }
         },
     },
     mounted() {
@@ -259,7 +290,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .menu {
     position: fixed;
     top: 0;
@@ -306,8 +337,13 @@ export default {
         display: block;
         margin-top: 6vh;
 
+        .navigation-item-sm {
+            padding-right: 0;
+        }
+
         @include mq('tablet') {
-            display: block;
+            display: flex;
+            justify-content: flex-end;
             margin-top: 0;
         }
     }
@@ -441,6 +477,7 @@ export default {
             &-lg {
                 padding-bottom: 8vh;
             }
+
             &-sm {
                 display: flex;
                 flex-direction: column;
@@ -481,6 +518,7 @@ export default {
 
                 // }
             }
+
             &-sm {
                 padding-right: 5vw;
 
@@ -513,13 +551,20 @@ export default {
                     left: -0.125em;
                     right: -0.125em;
                     height: 0.35em;
-                    background: c('primary-base');
+                    background: c('tertiary-base');
                     transform: scaleX(0);
                     opacity: 0;
                     transform-origin: 0 50%;
-                    transition: transform 0.66s cubic-bezier(0.42, 0.39, 0.17, 1), opacity 0.66s ease;
+                    transition: transform 0.46s cubic-bezier(0.42, 0.39, 0.17, 1), opacity 0.66s ease;
                     z-index: -1;
                 }
+
+                &.nuxt-link-exact-active {
+                    &::after {
+                        background: c('menu-color');
+                    }
+                }
+
                 &:hover,
                 &:focus {
                     &::after {
