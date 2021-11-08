@@ -12,11 +12,9 @@
                 <div class="timeline-item" v-for="(item, index) in slice.items" :key="index">
                     <p v-if="item.Eyebrow" class="timeline-label">{{ item.Eyebrow }}</p>
 
-                    <prismic-image
-                        class="timeline-image"
-                        v-if="slice.variation == 'timelineImages'"
-                        :field="item.Image"
-                    />
+                    <div class="timeline-image" v-if="slice.variation == 'timelineImages'">
+                        <prismic-image v-if="item.Image" :field="item.Image" />
+                    </div>
 
                     <p class="timeline-title">
                         <span>{{ firstWord(item.Title) }}</span
@@ -166,6 +164,14 @@ export default {
     &-image {
         margin-bottom: 2em;
         width: 100%;
+
+        img {
+            background: c('base-4');
+
+            html[theme='dark'] & {
+                background: c('base-7');
+            }
+        }
     }
 
     &-label,
