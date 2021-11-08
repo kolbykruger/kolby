@@ -22,40 +22,42 @@
                 </svg>
                 <span class="visually-hidden">Navigate to previous slide</span>
             </button> -->
-            <Flickity ref="flickity" class="rail-slider" :options="flickityOptions" @init="onInit">
-                <div
-                    class="rail-item"
-                    v-for="(item, i) in slice.items"
-                    :key="`slice-item-${i}`"
-                    :style="{ '--aspect-ratio': aspectRatio(item.Image), '--width': imageWidth(item.Image) }"
-                >
-                    <div v-if="slice.variation == 'railWithImages'">
-                        {{ item.Image.dimensions }}
-                        <prismic-image class="rail-item-image" data-exclusion :field="item.Image" />
-                    </div>
-                    <div v-if="slice.variation == 'railWithDateCompany'">
-                        <p class="rail-item-date" v-if="item.Date">
-                            {{ i == 0 ? '~ ' : '' }}{{ formatDate(item.Date) || '2021' }}
-                        </p>
-                        <prismic-rich-text class="rail-item-title" :field="item.Title" />
-                        <div class="rail-item-title">
-                            <h4>
-                                —
-                                <prismic-link :field="item.Link">{{ item.Company || 'Company' }}</prismic-link>
-                            </h4>
+            <client-only>
+                <Flickity ref="flickity" class="rail-slider" :options="flickityOptions" @init="onInit">
+                    <div
+                        class="rail-item"
+                        v-for="(item, i) in slice.items"
+                        :key="`slice-item-${i}`"
+                        :style="{ '--aspect-ratio': aspectRatio(item.Image), '--width': imageWidth(item.Image) }"
+                    >
+                        <div v-if="slice.variation == 'railWithImages'">
+                            {{ item.Image.dimensions }}
+                            <prismic-image class="rail-item-image" data-exclusion :field="item.Image" />
                         </div>
-                        <prismic-rich-text class="rail-item-summary" :field="item.Summary" />
+                        <div v-if="slice.variation == 'railWithDateCompany'">
+                            <p class="rail-item-date" v-if="item.Date">
+                                {{ i == 0 ? '~ ' : '' }}{{ formatDate(item.Date) || '2021' }}
+                            </p>
+                            <prismic-rich-text class="rail-item-title" :field="item.Title" />
+                            <div class="rail-item-title">
+                                <h4>
+                                    —
+                                    <prismic-link :field="item.Link">{{ item.Company || 'Company' }}</prismic-link>
+                                </h4>
+                            </div>
+                            <prismic-rich-text class="rail-item-summary" :field="item.Summary" />
+                        </div>
+                        <div v-else>
+                            <p class="rail-item-eyebrow" v-if="item.Eyebrow">— {{ item.Eyebrow || 'Eyebrow' }}</p>
+                            <prismic-rich-text class="rail-item-title" :field="item.Title" v-if="item.Title" />
+                            <prismic-rich-text class="rail-item-summary" :field="item.Summary" v-if="item.Summary" />
+                        </div>
                     </div>
-                    <div v-else>
-                        <p class="rail-item-eyebrow" v-if="item.Eyebrow">— {{ item.Eyebrow || 'Eyebrow' }}</p>
-                        <prismic-rich-text class="rail-item-title" :field="item.Title" v-if="item.Title" />
-                        <prismic-rich-text class="rail-item-summary" :field="item.Summary" v-if="item.Summary" />
+                    <div class="rail-item" aria-hidden="true">
+                        <span></span>
                     </div>
-                </div>
-                <div class="rail-item" aria-hidden="true">
-                    <span></span>
-                </div>
-            </Flickity>
+                </Flickity>
+            </client-only>
             <button
                 data-cursor="lg"
                 data-stick
