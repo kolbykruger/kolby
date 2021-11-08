@@ -1,13 +1,15 @@
 <template>
     <div class="case-study-card" ref="caseStudy" :data-traveler="item.data.Accent">
         <div class="case-study-card-cover">
-            <nuxt-link data-magnetic="0.1, 0.1, 0.3" data-knob :to="'/works/' + item.uid">
+            <nuxt-link data-knob data-cursor="md" :to="'/works/' + item.uid">
                 <prismic-image data-exclusion :field="item.data.Cover" v-if="item.data.Cover" />
             </nuxt-link>
         </div>
 
         <div class="case-study-card-details">
-            <h2 class="case-study-card-title">{{ item.data.Name[0].text }}</h2>
+            <nuxt-link class="case-study-card-title" data-cursor="xl" :to="'/works/' + item.uid">
+                <h2>{{ item.data.Name[0].text }}</h2>
+            </nuxt-link>
             <prismic-rich-text class="case-study-card-summary" v-if="item.data.View" :field="item.data.View" />
             <p>
                 <nuxt-link
@@ -99,7 +101,17 @@ export default {
     }
 
     &-title {
-        margin-top: 0;
+        text-decoration: none;
+        color: inherit;
+
+        h2 {
+            margin-top: 0;
+        }
+
+        // &:hover,
+        // &:focus {
+        //     color: c('primary-base');
+        // }
 
         @include mq('desktop-small') {
             max-width: 80%;
