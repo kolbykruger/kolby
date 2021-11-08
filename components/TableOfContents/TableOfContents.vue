@@ -22,12 +22,12 @@
 export default {
     name: 'TableOfContents',
     props: {
-        document: Object
+        document: Object,
     },
     data() {
         return {
             links: [],
-            activeItem: null
+            activeItem: null,
         }
     },
     computed: {
@@ -36,7 +36,7 @@ export default {
         },
         uid() {
             return this.document ? this.document.uid : null
-        }
+        },
     },
     methods: {
         hash(str) {
@@ -50,11 +50,11 @@ export default {
             anchors.forEach(item => {
                 const id = item.getAttribute('name')
                 const name = item.nextElementSibling.textContent
-                const offset = item.getBoundingClientRect().top - 10
+                const offset = item.getBoundingClientRect().top - 1
                 this.links.push({
                     id,
                     name,
-                    offset
+                    offset,
                 })
             })
 
@@ -62,7 +62,7 @@ export default {
                 this.links.unshift({
                     id: 'content',
                     name: 'Top',
-                    offset: 0
+                    offset: 0,
                 })
                 this.$refs.toc.classList.add('-active')
             }
@@ -84,7 +84,7 @@ export default {
                 }
                 return false
             }
-        }
+        },
     },
     mounted() {
         this.$nextTick(() => {
@@ -98,9 +98,9 @@ export default {
     },
     watch: {
         $route() {
-            console.log(this.$route)
-        }
-    }
+            //console.log(this.$route)
+        },
+    },
 }
 </script>
 
