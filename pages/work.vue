@@ -38,13 +38,13 @@
                 </div>
             </section>
 
-            <slice-zone type="work" uid="work" />
+            <!-- <slice-zone type="work" uid="work" /> -->
         </div>
     </main>
 </template>
 
 <script>
-import SliceZone from 'vue-slicezone'
+// import SliceZone from 'vue-slicezone'
 import Pageheading from '~/components/Pageheading/Pageheading.vue'
 import CaseStudyItem from '~/components/CaseStudyItem/CaseStudyItem.vue'
 import { Animations } from '~/mixins/animations/Animations.js'
@@ -53,14 +53,19 @@ export default {
     components: {
         Pageheading,
         CaseStudyItem,
-        SliceZone,
+        // SliceZone,
     },
     mixins: [Animations],
     async asyncData({ $prismic, params, error }) {
-        const cases = await $prismic.api.query($prismic.predicates.at('document.type', 'case-study'), {
-            orderings: '[document.first_publication_date ]',
-        })
         const document = await $prismic.api.query($prismic.predicates.at('document.type', 'work'))
+
+        const caseStudyIds = document.results[0].data.CaseStudies.map(i => {
+            return i.CaseStudy.id
+        })
+
+        const cases = await $prismic.api.getByIDs(caseStudyIds)
+
+        //Get projects list for project scroller
         const projectsList = await $prismic.api.query($prismic.predicates.at('document.type', 'projects'))
 
         if (cases && document && projectsList) {
@@ -80,7 +85,7 @@ export default {
 
             const projects = organizedProjects.sort(() => Math.random() - 0.5)
 
-            return { cases, document, projects }
+            return { cases, document, projects, cases }
         } else {
             error({ statusCode: 404, message: 'Page not found' })
         }
