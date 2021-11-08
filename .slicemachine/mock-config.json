@@ -31,12 +31,28 @@
     },
     "ArticleBlock": {},
     "CodeBlock": {},
-    "Timeline": {},
+    "Timeline": {
+      "timelineImages": {
+        "items": {}
+      }
+    },
     "Artwork": {},
     "Anchors": {
       "default-slice": {
         "items": {},
         "primary": {}
+      }
+    },
+    "Headline": {
+      "default-slice": {
+        "primary": {
+          "title": {
+            "config": {
+              "patternType": "HEADING",
+              "blocks": 1
+            }
+          }
+        }
       }
     }
   },
@@ -104,6 +120,15 @@
         }
       },
       "CaseStudies": {}
+    },
+    "home": {
+      "Name": {
+        "config": {
+          "patternType": "HEADING",
+          "blocks": 1
+        }
+      },
+      "FeaturedWork": {}
     }
   }
 }

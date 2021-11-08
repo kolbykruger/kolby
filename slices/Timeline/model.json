@@ -69,6 +69,50 @@
           "type": "StructuredText"
         }
       }
+    },
+    {
+      "id": "timelineImages",
+      "name": "Timeline - Images",
+      "docURL": "...",
+      "version": "sktwi1xtmkfgx8626",
+      "description": "Timeline",
+      "primary": {},
+      "items": {
+        "Eyebrow": {
+          "config": {
+            "label": "Eyebrow",
+            "placeholder": ""
+          },
+          "type": "Text"
+        },
+        "Image": {
+          "config": {
+            "label": "Image",
+            "constraint": {
+              "width": 1066,
+              "height": 600
+            },
+            "thumbnails": []
+          },
+          "type": "Image"
+        },
+        "Title": {
+          "config": {
+            "label": "Title",
+            "placeholder": ""
+          },
+          "type": "Text"
+        },
+        "Summary": {
+          "config": {
+            "label": "Summary",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "paragraph"
+          },
+          "type": "StructuredText"
+        }
+      }
     }
   ]
 }

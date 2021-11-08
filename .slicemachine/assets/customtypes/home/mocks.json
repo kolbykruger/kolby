@@ -1,0 +1,28 @@
+{
+  "id": "b4b3e720-dcb3-48a7-9d3d-c6a526a3c17a",
+  "uid": "accusantium-et-quia",
+  "type": "home",
+  "data": {
+    "Name": [
+      {
+        "type": "heading1",
+        "text": "Whiteboard customized relationships",
+        "spans": []
+      }
+    ],
+    "FeaturedWork": [
+      {
+        "CaseStudy": {
+          "link_type": "Web",
+          "url": "http://google.com"
+        }
+      },
+      {
+        "CaseStudy": {
+          "link_type": "Web",
+          "url": "https://prismic.io"
+        }
+      }
+    ]
+  }
+}
