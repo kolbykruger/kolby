@@ -9,7 +9,7 @@
                         <p>
                             I've had the opportunity to work on some amazing projects with some marvelous people. I'm
                             lucky enough to have been part of over
-                            <span style="color: var(--color-primary-base)">{{ projectsCount + 14 }}</span> creative
+                            <span style="color: var(--color-primary-base)">{{ projectsCount + 14 }} ~</span> creative
                             experiences & products.
                         </p>
                     </div>
