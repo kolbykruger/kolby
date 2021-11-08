@@ -222,16 +222,6 @@ export default {
 
         &-active,
         &-passive {
-            transition: 260ms ease;
-        }
-
-        &-active {
-            opacity: 0;
-            transform: translateY(150%);
-            color: c('primary-base');
-        }
-
-        &-passive {
             position: absolute;
             top: 0;
             left: 0;
@@ -239,6 +229,16 @@ export default {
             height: 100%;
             display: grid;
             place-content: center;
+            transition: 260ms ease;
+        }
+
+        &-active {
+            opacity: 0;
+            transform: translateY(10%);
+            color: c('primary-base');
+        }
+
+        &-passive {
             font-size: 3vw;
             color: c('base-0');
         }
