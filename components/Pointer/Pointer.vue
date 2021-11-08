@@ -17,6 +17,7 @@ import { Magnetic } from '~/mixins/cursor/Magnetic.js'
 import { Stick } from '~/mixins/cursor/Stick.js'
 import { Invisible } from '~/mixins/cursor/Invisible.js'
 import { Shift } from '~/mixins/cursor/Shift.js'
+import { Knob } from '~/mixins/cursor/Knob.js'
 // import { Rail } from '~/mixins/cursor/Rail.js'
 // import { Image } from '~/mixins/cursor/Image.js'
 import { Caption } from '~/mixins/cursor/Caption.js'
@@ -30,7 +31,21 @@ export default {
     props: {
         counter: Number,
     },
-    mixins: [Cursor, Visibility, Interactivity, Size, Magnetic, Stick, Invisible, Shift, Caption, Move, State, Reset],
+    mixins: [
+        Cursor,
+        Visibility,
+        Interactivity,
+        Size,
+        Magnetic,
+        Stick,
+        Invisible,
+        Shift,
+        Knob,
+        Caption,
+        Move,
+        State,
+        Reset,
+    ],
     computed: {
         loadingStatus() {
             return this.$store.state.loading.loading
@@ -80,6 +95,7 @@ export default {
                     this.visibility()
                     this.invisibility()
                     this.shift()
+                    this.knob()
                 }, 1100) // page animation transition length
             })
         },
@@ -259,6 +275,14 @@ export default {
             }
         }
 
+        &.-knob {
+            .pointer-circle {
+                background: rgba(#f4f1ee, 0.1);
+                background: radial-gradient(transparent 75%, c('cursor'));
+                border: 1px solid c('cursor');
+            }
+        }
+
         // &.-shift {
         //     .pointer-circle {
         //         animation: color-shift 2.8s ease-in-out infinite;
@@ -316,7 +340,7 @@ export default {
             display: block;
             width: 48px;
             height: 48px;
-            background: #fff;
+            background: c('cursor');
             border-radius: 50%;
             clip-path: circle(50% at 50% 50%);
             transform-origin: 50% 50%;
