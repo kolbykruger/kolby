@@ -28,9 +28,13 @@ small {
     }
 
     + h2,
+    + a[name] + h2,
     + h3,
+    + a[name] + h3,
     + h4,
-    + h5 {
+    + a[name] + h4,
+    + h5,
+    + a[name] + h5 {
         margin-top: 1em;
     }
 }
@@ -119,6 +123,12 @@ h5 {
     + h4 {
         margin-top: 0.75em;
     }
+}
+
+h3,
+h4,
+h5 {
+    font-weight: 400;
 }
 
 h3 + h4 {
