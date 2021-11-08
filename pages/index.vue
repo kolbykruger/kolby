@@ -12,7 +12,7 @@
             <section class="case-studies" v-if="cases">
                 <div class="container">
                     <CaseStudyItem v-for="study in cases.results" :key="study.id" :item="study" />
-                    <nuxt-link to="/work">View more work</nuxt-link>
+                    <nuxt-link class="button" to="/work">View more work</nuxt-link>
                 </div>
             </section>
 
