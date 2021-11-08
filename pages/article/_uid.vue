@@ -92,17 +92,30 @@ export default {
         }
     }
 
+    // Prevents the first element from having a positive margin
+    .article-grid > .article-content > div > section:first-of-type {
+        *:is(p):first-child,
+        *:is(a):first-child + h2,
+        *:is(a):first-child + h3 {
+            margin-top: 0;
+        }
+    }
+
     section {
         position: relative;
         margin: 0 auto;
 
-        &:first-of-type {
-            h2:first-of-type,
-            h3:first-of-type,
-            p:first-of-type {
-                margin-top: 0;
-            }
-        }
+        // &:first-of-type {
+        //     &:is(h2, h3, p) {
+        //         margin-top: 0;
+        //     }
+
+        //     h2:first-of-type,
+        //     h3:first-of-type,
+        //     p:first-of-type {
+        //         margin-top: 0;
+        //     }
+        // }
 
         .container {
             display: flex;
