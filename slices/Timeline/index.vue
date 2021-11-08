@@ -3,13 +3,21 @@
         class="timeline"
         ref="timeline"
         :class="{
-            'timeline-vertical': slice.variation == 'timelineVertical'
+            'timeline-vertical': slice.variation == 'timelineVertical',
+            'timeline-image': slice.variation == 'timelineImages',
         }"
     >
         <div class="container">
             <div class="timeline-rail" :style="{ '--count': count }">
                 <div class="timeline-item" v-for="(item, index) in slice.items" :key="index">
-                    <p class="timeline-label">{{ item.Eyebrow }}</p>
+                    <p v-if="item.Eyebrow" class="timeline-label">{{ item.Eyebrow }}</p>
+
+                    <prismic-image
+                        class="timeline-image"
+                        v-if="slice.variation == 'timelineImages'"
+                        :field="item.Image"
+                    />
+
                     <p class="timeline-title">
                         <span>{{ firstWord(item.Title) }}</span
                         ><span>{{ otherWords(item.Title) }}</span>
@@ -30,13 +38,13 @@ export default {
             required: true,
             default() {
                 return {}
-            }
-        }
+            },
+        },
     },
     data() {
         return {
             observer: null,
-            offset: null
+            offset: null,
         }
     },
     computed: {
@@ -45,7 +53,7 @@ export default {
         },
         path() {
             return this.$route.path
-        }
+        },
     },
     methods: {
         firstWord(text) {
@@ -56,8 +64,8 @@ export default {
             let t = text.split(' ')
             t.shift()
             return t.join(' ')
-        }
-    }
+        },
+    },
 }
 </script>
 
@@ -153,6 +161,11 @@ export default {
                 height: 1.5em;
             }
         }
+    }
+
+    &-image {
+        margin-bottom: 2em;
+        width: 100%;
     }
 
     &-label,
