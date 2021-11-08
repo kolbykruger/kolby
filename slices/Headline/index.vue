@@ -15,9 +15,9 @@ export default {
             required: true,
             default() {
                 return {}
-            }
-        }
-    }
+            },
+        },
+    },
 }
 </script>
 
