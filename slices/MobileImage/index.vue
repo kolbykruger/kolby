@@ -52,10 +52,11 @@ export default {
         grid-gap: 5vh;
         max-width: 1600px;
         margin: 0 auto;
+        grid-template-columns: repeat(calc(#{var(--count)} / 2), 1fr);
 
         @include mq('tablet') {
             grid-gap: 3vw;
-            grid-template-columns: repeat(calc(#{var(--count)} / 2), 1fr);
+            grid-template-columns: repeat(var(--count), 1fr);
         }
         @include mq('mobile') {
             grid-template-columns: repeat(var(--count), 1fr);
