@@ -21,19 +21,24 @@
         },
         "type": "UID"
       },
-      "slices": {
-        "type": "Slices",
-        "fieldset": "Slice Zone",
+      "CaseStudies": {
         "config": {
-          "choices": {
-            "headline": {
-              "type": "SharedSlice"
-            },
-            "textblock": {
-              "type": "SharedSlice"
+          "label": "CaseStudies",
+          "placeholder": "",
+          "fields": {
+            "CaseStudy": {
+              "config": {
+                "label": "CaseStudy",
+                "customtypes": [
+                  "case-study"
+                ],
+                "select": "document"
+              },
+              "type": "Link"
             }
           }
-        }
+        },
+        "type": "Group"
       }
     }
   }
