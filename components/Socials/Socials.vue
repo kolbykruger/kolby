@@ -2,30 +2,54 @@
     <div class="socials">
         <ul class="socials-list">
             <li class="socials-item">
-                <a data-stick class="socials-link" href="#" target="_blank" rel="noopener norefer">
+                <a
+                    data-stick
+                    class="socials-link"
+                    href="https://github.com/kolbykruger"
+                    target="_blank"
+                    rel="noopener norefer"
+                >
                     <span class="socials-item-icon">GH</span>
                 </a>
             </li>
             <li class="socials-item">
-                <a data-stick class="socials-link" href="#" target="_blank" rel="noopener norefer">
+                <a
+                    data-stick
+                    class="socials-link"
+                    href="https://www.linkedin.com/in/kolby-kruger-b978a611a/"
+                    target="_blank"
+                    rel="noopener norefer"
+                >
                     <span class="socials-item-icon">LI</span>
                 </a>
             </li>
             <li class="socials-item">
-                <a data-stick class="socials-link" href="#" target="_blank" rel="noopener norefer">
+                <a
+                    data-stick
+                    class="socials-link"
+                    href="https://www.figma.com/@kolbykruger"
+                    target="_blank"
+                    rel="noopener norefer"
+                >
                     <span class="socials-item-icon">FI</span>
                 </a>
             </li>
             <li class="socials-item">
-                <a data-stick class="socials-link" href="#" target="_blank" rel="noopener norefer">
+                <a
+                    data-stick
+                    class="socials-link"
+                    href="https://open.spotify.com/user/y06tzx3ihl845bexod52qrric?si=99779530345d4977"
+                    target="_blank"
+                    rel="noopener norefer"
+                >
                     <span class="socials-item-icon">SP</span>
                 </a>
             </li>
-            <li class="socials-item">
+            <!-- <li class="socials-item">
                 <a data-stick class="socials-link" href="#" target="_blank" rel="noopener norefer">
                     <span class="socials-item-icon">CV</span>
                 </a>
-            </li>
+            </li> -->
             <li class="socials-item">
                 <Theme />
             </li>
