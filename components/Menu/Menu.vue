@@ -498,7 +498,7 @@ export default {
             &-bit {
                 position: relative;
                 display: inline-flex;
-                transform: translateY(-100%);
+                transform: translateY(-115%);
                 will-change: transform;
             }
 
