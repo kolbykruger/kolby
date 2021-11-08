@@ -3,10 +3,11 @@
         <div class="container">
             <h1 class="introduction-title">Kolby Kruger</h1>
             <h2 class="introduction-subtitle">Web designer & developer<br />based in Vermont.</h2>
-            <p class="introduction-description">
+            <!-- <p class="introduction-description">
                 I have a passion for design, programming, motion animation, and web apps.
-            </p>
+            </p> -->
         </div>
+        <Scroller />
     </section>
 </template>
 
@@ -35,11 +36,23 @@ export default {
         position: relative;
         display: grid;
         place-content: center;
-        z-index: 4;
+    }
+
+    &-title {
+        margin-bottom: 0;
     }
 
     &-description {
         max-width: 18em;
+    }
+
+    .scroller {
+        position: absolute;
+        bottom: 5vh;
+
+        .container {
+            display: block;
+        }
     }
 }
 </style>
