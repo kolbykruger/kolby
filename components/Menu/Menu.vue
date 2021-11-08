@@ -33,10 +33,10 @@
                                 <nuxt-link
                                     data-cursor="md"
                                     class="navigation-link"
-                                    to="/technology"
-                                    @click.native="setMenuStatus('/technology')"
+                                    to="/approach"
+                                    @click.native="setMenuStatus('/approach')"
                                 >
-                                    <span data-text="Technology">Tech</span>
+                                    <span data-text="Approach">Approach</span>
                                 </nuxt-link>
                             </div>
                         </li>
@@ -551,7 +551,7 @@ export default {
                     left: -0.125em;
                     right: -0.125em;
                     height: 0.35em;
-                    background: c('tertiary-base');
+                    background: c('primary-base');
                     transform: scaleX(0);
                     opacity: 0;
                     transform-origin: 0 50%;
