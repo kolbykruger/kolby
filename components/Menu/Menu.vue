@@ -62,6 +62,7 @@
                                     data-cursor="xl"
                                     class="navigation-link"
                                     href="https://github.com/kolbykruger"
+                                    target="_blank"
                                     rel="noopener norefer"
                                 >
                                     <span data-text="Github">Github</span>
@@ -88,7 +89,8 @@
                                     data-stick
                                     data-cursor="xl"
                                     class="navigation-link"
-                                    href="https://github.com/kolbykruger"
+                                    href="https://www.linkedin.com/in/kolby-kruger-b978a611a/"
+                                    target="_blank"
                                     rel="noopener norefer"
                                 >
                                     <span data-text="LinkedIn">LinkedIn</span>
