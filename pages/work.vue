@@ -85,7 +85,7 @@ export default {
 
             const projects = organizedProjects.sort(() => Math.random() - 0.5)
 
-            return { cases, document, projects, cases }
+            return { document, projects, cases }
         } else {
             error({ statusCode: 404, message: 'Page not found' })
         }
