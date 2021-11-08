@@ -1,6 +1,5 @@
 <template>
     <section class="artwork">
-        {{ slice.primary.Type }}
         <span class="conic-gradient-1"></span>
     </section>
 </template>
@@ -14,9 +13,9 @@ export default {
             required: true,
             default() {
                 return {}
-            }
-        }
-    }
+            },
+        },
+    },
 }
 </script>
 
