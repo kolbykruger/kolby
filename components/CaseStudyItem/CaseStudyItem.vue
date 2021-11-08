@@ -1,7 +1,7 @@
 <template>
     <div class="case-study-card" ref="caseStudy" :data-traveler="item.data.Accent">
         <div class="case-study-card-cover">
-            <nuxt-link data-magnetic="0.1, 0.1, 0.3" :to="'/works/' + item.uid">
+            <nuxt-link data-magnetic="0.1, 0.1, 0.3" data-knob :to="'/works/' + item.uid">
                 <prismic-image data-exclusion :field="item.data.Cover" v-if="item.data.Cover" />
             </nuxt-link>
         </div>
@@ -40,12 +40,12 @@
 export default {
     name: 'CaseStudyCard',
     props: {
-        item: Object
+        item: Object,
     },
     mounted() {
         const caseStudy = this.$refs.caseStudy
         //gsap
-    }
+    },
 }
 </script>
 
