@@ -183,7 +183,29 @@ export default {
         &-slider {
             position: relative;
             margin: 0 auto;
-            margin-left: 270px;
+            margin-left: 20px;
+
+            @include mq('phone-small') {
+                margin-left: 30px;
+            }
+            @include mq('phone-large') {
+                margin-left: 100px;
+            }
+            @include mq('laptop-small') {
+                margin-left: 120px;
+            }
+            @include mq('laptop') {
+                margin-left: 150px;
+            }
+            @include mq('laptop-large') {
+                margin-left: 180px;
+            }
+            @include mq('desktop-small') {
+                margin-left: 220px;
+            }
+            @include mq('desktop') {
+                margin-left: 270px;
+            }
         }
 
         &-button {
