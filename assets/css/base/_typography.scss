@@ -17,7 +17,7 @@ dl,
 li,
 table,
 small {
-    font-size: clamp(1.22rem, -0.875rem + 8.333vw, 1.953rem);
+    font-size: clamp(1.125rem, -0.875rem + 3vw, 1.953rem);
     line-height: 1.45;
     margin-bottom: 0.5rem;
     font-weight: 400;
@@ -52,7 +52,7 @@ p {
 }
 
 small {
-    font-size: clamp(1.125rem, -0.875rem + 8.333vw, 1.563rem);
+    font-size: clamp(1.125rem, -0.875rem + 3.333vw, 1.563rem);
 }
 
 // h1 {
@@ -87,11 +87,11 @@ h1 {
 
 h2 {
     font-family: $font-1;
-    font-size: clamp(3.052rem, -0.875rem + 8.333vw, 5.96rem);
+    font-size: clamp(3.052rem, -0.875rem + 5.333vw, 5.96rem);
 }
 
 h3 {
-    font-size: clamp(2.441rem, -0.875rem + 8.333vw, 3.815rem);
+    font-size: clamp(2.441rem, -0.875rem + 4.333vw, 3.815rem);
 }
 
 h4 {
