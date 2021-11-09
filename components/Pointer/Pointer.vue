@@ -18,6 +18,7 @@ import { Stick } from '~/mixins/cursor/Stick.js'
 import { Invisible } from '~/mixins/cursor/Invisible.js'
 import { Shift } from '~/mixins/cursor/Shift.js'
 import { Knob } from '~/mixins/cursor/Knob.js'
+import { Buttons } from '~/mixins/cursor/Buttons.js'
 // import { Rail } from '~/mixins/cursor/Rail.js'
 // import { Image } from '~/mixins/cursor/Image.js'
 import { Caption } from '~/mixins/cursor/Caption.js'
@@ -41,6 +42,7 @@ export default {
         Invisible,
         Shift,
         Knob,
+        Buttons,
         Caption,
         Move,
         State,
@@ -96,6 +98,7 @@ export default {
                     this.invisibility()
                     this.shift()
                     this.knob()
+                    this.buttons()
                 }, 1100) // page animation transition length
             })
         },
