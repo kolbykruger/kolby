@@ -42,6 +42,14 @@ export default {
         transition: color 0.2s ease, border-color 0.3s ease;
         overflow: hidden;
 
+        &[data-magnetic] {
+            display: inline-flex;
+        }
+
+        html[theme='dark'] & {
+            border-color: c('base-3');
+        }
+
         &::before {
             content: '';
             position: absolute;
@@ -60,6 +68,10 @@ export default {
         &:hover {
             color: c('base-9');
             border-color: transparent;
+
+            html[theme='dark'] & {
+                border-color: transparent;
+            }
 
             &::before {
                 transform: translate(-50%, -100%);
