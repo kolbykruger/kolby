@@ -79,7 +79,7 @@ export default {
         transpile: ['vue-slicezone', 'nuxt-sm'],
     },
     storybook: {
-        stories: [...getStoriesPaths(), '../styles/globals.css'],
+        stories: ['~/.slicemachine/assets/**/*.stories.@(js|jsx|ts|tsx|svelte)', '~/assets/css/internals.scss'],
     },
     image: {
         provider: 'prismic',
