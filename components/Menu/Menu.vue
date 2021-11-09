@@ -216,7 +216,7 @@ export default {
 
                 this.largeLinkTimeline
                     .set(this.largeLinks, {
-                        y: '-100%',
+                        y: '-115%',
                         rotate: '-5deg',
                     })
                     .to(this.largeLinks, {
@@ -226,13 +226,13 @@ export default {
                         delay: 0.28,
                         ease: this.ease,
                         stagger: {
-                            amount: 0.03,
+                            amount: 0.05,
                         },
                     })
 
                 this.smallLinkTimeline
                     .set(this.smallLinks, {
-                        y: '-100%',
+                        y: '-115%',
                         rotate: '-5deg',
                     })
                     .to(this.smallLinks, {
@@ -242,7 +242,7 @@ export default {
                         delay: 0.48,
                         ease: this.ease,
                         stagger: {
-                            amount: 0.03,
+                            amount: 0.05,
                         },
                     })
             } else {
@@ -498,7 +498,7 @@ export default {
             &-bit {
                 position: relative;
                 display: inline-flex;
-                transform: translateY(-115%);
+                transform: translateY(-100%);
                 will-change: transform;
             }
 
