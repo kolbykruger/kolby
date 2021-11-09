@@ -7,21 +7,21 @@ input[type='submit'] {
     background: none;
     box-shadow: none;
     cursor: pointer;
+    font-size: clamp(1.22rem, -0.875rem + 8.333vw, 1.953rem);
 }
 
 .actions {
-    margin: 6vh 0;
+    display: flex;
+    align-items: center;
+    flex-flow: row wrap;
+    margin: 1vh 0;
 
-    a.button {
-        display: inline-flex;
-        text-decoration: none;
-        background: #f6f9fc;
-        padding: 1.2em 1.6em;
-        border-radius: 0.125em;
+    &-center {
+        justify-content: center;
+    }
 
-        span {
-            margin-right: 0.6em;
-        }
+    &-right {
+        justify-content: flex-end;
     }
 }
 
