@@ -6,33 +6,35 @@ export const Cursor = {
         return {
             cursor: {
                 x: 0,
-                y: 0
+                y: 0,
+                width: 48,
+                height: 48,
             },
             props: {
                 bounds: {
                     circle: {
                         width: 0,
-                        height: 0
+                        height: 0,
                     },
                     text: {
                         width: 0,
-                        height: 0
-                    }
+                        height: 0,
+                    },
                 },
                 circle: {
                     x: {
                         previous: 0,
                         current: 0,
-                        smooth: 0.2
+                        smooth: 0.3,
                     },
                     y: {
                         previous: 0,
                         current: 0,
-                        smooth: 0.2
-                    }
+                        smooth: 0.3,
+                    },
                 },
-                fill: '#000'
-            }
+                fill: '#000',
+            },
         }
     },
     methods: {
@@ -51,6 +53,16 @@ export const Cursor = {
                     this.stick.y - (this.stick.y - (this.cursor.y - this.props.bounds.circle.height / 2)) * 0.2
             }
 
+            // Buttons active [MIXIN]
+            if (this.btn.active) {
+                this.props.circle.x.current =
+                    this.btn.x - (this.btn.x - (this.cursor.x - this.props.bounds.circle.width / 2)) * 0.2
+                this.props.circle.y.current =
+                    this.btn.y - (this.btn.y - (this.cursor.y - this.props.bounds.circle.height / 2)) * 0.2
+                this.cursor.width = this.btn.width
+                this.cursor.height = this.btn.height
+            }
+
             // Calculate lerps for smooth transitions
             for (const key in this.props.circle) {
                 this.props.circle[key].previous = lerp(
@@ -65,7 +77,7 @@ export const Cursor = {
             requestAnimationFrame(() => {
                 this.render(pointer)
             })
-        }
+        },
     },
     mounted() {
         const cursor = this.$refs.pointerSVG
@@ -85,5 +97,5 @@ export const Cursor = {
         requestAnimationFrame(() => {
             this.render({ cursor, circle, text })
         })
-    }
+    },
 }
