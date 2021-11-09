@@ -60,7 +60,7 @@ export default {
     margin-bottom: 5vh;
 
     @include mq('desktop-small') {
-        margin-bottom: 15vh;
+        margin-bottom: 22vh;
     }
 
     &-cover {
