@@ -4,15 +4,18 @@
             <Introduction />
 
             <section class="headline">
-                <div class="container">
-                    <h2>Featured <br />work</h2>
+                <div class="container" style="text-align: center; margin-bottom: 18vh">
+                    <h2>Featured works</h2>
+                    <Decor />
                 </div>
             </section>
 
             <section class="case-studies" v-if="cases">
                 <div class="container">
                     <CaseStudyItem v-for="study in cases.results" :key="study.id" :item="study" />
-                    <nuxt-link class="button" to="/work">View more work</nuxt-link>
+                    <div class="actions actions-center">
+                        <Button location="/work">View more work</Button>
+                    </div>
                 </div>
             </section>
 
