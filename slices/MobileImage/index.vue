@@ -58,9 +58,6 @@ export default {
             grid-gap: 3vw;
             grid-template-columns: repeat(var(--count), 1fr);
         }
-        @include mq('mobile') {
-            grid-template-columns: repeat(var(--count), 1fr);
-        }
 
         &-sm {
             max-width: 100%;
