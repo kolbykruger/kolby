@@ -18,7 +18,7 @@ export const _DefaultSlice = () => ({
   },
   data() {
     return {
-      mock: {"variation":"default-slice","name":"Default slice","slice_type":"list","items":[{"Item":[{"type":"paragraph","text":"Et ea Lorem consectetur sit voluptate duis ut non.","spans":[]}]},{"Item":[{"type":"paragraph","text":"Consectetur cupidatat ad pariatur sunt deserunt officia. Lorem irure aute tempor. Ipsum consequat deserunt est amet.","spans":[]}]},{"Item":[{"type":"paragraph","text":"Sit ullamco ullamco sint duis duis culpa sit officia velit.","spans":[]}]},{"Item":[{"type":"paragraph","text":"Dolor nostrud enim deserunt non sit proident eiusmod voluptate. Dolor veniam est adipisicing. Lorem ex officia dolor quis consectetur do esse.","spans":[]}]},{"Item":[{"type":"paragraph","text":"Enim esse elit occaecat officia excepteur mollit exercitation fugiat magna adipisicing dolore do laboris. Commodo excepteur excepteur sunt eiusmod elit sunt sint velit ea culpa Lorem ad commodo.","spans":[]}]},{"Item":[{"type":"paragraph","text":"Laborum proident consectetur excepteur amet nisi deserunt et incididunt nulla pariatur excepteur.","spans":[]}]}],"primary":{},"id":"_DefaultSlice"}
+      mock: {"variation":"default-slice","name":"Default slice","slice_type":"list","items":[{"Item":[{"type":"paragraph","text":"Sit laborum ut cillum est in. Ea eiusmod velit irure consectetur exercitation. Mollit laboris irure commodo nulla ad culpa id amet eiusmod amet proident cupidatat exercitation.","spans":[]}]},{"Item":[{"type":"paragraph","text":"Eu Lorem et cupidatat enim commodo duis reprehenderit irure laborum enim aute amet voluptate.","spans":[]}]},{"Item":[{"type":"paragraph","text":"Ex cupidatat deserunt labore ex laboris non commodo do anim proident. Commodo mollit et in enim consectetur culpa. Pariatur mollit nisi adipisicing id voluptate nisi quis amet consectetur fugiat.","spans":[]}]},{"Item":[{"type":"paragraph","text":"Id deserunt occaecat aute ut sunt tempor incididunt culpa. Eu cillum consectetur ea minim cillum non aliqua.","spans":[]}]}],"primary":{},"id":"_DefaultSlice"}
     }
   },
   template: '<SliceZone :slices="[mock]" :resolver="resolve" />'
@@ -37,7 +37,7 @@ export const _OrderedList = () => ({
   },
   data() {
     return {
-      mock: {"variation":"orderedList","name":"Ordered List","slice_type":"list","items":[{"Item":[{"type":"paragraph","text":"Laborum tempor velit ullamco aliqua pariatur consequat duis non velit.","spans":[]}]},{"Item":[{"type":"paragraph","text":"Dolor ipsum do eiusmod incididunt sint duis elit in ea incididunt aute elit in.","spans":[]}]}],"primary":{},"id":"_OrderedList"}
+      mock: {"variation":"orderedList","name":"Ordered List","slice_type":"list","items":[{"Item":[{"type":"paragraph","text":"Enim occaecat culpa irure nisi et est nostrud reprehenderit incididunt tempor minim minim eu mollit aliquip. Fugiat cillum ad voluptate mollit.","spans":[]}]},{"Item":[{"type":"paragraph","text":"Culpa cupidatat Lorem aliqua fugiat id.","spans":[]}]},{"Item":[{"type":"paragraph","text":"Qui ad consectetur laborum ad incididunt exercitation. Ex laboris eiusmod ad est occaecat cupidatat magna anim sunt aute eu. Sunt exercitation ex sit aute consectetur ullamco et anim nisi commodo velit magna.","spans":[]}]},{"Item":[{"type":"paragraph","text":"Ad enim occaecat amet dolore culpa ex eu. Duis deserunt minim nulla enim.","spans":[]}]}],"primary":{},"id":"_OrderedList"}
     }
   },
   template: '<SliceZone :slices="[mock]" :resolver="resolve" />'

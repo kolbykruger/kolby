@@ -18,7 +18,7 @@ export const _DefaultSlice = () => ({
   },
   data() {
     return {
-      mock: {"variation":"default-slice","name":"Default slice","slice_type":"textblock","items":[],"primary":{"Index":"monetize B2C communities","Eyebrow":"drive B2C solutions","title":[{"type":"heading2","text":"Leverage innovative platforms","spans":[]}],"description":[{"type":"paragraph","text":"Qui pariatur esse Lorem dolor cupidatat eu. Nulla amet elit mollit ad ad nulla deserunt sunt dolor. Sint Lorem consectetur duis mollit enim anim ex pariatur laboris excepteur ullamco aute eiusmod nostrud occaecat.","spans":[]}]},"id":"_DefaultSlice"}
+      mock: {"variation":"default-slice","name":"Default slice","slice_type":"textblock","items":[],"primary":{"Index":"disintermediate robust e-commerce","Eyebrow":"generate end-to-end paradigms","title":[{"type":"heading2","text":"Maximize plug-and-play metrics","spans":[]}],"description":[{"type":"paragraph","text":"Sit elit commodo occaecat irure pariatur adipisicing eu do mollit ad irure ut irure.","spans":[]}]},"id":"_DefaultSlice"}
     }
   },
   template: '<SliceZone :slices="[mock]" :resolver="resolve" />'
@@ -37,7 +37,7 @@ export const _TextblockWithGridList = () => ({
   },
   data() {
     return {
-      mock: {"variation":"textblockWithGridList","name":"Textblock - with Grid List","slice_type":"textblock","items":[{"Name":"cultivate global interfaces","Outline":"streamline global initiatives"},{"Name":"redefine turn-key experiences","Outline":"target best-of-breed action-items"},{"Name":"synthesize rich systems","Outline":"evolve plug-and-play channels"},{"Name":"monetize distributed content","Outline":"architect visionary blockchains"},{"Name":"generate integrated architectures","Outline":"transform interactive metrics"},{"Name":"synthesize best-of-breed channels","Outline":"leverage integrated experiences"}],"primary":{"Index":"brand innovative supply-chains","Eyebrow":"embrace extensible e-services","title":[{"type":"heading2","text":"Cultivate synergistic e-commerce","spans":[]}],"description":[{"type":"paragraph","text":"Minim deserunt reprehenderit irure.","spans":[]}]},"id":"_TextblockWithGridList"}
+      mock: {"variation":"textblockWithGridList","name":"Textblock - with Grid List","slice_type":"textblock","items":[{"Name":"synergize leading-edge mindshare","Outline":"engineer B2B partnerships"},{"Name":"drive world-class infrastructures","Outline":"deploy next-generation markets"},{"Name":"utilize best-of-breed supply-chains","Outline":"repurpose web-enabled metrics"},{"Name":"enhance B2B functionalities","Outline":"mesh integrated e-services"}],"primary":{"Index":"maximize 24/7 relationships","Eyebrow":"reintermediate global portals","title":[{"type":"heading2","text":"Engage compelling channels","spans":[]}],"description":[{"type":"paragraph","text":"Adipisicing irure sunt do nulla duis laboris ad ut ipsum consectetur amet quis eu reprehenderit labore.","spans":[]}]},"id":"_TextblockWithGridList"}
     }
   },
   template: '<SliceZone :slices="[mock]" :resolver="resolve" />'

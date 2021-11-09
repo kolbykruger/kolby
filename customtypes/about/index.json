@@ -67,6 +67,9 @@
             },
             "gallery": {
               "type": "SharedSlice"
+            },
+            "timeline": {
+              "type": "SharedSlice"
             }
           }
         }

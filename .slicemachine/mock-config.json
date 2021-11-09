@@ -19,40 +19,13 @@
         }
       }
     },
-    "Rail": {},
-    "Gallery": {
-      "default-slice": {
-        "items": {
-          "Size": {
-            "content": "Small"
-          }
-        }
-      }
-    },
     "ArticleBlock": {},
     "CodeBlock": {},
-    "Timeline": {
-      "timelineImages": {
-        "items": {}
-      }
-    },
     "Artwork": {},
     "Anchors": {
       "default-slice": {
         "items": {},
         "primary": {}
-      }
-    },
-    "Headline": {
-      "default-slice": {
-        "primary": {
-          "title": {
-            "config": {
-              "patternType": "HEADING",
-              "blocks": 1
-            }
-          }
-        }
       }
     }
   },
