@@ -3,6 +3,8 @@
         <div class="page-contents">
             <Pageheading name="Work" />
 
+            <canvas id="canvas" ref="canvas" />
+
             <section class="work-intro">
                 <div class="container">
                     <div class="work-intro-details">
@@ -17,7 +19,7 @@
             </section>
             <Scroller />
 
-            <section class="case-studies" v-if="cases">
+            <section class="case-studies" ref="caseStudies" v-if="cases">
                 <div class="container">
                     <CaseStudyItem v-for="study in cases.results" :key="study.id" :item="study" />
                 </div>
@@ -47,7 +49,7 @@
 // import SliceZone from 'vue-slicezone'
 import Pageheading from '~/components/Pageheading/Pageheading.vue'
 import CaseStudyItem from '~/components/CaseStudyItem/CaseStudyItem.vue'
-import { Animations } from '~/mixins/animations/Animations.js'
+import { CaseStudies } from '@/mixins/three/CaseStudies'
 
 export default {
     components: {
@@ -55,7 +57,7 @@ export default {
         CaseStudyItem,
         // SliceZone,
     },
-    mixins: [Animations],
+    mixins: [CaseStudies],
     async asyncData({ $prismic, params, error }) {
         const document = await $prismic.api.query($prismic.predicates.at('document.type', 'work'))
 
@@ -234,5 +236,14 @@ export default {
             }
         }
     }
+}
+
+canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
 }
 </style>
