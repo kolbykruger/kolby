@@ -64,6 +64,7 @@ export default {
         const splitTitle = new SplitText(this.$refs.title, splitTextOptions)
         const splitSubTitle = new SplitText(this.$refs.subTitle, splitTextOptions)
         const splitDescription = new SplitText(this.$refs.description, splitTextOptions)
+        const splitButton = this.$refs.button
 
         tl.set(splitTitle.chars, {
             y: '100%',
@@ -77,6 +78,12 @@ export default {
             })
             .set(splitDescription.chars, {
                 y: '100%',
+                rotateX: 110,
+                d: 1300,
+                opacity: 0,
+            })
+            .set(splitButton, {
+                y: '30%',
                 rotateX: 110,
                 d: 1300,
                 opacity: 0,
@@ -95,7 +102,7 @@ export default {
             )
             .staggerTo(
                 splitSubTitle.chars,
-                0.95,
+                0.68,
                 {
                     y: '0%',
                     rotateX: 0,
@@ -107,16 +114,29 @@ export default {
             )
             .staggerTo(
                 splitDescription.chars,
-                0.5,
+                0.68,
                 {
                     y: '0%',
                     rotateX: 0,
                     d: 0,
                     opacity: 1,
                     ease: 'Power1.easeOut',
-                    delay: -0.6,
+                    delay: -0.4,
                 },
-                0.004
+                0.003
+            )
+            .staggerTo(
+                splitButton,
+                0.68,
+                {
+                    y: '0%',
+                    rotateX: 0,
+                    d: 0,
+                    opacity: 1,
+                    ease: 'Power1.easeOut',
+                    delay: -0.4,
+                },
+                0.014
             )
     },
 }
