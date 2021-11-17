@@ -2,6 +2,20 @@
     <div class="pointer" aria-hidden="true" ref="pointer">
         <span class="pointer-svg" ref="pointerSVG">
             <span class="pointer-circle" ref="pointerCircle"></span>
+            <div class="pointer-progress" ref="pointerProgress">
+                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" fill="none">
+                    <path
+                        xmlns="http://www.w3.org/2000/svg"
+                        d="M46.9995 24C46.9995 36.7025 36.7021 47 23.9995 47C11.297 47 0.999512 36.7025 0.999512 24C0.999512 11.2975 11.297 1 23.9995 1C36.7021 1 46.9995 11.2975 46.9995 24Z"
+                        class="pointer-progress-fill"
+                    />
+                    <path
+                        xmlns="http://www.w3.org/2000/svg"
+                        d="M46.9995 24C46.9995 36.7025 36.7021 47 23.9995 47C11.297 47 0.999512 36.7025 0.999512 24C0.999512 11.2975 11.297 1 23.9995 1C36.7021 1 46.9995 11.2975 46.9995 24Z"
+                        class="pointer-progress-track"
+                    />
+                </svg>
+            </div>
             <span class="pointer-text" ref="pointerText" v-html="caption.text"></span>
             <span class="visually-hidden">{{ counter }}</span>
         </span>
@@ -19,6 +33,7 @@ import { Invisible } from '~/mixins/cursor/Invisible.js'
 import { Shift } from '~/mixins/cursor/Shift.js'
 import { Knob } from '~/mixins/cursor/Knob.js'
 import { Buttons } from '~/mixins/cursor/Buttons.js'
+import { Progress } from '~/mixins/cursor/Progress.js'
 // import { Rail } from '~/mixins/cursor/Rail.js'
 // import { Image } from '~/mixins/cursor/Image.js'
 import { Caption } from '~/mixins/cursor/Caption.js'
@@ -42,6 +57,7 @@ export default {
         Invisible,
         Shift,
         Knob,
+        Progress,
         Buttons,
         Caption,
         Move,
@@ -96,6 +112,7 @@ export default {
                     this.captions()
                     this.visibility()
                     this.invisibility()
+                    this.progress()
                     this.shift()
                     this.knob()
                     this.buttons()
@@ -123,6 +140,10 @@ export default {
 </script>
 
 <style lang="scss">
+html {
+    --cursor-progress: 3;
+}
+
 .pointer {
     display: none;
 }
@@ -286,6 +307,34 @@ export default {
             }
         }
 
+        &.-progress {
+            .pointer-circle {
+                opacity: 0;
+            }
+
+            .pointer-progress {
+                transform: scale(1.8);
+
+                svg {
+                    opacity: 1;
+                }
+
+                path {
+                    animation: progress 5s linear forwards;
+                    animation-duration: var(--cursor-progress);
+
+                    @keyframes progress {
+                        from {
+                            stroke-dashoffset: 288;
+                        }
+                        to {
+                            stroke-dashoffset: 0;
+                        }
+                    }
+                }
+            }
+        }
+
         // &.-shift {
         //     .pointer-circle {
         //         animation: color-shift 2.8s ease-in-out infinite;
@@ -350,41 +399,49 @@ export default {
             transform: scale(0);
             transition: transform 0.3s ease-in-out, opacity 0.1s;
             z-index: 2;
+        }
 
-            // &::before {
-            //     content: '';
-            //     position: absolute;
-            //     top: 0;
-            //     left: 0;
-            //     width: 100%;
-            //     height: 100%;
-            //     background-image: url('/noise/noise.gif');
-            //     background-size: 200%;
-            //     background-position: center;
-            //     z-index: -1;
-            //     opacity: 0.08;
-            // }
+        &-progress {
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: block;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            clip-path: circle(50% at 50% 50%);
+            transform-origin: 50% 50%;
+            transform: scale(0);
+            transition: transform 0.3s ease-in-out, opacity 0.1s;
+            z-index: 3;
 
-            // &::before {
-            //     content: '';
-            //     position: absolute;
-            //     --size: 0;
-            //     top: var(--size);
-            //     left: var(--size);
-            //     right: var(--size);
-            //     bottom: var(--size);
-            //     border-radius: 50%;
-            //     border: 0.025em solid #33a3f5;
-            //     border-left-color: transparent;
-            //     animation: circle-rotate 2s linear infinite;
-            //     z-index: -1;
+            svg {
+                width: 100%;
+                height: 100%;
+                opacity: 0;
+                transition: opacity 1s ease;
 
-            //     @keyframes circle-rotate {
-            //         to {
-            //             transform: rotate(360deg);
-            //         }
-            //     }
-            // }
+                path {
+                    stroke: c('cursor');
+                }
+            }
+
+            &-track,
+            &-fill {
+                stroke-width: 0.75;
+            }
+
+            &-track {
+                stroke: red;
+                opacity: 0.15;
+            }
+
+            &-fill {
+                stroke-dasharray: 288;
+                stroke-dashoffset: 288;
+                stroke: c('cursor');
+                stroke-width: 1;
+            }
         }
 
         &-text {
