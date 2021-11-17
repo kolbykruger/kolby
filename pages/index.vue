@@ -3,12 +3,7 @@
         <div class="page-contents">
             <Introduction />
 
-            <section class="headline">
-                <div class="container" style="text-align: center; margin-bottom: 18vh">
-                    <h2>Featured works</h2>
-                    <Decor />
-                </div>
-            </section>
+            <slice-zone type="home" uid="home" />
 
             <section class="case-studies" v-if="cases">
                 <div class="container">
@@ -18,8 +13,6 @@
                     </div>
                 </div>
             </section>
-
-            <!-- <slice-zone type="page" uid="home" /> -->
         </div>
     </main>
 </template>
@@ -27,13 +20,13 @@
 <script>
 import Introduction from '~/components/Introduction/Introduction.vue'
 import { Animations } from '~/mixins/animations/Animations.js'
-// import SliceZone from 'vue-slicezone'
+import SliceZone from 'vue-slicezone'
 
 export default {
     components: {
         Introduction,
         // Headline,
-        // SliceZone
+        SliceZone,
     },
     mixins: [Animations],
     async asyncData({ $prismic, params, error }) {
