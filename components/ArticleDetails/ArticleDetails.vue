@@ -1,5 +1,5 @@
 <template>
-    <div class="article-details">
+    <section class="article-details">
         <span class="article-aside-background">
             <div class="article-aside-border"></div>
         </span>
@@ -29,7 +29,7 @@
                             data-cursor="lg"
                             :to="{
                                 path: '/articles',
-                                query: { category: document.data.Category }
+                                query: { category: document.data.Category },
                             }"
                             >{{ document.data.Category }}</nuxt-link
                         >
@@ -37,14 +37,14 @@
                 </li>
             </ul>
         </div>
-    </div>
+    </section>
 </template>
 
 <script>
 export default {
     name: 'ArticleDetails',
     props: {
-        document: Object
+        document: Object,
     },
     computed: {
         formatDate() {
@@ -52,11 +52,11 @@ export default {
             const options = {
                 year: 'numeric',
                 day: 'numeric',
-                month: 'long'
+                month: 'long',
             }
             return date.toLocaleDateString('en-us', options)
-        }
-    }
+        },
+    },
 }
 </script>
 
