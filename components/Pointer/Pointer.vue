@@ -7,12 +7,12 @@
                     <path
                         xmlns="http://www.w3.org/2000/svg"
                         d="M46.9995 24C46.9995 36.7025 36.7021 47 23.9995 47C11.297 47 0.999512 36.7025 0.999512 24C0.999512 11.2975 11.297 1 23.9995 1C36.7021 1 46.9995 11.2975 46.9995 24Z"
-                        class="pointer-progress-fill"
+                        class="pointer-progress-track"
                     />
                     <path
                         xmlns="http://www.w3.org/2000/svg"
                         d="M46.9995 24C46.9995 36.7025 36.7021 47 23.9995 47C11.297 47 0.999512 36.7025 0.999512 24C0.999512 11.2975 11.297 1 23.9995 1C36.7021 1 46.9995 11.2975 46.9995 24Z"
-                        class="pointer-progress-track"
+                        class="pointer-progress-fill"
                     />
                 </svg>
             </div>
@@ -162,11 +162,13 @@ html {
         z-index: 200;
 
         &.-visible {
-            .pointer-circle {
+            .pointer-circle,
+            .pointer-progress {
                 transform: scale(0.2);
             }
             &.-active {
-                .pointer-circle {
+                .pointer-circle,
+                .pointer-progress {
                     transform: scale(0.23);
                     //background: rgba(0, 0, 0, 0.9);
                 }
@@ -175,12 +177,14 @@ html {
 
         &.-exclusion {
             //mix-blend-mode: exclusion;
-            .pointer-circle {
+            .pointer-circle,
+            .pointer-progress {
                 //background: #fff;
                 transform: scale(1.8);
             }
             &.-active {
-                .pointer-circle {
+                .pointer-circle,
+                .pointer-progress {
                     //background: #fff;
                     transform: scale(1.2);
                 }
@@ -188,24 +192,28 @@ html {
         }
 
         &.-stick {
-            .pointer-circle {
+            .pointer-circle,
+            .pointer-progress {
                 transform: scale(1.8);
             }
 
             &.-active {
-                .pointer-circle {
+                .pointer-circle,
+                .pointer-progress {
                     transform: scale(1.6);
                 }
             }
         }
 
         &.-magnetic {
-            .pointer-circle {
+            .pointer-circle,
+            .pointer-progress {
                 transform: scale(1.32);
             }
 
             &.-active {
-                .pointer-circle {
+                .pointer-circle,
+                .pointer-progress {
                     transform: scale(1.3);
                 }
             }
@@ -213,86 +221,102 @@ html {
 
         &.-size {
             &-invisible {
-                .pointer-circle {
+                .pointer-circle,
+                .pointer-progress {
                     transform: scale(0);
                 }
             }
             &-xs {
-                .pointer-circle {
+                .pointer-circle,
+                .pointer-progress {
                     transform: scale(0.5);
                 }
             }
             &-sm {
-                .pointer-circle {
+                .pointer-circle,
+                .pointer-progress {
                     transform: scale(1.32);
                 }
 
                 &.-active {
-                    .pointer-circle {
+                    .pointer-circle,
+                    .pointer-progress {
                         transform: scale(1.3);
                     }
                 }
             }
             &-md {
-                .pointer-circle {
+                .pointer-circle,
+                .pointer-progress {
                     transform: scale(1.6);
                 }
 
                 &.-active {
-                    .pointer-circle {
+                    .pointer-circle,
+                    .pointer-progress {
                         transform: scale(1);
                     }
                 }
             }
             &-lg {
-                .pointer-circle {
+                .pointer-circle,
+                .pointer-progress {
                     transform: scale(2.2);
                 }
 
                 &.-active {
-                    .pointer-circle {
+                    .pointer-circle,
+                    .pointer-progress {
                         transform: scale(2);
                     }
                 }
             }
             &-xl {
-                .pointer-circle {
+                .pointer-circle,
+                .pointer-progress {
                     transform: scale(3.2);
                 }
 
                 &.-active {
-                    .pointer-circle {
+                    .pointer-circle,
+                    .pointer-progress {
                         transform: scale(3);
                     }
                 }
             }
             &-xxl {
-                .pointer-circle {
+                .pointer-circle,
+                .pointer-progress {
                     transform: scale(4.75);
                 }
 
                 &.-active {
-                    .pointer-circle {
+                    .pointer-circle,
+                    .pointer-progress {
                         transform: scale(4);
                     }
                 }
             }
             &-mark {
-                .pointer-circle {
+                .pointer-circle,
+                .pointer-progress {
                     transform: scale(3);
                 }
                 &.-active {
-                    .pointer-circle {
+                    .pointer-circle,
+                    .pointer-progress {
                         transform: scale(2.6);
                     }
                 }
             }
             &-huge {
-                .pointer-circle {
+                .pointer-circle,
+                .pointer-progress {
                     transform: scale(50);
                 }
                 &.-active {
-                    .pointer-circle {
+                    .pointer-circle,
+                    .pointer-progress {
                         transform: scale(50);
                     }
                 }
@@ -309,12 +333,10 @@ html {
 
         &.-progress {
             .pointer-circle {
-                opacity: 0;
+                opacity: 0.1;
             }
 
             .pointer-progress {
-                transform: scale(1.8);
-
                 svg {
                     opacity: 1;
                 }
@@ -334,33 +356,6 @@ html {
                 }
             }
         }
-
-        // &.-shift {
-        //     .pointer-circle {
-        //         animation: color-shift 2.8s ease-in-out infinite;
-
-        //         @keyframes color-shift {
-        //             0% {
-        //                 background: #b267e6;
-        //             }
-        //             20% {
-        //                 background: #f7768e;
-        //             }
-        //             40% {
-        //                 background: #ffdb69;
-        //             }
-        //             60% {
-        //                 background: #11c9c3;
-        //             }
-        //             80% {
-        //                 background: #89ddff;
-        //             }
-        //             100% {
-        //                 background: #b267e6;
-        //             }
-        //         }
-        //     }
-        // }
 
         &-invisible {
             .pointer-circle {
@@ -420,10 +415,6 @@ html {
                 height: 100%;
                 opacity: 0;
                 transition: opacity 1s ease;
-
-                path {
-                    stroke: c('cursor');
-                }
             }
 
             &-track,
@@ -432,15 +423,17 @@ html {
             }
 
             &-track {
-                stroke: red;
-                opacity: 0.15;
+                stroke: c('cursor');
+                opacity: 1;
             }
 
             &-fill {
+                position: relative;
                 stroke-dasharray: 288;
                 stroke-dashoffset: 288;
-                stroke: c('cursor');
-                stroke-width: 1;
+                stroke-width: 2;
+                stroke: c('primary-base');
+                stroke-width: 2;
             }
         }
 
