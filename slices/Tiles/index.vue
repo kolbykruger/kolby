@@ -41,6 +41,7 @@
 <script>
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
+import { CustomEase } from 'gsap/dist/CustomEase'
 
 export default {
     name: 'Tiles',
@@ -56,6 +57,11 @@ export default {
     data() {
         return {
             timeline: null,
+            cursor: false,
+            mouse: {
+                x: 0,
+                y: 0,
+            },
         }
     },
     methods: {
@@ -71,7 +77,11 @@ export default {
     },
     mounted() {
         gsap.registerPlugin(ScrollTrigger)
+        gsap.registerPlugin(CustomEase)
 
+        const ease = CustomEase.create('custom', 'M0,0 C0.23,1 0.32,1 1,1 ')
+
+        const $el = this
         const tiles = this.$refs.tiles
         const tilesRows = tiles.querySelectorAll('.tiles-row')
 
@@ -88,25 +98,10 @@ export default {
                     end: 'bottom 100px',
                     scrub: true,
                 },
-                x: 120,
-                ease: 'none',
+                x: 220,
+                ease: 'power3.inOut',
             },
             'tilesRowsEven'
-        )
-        this.tl.to(
-            '.tiles-row:nth-of-type(even) img',
-            {
-                scrollTrigger: {
-                    trigger: '.tiles',
-                    start: 'top bottom',
-                    end: 'bottom 100px',
-                    scrub: true,
-                },
-                x: '10%',
-                scale: 1.2,
-                ease: 'none',
-            },
-            'tilesRowsEvenImages'
         )
         this.tl.to(
             '.tiles-row:nth-of-type(odd)',
@@ -117,26 +112,45 @@ export default {
                     end: 'bottom 100px',
                     scrub: true,
                 },
-                x: -220,
-                ease: 'none',
+                x: -280,
+                ease: 'power3.inOut',
             },
             'tilesRowsOdd'
         )
-        this.tl.to(
-            '.tiles-row:nth-of-type(odd) img',
-            {
-                scrollTrigger: {
-                    trigger: '.tiles',
-                    start: 'top bottom',
-                    end: 'bottom 100px',
-                    scrub: true,
-                },
-                x: '-10%',
-                scale: 1.2,
-                ease: 'none',
-            },
-            'tilesRowsOddImages'
-        )
+
+        tiles.addEventListener('mouseenter', () => {
+            this.cursor = true
+        })
+        tiles.addEventListener('mousemove', e => {
+            const tilesBounds = tiles.getBoundingClientRect(),
+                tilesWidth = tilesBounds.width,
+                tilesTop = tilesBounds.top,
+                tilesHeight = tilesBounds.height
+
+            this.mouse.x = e.clientX / tilesWidth - 0.5
+            this.mouse.y = -(e.clientY / tilesHeight - 0.5)
+
+            requestAnimationFrame(() => {
+                gsap.to('.tiles-row .tiles-item', {
+                    x: 25 * this.mouse.x,
+                    y: 25 * this.mouse.y,
+                    ease: 'power3.out',
+                    // stagger: 0.008,
+                })
+                gsap.to('.tiles-row img', {
+                    x: 12 * this.mouse.x,
+                    y: 12 * this.mouse.y,
+                    ease: 'power3.out',
+                    stagger: 0.014,
+                })
+            })
+        })
+        tiles.addEventListener('mouseleave', () => {
+            this.cursor = false
+        })
+        window.addEventListener('mouseleave', () => {
+            this.cursor = false
+        })
     },
     watch: {
         $route() {
@@ -200,6 +214,8 @@ export default {
         align-items: center;
         justify-content: center;
         flex-direction: column;
+        perspective: 1000;
+        transform-style: preserve-3d;
     }
 
     &-row {
@@ -214,6 +230,7 @@ export default {
     &-item {
         overflow: hidden;
         aspect-ratio: 600 / 450;
+        will-change: transform;
 
         img {
             width: 100%;
