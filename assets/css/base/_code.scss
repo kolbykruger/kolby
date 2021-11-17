@@ -2,7 +2,8 @@ pre,
 code,
 span[class='code'] {
     // font-family: 'Source Code Pro', monospace;
-    font-family: 'Fira Mono', monospace;
+    // font-family: 'Fira Mono', monospace;
+    font-family: 'Roboto Mono', monospace;
     font-kerning: none;
     font-weight: 500;
     // font-weight: 400;
@@ -10,14 +11,14 @@ span[class='code'] {
 }
 
 pre {
-    font-size: 1.125rem;
+    font-size: 1rem;
     padding: 2em;
     margin: 1.5em auto;
     max-width: 100%;
     background: c('base-5');
     border-radius: 0.25em;
     overflow: hidden;
-    overflow-x: auto;
+    // overflow-x: auto;
     white-space: normal;
 
     html[theme='dark'] & {
