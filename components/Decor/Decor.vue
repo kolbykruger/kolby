@@ -32,6 +32,7 @@ export default {
 
 <style lang="scss">
 .decor {
+    width: 100%;
     max-width: 90px;
     margin: 0 auto;
 
