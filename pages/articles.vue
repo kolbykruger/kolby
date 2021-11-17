@@ -69,16 +69,16 @@ export default {
     data() {
         return {
             categories: ['Code', 'Guide'],
-            ease: null
+            ease: null,
         }
     },
     mixins: [Animations],
     components: {
-        Pageheading
+        Pageheading,
     },
     async asyncData({ $prismic, params, error }) {
         const articles = await $prismic.api.query($prismic.predicates.at('document.type', 'article'), {
-            orderings: '[document.first_publication_date ]'
+            orderings: '[document.first_publication_date ]',
         })
         if (articles) {
             return { articles }
@@ -103,7 +103,7 @@ export default {
         },
         path() {
             return this.$route.path
-        }
+        },
     },
     methods: {
         filterArticles(event, item) {
@@ -122,9 +122,9 @@ export default {
             gsap.to(elem, 0.66, {
                 x: x - 8 + 'px',
                 width: width + 16 + 'px',
-                ease: this.ease
+                ease: this.ease,
             })
-        }
+        },
     },
     mounted() {
         gsap.registerPlugin(CustomEase)
@@ -150,7 +150,7 @@ export default {
                 this.moveMarker(marker, bounds.left - afBounds.left, bounds.width)
             }
         }
-    }
+    },
 }
 </script>
 
