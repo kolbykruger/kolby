@@ -21,11 +21,11 @@ export default {
     data() {
         return {
             animations: null,
-            elems: null
+            elems: null,
         }
     },
     props: {
-        counter: Number
+        counter: Number,
     },
     methods: {
         initTraveler() {
@@ -66,8 +66,8 @@ export default {
                         },
                         onUpdate: self => {
                             self.isActive ? this.animateColor(color) : this.animateColor('transparent')
-                        }
-                    }
+                        },
+                    },
                 })
             })
         },
@@ -86,17 +86,17 @@ export default {
             const tr = this.$refs.travelerBackground
 
             TweenLite.to(tr, 1.5, {
-                backgroundColor: color ? color : 'transparent'
+                backgroundColor: color ? color : 'transparent',
             })
         },
         resetTraveler() {
             const tr = this.$refs.travelerBackground
             TweenLite.to(tr, 1.5, {
-                backgroundColor: 'transparent'
+                backgroundColor: 'transparent',
             })
             this.destroyAnimations()
             this.elems = null
-        }
+        },
     },
     mounted() {
         this.initTraveler()
@@ -112,8 +112,8 @@ export default {
             if (!value) {
                 this.initTraveler()
             }
-        }
-    }
+        },
+    },
 }
 </script>
 
@@ -147,7 +147,7 @@ export default {
         opacity: 0.4;
 
         html[theme='dark'] & {
-            opacity: 0.12;
+            opacity: 0.18;
         }
     }
 
