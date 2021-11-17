@@ -1,12 +1,12 @@
 {
-  "id": "b4b3e720-dcb3-48a7-9d3d-c6a526a3c17a",
-  "uid": "accusantium-et-quia",
+  "id": "5658acba-f261-486c-9ffe-6bc3713f8c77",
+  "uid": "vel-eligendi-quas",
   "type": "home",
   "data": {
     "Name": [
       {
         "type": "heading1",
-        "text": "Whiteboard customized relationships",
+        "text": "Redefine efficient vortals",
         "spans": []
       }
     ],
@@ -14,13 +14,31 @@
       {
         "CaseStudy": {
           "link_type": "Web",
-          "url": "http://google.com"
+          "url": "https://slicemachine.dev"
+        }
+      },
+      {
+        "CaseStudy": {
+          "link_type": "Web",
+          "url": "http://twitter.com"
+        }
+      },
+      {
+        "CaseStudy": {
+          "link_type": "Web",
+          "url": "https://slicemachine.dev"
         }
       },
       {
         "CaseStudy": {
           "link_type": "Web",
           "url": "https://prismic.io"
+        }
+      },
+      {
+        "CaseStudy": {
+          "link_type": "Web",
+          "url": "http://google.com"
         }
       }
     ]
