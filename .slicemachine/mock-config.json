@@ -20,7 +20,11 @@
       }
     },
     "ArticleBlock": {},
-    "CodeBlock": {},
+    "CodeBlock": {
+      "default-slice": {
+        "primary": {}
+      }
+    },
     "Artwork": {},
     "Anchors": {
       "default-slice": {

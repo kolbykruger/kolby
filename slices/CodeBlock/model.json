@@ -24,6 +24,13 @@
           },
           "type": "Select"
         },
+        "File": {
+          "config": {
+            "label": "File Name",
+            "placeholder": "index.js"
+          },
+          "type": "Text"
+        },
         "Code": {
           "config": {
             "label": "Code",
