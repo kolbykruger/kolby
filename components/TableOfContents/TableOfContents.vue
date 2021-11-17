@@ -1,21 +1,21 @@
 <template>
-    <div class="toc" data-sticky v-if="document" :data-uid="uid" ref="toc">
+    <section class="toc" v-if="document" :data-uid="uid" ref="toc">
         <div class="toc-container" v-if="links.length > 0">
             <span class="article-aside-background">
                 <div class="article-aside-border"></div>
             </span>
             <ul class="toc-list">
                 <li class="toc-list-item toc-list-item-header">
-                    <small>Table of contents</small>
+                    <small>Sections</small>
                 </li>
                 <li class="toc-list-item" v-for="(link, index) in links" :key="index">
-                    <nuxt-link :to="{ path: path, hash: hash(link.id) }" :class="{ '-active': checkActive(link) }">
+                    <nuxt-link :to="{ path: path, hash: hash(link.id) }">
                         {{ link.name ? link.name : link.id }}
                     </nuxt-link>
                 </li>
             </ul>
         </div>
-    </div>
+    </section>
 </template>
 
 <script>
@@ -74,16 +74,6 @@ export default {
                 const [activeItem] = arr.slice(-1)
                 this.activeItem = [activeItem]
             })
-        },
-        checkActive(item) {
-            if (this.activeItem) {
-                const name = item.name ? item.name : item.id
-                const ai = item.name ? this.activeItem[0].name : this.activeItem[0].id
-                if (name == ai) {
-                    return true
-                }
-                return false
-            }
         },
     },
     mounted() {
