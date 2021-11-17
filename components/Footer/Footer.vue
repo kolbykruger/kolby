@@ -13,13 +13,21 @@
                 </div>
             </div>
             <div class="footer-top">
-                <button @click="scrollToTop()" class="footer-scroll-top" data-stick data-cursor="lg">
-                    <svg fill="none" viewBox="0 0 97 141" xmlns="http://www.w3.org/2000/svg">
+                <button
+                    @click="scrollToTop()"
+                    class="footer-scroll-top"
+                    data-stick
+                    data-progress="6"
+                    data-callback="top"
+                >
+                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" fill="none">
                         <path
-                            d="m41.8 41.174c-9.6647 14.337-23.838 25.074-39.798 25.91-1.1031 0.0578-2.0025-0.843-2.0025-1.9476l1.0632e-7 -8.9158c1.317e-8 -1.1045 0.89755-1.992 1.9985-2.0806 20.748-1.6715 38.736-28.991 39.756-51.572 0.0498-1.1034 0.941-1.9978 2.0456-1.9978h0.2 9 0.2c1.1046 0 1.9958 0.89433 2.0454 1.9978 1.0151 22.584 18.921 49.908 39.756 51.572 1.101 0.088 1.9986 0.9755 1.9986 2.08v8.9158c0 1.1046-0.8994 2.0054-2.0025 1.9476-15.959-0.8354-30.133-11.573-39.798-25.91v97.396c0 1.104-0.8954 2-2 2h-9.4c-1.1045 0-2-0.896-2-2l1e-4 -97.396z"
-                            clip-rule="evenodd"
+                            d="M34.4018 26.5679C35.2661 26.787 35.9995 27.4939 35.9995 28.3855V28.3855C35.9995 29.2772 35.2713 30.013 34.392 29.8647C28.0634 28.7971 23.0778 21.6001 22.343 15.0043C22.2421 14.0986 22.9882 13.3585 23.8995 13.3585V13.3585C24.8108 13.3585 25.5417 14.1002 25.6672 15.0028C26.3588 19.9777 30.016 25.4561 34.4018 26.5679Z"
                             fill="#0B0E11"
-                            fill-rule="evenodd"
+                        />
+                        <path
+                            d="M23.8495 13.3585C24.7608 13.3585 25.5069 14.0986 25.406 15.0043C24.6712 21.6001 19.6856 28.7971 13.357 29.8647C12.4778 30.013 11.7495 29.2772 11.7495 28.3855V28.3855C11.7495 27.4939 12.483 26.7869 13.347 26.5664C17.7173 25.4514 21.3868 19.9755 22.0813 15.0027C22.2073 14.1002 22.9382 13.3585 23.8495 13.3585V13.3585Z"
+                            fill="#0B0E11"
                         />
                     </svg>
                     <span class="visually-hidden">Scroll to the top.</span>
@@ -102,40 +110,17 @@ export default {
     }
 
     &-scroll-top {
-        --size: 96px;
+        --size: 3em;
         display: grid;
         place-content: center;
         width: var(--size);
         height: var(--size);
+        padding: 1em;
         border-radius: 50%;
         cursor: pointer;
         overflow: hidden;
 
-        &:hover,
-        &:focus {
-            svg {
-                transform: scale(1);
-                animation: arrow-move 1.2s cubic-bezier(0.075, 0.82, 0.165, 1) infinite;
-
-                @keyframes arrow-move {
-                    25% {
-                        transform: translateY(-16px) scale(1);
-                    }
-                    100% {
-                        transform: translateY(16px) scale(1);
-                    }
-                }
-            }
-        }
-
         svg {
-            --size: 64px;
-            width: var(--size);
-            height: var(--size);
-            object-fit: contain;
-            transform: scale(0.8);
-            transition: 260ms cubic-bezier(0.075, 0.82, 0.165, 1);
-
             path {
                 fill: c('base-0');
             }
