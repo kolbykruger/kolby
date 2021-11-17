@@ -44,26 +44,20 @@ export default {
     props: {
         item: Object,
     },
-    mounted() {
-        const caseStudy = this.$refs.caseStudy
-        //gsap
-    },
 }
 </script>
 
 <style lang="scss" scoped>
 .case-study-card {
+    position: relative;
     display: flex;
     align-items: center;
     flex-flow: row wrap;
     gap: 3em;
-    margin-bottom: 5vh;
-
-    @include mq('desktop-small') {
-        margin-bottom: 22vh;
-    }
+    min-height: 100vh;
 
     &-cover {
+        position: relative;
         aspect-ratio: 3 / 2;
 
         @include mq('desktop-small') {
@@ -75,8 +69,20 @@ export default {
             display: block;
             width: 100%;
             height: 100%;
-            background: #ddd;
+            // outline: 1px solid #ddd;
+            // background: #ddd;
             //transition: 0.6s ease;
+
+            position: relative;
+            &::after {
+                content: '';
+                position: absolute;
+                top: calc(50% - 2px);
+                left: calc(50% - 2px);
+                width: 4px;
+                height: 4px;
+                background: red;
+            }
 
             &:hover,
             &:focus {
@@ -88,6 +94,7 @@ export default {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            visibility: hidden;
         }
     }
 
