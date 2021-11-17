@@ -34,6 +34,9 @@ export const State = {
                 const result = pcl ? (pcl.contains(state) ? true : false) : false
                 return result
             }
-        }
-    }
+        },
+        setProperty(state) {
+            document.body.parentNode.style.setProperty('--cursor-progress', state)
+        },
+    },
 }

@@ -4,8 +4,8 @@ export const Caption = {
         return {
             caption: {
                 active: false,
-                text: null
-            }
+                text: null,
+            },
         }
     },
     methods: {
@@ -31,9 +31,9 @@ export const Caption = {
                     text.style.opacity = 0
                 })
             })
-        }
+        },
     },
     mounted() {
         this.captions()
-    }
+    },
 }
