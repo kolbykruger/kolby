@@ -104,7 +104,7 @@ export default {
 
     .container {
         position: relative;
-        margin-top: 1.5em;
+        margin-top: 3em;
     }
 
     &-code {
@@ -179,7 +179,6 @@ export default {
             height: 34px;
             padding: 0 0.5em;
             border-radius: 4px;
-            background: c('base-8');
 
             html[theme='dark'] & {
                 color: c('base-5');
