@@ -12,7 +12,16 @@
                         </div>
                         <aside class="article-track">
                             <ArticleDetails :document="document" />
-                            <TableOfContents :document="document" />
+
+                            <div data-sticky>
+                                <TableOfContents :document="document" />
+
+                                <div class="article-code-sections" data-sticky v-if="containsCodeBlock">
+                                    <button @click="toggleCodeSections">
+                                        {{ showCode ? 'Hide' : 'Show' }} code snippets
+                                    </button>
+                                </div>
+                            </div>
                         </aside>
                     </div>
                 </div>
@@ -36,7 +45,38 @@ export default {
         TableOfContents,
     },
     mixins: [Animations],
-    computed: {},
+    data() {
+        return {
+            showCode: false,
+        }
+    },
+    computed: {
+        containsCodeBlock() {
+            const slices = this.document.data.slices
+            if (!slices) {
+                return
+            }
+
+            const cb = slices.filter(slice => {
+                console.log(slice.slice_type)
+                return slice.slice_type == 'code_block'
+            })
+
+            return cb ? true : false
+        },
+    },
+    methods: {
+        toggleCodeSections() {
+            this.showCode = !this.showCode
+            const sections = document.querySelectorAll('article section')
+            sections.forEach(section => {
+                const status = section.classList.contains('code-block') ? true : false
+                if (!status) {
+                    section.style.display = this.showCode ? 'none' : null
+                }
+            })
+        },
+    },
     async asyncData({ $prismic, params, error }) {
         const document = await $prismic.api.getByUID('article', params.uid)
         // const nextArticle = (
@@ -65,7 +105,7 @@ export default {
         .pageheading {
             .container {
                 @include mq('laptop-large') {
-                    max-width: calc(50em + 18em + 6em);
+                    max-width: calc(56em + 18em + 8vw);
                     padding-left: 0;
                     padding-right: 0;
                 }
@@ -79,8 +119,8 @@ export default {
 
         @include mq('laptop-large') {
             display: grid;
-            grid-template-columns: 50em 18em;
-            grid-gap: 6em;
+            grid-template-columns: 56em 18em;
+            grid-gap: 8vw;
             place-content: center;
         }
     }
@@ -148,57 +188,82 @@ export default {
         font-size: clamp(1.414rem, -0.875rem + 8.333vw, 1.414rem);
     }
 
-    aside > div {
-        position: relative;
-        padding-left: 2em;
-        padding-top: 2em;
-        padding-bottom: 1px;
-        margin-bottom: 3em;
+    aside {
+        section {
+            position: relative;
+            padding-left: 2em;
+            padding-top: 2em;
+            padding-bottom: 1px;
+            margin-bottom: 3em;
 
-        .article-aside-background {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-
-            &::before,
-            &::after {
-                content: '';
+            .article-aside-background {
                 position: absolute;
                 top: 0;
                 left: 0;
-            }
-
-            &::after {
                 width: 100%;
                 height: 100%;
-                pointer-events: none;
-                background: radial-gradient(ellipse at 0% 0%, var(--color-base-0), transparent 75%);
-                opacity: 0.1;
+                z-index: -1;
+
+                &::before,
+                &::after {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                }
+
+                &::after {
+                    width: 100%;
+                    height: 100%;
+                    pointer-events: none;
+                    background: radial-gradient(ellipse at 0% 0%, var(--color-base-0), transparent 75%);
+                    opacity: 0.1;
+                }
+            }
+
+            .article-aside-border {
+                &::before,
+                &::after {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                }
+
+                &::before {
+                    width: 100%;
+                    height: 1px;
+                    background: linear-gradient(to right, c('base-7'), transparent);
+                }
+
+                &::after {
+                    width: 1px;
+                    height: 100%;
+                    background: linear-gradient(to bottom, c('base-7'), transparent);
+                }
             }
         }
+    }
 
-        .article-aside-border {
-            &::before,
-            &::after {
-                content: '';
-                position: absolute;
-                top: 0;
-                left: 0;
-            }
+    &-code-sections {
+        margin-top: 1.5em;
+        // text-align: center;
 
-            &::before {
-                width: 100%;
-                height: 1px;
-                background: linear-gradient(to right, c('base-7'), transparent);
-            }
+        button {
+            display: inline-block;
+            line-height: 1;
+            height: 44px;
+            width: 100%;
+            font-size: 1.125rem;
+            font-weight: 500;
+            color: c('base-6');
+            padding: 0 0.75em;
+            border-radius: 4px;
+            background: c('base-5');
 
-            &::after {
-                width: 1px;
-                height: 100%;
-                background: linear-gradient(to bottom, c('base-7'), transparent);
+            html[theme='dark'] & {
+                color: c('base-5');
+                background: c('base-7');
             }
         }
     }
