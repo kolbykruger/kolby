@@ -37,6 +37,7 @@ export const Progress = {
                     seconds = 0
 
                     if (callback == 'intro') {
+                        // Uses data-callback="intro"
                         const next = el.closest('section').nextElementSibling.childNodes[0]
                         const nextBounds = next.getBoundingClientRect()
                         const nextOffset = nextBounds.top
@@ -48,7 +49,14 @@ export const Progress = {
                         })
                     }
                     if (callback == 'top') {
+                        // Uses data-callback="top"
                         window.scrollTo({ top: 0, behavior: 'smooth' })
+                    }
+                    if (callback == 'route') {
+                        // Uses data-callback="route"
+                        // Utilizes data-callback-location="path"
+                        const loc = el.dataset.callbackLocation
+                        $el.$router.push({ path: loc })
                     }
                 }
 
