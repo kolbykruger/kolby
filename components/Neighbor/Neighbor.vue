@@ -7,7 +7,14 @@
                 }
             </style>
             <p>Next</p>
-            <nuxt-link data-magnetic="0.1, 0.1, 0.1" data-cursor="lg" :to="'/works/' + page.uid">
+            <nuxt-link
+                data-progress="6"
+                data-callback="route"
+                :data-callback-location="'/works/' + page.uid"
+                data-magnetic="0.1, 0.1, 0.1"
+                data-cursor="lg"
+                :to="'/works/' + page.uid"
+            >
                 <h2>{{ page.data.Name[0].text || 'Project Name' }}</h2>
             </nuxt-link>
         </div>
@@ -18,14 +25,14 @@
 export default {
     name: 'Neighbor',
     props: {
-        page: Object
+        page: Object,
     },
     computed: {
         accent() {
             const accent = this.page.data.Accent
             return accent ? accent : 'var(--color-primary-base)'
-        }
-    }
+        },
+    },
 }
 </script>
 
