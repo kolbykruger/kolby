@@ -53,17 +53,15 @@ export default {
 
 <style lang="scss" scoped>
 .case-study-card {
+    position: relative;
     display: flex;
     align-items: center;
     flex-flow: row wrap;
     gap: 3em;
-    margin-bottom: 5vh;
-
-    @include mq('desktop-small') {
-        margin-bottom: 22vh;
-    }
+    min-height: 100vh;
 
     &-cover {
+        position: relative;
         aspect-ratio: 3 / 2;
 
         @include mq('desktop-small') {
@@ -75,13 +73,7 @@ export default {
             display: block;
             width: 100%;
             height: 100%;
-            background: #ddd;
-            //transition: 0.6s ease;
-
-            &:hover,
-            &:focus {
-                //transform: scale(0.9);
-            }
+            position: relative;
         }
 
         img {
@@ -90,7 +82,6 @@ export default {
             object-fit: cover;
         }
     }
-
     &-details {
         position: relative;
 
@@ -99,7 +90,6 @@ export default {
             max-width: 50%;
         }
     }
-
     &-title {
         text-decoration: none;
         color: inherit;
@@ -108,16 +98,10 @@ export default {
             margin-top: 0;
         }
 
-        // &:hover,
-        // &:focus {
-        //     color: c('primary-base');
-        // }
-
         @include mq('desktop-small') {
             max-width: 80%;
         }
     }
-
     &-link {
         color: currentColor;
         display: inline-flex;
@@ -137,7 +121,6 @@ export default {
             --size: 32px;
             width: var(--size);
             height: var(--size);
-
             path {
                 fill: c('base-0');
             }
