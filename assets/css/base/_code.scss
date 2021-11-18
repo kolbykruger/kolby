@@ -18,8 +18,14 @@ pre {
     background: c('base-5');
     border-radius: 0.25em;
     overflow: hidden;
-    // overflow-x: auto;
+    overflow-x: auto;
     white-space: normal;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 
     html[theme='dark'] & {
         background: c('base-7');
