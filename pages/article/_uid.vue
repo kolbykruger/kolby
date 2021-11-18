@@ -17,9 +17,9 @@
                                 <TableOfContents :document="document" />
 
                                 <div class="article-code-sections" data-sticky v-if="containsCodeBlock">
-                                    <button @click="toggleCodeSections">
-                                        {{ showCode ? 'Hide' : 'Show' }} code snippets
-                                    </button>
+                                    <Button size="small" @clicked="toggleCodeSections">
+                                        {{ showCode ? 'Show whole post' : 'Show code snippets' }}
+                                    </Button>
                                 </div>
                             </div>
                         </aside>
@@ -212,12 +212,24 @@ export default {
                     left: 0;
                 }
 
+                &::before {
+                    --size: 5px;
+                    top: -2px;
+                    left: -2px;
+                    width: var(--size);
+                    height: var(--size);
+                    background: c('base-3');
+                    opacity: 0.3;
+                }
+
                 &::after {
+                    top: 0.5em;
+                    left: 0.5em;
                     width: 100%;
                     height: 100%;
                     pointer-events: none;
-                    background: radial-gradient(ellipse at 0% 0%, var(--color-base-0), transparent 75%);
-                    opacity: 0.1;
+                    background: radial-gradient(ellipse at 0% 0%, c('base-3'), transparent 75%);
+                    opacity: 0.12;
                 }
             }
 
@@ -228,18 +240,21 @@ export default {
                     position: absolute;
                     top: 0;
                     left: 0;
+                    opacity: 0.3;
                 }
 
                 &::before {
+                    left: 0.5em;
                     width: 100%;
-                    height: 1px;
-                    background: linear-gradient(to right, c('base-7'), transparent);
+                    height: 2px;
+                    background: linear-gradient(to right, c('base-3'), transparent);
                 }
 
                 &::after {
-                    width: 1px;
+                    top: 0.5em;
+                    width: 2px;
                     height: 100%;
-                    background: linear-gradient(to bottom, c('base-7'), transparent);
+                    background: linear-gradient(to bottom, c('base-3'), transparent);
                 }
             }
         }
@@ -249,23 +264,47 @@ export default {
         margin-top: 1.5em;
         // text-align: center;
 
-        button {
-            display: inline-block;
-            line-height: 1;
-            height: 44px;
-            width: 100%;
-            font-size: 1.125rem;
-            font-weight: 500;
-            color: c('base-6');
-            padding: 0 0.75em;
-            border-radius: 4px;
-            background: c('base-5');
+        // button {
+        //     position: relative;
+        //     display: inline-block;
+        //     line-height: 1;
+        //     height: 58px;
+        //     width: 100%;
+        //     font-size: 1.125rem;
+        //     font-weight: 500;
+        //     color: c('base-6');
+        //     padding: 0 0.75em;
+        //     border-radius: 4px;
 
-            html[theme='dark'] & {
-                color: c('base-5');
-                background: c('base-7');
-            }
-        }
+        //     &::before,
+        //     &::after {
+        //         content: '';
+        //         position: absolute;
+        //         top: 0;
+        //         left: 0;
+        //     }
+
+        //     &::before {
+        //         top: 0.3em;
+        //         left: 0.3em;
+        //         bottom: 0.3em;
+        //         right: 0.3em;
+        //         background: radial-gradient(ellipse at 0% 0%, c('base-3'), transparent 75%);
+        //         opacity: 0.12;
+        //     }
+
+        //     &::after {
+        //         width: 100%;
+        //         height: 100%;
+        //         display: block;
+        //         border: 2px solid c('base-3');
+        //         opacity: 0.2;
+        //     }
+
+        //     html[theme='dark'] & {
+        //         color: c('base-5');
+        //     }
+        // }
     }
 }
 </style>
