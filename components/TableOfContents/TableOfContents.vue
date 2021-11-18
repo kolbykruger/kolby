@@ -8,7 +8,7 @@
                 <li class="toc-list-item toc-list-item-header">
                     <small>Sections</small>
                 </li>
-                <li class="toc-list-item" v-for="(link, index) in links" :key="index">
+                <li class="toc-list-item" v-for="(link, index) in links" :key="index" :data-type="link.type">
                     <nuxt-link :to="{ path: path, hash: hash(link.id) }">
                         {{ link.name ? link.name : link.id }}
                     </nuxt-link>
@@ -50,10 +50,12 @@ export default {
             anchors.forEach(item => {
                 const id = item.getAttribute('name')
                 const name = item.nextElementSibling.textContent
+                const type = item.getAttribute('data-type')
                 const offset = item.getBoundingClientRect().top - 1
                 this.links.push({
                     id,
                     name,
+                    type,
                     offset,
                 })
             })
@@ -61,7 +63,7 @@ export default {
             if (this.links.length > 0) {
                 this.links.unshift({
                     id: 'content',
-                    name: 'Top',
+                    name: 'Introduction',
                     offset: 0,
                 })
                 this.$refs.toc.classList.add('-active')
@@ -117,20 +119,27 @@ export default {
         margin-bottom: 0;
         padding-left: 0;
         padding-right: 0;
+        padding-bottom: 1em;
         list-style-type: none;
 
         &-item {
             padding-left: 0;
             margin-bottom: 0;
-            font-size: 1.25rem;
+            font-size: 1.125rem;
+
+            &[data-type='h3'] {
+                font-size: 1rem;
+                padding-left: 0.75em;
+                color: var(--color-base-6);
+            }
 
             &-header {
-                padding-bottom: 0.5em;
+                padding-bottom: 0.45em;
 
                 small {
                     display: inline-block;
                     width: auto;
-                    border-bottom: 1px solid var(--color-base-3);
+                    // border-bottom: 1px solid var(--color-base-3);
                 }
             }
 
@@ -138,7 +147,7 @@ export default {
                 position: relative;
                 display: inline-flex;
                 text-decoration: none;
-                padding: 0.25em 0;
+                padding: 0.3em 0;
                 color: c('base-0');
                 transition: 0.66s cubic-bezier(0.075, 0.82, 0.165, 1);
 
