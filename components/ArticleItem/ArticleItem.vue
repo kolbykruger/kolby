@@ -66,13 +66,16 @@ export default {
         }
 
         &-title {
-            font-size: clamp(3.052rem, -0.875rem + 8.333vw, 3.815rem);
+            font-size: clamp(2.441rem, -0.875rem + 8.333vw, 3.052rem);
             margin: 0;
-            margin-bottom: 0.25em;
+            margin-bottom: 0.5em;
             transition: color 0.66s cubic-bezier(0.075, 0.82, 0.165, 1);
         }
 
         &-summary {
+            p {
+                font-size: clamp(1.125rem, -0.875rem + 3.333vw, 1.563rem);
+            }
         }
 
         &-details {
