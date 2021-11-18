@@ -1,8 +1,11 @@
 <template>
-    <div class="button" ref="btn">
-        <nuxt-link data-magnetic class="button-link" :to="location">
-            <slot></slot>
+    <div class="button" :class="'button-size-' + size" ref="btn">
+        <nuxt-link data-magnetic class="button-link" :to="location" v-if="location">
+            <span><slot></slot></span>
         </nuxt-link>
+        <button data-magnetic class="button-btn" v-else @click="emitClick">
+            <span><slot></slot></span>
+        </button>
     </div>
 </template>
 
@@ -11,6 +14,10 @@ export default {
     name: 'Button',
     props: {
         location: String,
+        size: {
+            type: String,
+            default: 'normal',
+        },
     },
     data() {
         return {
@@ -19,13 +26,20 @@ export default {
         }
     },
     computed: {},
+    methods: {
+        emitClick(event) {
+            // add a @clicked to parent button component
+            this.$emit('clicked', event)
+        },
+    },
     mounted() {},
 }
 </script>
 
 <style lang="scss">
 .button {
-    &-link {
+    &-link,
+    &-btn {
         position: relative;
         display: inline-flex;
         align-items: center;
@@ -36,7 +50,7 @@ export default {
         border-radius: 2em;
         text-decoration: none;
         color: c('base-0');
-        border: 1px solid c('base-4');
+        border: 2px solid c('base-2');
         background: transparent;
         font-size: 1.5rem;
         transition: color 0.2s ease, border-color 0.3s ease;
@@ -46,8 +60,8 @@ export default {
             display: inline-flex;
         }
 
-        html[theme='dark'] & {
-            border-color: c('base-3');
+        .article & {
+            border-color: c('base-4');
         }
 
         &::before {
@@ -65,6 +79,20 @@ export default {
             // mix-blend-mode: difference;
         }
 
+        &::after {
+            content: '';
+            position: absolute;
+
+            --offset: 0.125em;
+            top: var(--offset);
+            left: var(--offset);
+            bottom: var(--offset);
+            right: var(--offset);
+            border-radius: 2em;
+            background: radial-gradient(ellipse at 0% 0%, c('base-3'), transparent 75%);
+            opacity: 0.12;
+        }
+
         &:hover {
             color: c('base-9');
             border-color: transparent;
@@ -76,6 +104,18 @@ export default {
             &::before {
                 transform: translate(-50%, -100%);
                 border-radius: 2em;
+            }
+        }
+    }
+
+    &.button-size {
+        &-small {
+            .button {
+                &-link,
+                &-btn {
+                    height: 52px;
+                    font-size: 1.125rem;
+                }
             }
         }
     }
