@@ -78,7 +78,7 @@ export default {
     },
     async asyncData({ $prismic, params, error }) {
         const articles = await $prismic.api.query($prismic.predicates.at('document.type', 'article'), {
-            orderings: '[document.first_publication_date ]',
+            orderings: '[document.first_publication_date desc]',
         })
         if (articles) {
             return { articles }
