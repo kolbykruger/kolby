@@ -2,7 +2,6 @@
     <section class="code-block">
         <div class="container">
             <prismic-rich-text
-                contenteditable
                 spellcheck="false"
                 class="code-block-code"
                 :field="slice.primary.Code"
@@ -12,7 +11,7 @@
             <textarea class="code-block-raw" ref="codeBlockRaw" v-html="raw"></textarea>
             <div>
                 <div class="code-block-toolbar">
-                    <p class="code-block-language">
+                    <p class="code-block-language" :data-lang="slice.primary.Language || 'html'">
                         <small>{{ slice.primary.Language || 'html' }}</small>
                     </p>
                     <button @click="copyRaw" class="code-block-button">Copy</button>
@@ -152,6 +151,12 @@ export default {
 
     &-language {
         text-transform: capitalize;
+
+        &[data-lang='html'],
+        &[data-lang='css'],
+        &[data-lang='scss'] {
+            text-transform: uppercase;
+        }
 
         small {
             font-size: 1.125rem;
