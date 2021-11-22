@@ -58,7 +58,6 @@ export default {
             }
 
             const cb = slices.filter(slice => {
-                console.log(slice.slice_type)
                 return slice.slice_type == 'code_block'
             })
 
