@@ -1,6 +1,5 @@
 import smConfig from './sm.json'
 import { getStoriesPaths } from 'slice-machine-ui/helpers/storybook'
-import { scrollBehavior } from './plugins/route.js'
 
 if (!smConfig.apiEndpoint) {
     console.warn(
@@ -11,6 +10,21 @@ if (!smConfig.apiEndpoint) {
 export default {
     target: 'static',
     globalName: 'app',
+    features: {
+        store: true,
+        layouts: true,
+        meta: true,
+        middleware: true,
+        transitions: true,
+        deprecations: false,
+        validate: false,
+        asyncData: true,
+        fetch: false,
+        clientOnline: true,
+        clientPrefetch: true,
+        componentAliases: true,
+        componentClientOnly: true,
+    },
     head: {
         title: 'Home // Kolby Kruger',
         meta: [
@@ -76,6 +90,7 @@ export default {
         fallback: true,
     },
     build: {
+        aggressiveCodeRemoval: true,
         transpile: ['vue-slicezone', 'nuxt-sm'],
     },
     storybook: {
@@ -100,7 +115,6 @@ export default {
     //scrollToTop: true,
     router: {
         middleware: 'pages',
-        scrollBehavior,
     },
     ignore: [...getStoriesPaths().map(path => path.replace('../', '~/'))],
 }
