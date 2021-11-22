@@ -332,6 +332,8 @@ html {
         }
 
         &.-progress {
+            mix-blend-mode: normal;
+
             .pointer-circle {
                 opacity: 0.1;
             }
