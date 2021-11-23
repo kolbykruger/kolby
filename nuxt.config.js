@@ -90,7 +90,6 @@ export default {
         fallback: true,
     },
     build: {
-        aggressiveCodeRemoval: true,
         transpile: ['vue-slicezone', 'nuxt-sm'],
     },
     storybook: {
