@@ -10,21 +10,6 @@ if (!smConfig.apiEndpoint) {
 export default {
     target: 'static',
     globalName: 'app',
-    features: {
-        store: true,
-        layouts: true,
-        meta: true,
-        middleware: true,
-        transitions: true,
-        deprecations: false,
-        validate: false,
-        asyncData: true,
-        fetch: false,
-        clientOnline: true,
-        clientPrefetch: true,
-        componentAliases: true,
-        componentClientOnly: true,
-    },
     head: {
         title: 'Home // Kolby Kruger',
         meta: [
