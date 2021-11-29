@@ -3,7 +3,7 @@
         <div class="page-contents">
             <Introduction />
 
-            <slice-zone type="home" uid="home" />
+            <slice-zone class="slices" type="home" uid="home" />
 
             <section class="case-studies" v-if="cases">
                 <div class="container">

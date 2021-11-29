@@ -2,7 +2,7 @@
     <main class="page about" id="content">
         <div class="page-contents">
             <Foreward :document="document" />
-            <slice-zone type="about" uid="about" />
+            <slice-zone class="slices" type="about" uid="about" />
         </div>
     </main>
 </template>

@@ -74,7 +74,7 @@
             </section>
 
             <!-- <Stats :document="document" /> -->
-            <slice-zone type="case-study" :uid="$route.params.uid" />
+            <slice-zone class="slices" type="case-study" :uid="$route.params.uid" />
 
             <Neighbor :page="nextCaseStudy" />
         </div>

@@ -6,7 +6,7 @@ https://www.slicemachine.dev/documentation/nuxt/add-the-slice-zone-to-your-page
     <main class="page" id="content">
         <div class="page-contents">
             <Pageheading :name="document.data.Name" />
-            <slice-zone type="page" :uid="$route.params.uid" />
+            <slice-zone class="slices" type="page" :uid="$route.params.uid" />
         </div>
     </main>
 </template>
@@ -19,7 +19,7 @@ import { Animations } from '~/mixins/animations/Animations.js'
 export default {
     components: {
         Pageheading,
-        SliceZone
+        SliceZone,
     },
     mixins: [Animations],
     async asyncData({ $prismic, params, error }) {
@@ -29,6 +29,6 @@ export default {
         } else {
             error({ statusCode: 404, message: 'Page not found' })
         }
-    }
+    },
 }
 </script>

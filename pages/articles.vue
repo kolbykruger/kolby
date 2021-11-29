@@ -45,7 +45,7 @@
 
             <section class="articles">
                 <div class="container">
-                    <div class="articles-grid">
+                    <div class="articles-grid articles-grid-full">
                         <ul class="articles-list" v-if="articles">
                             <transition-group name="fade" tag="div">
                                 <ArticleItem v-for="article in filteredArticles" :key="article.id" :article="article" />
@@ -59,7 +59,6 @@
 </template>
 
 <script>
-// import SliceZone from 'vue-slicezone'
 import { gsap } from 'gsap'
 import { CustomEase } from 'gsap/dist/CustomEase'
 import Pageheading from '~/components/Pageheading/Pageheading.vue'
@@ -120,8 +119,8 @@ export default {
         },
         moveMarker(elem, x, width) {
             gsap.to(elem, 0.66, {
-                x: x - 8 + 'px',
-                width: width + 16 + 'px',
+                x: x - 4 + 'px',
+                width: width + 8 + 'px',
                 ease: this.ease,
             })
         },
@@ -172,7 +171,7 @@ export default {
     }
 
     &-filters {
-        margin-bottom: 8vh;
+        margin-bottom: 6vh;
 
         .container {
         }
@@ -196,7 +195,7 @@ export default {
                 left: 0;
                 width: 100%;
                 height: 1px;
-                background: c('base-7');
+                background: c('base-4');
             }
         }
 
@@ -264,6 +263,10 @@ export default {
             place-content: center;
             max-width: calc(50em + 18em + 6em);
             margin: 0 auto;
+
+            &.articles-grid-full {
+                grid-template-columns: 100%;
+            }
         }
     }
 
