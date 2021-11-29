@@ -75,7 +75,7 @@
                                     data-stick
                                     data-cursor="xl"
                                     class="navigation-link"
-                                    href="https://github.com/kolbykruger"
+                                    :href="$store.state.contact.socials.github"
                                     target="_blank"
                                     rel="noopener norefer"
                                 >
@@ -103,7 +103,7 @@
                                     data-stick
                                     data-cursor="xl"
                                     class="navigation-link"
-                                    href="https://www.linkedin.com/in/kolby-kruger-b978a611a/"
+                                    :href="$store.state.contact.socials.linkedin"
                                     target="_blank"
                                     rel="noopener norefer"
                                 >

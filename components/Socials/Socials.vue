@@ -5,7 +5,7 @@
                 <a
                     data-stick
                     class="socials-link"
-                    href="https://github.com/kolbykruger"
+                    :href="$store.state.contact.socials.github"
                     target="_blank"
                     rel="noopener norefer"
                 >
@@ -16,7 +16,7 @@
                 <a
                     data-stick
                     class="socials-link"
-                    href="https://www.linkedin.com/in/kolby-kruger-b978a611a/"
+                    :href="$store.state.contact.socials.linkedin"
                     target="_blank"
                     rel="noopener norefer"
                 >
@@ -27,7 +27,7 @@
                 <a
                     data-stick
                     class="socials-link"
-                    href="https://www.figma.com/@kolbykruger"
+                    :href="$store.state.contact.socials.figma"
                     target="_blank"
                     rel="noopener norefer"
                 >
@@ -38,7 +38,7 @@
                 <a
                     data-stick
                     class="socials-link"
-                    href="https://open.spotify.com/user/y06tzx3ihl845bexod52qrric?si=99779530345d4977"
+                    :href="$store.state.contact.socials.spotify"
                     target="_blank"
                     rel="noopener norefer"
                 >
