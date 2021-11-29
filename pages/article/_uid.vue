@@ -1,17 +1,28 @@
 <template>
     <main class="page article-content" id="content">
         <div class="page-contents">
-            <Pageheading :name="document.data.Name" size="small" />
+            <section class="article-header">
+                <div class="container article-header-container">
+                    <p class="article-header-date">{{ formatDate }}</p>
+                    <Pageheading :name="document.data.Name" size="small" />
+
+                    <prismic-rich-text
+                        class="article-header-lead"
+                        v-if="document.data.Summary"
+                        :field="document.data.Summary"
+                    />
+                </div>
+            </section>
 
             <article class="article">
                 <div class="container">
                     <div class="article-grid">
                         <!-- <aside class="article-track"></aside> -->
                         <div class="article-content">
-                            <slice-zone type="article" :uid="$route.params.uid" />
+                            <slice-zone class="slices" type="article" :uid="$route.params.uid" />
                         </div>
                         <aside class="article-track">
-                            <ArticleDetails :document="document" />
+                            <!-- <ArticleDetails :document="document" /> -->
 
                             <div data-sticky>
                                 <TableOfContents :document="document" />
@@ -51,6 +62,16 @@ export default {
         }
     },
     computed: {
+        formatDate() {
+            const d = this.document.last_publication_date
+            const date = new Date(d)
+            const options = {
+                month: 'long',
+                day: 'numeric',
+                year: 'numeric',
+            }
+            return date.toLocaleString('en-us', options)
+        },
         containsCodeBlock() {
             const slices = this.document.data.slices
             if (!slices) {
@@ -95,19 +116,44 @@ export default {
 </script>
 
 <style lang="scss">
-@import url('https://fonts.googleapis.com/css2?family=Fira+Mono:wght@500&display=swap');
-
 .article {
     &-content {
         margin-bottom: 6vh;
 
-        .pageheading {
+        .article-header {
+            padding-top: 6vh;
+
             .container {
                 @include mq('laptop-large') {
+                    padding: 0;
+                }
+            }
+
+            &-container {
+                @include mq('laptop-large') {
+                    margin: 0 auto;
                     max-width: calc(56em + 18em + 8vw);
                     padding-left: 0;
                     padding-right: 0;
+                    padding-top: 6vh;
+                    padding-bottom: 6vh;
+                    border-bottom: 1px solid c('base-4');
                 }
+            }
+
+            .pageheading {
+                .container {
+                    padding: 0;
+                }
+            }
+
+            &-date {
+                padding-bottom: 3vh;
+            }
+
+            &-lead {
+                max-width: 42em;
+                margin-bottom: 6vh;
             }
         }
     }
@@ -211,25 +257,15 @@ export default {
                     left: 0;
                 }
 
-                &::before {
-                    --size: 5px;
-                    top: -2px;
-                    left: -2px;
-                    width: var(--size);
-                    height: var(--size);
-                    background: c('base-3');
-                    opacity: 0.3;
-                }
-
-                &::after {
-                    top: 0.5em;
-                    left: 0.5em;
-                    width: 100%;
-                    height: 100%;
-                    pointer-events: none;
-                    background: radial-gradient(ellipse at 0% 0%, c('base-3'), transparent 75%);
-                    opacity: 0.12;
-                }
+                // &::after {
+                //     top: 0.5em;
+                //     left: 0.5em;
+                //     width: 100%;
+                //     height: 100%;
+                //     pointer-events: none;
+                //     background: radial-gradient(ellipse at 0% 0%, c('base-3'), transparent 75%);
+                //     opacity: 0.12;
+                // }
             }
 
             .article-aside-border {
@@ -239,21 +275,20 @@ export default {
                     position: absolute;
                     top: 0;
                     left: 0;
-                    opacity: 0.3;
                 }
 
                 &::before {
-                    left: 0.5em;
+                    left: 0;
                     width: 100%;
-                    height: 2px;
-                    background: linear-gradient(to right, c('base-3'), transparent);
+                    height: 1px;
+                    background: linear-gradient(to right, c('base-4'), transparent);
                 }
 
                 &::after {
-                    top: 0.5em;
-                    width: 2px;
+                    top: 0;
+                    width: 1px;
                     height: 100%;
-                    background: linear-gradient(to bottom, c('base-3'), transparent);
+                    background: linear-gradient(to bottom, c('base-4'), transparent);
                 }
             }
         }
