@@ -226,6 +226,12 @@ html {
                     transform: scale(0);
                 }
             }
+            &-xxs {
+                .pointer-circle,
+                .pointer-progress {
+                    transform: scale(0.35);
+                }
+            }
             &-xs {
                 .pointer-circle,
                 .pointer-progress {
