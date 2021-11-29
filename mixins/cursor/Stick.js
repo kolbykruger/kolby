@@ -5,8 +5,8 @@ export const Stick = {
             stick: {
                 active: false,
                 x: 0,
-                y: 0
-            }
+                y: 0,
+            },
         }
     },
     methods: {
@@ -20,7 +20,16 @@ export const Stick = {
             sticks.forEach(stick => {
                 stick.addEventListener('mouseenter', () => {
                     this.setState('-stick')
-                    const bounds = stick.getBoundingClientRect()
+
+                    // Check if element is specified in attribute
+                    // If it's specified, stick to that element instead
+                    let stickElement = stick
+                    const toStickAttribute = stick.getAttribute('data-stick')
+                    if (toStickAttribute != '') {
+                        stickElement = stick.parentNode.querySelector(stick.getAttribute('data-stick'))
+                    }
+
+                    const bounds = stickElement.getBoundingClientRect()
 
                     this.stick.active = true
                     this.stick.x = bounds.left + bounds.width / 2 - this.props.bounds.circle.width / 2
@@ -33,7 +42,7 @@ export const Stick = {
                     // this.props.scale.previous = this.props.scale.current = 0.18
                 })
             })
-        }
+        },
     },
     mounted() {
         if (!this.deviceCheck) {
@@ -44,6 +53,6 @@ export const Stick = {
     watch: {
         $route() {
             this.stick.active = false
-        }
-    }
+        },
+    },
 }
