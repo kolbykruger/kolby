@@ -12,31 +12,42 @@
                         <li class="navigation-item navigation-item-lg">
                             <div class="navigation-item-bit">
                                 <nuxt-link
-                                    data-cursor="md"
+                                    data-cursor="xxs"
+                                    data-stick=".navigation-link-sticky"
                                     class="navigation-link"
                                     to="/work"
                                     @click.native="setMenuStatus('/work')"
                                 >
                                     <span data-text="Work">Work</span>
-                                </nuxt-link>
-                            </div>
-                        </li>
-                        <li class="navigation-item navigation-item-lg">
-                            <div class="navigation-item-bit">
-                                <nuxt-link class="navigation-link" to="/about" @click.native="setMenuStatus('/about')">
-                                    <span data-cursor="md" data-text="About">About</span>
+                                    <span class="navigation-link-sticky" aria-hidden="true"></span>
                                 </nuxt-link>
                             </div>
                         </li>
                         <li class="navigation-item navigation-item-lg">
                             <div class="navigation-item-bit">
                                 <nuxt-link
-                                    data-cursor="md"
+                                    data-cursor="xxs"
+                                    data-stick=".navigation-link-sticky"
+                                    class="navigation-link"
+                                    to="/about"
+                                    @click.native="setMenuStatus('/about')"
+                                >
+                                    <span data-text="About">About</span>
+                                    <span class="navigation-link-sticky" aria-hidden="true"></span>
+                                </nuxt-link>
+                            </div>
+                        </li>
+                        <li class="navigation-item navigation-item-lg">
+                            <div class="navigation-item-bit">
+                                <nuxt-link
+                                    data-cursor="xxs"
+                                    data-stick=".navigation-link-sticky"
                                     class="navigation-link"
                                     to="/approach"
                                     @click.native="setMenuStatus('/approach')"
                                 >
                                     <span data-text="Approach">Approach</span>
+                                    <span class="navigation-link-sticky" aria-hidden="true"></span>
                                 </nuxt-link>
                             </div>
                         </li>
@@ -559,6 +570,13 @@ export default {
                     transform-origin: 0 50%;
                     transition: transform 0.46s cubic-bezier(0.42, 0.39, 0.17, 1), opacity 0.66s ease;
                     z-index: -1;
+                }
+
+                .navigation-link-sticky {
+                    position: absolute;
+                    top: 50%;
+                    right: 0;
+                    transform: translate(1em, -50%);
                 }
 
                 &.nuxt-link-exact-active {
