@@ -50,7 +50,7 @@ export default {
         border-radius: 2em;
         text-decoration: none;
         color: c('base-0');
-        border: 2px solid c('base-2');
+        border: 1px solid c('base-4');
         background: transparent;
         font-size: 1.5rem;
         transition: color 0.2s ease, border-color 0.3s ease;
@@ -83,7 +83,7 @@ export default {
             content: '';
             position: absolute;
 
-            --offset: 0.125em;
+            --offset: 0;
             top: var(--offset);
             left: var(--offset);
             bottom: var(--offset);
