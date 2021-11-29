@@ -17,7 +17,7 @@
                     @click="scrollToTop()"
                     class="footer-scroll-top"
                     data-stick
-                    data-progress="6"
+                    data-progress="4"
                     data-callback="top"
                 >
                     <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" fill="none">
