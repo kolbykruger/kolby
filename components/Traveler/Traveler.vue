@@ -1,5 +1,5 @@
 <template>
-    <div class="traveler" ref="traveler" aria-hidden="true">
+    <div class="traveler" :class="{ '-initiated': status }" ref="traveler" aria-hidden="true">
         <div class="traveler-blend">
             <span ref="travelerBackground" class="traveler-background"></span>
             <span ref="travelerNoise" class="traveler-noise"></span>
@@ -23,6 +23,11 @@ export default {
             animations: null,
             elems: null,
         }
+    },
+    computed: {
+        status() {
+            return this.$store.state.menu.open
+        },
     },
     props: {
         counter: Number,
@@ -121,6 +126,11 @@ export default {
 .traveler {
     pointer-events: none;
     user-select: none;
+
+    &.-initiated {
+        // Performance for when menu is open
+        display: none;
+    }
 
     &-blend {
         mix-blend-mode: overlay;
