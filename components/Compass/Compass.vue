@@ -1,6 +1,6 @@
 <template>
     <div data-stick data-cursor="xxl" class="compass">
-        <a href="mailto:hi@kolby.dev">
+        <button @click="copyEmail" @mouseenter="revealEmail">
             <div class="compass-spinner">
                 <svg
                     enable-background="new 0 0 612 792"
@@ -131,15 +131,44 @@
             </div>
             <div data-magnetic data-stick class="compass-spoiler">
                 <span class="compass-spoiler-passive">Say hello</span>
-                <span class="compass-spoiler-active">hi@kolby.dev</span>
+                <span class="compass-spoiler-active">{{ contact }}</span>
             </div>
-        </a>
+        </button>
     </div>
 </template>
 
 <script>
 export default {
     name: 'Compass',
+    data() {
+        return {
+            contact: null,
+        }
+    },
+    computed: {
+        email() {
+            return this.$store.state.contact.email
+        },
+    },
+    methods: {
+        revealEmail() {
+            this.contact = this.email
+        },
+        copyEmail(e) {
+            const el = document.createElement('textarea')
+            el.value = this.email
+            el.setAttribute('readonly', '')
+            el.classList.add('visually-hidden')
+            e.target.appendChild(el)
+            el.select()
+            document.execCommand('copy')
+            e.target.removeChild(el)
+            this.contact = 'Copied!'
+            setTimeout(() => {
+                this.contact = this.email
+            }, 3000)
+        },
+    },
 }
 </script>
 
@@ -158,9 +187,12 @@ export default {
         margin-right: 0;
     }
 
-    a {
+    button {
+        display: block;
         text-decoration: none;
         color: inherit;
+        width: 100%;
+        height: 100%;
 
         &:hover,
         &:focus {
