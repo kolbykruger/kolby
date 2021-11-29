@@ -69,20 +69,20 @@ export default {
                 this.$refs.toc.classList.add('-active')
             }
 
-            window.addEventListener('scroll', event => {
-                const arr = this.links.filter(item => {
-                    return item.offset <= window.scrollY
-                })
-                const [activeItem] = arr.slice(-1)
-                this.activeItem = [activeItem]
-            })
+            // window.addEventListener('scroll', event => {
+            //     const arr = this.links.filter(item => {
+            //         return item.offset <= window.scrollY
+            //     })
+            //     const [activeItem] = arr.slice(-1)
+            //     this.activeItem = [activeItem]
+            // })
         },
     },
     mounted() {
         this.$nextTick(() => {
             setTimeout(() => {
                 this.getAnchorLinks()
-            }, 500)
+            }, 800)
         })
     },
     updated() {
