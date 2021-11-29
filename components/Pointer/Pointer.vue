@@ -2,7 +2,7 @@
     <div class="pointer" aria-hidden="true" ref="pointer">
         <span class="pointer-svg" ref="pointerSVG">
             <span class="pointer-circle" ref="pointerCircle"></span>
-            <div class="pointer-progress" ref="pointerProgress">
+            <span class="pointer-progress" ref="pointerProgress">
                 <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" fill="none">
                     <path
                         xmlns="http://www.w3.org/2000/svg"
@@ -15,8 +15,33 @@
                         class="pointer-progress-fill"
                     />
                 </svg>
-            </div>
-            <span class="pointer-text" ref="pointerText" v-html="caption.text"></span>
+            </span>
+            <span class="pointer-arrow" ref="pointerArrow">
+                <span class="pointer-arrow-right" v-if="arrow.direction == 'right' && arrow.active">
+                    <svg fill="none" viewBox="0 0 17 25" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="m1.6141 25c0.89165 0 1.5986-0.7334 1.8176-1.5977 1.1117-4.3858 6.5902-8.043 11.565-8.7346 0.9026-0.1255 1.6443-0.8564 1.6443-1.7677 0-0.0083 0-0.0167-2e-4 -0.025 2e-4 -0.0083 2e-4 -0.0167 2e-4 -0.025 0-0.9113-0.7417-1.6422-1.6442-1.7682-4.9728-0.6946-10.449-4.364-11.564-8.7344-0.22043-0.86397-0.92744-1.5974-1.8191-1.5974-0.89166 0-1.6275 0.72825-1.4792 1.6075 0.77137 4.5725 4.7424 8.4439 9.3745 10.518-4.6321 2.0736-8.6031 5.945-9.3745 10.518-0.14833 0.8792 0.5875 1.6075 1.4792 1.6075z"
+                            clip-rule="evenodd"
+                            fill="#0B0E11"
+                            fill-rule="evenodd"
+                        />
+                    </svg>
+                </span>
+                <span class="pointer-arrow-down" v-if="arrow.direction == 'down' && arrow.active">
+                    <svg viewBox="0 0 97 67" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="m1.9986 12.996c-1.1011-0.088-1.9986-0.9754-1.9986-2.08l-6.7312e-7 -8.9158c-8.3393e-8 -1.1046 0.89943-2.0053 2.0025-1.9476 28.898 1.5128 51.94 35.49 52.962 64.518 0.0389 1.1039-0.86 1.9959-1.9646 1.9959h-9.2c-1.1046 0-1.9958-0.8943-2.0454-1.9978-1.0151-22.584-18.921-49.908-39.756-51.572z"
+                            fill="#0B0E11"
+                        />
+                        <path
+                            d="m44 66.566c-1.1046 0-2.0035-0.892-1.9646-1.9959 1.0222-29.027 24.064-63.005 52.962-64.518 1.1031-0.057744 2.0025 0.84303 2.0025 1.9476v8.9158c0 1.1046-0.8975 1.992-1.9985 2.0807-20.748 1.6715-38.736 28.991-39.756 51.572-0.0498 1.1035-0.941 1.9978-2.0456 1.9978h-9.2z"
+                            fill="#0B0E11"
+                        />
+                    </svg>
+                </span>
+                <span class="pointer-arrow-left" v-if="arrow.direction == 'left' && arrow.active"> </span>
+                <span class="pointer-arrow-up" v-if="arrow.direction == 'up' && arrow.active"> </span>
+            </span>
             <span class="visually-hidden">{{ counter }}</span>
         </span>
     </div>
@@ -34,9 +59,10 @@ import { Shift } from '~/mixins/cursor/Shift.js'
 import { Knob } from '~/mixins/cursor/Knob.js'
 import { Buttons } from '~/mixins/cursor/Buttons.js'
 import { Progress } from '~/mixins/cursor/Progress.js'
+import { Arrow } from '~/mixins/cursor/Arrow.js'
 // import { Rail } from '~/mixins/cursor/Rail.js'
 // import { Image } from '~/mixins/cursor/Image.js'
-import { Caption } from '~/mixins/cursor/Caption.js'
+// import { Caption } from '~/mixins/cursor/Caption.js'
 import { Move } from '~/mixins/cursor/Move.js'
 import { State } from '~/mixins/cursor/State.js'
 import { Reset } from '~/mixins/cursor/Reset.js'
@@ -58,8 +84,8 @@ export default {
         Shift,
         Knob,
         Progress,
+        Arrow,
         Buttons,
-        Caption,
         Move,
         State,
         Reset,
@@ -109,10 +135,10 @@ export default {
                     this.sizes()
                     this.magnetics()
                     this.sticks()
-                    this.captions()
                     this.visibility()
                     this.invisibility()
                     this.progress()
+                    this.arrows()
                     this.shift()
                     this.knob()
                     this.buttons()
@@ -235,7 +261,7 @@ html {
             &-xs {
                 .pointer-circle,
                 .pointer-progress {
-                    transform: scale(0.5);
+                    transform: scale(0.78);
                 }
             }
             &-sm {
@@ -378,25 +404,28 @@ html {
             }
         }
 
-        &-svg {
+        &-svg,
+        &-circle,
+        &-progress,
+        &-arrow {
+            --size: 48px;
             position: absolute;
             display: block;
             top: 0;
             left: 0;
-            width: 48px;
-            height: 48px;
+            width: var(--size);
+            height: var(--size);
             pointer-events: none;
+            border-radius: 50%;
+        }
+
+        &-svg {
             opacity: 0;
             will-change: transform;
         }
 
         &-circle {
-            position: relative;
-            display: block;
-            width: 48px;
-            height: 48px;
             background: c('cursor');
-            border-radius: 50%;
             clip-path: circle(50% at 50% 50%);
             transform-origin: 50% 50%;
             transform: scale(0);
@@ -405,13 +434,6 @@ html {
         }
 
         &-progress {
-            position: absolute;
-            top: 0;
-            left: 0;
-            display: block;
-            width: 48px;
-            height: 48px;
-            border-radius: 50%;
             clip-path: circle(50% at 50% 50%);
             transform-origin: 50% 50%;
             transform: scale(0);
@@ -445,12 +467,7 @@ html {
             }
         }
 
-        &-text {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+        &-arrow {
             display: grid;
             place-content: center;
             text-align: center;
@@ -461,7 +478,16 @@ html {
             text-transform: uppercase;
             opacity: 0;
             transition: transform 0.3s, opacity 0.4s;
+            transform: scale(0);
             z-index: 3;
+            will-change: transform;
+
+            svg {
+                --size: 1em;
+                width: var(--size);
+                height: var(--size);
+                padding: 0.2em;
+            }
         }
     }
 }
