@@ -82,7 +82,6 @@ export const Cursor = {
     mounted() {
         const cursor = this.$refs.pointerSVG
         const circle = this.$refs.pointerCircle
-        const text = this.$refs.pointerText
         const cursorBounds = cursor.getBoundingClientRect()
 
         this.props.bounds.circle.width = cursorBounds.width
@@ -95,7 +94,7 @@ export const Cursor = {
 
         // Loop through render call for Mouse Move
         requestAnimationFrame(() => {
-            this.render({ cursor, circle, text })
+            this.render({ cursor, circle })
         })
     },
 }
