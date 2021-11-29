@@ -33,20 +33,62 @@
                 </nuxt-link>
             </p>
         </div>
-
-        <!-- <pre><code>{{ item }}</code></pre> -->
     </div>
 </template>
 
 <script>
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
+import { CustomEase } from 'gsap/dist/CustomEase'
+
 export default {
     name: 'CaseStudyCard',
     props: {
         item: Object,
     },
+    data() {
+        return {
+            animations: false,
+            mouse: {
+                x: 0,
+                y: 0,
+            },
+        }
+    },
     mounted() {
+        gsap.registerPlugin(ScrollTrigger)
+        gsap.registerPlugin(CustomEase)
+
+        const ease = CustomEase.create('custom', 'M0,0 C0.23,1 0.32,1 1,1 ')
+        const $el = this
         const caseStudy = this.$refs.caseStudy
-        //gsap
+        const caseStudyCover = caseStudy.querySelector('.case-study-card-cover')
+        const caseStudyCoverImg = caseStudyCover.querySelector('img')
+
+        caseStudy.addEventListener('mouseenter', () => {
+            this.animations = true
+        })
+        caseStudy.addEventListener('mouseleave', () => {
+            this.animations = false
+        })
+        caseStudy.addEventListener('mousemove', e => {
+            const bounds = caseStudy.getBoundingClientRect()
+
+            this.mouse.x = e.clientX / bounds.width - 0.5
+            this.mouse.y = -(e.clientY / bounds.height - 0.5)
+
+            requestAnimationFrame(() => {
+                if (!this.animations) {
+                    return false
+                }
+
+                gsap.to(caseStudyCoverImg, {
+                    x: 25 * this.mouse.x,
+                    y: 25 * this.mouse.y * -1,
+                    ease: 'power3.out',
+                })
+            })
+        })
     },
 }
 </script>
@@ -63,6 +105,7 @@ export default {
     &-cover {
         position: relative;
         aspect-ratio: 3 / 2;
+        overflow: hidden;
 
         @include mq('desktop-small') {
             flex: 3;
