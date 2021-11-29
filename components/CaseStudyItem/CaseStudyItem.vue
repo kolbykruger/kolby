@@ -102,18 +102,18 @@ export default {
             max-width: 80%;
         }
     }
+    &-summary {
+        @include mq('desktop-small') {
+            margin-bottom: 1.5em;
+        }
+    }
     &-link {
         color: currentColor;
         display: inline-flex;
         align-items: center;
         height: 64px;
-        margin-top: 0.5em;
         text-decoration: none;
         color: c('base-0');
-
-        @include mq('desktop-small') {
-            margin-top: 1.5em;
-        }
 
         svg {
             margin-left: 0.4em;
