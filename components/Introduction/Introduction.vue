@@ -11,7 +11,7 @@
                 ref="button"
                 @click="scrollNext"
                 data-stick
-                data-progress="6"
+                data-progress="4"
                 data-callback="intro"
                 class="introduction-indicator"
             >
