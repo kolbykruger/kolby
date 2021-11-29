@@ -12,7 +12,8 @@
                         <li class="navigation-item navigation-item-lg">
                             <div class="navigation-item-bit">
                                 <nuxt-link
-                                    data-cursor="xxs"
+                                    data-cursor="xs"
+                                    data-arrow="right"
                                     data-stick=".navigation-link-sticky"
                                     class="navigation-link"
                                     to="/work"
@@ -26,7 +27,8 @@
                         <li class="navigation-item navigation-item-lg">
                             <div class="navigation-item-bit">
                                 <nuxt-link
-                                    data-cursor="xxs"
+                                    data-cursor="xs"
+                                    data-arrow="right"
                                     data-stick=".navigation-link-sticky"
                                     class="navigation-link"
                                     to="/about"
@@ -40,7 +42,8 @@
                         <li class="navigation-item navigation-item-lg">
                             <div class="navigation-item-bit">
                                 <nuxt-link
-                                    data-cursor="xxs"
+                                    data-cursor="xs"
+                                    data-arrow="right"
                                     data-stick=".navigation-link-sticky"
                                     class="navigation-link"
                                     to="/approach"
@@ -131,16 +134,17 @@
                 </nav>
                 <aside>
                     <p class="navigation-item navigation-item-sm">
-                        <a
+                        <button
                             class="navigation-item-bit navigation-item-spoiler"
                             data-stick
                             data-magnetic
                             data-cursor="xxl"
-                            href="mailto:hi@kolby.dev"
+                            @click="copyEmail"
+                            @mouseenter="revealEmail"
                         >
                             <span class="navigation-item-spoiler-passive">Say hello</span>
-                            <span class="navigation-item-spoiler-active">hi@kolby.dev</span>
-                        </a>
+                            <span class="navigation-item-spoiler-active">{{ contact }}</span>
+                        </button>
                     </p>
                 </aside>
             </div>
@@ -168,6 +172,7 @@ export default {
             largeLinkTimeline: null,
             smallLinkTimeline: null,
             ease: null,
+            contact: null,
         }
     },
     computed: {
@@ -177,6 +182,9 @@ export default {
         mode() {
             return this.$store.state.theme.mode
         },
+        email() {
+            return this.$store.state.contact.email
+        },
     },
     methods: {
         setMenuStatus(loc) {
@@ -184,6 +192,23 @@ export default {
                 this.$store.commit('menu/close')
                 this.routing = false
             }
+        },
+        revealEmail() {
+            this.contact = this.email
+        },
+        copyEmail(e) {
+            const el = document.createElement('textarea')
+            el.value = this.email
+            el.setAttribute('readonly', '')
+            el.classList.add('visually-hidden')
+            e.target.appendChild(el)
+            el.select()
+            document.execCommand('copy')
+            e.target.removeChild(el)
+            this.contact = 'Copied!'
+            setTimeout(() => {
+                this.contact = this.email
+            }, 3000)
         },
     },
     mounted() {
@@ -226,10 +251,10 @@ export default {
                 })
 
                 this.largeLinkTimeline
-                    .set(this.largeLinks, {
-                        y: '-115%',
-                        rotate: '-5deg',
-                    })
+                    // .set(this.largeLinks, {
+                    //     y: '-115%',
+                    //     rotate: '-5deg',
+                    // })
                     .to(this.largeLinks, {
                         y: '0%',
                         rotate: '0deg',
@@ -242,10 +267,10 @@ export default {
                     })
 
                 this.smallLinkTimeline
-                    .set(this.smallLinks, {
-                        y: '-115%',
-                        rotate: '-5deg',
-                    })
+                    // .set(this.smallLinks, {
+                    //     y: '-115%',
+                    //     rotate: '-5deg',
+                    // })
                     .to(this.smallLinks, {
                         y: '0%',
                         rotate: '0deg',
@@ -266,10 +291,10 @@ export default {
                     })
 
                     this.largeLinkTimeline
-                        .set(this.largeLinks, {
-                            y: '0%',
-                            rotate: '0deg',
-                        })
+                        // .set(this.largeLinks, {
+                        //     y: '0%',
+                        //     rotate: '0deg',
+                        // })
                         .to(this.largeLinks, {
                             y: '-150%',
                             rotate: '-5deg',
@@ -282,10 +307,10 @@ export default {
                         })
 
                     this.smallLinkTimeline
-                        .set(this.smallLinks, {
-                            y: '0%',
-                            rotate: '0deg',
-                        })
+                        // .set(this.smallLinks, {
+                        //     y: '0%',
+                        //     rotate: '0deg',
+                        // })
                         .to(this.smallLinks, {
                             y: '-150%',
                             rotate: '-5deg',
@@ -352,6 +377,10 @@ export default {
 
         .navigation-item-sm {
             padding-right: 0;
+        }
+
+        button {
+            outline: none;
         }
 
         @include mq('tablet') {
@@ -573,10 +602,11 @@ export default {
                 }
 
                 .navigation-link-sticky {
+                    --offset: 1.5em;
                     position: absolute;
                     top: 50%;
                     right: 0;
-                    transform: translate(1em, -50%);
+                    transform: translate(var(--offset), -50%);
                 }
 
                 &.nuxt-link-exact-active {
