@@ -8,7 +8,7 @@
             </style>
             <p>Next</p>
             <nuxt-link
-                data-progress="6"
+                data-progress="4"
                 data-callback="route"
                 :data-callback-location="'/works/' + page.uid"
                 data-magnetic="0.1, 0.1, 0.1"
