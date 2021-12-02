@@ -169,6 +169,12 @@ export default {
             }, 3000)
         },
     },
+    mounted() {
+        // Show email on touch devices
+        if (window.matchMedia('(pointer: coarse)').matches) {
+            this.contact = this.email
+        }
+    },
 }
 </script>
 
