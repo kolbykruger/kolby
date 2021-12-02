@@ -71,7 +71,7 @@ export default {
 
     &-size-small {
         h1 {
-            font-size: clamp(3.815rem, -0.875rem + 8.333vw, 7.451rem);
+            font-size: clamp(3.052rem, -0.875rem + 8.333vw, 7.451rem);
         }
     }
 
