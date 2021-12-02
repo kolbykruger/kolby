@@ -1,5 +1,6 @@
 import smConfig from './sm.json'
 import { getStoriesPaths } from 'slice-machine-ui/helpers/storybook'
+import { scrollBehavior } from './plugins/route.js'
 
 if (!smConfig.apiEndpoint) {
     console.warn(
@@ -99,6 +100,7 @@ export default {
     //scrollToTop: true,
     router: {
         middleware: 'pages',
+        scrollBehavior,
     },
     ignore: [...getStoriesPaths().map(path => path.replace('../', '~/'))],
 }
