@@ -226,6 +226,11 @@ export default {
         this.timeline.set(menu, {
             y: '-100%',
         })
+
+        // Show email on touch devices
+        if (window.matchMedia('(pointer: coarse)').matches) {
+            this.contact = this.email
+        }
     },
     watch: {
         $route() {
@@ -543,26 +548,14 @@ export default {
             }
 
             &-lg {
-                font-size: 20vw;
                 font-family: $font-1;
-
                 font-size: clamp(3.052rem, -0.875rem + 8.333vw, 4.5vw);
-
-                // @media (min-width: 600px) {
-                //     font-size: 7vw;
-                // }
-                // @media (min-width: 960px) {
-                //     font-size: 7vw;
-                // }
-                // @media (min-width: 1600px) {
-                //     font-size: 4.5vw;
-                //     font-size: clamp(3.052rem, -0.875rem + 8.333vw, 7.451rem);
-
-                // }
             }
 
             &-sm {
+                font-size: clamp(1.693rem, -0.875rem + 3vw, 1.693rem);
                 padding-right: 5vw;
+                padding-bottom: 0.25vh;
 
                 a {
                     &::after {
@@ -628,6 +621,7 @@ export default {
             &-spoiler {
                 display: block;
                 padding: 0;
+                text-align: left;
 
                 @include mq('tablet') {
                     padding: 0.5em;
