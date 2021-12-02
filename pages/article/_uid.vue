@@ -1,43 +1,49 @@
 <template>
     <main class="page article-content" id="content">
         <div class="page-contents">
-            <section class="article-header">
-                <div class="container article-header-container">
-                    <p class="article-header-date">{{ formatDate }}</p>
-                    <Pageheading :name="document.data.Name" size="small" />
-
-                    <prismic-rich-text
-                        class="article-header-lead"
-                        v-if="document.data.Summary"
-                        :field="document.data.Summary"
-                    />
-                </div>
-            </section>
-
             <article class="article">
-                <div class="container">
-                    <div class="article-grid">
-                        <!-- <aside class="article-track"></aside> -->
-                        <div class="article-content">
-                            <slice-zone class="slices" type="article" :uid="$route.params.uid" />
-                        </div>
-                        <aside class="article-track">
-                            <!-- <ArticleDetails :document="document" /> -->
+                <section class="article-header">
+                    <div class="container">
+                        <p class="article-header-date">
+                            <nuxt-link
+                                data-stick
+                                data-cursor="lg"
+                                data-progress="4"
+                                data-callback="route"
+                                data-callback-location="/articles"
+                                to="/articles"
+                                >Articles</nuxt-link
+                            >
+                            <span>—</span> {{ formatDate }}
+                        </p>
+                        <Pageheading :name="document.data.Name" size="small" />
 
-                            <div data-sticky>
-                                <TableOfContents :document="document" />
-
-                                <div class="article-code-sections" data-sticky v-if="containsCodeBlock">
-                                    <Button size="small" @clicked="toggleCodeSections">
-                                        {{ showCode ? 'Show whole post' : 'Show code snippets' }}
-                                    </Button>
-                                </div>
-                            </div>
-                        </aside>
+                        <prismic-rich-text
+                            class="article-header-lead"
+                            v-if="document.data.Summary"
+                            :field="document.data.Summary"
+                        />
                     </div>
-                </div>
+                </section>
+
+                <main class="article-content">
+                    <slice-zone class="slices" type="article" :uid="$route.params.uid" />
+                </main>
+
+                <aside class="article-track">
+                    <!-- <ArticleDetails :document="document" /> -->
+
+                    <div data-sticky>
+                        <TableOfContents :document="document" />
+
+                        <div class="article-code-sections" data-sticky v-if="containsCodeBlock">
+                            <Button size="small" @clicked="toggleCodeSections">
+                                {{ showCode ? 'Show entire article' : 'Show code snippets' }}
+                            </Button>
+                        </div>
+                    </div>
+                </aside>
             </article>
-            <!-- <pre><code>{{ document }}</code></pre> -->
         </div>
     </main>
 </template>
@@ -88,11 +94,12 @@ export default {
     methods: {
         toggleCodeSections() {
             this.showCode = !this.showCode
-            const sections = document.querySelectorAll('article section')
+            const sections = document.querySelectorAll('article main section')
             sections.forEach(section => {
                 const status = section.classList.contains('code-block') ? true : false
                 if (!status) {
-                    section.style.display = this.showCode ? 'none' : null
+                    //section.style.display = this.showCode ? 'none' : null
+                    this.showCode ? section.classList.add('-hidden') : section.classList.remove('-hidden')
                 }
             })
         },
@@ -117,123 +124,27 @@ export default {
 
 <style lang="scss">
 .article {
-    &-content {
-        margin-bottom: 6vh;
+    max-width: calc(1280px + 8vw);
+    padding: 0 48px;
+    margin: 0 auto;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    justify-content: space-between;
+    margin-bottom: 3rem;
+    counter-reset: sidenotes markers;
 
-        .article-header {
-            padding-top: 6vh;
-
-            .container {
-                @include mq('laptop-large') {
-                    padding: 0;
-                }
-            }
-
-            &-container {
-                @include mq('laptop-large') {
-                    margin: 0 auto;
-                    max-width: calc(56em + 18em + 8vw);
-                    padding-left: 0;
-                    padding-right: 0;
-                    padding-top: 6vh;
-                    padding-bottom: 6vh;
-                    border-bottom: 1px solid c('base-4');
-                }
-            }
-
-            .pageheading {
-                .container {
-                    padding: 0;
-                }
-            }
-
-            &-date {
-                padding-bottom: 3vh;
-            }
-
-            &-lead {
-                max-width: 42em;
-                margin-bottom: 6vh;
-            }
-        }
+    .container {
+        padding: 0;
     }
 
-    .article-grid {
-        display: flex;
-        flex-direction: column-reverse;
-
-        @include mq('laptop-large') {
-            display: grid;
-            grid-template-columns: 56em 18em;
-            grid-gap: 8vw;
-            place-content: center;
-        }
-    }
-
-    .article-track {
-        > [data-sticky] {
-            position: sticky;
-            top: 6vh;
-        }
-    }
-
-    // Prevents the first element from having a positive margin
-    .article-grid > .article-content > div > section:first-of-type {
-        *:is(p):first-child,
-        *:is(a):first-child + h2,
-        *:is(a):first-child + h3 {
-            margin-top: 0;
-        }
-    }
-
-    section {
-        position: relative;
-        margin: 0 auto;
-
-        // &:first-of-type {
-        //     &:is(h2, h3, p) {
-        //         margin-top: 0;
-        //     }
-
-        //     h2:first-of-type,
-        //     h3:first-of-type,
-        //     p:first-of-type {
-        //         margin-top: 0;
-        //     }
-        // }
-
-        .container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 0;
-
-            > * {
-                min-width: 100%;
-                width: 100%;
-            }
-        }
-    }
-
-    h2 {
-        font-family: $font-1;
-        font-size: clamp(2.827rem, -0.875rem + 8.333vw, 3.998rem);
-        font-weight: 600;
-    }
-
-    h3 {
-        font-size: clamp(1.999rem, -0.875rem + 8.333vw, 2.827rem);
-    }
-
-    h4 {
-        font-size: clamp(1.414rem, -0.875rem + 8.333vw, 1.999rem);
-    }
-
-    h5 {
-        font-size: clamp(1.414rem, -0.875rem + 8.333vw, 1.414rem);
+    main {
     }
 
     aside {
+        padding-left: 4vw;
+
         section {
             position: relative;
             padding-left: 2em;
@@ -257,88 +168,109 @@ export default {
                     left: 0;
                 }
 
-                // &::after {
-                //     top: 0.5em;
-                //     left: 0.5em;
-                //     width: 100%;
-                //     height: 100%;
-                //     pointer-events: none;
-                //     background: radial-gradient(ellipse at 0% 0%, c('base-3'), transparent 75%);
-                //     opacity: 0.12;
-                // }
-            }
+                .article-aside-border {
+                    &::before,
+                    &::after {
+                        content: '';
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                    }
 
-            .article-aside-border {
-                &::before,
-                &::after {
-                    content: '';
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                }
+                    &::before {
+                        left: 0;
+                        width: 100%;
+                        height: 1px;
+                        background: linear-gradient(to right, c('base-4'), transparent);
+                    }
 
-                &::before {
-                    left: 0;
-                    width: 100%;
-                    height: 1px;
-                    background: linear-gradient(to right, c('base-4'), transparent);
-                }
-
-                &::after {
-                    top: 0;
-                    width: 1px;
-                    height: 100%;
-                    background: linear-gradient(to bottom, c('base-4'), transparent);
+                    &::after {
+                        top: 0;
+                        width: 1px;
+                        height: 100%;
+                        background: linear-gradient(to bottom, c('base-4'), transparent);
+                    }
                 }
             }
         }
     }
 
-    &-code-sections {
-        margin-top: 1.5em;
-        // text-align: center;
+    &-header {
+        padding-top: 6vh;
+        margin-bottom: 8vh;
 
-        // button {
-        //     position: relative;
-        //     display: inline-block;
-        //     line-height: 1;
-        //     height: 58px;
-        //     width: 100%;
-        //     font-size: 1.125rem;
-        //     font-weight: 500;
-        //     color: c('base-6');
-        //     padding: 0 0.75em;
-        //     border-radius: 4px;
+        &::after {
+            content: '';
+            display: block;
+            width: 100%;
+            height: 1px;
+            background: c('base-4');
+            background: linear-gradient(to right, c('base-4') 65%, transparent);
+        }
 
-        //     &::before,
-        //     &::after {
-        //         content: '';
-        //         position: absolute;
-        //         top: 0;
-        //         left: 0;
-        //     }
+        .pageheading {
+            .container {
+                padding: 0;
+            }
+        }
 
-        //     &::before {
-        //         top: 0.3em;
-        //         left: 0.3em;
-        //         bottom: 0.3em;
-        //         right: 0.3em;
-        //         background: radial-gradient(ellipse at 0% 0%, c('base-3'), transparent 75%);
-        //         opacity: 0.12;
-        //     }
+        &-date {
+            padding-bottom: 4vh;
 
-        //     &::after {
-        //         width: 100%;
-        //         height: 100%;
-        //         display: block;
-        //         border: 2px solid c('base-3');
-        //         opacity: 0.2;
-        //     }
+            a {
+                text-decoration: none;
+            }
 
-        //     html[theme='dark'] & {
-        //         color: c('base-5');
-        //     }
-        // }
+            span {
+                margin: 0 0.25em;
+                opacity: 0.25;
+            }
+        }
+
+        &-lead {
+            padding-bottom: 6vh;
+
+            &:empty {
+                padding-bottom: 2vh;
+            }
+        }
+    }
+
+    .article-track {
+        > [data-sticky] {
+            position: sticky;
+            top: 6vh;
+        }
+    }
+
+    .article-content {
+        padding-top: 0;
+
+        section:first-of-type {
+            *:is(p):first-child,
+            *:is(a):first-child + h2,
+            *:is(a):first-child + h3 {
+                margin-top: 0;
+            }
+        }
+
+        h2 {
+            font-family: $font-1;
+            font-size: clamp(1.999rem, -0.875rem + 8.333vw, 3.998rem);
+            font-weight: 600;
+        }
+
+        h3 {
+            font-size: clamp(1.699rem, -0.875rem + 8.333vw, 2.827rem);
+        }
+
+        h4 {
+            font-size: clamp(1.563rem, -0.875rem + 8.333vw, 1.999rem);
+        }
+
+        h5 {
+            font-size: clamp(1.414rem, -0.875rem + 8.333vw, 1.414rem);
+        }
     }
 }
 </style>
