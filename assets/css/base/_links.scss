@@ -1,4 +1,5 @@
-a:not([class]) {
+a:not([class]),
+a[class=''] {
     color: c('primary-base');
     text-decoration: none;
     transition: color 1s ease;
