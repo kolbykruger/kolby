@@ -44,7 +44,7 @@ export const Progress = {
                         const nextHeight = (nextBounds.height - window.innerHeight) / 2
                         const scrollPos = nextOffset + nextHeight
                         window.scrollTo({
-                            top: scrollPos,
+                            top: scrollPos + window.scrollY,
                             behavior: 'smooth',
                         })
                     }
