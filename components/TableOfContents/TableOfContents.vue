@@ -9,7 +9,7 @@
                     <small>Sections</small>
                 </li>
                 <li class="toc-list-item" v-for="(link, index) in links" :key="index" :data-type="link.type">
-                    <nuxt-link :to="{ path: path, hash: hash(link.id) }">
+                    <nuxt-link class="toc-list-item-link" :to="{ path: path, hash: hash(link.id) }">
                         {{ link.name ? link.name : link.id }}
                     </nuxt-link>
                 </li>
@@ -87,11 +87,6 @@ export default {
     },
     updated() {
         //this.getAnchorLinks()
-    },
-    watch: {
-        $route() {
-            //console.log(this.$route)
-        },
     },
 }
 </script>
