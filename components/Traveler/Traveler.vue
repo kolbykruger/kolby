@@ -2,6 +2,7 @@
     <div class="traveler" :class="{ '-initiated': status }" ref="traveler" aria-hidden="true">
         <div class="traveler-blend">
             <span ref="travelerBackground" class="traveler-background"></span>
+            <span ref="travelerMeat" class="traveler-meat"></span>
             <span ref="travelerNoise" class="traveler-noise"></span>
         </div>
         <div class="traveler-overlay">
