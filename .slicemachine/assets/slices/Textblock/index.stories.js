@@ -18,7 +18,7 @@ export const _DefaultSlice = () => ({
   },
   data() {
     return {
-      mock: {"variation":"default-slice","name":"Default slice","slice_type":"textblock","items":[],"primary":{"Index":"disintermediate robust e-commerce","Eyebrow":"generate end-to-end paradigms","title":[{"type":"heading2","text":"Maximize plug-and-play metrics","spans":[]}],"description":[{"type":"paragraph","text":"Sit elit commodo occaecat irure pariatur adipisicing eu do mollit ad irure ut irure.","spans":[]}]},"id":"_DefaultSlice"}
+      mock: {"variation":"default-slice","name":"Default slice","slice_type":"textblock","items":[],"primary":{"Index":"engineer bleeding-edge communities","Eyebrow":"syndicate proactive web services","title":[{"type":"heading2","text":"Extend vertical e-markets","spans":[]}],"description":[{"type":"paragraph","text":"Tempor mollit voluptate aute pariatur ex tempor.","spans":[]}]},"id":"_DefaultSlice"}
     }
   },
   template: '<SliceZone :slices="[mock]" :resolver="resolve" />'
@@ -37,7 +37,7 @@ export const _TextblockWithGridList = () => ({
   },
   data() {
     return {
-      mock: {"variation":"textblockWithGridList","name":"Textblock - with Grid List","slice_type":"textblock","items":[{"Name":"synergize leading-edge mindshare","Outline":"engineer B2B partnerships"},{"Name":"drive world-class infrastructures","Outline":"deploy next-generation markets"},{"Name":"utilize best-of-breed supply-chains","Outline":"repurpose web-enabled metrics"},{"Name":"enhance B2B functionalities","Outline":"mesh integrated e-services"}],"primary":{"Index":"maximize 24/7 relationships","Eyebrow":"reintermediate global portals","title":[{"type":"heading2","text":"Engage compelling channels","spans":[]}],"description":[{"type":"paragraph","text":"Adipisicing irure sunt do nulla duis laboris ad ut ipsum consectetur amet quis eu reprehenderit labore.","spans":[]}]},"id":"_TextblockWithGridList"}
+      mock: {"variation":"textblockWithGridList","name":"Textblock - with Grid List","slice_type":"textblock","items":[{"Name":"matrix cross-media infrastructures","Outline":"generate transparent mindshare"},{"Name":"syndicate bricks-and-clicks architectures","Outline":"enable virtual infomediaries"},{"Name":"cultivate real-time methodologies","Outline":"morph back-end technologies"},{"Name":"optimize web-enabled interfaces","Outline":"aggregate mission-critical e-business"},{"Name":"monetize distributed functionalities","Outline":"morph granular e-markets"},{"Name":"incentivize robust platforms","Outline":"seize impactful web services"}],"primary":{"Index":"redefine B2B e-tailers","Eyebrow":"engineer mission-critical channels","title":[{"type":"heading2","text":"Expedite plug-and-play technologies","spans":[]}],"description":[{"type":"paragraph","text":"Pariatur anim commodo laborum ex quis magna veniam nulla dolor esse qui amet fugiat occaecat. Lorem anim dolor non laboris minim aute ex Lorem est ea tempor id enim esse incididunt.","spans":[]}]},"id":"_TextblockWithGridList"}
     }
   },
   template: '<SliceZone :slices="[mock]" :resolver="resolve" />'

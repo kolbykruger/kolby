@@ -18,7 +18,7 @@ export const _DefaultSlice = () => ({
   },
   data() {
     return {
-      mock: {"variation":"default-slice","name":"Default slice","slice_type":"list","items":[{"Item":[{"type":"paragraph","text":"Sit laborum ut cillum est in. Ea eiusmod velit irure consectetur exercitation. Mollit laboris irure commodo nulla ad culpa id amet eiusmod amet proident cupidatat exercitation.","spans":[]}]},{"Item":[{"type":"paragraph","text":"Eu Lorem et cupidatat enim commodo duis reprehenderit irure laborum enim aute amet voluptate.","spans":[]}]},{"Item":[{"type":"paragraph","text":"Ex cupidatat deserunt labore ex laboris non commodo do anim proident. Commodo mollit et in enim consectetur culpa. Pariatur mollit nisi adipisicing id voluptate nisi quis amet consectetur fugiat.","spans":[]}]},{"Item":[{"type":"paragraph","text":"Id deserunt occaecat aute ut sunt tempor incididunt culpa. Eu cillum consectetur ea minim cillum non aliqua.","spans":[]}]}],"primary":{},"id":"_DefaultSlice"}
+      mock: {"variation":"default-slice","name":"Default slice","slice_type":"list","items":[{"Item":[{"type":"paragraph","text":"Anim ut nulla sint adipisicing officia est dolore. Aute velit anim nisi incididunt tempor veniam ex exercitation Lorem ea.","spans":[]}]},{"Item":[{"type":"paragraph","text":"Ex mollit eu Lorem deserunt quis magna aliquip voluptate anim. Anim velit tempor aute commodo aliquip.","spans":[]}]}],"primary":{},"id":"_DefaultSlice"}
     }
   },
   template: '<SliceZone :slices="[mock]" :resolver="resolve" />'
@@ -37,7 +37,7 @@ export const _OrderedList = () => ({
   },
   data() {
     return {
-      mock: {"variation":"orderedList","name":"Ordered List","slice_type":"list","items":[{"Item":[{"type":"paragraph","text":"Enim occaecat culpa irure nisi et est nostrud reprehenderit incididunt tempor minim minim eu mollit aliquip. Fugiat cillum ad voluptate mollit.","spans":[]}]},{"Item":[{"type":"paragraph","text":"Culpa cupidatat Lorem aliqua fugiat id.","spans":[]}]},{"Item":[{"type":"paragraph","text":"Qui ad consectetur laborum ad incididunt exercitation. Ex laboris eiusmod ad est occaecat cupidatat magna anim sunt aute eu. Sunt exercitation ex sit aute consectetur ullamco et anim nisi commodo velit magna.","spans":[]}]},{"Item":[{"type":"paragraph","text":"Ad enim occaecat amet dolore culpa ex eu. Duis deserunt minim nulla enim.","spans":[]}]}],"primary":{},"id":"_OrderedList"}
+      mock: {"variation":"orderedList","name":"Ordered List","slice_type":"list","items":[{"Item":[{"type":"paragraph","text":"Ex irure pariatur nisi anim. Consectetur id veniam irure. Occaecat est consectetur dolor et eiusmod occaecat ipsum do.","spans":[]}]},{"Item":[{"type":"paragraph","text":"Elit incididunt ea pariatur ipsum ut.","spans":[]}]}],"primary":{},"id":"_OrderedList"}
     }
   },
   template: '<SliceZone :slices="[mock]" :resolver="resolve" />'

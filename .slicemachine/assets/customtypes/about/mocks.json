@@ -1,12 +1,12 @@
 {
-  "id": "4601720f-261d-47da-bb59-f906941dc034",
-  "uid": "tempora-ut-eum",
+  "id": "4dbed76d-2b4d-4868-8ead-6925723894d1",
+  "uid": "vel-reiciendis-tempore",
   "type": "about",
   "data": {
     "Name": [
       {
         "type": "heading1",
-        "text": "Engage real-time applications",
+        "text": "Optimize killer e-tailers",
         "spans": []
       }
     ],
@@ -17,25 +17,7 @@
       },
       "alt": "Placeholder image",
       "copyright": null,
-      "url": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=900&h=500&fit=crop"
-    },
-    "Lizzy": {
-      "dimensions": {
-        "width": 900,
-        "height": 500
-      },
-      "alt": "Placeholder image",
-      "copyright": null,
-      "url": "https://images.unsplash.com/photo-1560762484-813fc97650a0?w=900&h=500&fit=crop"
-    },
-    "Wasabi": {
-      "dimensions": {
-        "width": 900,
-        "height": 500
-      },
-      "alt": "Placeholder image",
-      "copyright": null,
-      "url": "https://images.unsplash.com/photo-1448932223592-d1fc686e76ea?w=900&h=500&fit=crop"
+      "url": "https://images.unsplash.com/photo-1493119508027-2b584f234d6c?w=900&h=500&fit=crop"
     }
   }
 }

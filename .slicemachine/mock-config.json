@@ -49,6 +49,18 @@
           }
         }
       }
+    },
+    "Scrolly": {
+      "default-slice": {
+        "items": {
+          "Content": {
+            "config": {
+              "patternType": "PARAGRAPH",
+              "blocks": 1
+            }
+          }
+        }
+      }
     }
   },
   "_cts": {
