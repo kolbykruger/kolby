@@ -68,6 +68,7 @@ export default {
 <style lang="scss">
 .foreward {
     position: relative;
+    margin-bottom: 20vh;
 
     &-intro {
         position: relative;
