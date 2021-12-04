@@ -55,7 +55,7 @@ export default {
         })
 
         images.forEach((item, i) => {
-            gsap.to(item, 1, {
+            gsap.to(item, 0.66, {
                 scrollTrigger: {
                     trigger: item,
                     toggleActions: 'play reverse play reverse',
