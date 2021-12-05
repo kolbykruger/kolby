@@ -1,27 +1,7 @@
 <template>
     <section class="introduction" ref="intro">
         <div class="container">
-            <h1 ref="title" class="introduction-title">
-                <span class="introduction-title-text"> Kolby </span>
-                <span class="introduction-title-star">
-                    <svg
-                        enable-background="new 0 0 14.4 14.5"
-                        version="1.1"
-                        viewBox="0 0 14.4 14.5"
-                        xml:space="preserve"
-                        xmlns="http://www.w3.org/2000/svg"
-                    >
-                        <polygon
-                            points="7.2 1.3 8.4 4.5 11.4 3 10 6.1 13.2 7.2 10 8.4 11.4 11.5 8.4 10 7.2 13.2 6.1 10 3 11.5 4.5 8.4 1.2 7.2 4.5 6.1 3 3 6.1 4.5"
-                        />
-
-                        <path
-                            d="m6.5 1.5c0.4 1.1 0.8 2.1 1.1 3.2 0.1 0.4 0.7 0.4 1 0.2 1-0.5 2.1-1 3.1-1.5-0.3-0.2-0.7-0.3-1-0.5-0.4 1.1-0.9 2.1-1.4 3.1-0.1 0.2 0 0.5 0.3 0.6 1.1 0.4 2.1 0.8 3.2 1.1 0.1-0.3 0.2-0.7 0.3-1-1.1 0.4-2.2 0.8-3.3 1.2-0.2 0.1-0.7 0.3-0.6 0.7 0.5 1 1 2.1 1.5 3.1 0.4-0.2 0.8-0.5 1.1-0.7-1-0.5-2.1-1-3.1-1.5-0.3-0.2-1 0-1.1 0.4-0.3 1.1-0.7 2.1-1.1 3.2 0.5 0 1-0.1 1.4-0.1-0.4-1.1-0.8-2.1-1.1-3.2-0.1-0.4-0.7-0.4-1-0.2-1 0.5-2.1 1-3.1 1.5 0.3 0.2 0.7 0.3 1 0.5 0.5-1 1-2.1 1.5-3.1 0.1-0.2 0-0.5-0.3-0.6-1.1-0.4-2.2-0.8-3.2-1.2-0.1 0.3-0.2 0.7-0.3 1 1.1-0.3 2.1-0.7 3.2-1.1 0.2-0.1 0.8-0.4 0.6-0.7-0.5-1-1-2.1-1.5-3.1-0.4 0.3-0.7 0.5-1.1 0.7 1 0.5 2.1 1 3.1 1.5 0.3 0.2 1 0 1.1-0.4 0.4-1.1 0.8-2.1 1.1-3.2 0.3-0.8-1.2-0.8-1.4-0.2-0.4 1.1-0.7 2.1-1.1 3.2 0.3-0.1 0.7-0.3 1.1-0.4-1-0.5-2.1-1-3.1-1.5-0.3-0.1-1.4 0.2-1.1 0.7 0.5 1 1 2.1 1.5 3.1 0.2-0.2 0.4-0.5 0.6-0.7-1.1 0.4-2.2 0.7-3.3 1.1-0.4 0.1-0.9 0.8-0.3 1 1.1 0.4 2.2 0.8 3.2 1.2-0.1-0.2-0.1-0.4-0.2-0.6-0.5 1-1 2.1-1.5 3.1-0.3 0.6 0.7 0.7 1 0.5 1-0.5 2.1-1 3.1-1.5-0.3-0.1-0.7-0.2-1-0.2 0.4 1.1 0.8 2.1 1.1 3.2 0.2 0.6 1.2 0.4 1.4-0.1 0.4-1.1 0.8-2.1 1.1-3.2-0.4 0.1-0.7 0.3-1.1 0.4 1 0.5 2.1 1 3.1 1.5 0.3 0.2 1.4-0.2 1.1-0.7-0.5-1-1-2.1-1.5-3.1-0.2 0.2-0.4 0.5-0.6 0.7 1.1-0.4 2.1-0.8 3.2-1.1 0.4-0.1 0.9-0.8 0.3-1-1.1-0.4-2.1-0.8-3.2-1.1l0.3 0.6c0.5-1 1-2.1 1.5-3.1 0.3-0.6-0.7-0.7-1-0.5-1 0.5-2.1 1-3.1 1.5 0.3 0.1 0.7 0.2 1 0.2-0.3-1.2-0.7-2.3-1.1-3.3-0.2-0.7-1.6-0.3-1.4 0.4z"
-                        />
-                    </svg>
-                </span>
-                <span class="introduction-title-text"> Kruger </span>
-            </h1>
+            <NameTitle ref="title" />
             <h2 ref="subTitle" class="introduction-subtitle">I design and create web <b>experiences</b></h2>
             <p ref="description" class="introduction-description">
                 I'm a designer & developer based in Vermont that is passionate about creating extraordinary online
@@ -54,9 +34,13 @@
 import { gsap } from 'gsap'
 import { SplitText } from 'gsap/dist/SplitText'
 import { CustomEase } from 'gsap/dist/CustomEase'
+import NameTitle from '@/components/Pageheading/NameTitle.vue'
 
 export default {
     name: 'Introduction',
+    components: {
+        NameTitle,
+    },
     methods: {
         scrollNext() {
             const next = this.$refs.intro.nextElementSibling.childNodes[0]
@@ -81,8 +65,10 @@ export default {
             wordsClass: 'pageheading-word',
             linesClass: 'pageheading-line',
         }
-        const title = this.$refs.title.querySelectorAll('.introduction-title-text')
-        const star = this.$refs.title.querySelector('.introduction-title-star')
+
+        const intro = this.$refs.intro
+        const title = intro.querySelectorAll('.name-title-text')
+        const star = intro.querySelector('.name-title-star')
         const splitTitle = new SplitText(title, splitTextOptions)
         const splitSubTitle = new SplitText(this.$refs.subTitle, splitTextOptions)
         const splitDescription = new SplitText(this.$refs.description, splitTextOptions)
@@ -93,11 +79,11 @@ export default {
             rotateX: 110,
             d: 1300,
         })
-            .set(splitSubTitle.chars, {
-                y: '100%',
-                rotateX: 110,
-                d: 1300,
-            })
+        tl.set(splitSubTitle.chars, {
+            y: '100%',
+            rotateX: 110,
+            d: 1300,
+        })
             .set(star, {
                 scale: 0,
             })
@@ -192,55 +178,6 @@ export default {
         align-items: center;
         justify-content: center;
         text-align: center;
-    }
-
-    &-title {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        margin-bottom: 0;
-        text-transform: uppercase;
-        font-size: 6.25vw;
-        width: 100%;
-
-        &-text {
-            flex: 1;
-
-            &:first-of-type {
-                .pageheading-line {
-                    text-align: right !important;
-                }
-            }
-
-            &:last-of-type {
-                .pageheading-line {
-                    text-align: left !important;
-                }
-            }
-        }
-
-        &-star {
-            max-width: 50px;
-            width: 100%;
-            margin: 0 2.5vw;
-
-            svg {
-                width: 100%;
-                max-width: 50px;
-                animation: star 6s linear infinite;
-
-                @keyframes star {
-                    to {
-                        transform: rotate(360deg);
-                    }
-                }
-
-                path,
-                polygon {
-                    fill: c('base-0');
-                }
-            }
-        }
     }
 
     &-subtitle {
