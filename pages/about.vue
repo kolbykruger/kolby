@@ -2,6 +2,7 @@
     <main class="page about" id="content">
         <div class="page-contents">
             <Foreward :document="document" />
+            <NameTitle tag="h2" />
             <slice-zone class="slices" type="about" uid="about" />
         </div>
     </main>
@@ -11,9 +12,11 @@
 import SliceZone from 'vue-slicezone'
 import { Animations } from '~/mixins/animations/Animations.js'
 
+import NameTitle from '@/components/Pageheading/NameTitle.vue'
+
 export default {
     components: {
-        //Pageheading
+        NameTitle,
         SliceZone,
     },
     mixins: [Animations],
