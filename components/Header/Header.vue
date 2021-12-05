@@ -37,15 +37,6 @@ export default {
             const bounds = header ? header.getBoundingClientRect() : 0
             document.documentElement.style.setProperty('--offset', bounds.height + 60 + 'px')
         },
-        calculateHeaderState(position, bounds, el) {
-            position.current > bounds.height ? el.classList.add('-unsticky') : el.classList.remove('-unsticky')
-
-            if (position.current < position.previous && position.current > bounds.height) {
-                el.classList.add('-sticky')
-            } else {
-                el.classList.remove('-sticky')
-            }
-        },
     },
     mounted() {
         this.setOffset()
@@ -96,6 +87,10 @@ export default {
         }
 
         scrollDistance(distance => {
+            if (this.menuStatus) {
+                return false
+            }
+
             if (distance < 0 && parseInt(Math.abs(distance), 10) > 16 && window.pageYOffset > bounds.height) {
                 header.classList.add('-sticky')
             } else {
