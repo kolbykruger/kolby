@@ -248,84 +248,75 @@ export default {
             const menu = this.$refs.menu
             this.open = value
 
-            if (this.open) {
-                this.timeline.to(menu, {
+            let menuTransitions = {
+                in: {
                     y: '0%',
                     duration: 0.8,
                     ease: this.ease,
-                })
+                },
+                out: {
+                    y: '-100%',
+                    duration: 0.6,
+                    delay: 0.45,
+                    ease: this.ease,
+                },
+            }
 
-                this.largeLinkTimeline
-                    // .set(this.largeLinks, {
-                    //     y: '-115%',
-                    //     rotate: '-5deg',
-                    // })
-                    .to(this.largeLinks, {
-                        y: '0%',
-                        rotate: '0deg',
-                        duration: 0.92,
-                        delay: 0.28,
-                        ease: this.ease,
-                        stagger: {
-                            amount: 0.05,
-                        },
-                    })
+            let largeLinkTransitions = {
+                in: {
+                    y: '0%',
+                    rotate: '0deg',
+                    duration: 0.92,
+                    delay: 0.28,
+                    ease: this.ease,
+                    stagger: {
+                        amount: 0.05,
+                    },
+                },
+                out: {
+                    y: '-150%',
+                    rotate: '-5deg',
+                    duration: 0.92,
+                    delay: 0.08,
+                    ease: this.ease,
+                    stagger: {
+                        amount: 0.03,
+                    },
+                },
+            }
 
-                this.smallLinkTimeline
-                    // .set(this.smallLinks, {
-                    //     y: '-115%',
-                    //     rotate: '-5deg',
-                    // })
-                    .to(this.smallLinks, {
-                        y: '0%',
-                        rotate: '0deg',
-                        duration: 0.92,
-                        delay: 0.48,
-                        ease: this.ease,
-                        stagger: {
-                            amount: 0.05,
-                        },
-                    })
+            let smallLinkTransitions = {
+                in: {
+                    y: '0%',
+                    rotate: '0deg',
+                    duration: 0.92,
+                    delay: 0.48,
+                    ease: this.ease,
+                    stagger: {
+                        amount: 0.05,
+                    },
+                },
+                out: {
+                    y: '-150%',
+                    rotate: '-5deg',
+                    duration: 0.92,
+                    delay: 0.06,
+                    ease: this.ease,
+                    stagger: {
+                        amount: 0.03,
+                    },
+                },
+            }
+
+            if (this.open) {
+                this.timeline.to(menu, menuTransitions.in)
+                this.largeLinkTimeline.to(this.largeLinks, largeLinkTransitions.in)
+                this.smallLinkTimeline.to(this.smallLinks, smallLinkTransitions.in)
             } else {
                 if (!this.routing) {
-                    this.timeline.to(menu, {
-                        y: '-100%',
-                        duration: 0.6,
-                        delay: 0.45,
-                        ease: this.ease,
-                    })
-
-                    this.largeLinkTimeline
-                        // .set(this.largeLinks, {
-                        //     y: '0%',
-                        //     rotate: '0deg',
-                        // })
-                        .to(this.largeLinks, {
-                            y: '-150%',
-                            rotate: '-5deg',
-                            duration: 0.92,
-                            delay: 0.08,
-                            ease: this.ease,
-                            stagger: {
-                                amount: 0.03,
-                            },
-                        })
-
-                    this.smallLinkTimeline
-                        // .set(this.smallLinks, {
-                        //     y: '0%',
-                        //     rotate: '0deg',
-                        // })
-                        .to(this.smallLinks, {
-                            y: '-150%',
-                            rotate: '-5deg',
-                            duration: 0.92,
-                            delay: 0.06,
-                            ease: this.ease,
-                            stagger: {
-                                amount: 0.03,
-                            },
-                        })
+                    this.timeline.to(menu, menuTransitions.out)
+                    this.largeLinkTimeline.to(this.largeLinks, largeLinkTransitions.out)
+                    this.smallLinkTimeline.to(this.smallLinks, smallLinkTransitions.out)
                 }
             }
         },
@@ -343,6 +334,10 @@ export default {
     padding-bottom: 10vh;
     z-index: 100;
     will-change: transform;
+
+    @supports (margin-bottom: env(safe-area-inset-bottom)) {
+        margin-bottom: env(safe-area-inset-bottom);
+    }
 
     @media (min-width: 968px) {
         height: 110vh;
@@ -553,7 +548,7 @@ export default {
             }
 
             &-sm {
-                font-size: clamp(1.693rem, -0.875rem + 3vw, 1.693rem);
+                font-size: clamp(1.563rem, -0.875rem + 3vw, 1.693rem);
                 padding-right: 5vw;
                 padding-bottom: 0.25vh;
 
