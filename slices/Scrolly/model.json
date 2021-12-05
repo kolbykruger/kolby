@@ -42,7 +42,7 @@
           "config": {
             "label": "Image",
             "constraint": {
-              "width": 600
+              "width": 1024
             },
             "thumbnails": []
           },
