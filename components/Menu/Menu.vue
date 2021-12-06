@@ -12,9 +12,7 @@
                         <li class="navigation-item navigation-item-lg">
                             <div class="navigation-item-bit">
                                 <nuxt-link
-                                    data-cursor="xs"
-                                    data-arrow="right"
-                                    data-stick=".navigation-link-sticky"
+                                    data-cursor="lg"
                                     class="navigation-link"
                                     to="/work"
                                     @click.native="setMenuStatus('/work')"
@@ -27,9 +25,7 @@
                         <li class="navigation-item navigation-item-lg">
                             <div class="navigation-item-bit">
                                 <nuxt-link
-                                    data-cursor="xs"
-                                    data-arrow="right"
-                                    data-stick=".navigation-link-sticky"
+                                    data-cursor="lg"
                                     class="navigation-link"
                                     to="/about"
                                     @click.native="setMenuStatus('/about')"
@@ -42,9 +38,7 @@
                         <li class="navigation-item navigation-item-lg">
                             <div class="navigation-item-bit">
                                 <nuxt-link
-                                    data-cursor="xs"
-                                    data-arrow="right"
-                                    data-stick=".navigation-link-sticky"
+                                    data-cursor="lg"
                                     class="navigation-link"
                                     to="/approach"
                                     @click.native="setMenuStatus('/approach')"
