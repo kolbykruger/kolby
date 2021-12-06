@@ -91,9 +91,6 @@ export default {
         Reset,
     ],
     computed: {
-        loadingStatus() {
-            return this.$store.state.loading.loading
-        },
         checkPerformance() {
             try {
                 const canvas = document.createElement('canvas')
@@ -130,19 +127,21 @@ export default {
                 return false
             }
 
-            this.$nextTick(() => {
-                setTimeout(() => {
-                    this.sizes()
-                    this.magnetics()
-                    this.sticks()
-                    this.visibility()
-                    this.invisibility()
-                    this.progress()
-                    this.arrows()
-                    this.shift()
-                    this.knob()
-                    this.buttons()
-                }, 1100) // page animation transition length
+            this.$router.onReady(() => {
+                this.$nextTick(() => {
+                    setTimeout(() => {
+                        this.sizes()
+                        this.magnetics()
+                        this.sticks()
+                        this.visibility()
+                        this.invisibility()
+                        this.progress()
+                        this.arrows()
+                        this.shift()
+                        this.knob()
+                        this.buttons()
+                    }, 1000) // page animation transition length
+                })
             })
         },
     },
@@ -156,7 +155,7 @@ export default {
         $route() {
             this.reset()
         },
-        loadingStatus(value) {
+        loading(value) {
             if (!value) {
                 this.initPointer()
             }
@@ -391,7 +390,7 @@ html {
             }
         }
 
-        &-invisible {
+        &.-invisible {
             .pointer-circle {
                 transform: scale(0);
                 opacity: 0;
