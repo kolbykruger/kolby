@@ -1,5 +1,5 @@
 <template>
-    <section class="headline">
+    <section class="headline" data-anim>
         <div class="container">
             <prismic-rich-text :field="slice.primary.title" class="title" />
         </div>

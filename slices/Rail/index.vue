@@ -1,5 +1,5 @@
 <template>
-    <section class="rail" :class="[background, variation]">
+    <section class="rail" :class="[background, variation]" data-anim>
         <div class="container" v-if="slice.primary.Title">
             <prismic-rich-text class="rail-title" :field="slice.primary.Title" />
             <prismic-rich-text class="rail-summary" :field="slice.primary.Summary" v-if="slice.primary.Summary" />

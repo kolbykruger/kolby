@@ -12,7 +12,12 @@
                 />
                 <prismic-rich-text :field="slice.primary.description" class="textblock-description" />
 
-                <div class="textblock-list-grid" v-if="slice.variation == 'textblockWithGridList'">
+                <div
+                    class="textblock-list-grid"
+                    v-if="slice.variation == 'textblockWithGridList'"
+                    data-anim
+                    data-anim-elements=".textblock-list-item"
+                >
                     <ul class="textblock-list">
                         <li class="textblock-list-item" v-for="(item, i) in slice.items" :key="`slice-item-${i}`">
                             <p class="textblock-list-name">{{ item.Name }}</p>
@@ -38,10 +43,10 @@ export default {
             required: true,
             default() {
                 return {}
-            }
-        }
+            },
+        },
     },
-    mixins: [Serializer]
+    mixins: [Serializer],
 }
 </script>
 

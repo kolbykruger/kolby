@@ -1,11 +1,11 @@
 <template>
-    <section class="accordion">
+    <section class="accordion" data-anim>
         <div class="container">
             <div class="accordion-heading" v-if="slice.primary.heading">
                 <prismic-rich-text :field="slice.primary.heading" />
             </div>
             <div class="accordion-items">
-                <div class="accordion-item" v-for="(item, i) in slice.items" :key="`slice-item-${i}`">
+                <div class="accordion-item" v-for="(item, i) in slice.items" :key="`slice-item-${i}`" data-anim>
                     <a :name="encodeURIComponent(item.Title)"></a>
                     <button class="accordion-button" @click="toggle">
                         <p class="accordion-button-title">
@@ -46,8 +46,8 @@ export default {
             required: true,
             default() {
                 return {}
-            }
-        }
+            },
+        },
     },
     methods: {
         toggle(event) {
@@ -76,8 +76,8 @@ export default {
             //Add hash to url
             //const text = button.childNodes[0].textContent.trim()
             //window.location.hash = encodeURIComponent(text)
-        }
-    }
+        },
+    },
 }
 </script>
 

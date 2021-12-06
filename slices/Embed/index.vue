@@ -1,5 +1,5 @@
 <template>
-    <section class="embed">
+    <section class="embed" data-anim>
         <div class="container">
             <prismic-embed class="embed-item" :field="slice.primary.Embed" />
         </div>

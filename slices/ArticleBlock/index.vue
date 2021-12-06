@@ -1,5 +1,5 @@
 <template>
-    <section class="article-block">
+    <section class="article-block" data-anim>
         <div class="container">
             <prismic-rich-text :field="slice.primary.Content" :htmlSerializer="htmlSerializer" />
         </div>
@@ -17,10 +17,10 @@ export default {
             required: true,
             default() {
                 return {}
-            }
-        }
+            },
+        },
     },
-    mixins: [Serializer]
+    mixins: [Serializer],
 }
 </script>
 

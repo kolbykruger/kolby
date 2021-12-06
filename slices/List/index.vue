@@ -1,5 +1,5 @@
 <template>
-    <section class="list">
+    <section class="list" data-anim data-anim-elements=".list-item">
         <div class="container">
             <ul class="list-items" v-if="slice.variation == 'default-slice'">
                 <li
@@ -30,9 +30,9 @@ export default {
             required: true,
             default() {
                 return {}
-            }
-        }
-    }
+            },
+        },
+    },
 }
 </script>
 

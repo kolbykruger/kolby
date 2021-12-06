@@ -1,5 +1,5 @@
 <template>
-    <section class="case-study-neighbor" v-if="page">
+    <section class="case-study-neighbor" v-if="page" data-anim>
         <div class="container">
             <style>
                 .case-study-neighbor a::after {

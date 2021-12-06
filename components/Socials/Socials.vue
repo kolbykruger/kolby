@@ -1,5 +1,5 @@
 <template>
-    <div class="socials">
+    <div class="socials" data-anim data-anim-elements=".socials-item">
         <ul class="socials-list">
             <li class="socials-item">
                 <a

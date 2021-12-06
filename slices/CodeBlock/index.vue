@@ -1,11 +1,12 @@
 <template>
-    <section class="code-block">
+    <section class="code-block" data-anim data-cursor="invisible">
         <div class="container">
             <prismic-rich-text
                 spellcheck="false"
                 class="code-block-code"
                 :field="slice.primary.Code"
                 :htmlSerializer="codeSerializer"
+                contenteditable="true"
                 @keydown="preventEdits"
             />
             <textarea class="code-block-raw" ref="codeBlockRaw" v-html="raw"></textarea>
@@ -68,8 +69,13 @@ export default {
             }
             return null
         },
-        preventEdits(e) {
-            e.preventDefault()
+        preventEdits(event) {
+            if (event.ctrlKey) {
+                return true
+            } else {
+                event.preventDefault()
+                return false
+            }
         },
         copyRaw(e) {
             const raw = this.$refs.codeBlockRaw
@@ -134,8 +140,8 @@ export default {
 
     &-toolbar {
         position: absolute;
-        top: 10px;
-        right: 1.25em;
+        top: 0.5em;
+        right: 0.5em;
         display: flex;
         align-items: center;
         width: auto;

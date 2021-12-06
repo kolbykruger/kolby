@@ -7,6 +7,7 @@
                     :class="{ 'mobile-item-sm': size }"
                     v-for="(item, i) in slice.items"
                     :key="`slice-item-${i}`"
+                    data-anim
                 >
                     <prismic-image class="mobile-image" :field="item.Image" />
                 </div>

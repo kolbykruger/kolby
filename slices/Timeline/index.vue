@@ -6,6 +6,8 @@
             'timeline-vertical': slice.variation == 'timelineVertical',
             'timeline-image': slice.variation == 'timelineImages',
         }"
+        data-anim
+        data-anim-elements=".timeline-item"
     >
         <div class="container">
             <div class="timeline-rail" :style="{ '--count': count }">

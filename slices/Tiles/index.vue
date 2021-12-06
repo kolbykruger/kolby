@@ -132,16 +132,16 @@ export default {
 
             requestAnimationFrame(() => {
                 gsap.to('.tiles-row .tiles-item', {
-                    x: 25 * this.mouse.x,
-                    y: 25 * this.mouse.y,
+                    x: 8 * this.mouse.x,
+                    y: 8 * this.mouse.y,
                     ease: 'power3.out',
-                    // stagger: 0.008,
+                    //stagger: 0.008,
                 })
                 gsap.to('.tiles-row img', {
-                    x: 12 * this.mouse.x,
-                    y: 12 * this.mouse.y,
+                    x: 8 * this.mouse.x,
+                    y: 8 * this.mouse.y,
                     ease: 'power3.out',
-                    stagger: 0.014,
+                    //stagger: 0.008,
                 })
             })
         })

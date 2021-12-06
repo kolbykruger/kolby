@@ -1,5 +1,5 @@
 <template>
-    <component :is="tag" ref="title" class="name-title">
+    <component :is="tag" ref="title" class="name-title" data-anim>
         <span class="name-title-text"> Kolby </span>
         <span class="name-title-star">
             <svg
@@ -42,6 +42,7 @@ export default {
     margin-bottom: 0;
     text-transform: uppercase;
     font-size: 6.25vw;
+    font-size: clamp(3.815rem, -0.875rem + 8.333vw, 11.642rem);
     width: 100%;
 
     &-text {
@@ -66,6 +67,7 @@ export default {
 
     &-star {
         max-width: 50px;
+        max-width: clamp(20px, -0.875rem + 3.333vw, 50px);
         width: 100%;
         margin: 0 2.5vw;
 

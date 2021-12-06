@@ -1,5 +1,5 @@
 <template>
-    <section class="gallery">
+    <section class="gallery" data-anim>
         <div class="container">
             <prismic-rich-text :field="slice.primary.title" class="title" />
             <prismic-rich-text :field="slice.primary.description" v-if="slice.primary.description" />
@@ -10,6 +10,7 @@
                     :class="item.Size ? 'gallery-item-' + item.Size.toLowerCase() : ''"
                     v-for="(item, i) in slice.items"
                     :key="`slice-item-${i}`"
+                    data-anim
                 >
                     <div
                         class="gallery-img"

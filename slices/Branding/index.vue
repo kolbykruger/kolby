@@ -2,15 +2,15 @@
     <section class="branding">
         <div class="container">
             <div class="branding-graphics">
-                <div class="branding-type">
+                <div class="branding-type" data-anim>
                     <prismic-image :field="slice.primary.Typography" />
                 </div>
-                <div class="branding-logo">
+                <div class="branding-logo" data-anim>
                     <prismic-image :field="slice.primary.Logo" />
                 </div>
             </div>
             <div class="branding-colors" :style="{ '--count': slice.items.length }">
-                <div class="branding-color" v-for="(item, i) in slice.items" :key="`slice-item-${i}`">
+                <div class="branding-color" v-for="(item, i) in slice.items" :key="`slice-item-${i}`" data-anim>
                     <div
                         class="branding-swatch"
                         :class="{ 'branding-swatch-color-reversed': reverseColor(item.Color) }"

@@ -1,5 +1,5 @@
 <template>
-    <footer class="footer" ref="footer" data-traveler="transparent">
+    <footer class="footer" ref="footer" data-traveler="transparent" data-anim>
         <div class="container">
             <span class="footer-magic"></span>
             <div class="footer-grid">
@@ -19,6 +19,8 @@
                     data-stick
                     data-progress="4"
                     data-callback="top"
+                    data-anim
+                    data-anim-start="bottom"
                 >
                     <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" fill="none">
                         <path
