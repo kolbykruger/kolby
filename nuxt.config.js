@@ -49,6 +49,10 @@ export default {
             src: '~/plugins/flickity.js',
             ssr: false,
         },
+        {
+            src: '~/plugins/navigation.js',
+            ssr: false,
+        },
     ],
     components: true,
     buildModules: ['@nuxt/image'],
