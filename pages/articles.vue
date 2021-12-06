@@ -47,7 +47,14 @@
                 <div class="container">
                     <div class="articles-grid articles-grid-full">
                         <ul class="articles-list" v-if="articles">
-                            <transition-group name="fade" tag="div">
+                            <transition-group
+                                name="fade"
+                                v-on:before-enter="beforeEnter"
+                                v-on:enter="enter"
+                                v-on:leave="leave"
+                                v-bind:css="false"
+                                tag="div"
+                            >
                                 <ArticleItem v-for="article in filteredArticles" :key="article.id" :article="article" />
                             </transition-group>
                         </ul>
@@ -123,6 +130,37 @@ export default {
                 width: width + 8 + 'px',
                 ease: this.ease,
             })
+        },
+        beforeEnter(el) {
+            el.style.opacity = 0
+            el.style.height = 0
+        },
+        enter(el, done) {
+            gsap.to(
+                el,
+                0.66,
+                {
+                    opacity: 1,
+                    height: null,
+                    stagger: 0.5,
+                },
+                done
+            )
+        },
+        leave(el, done) {
+            gsap.to(
+                el,
+                0.33,
+                {
+                    opacity: 0,
+                    height: 0,
+                    paddingBottom: 0,
+                    marginBottom: 0,
+                    stagger: 0.5,
+                    ease: 'power1.ease',
+                },
+                done
+            )
         },
     },
     mounted() {
