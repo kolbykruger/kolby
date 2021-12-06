@@ -23,7 +23,6 @@ export async function scrollBehavior(to, from, savedPosition) {
 
     return new Promise((resolve, reject) => {
         setTimeout(() => {
-            console.log('UPDATED')
             resolve({ x: 0, y: 0 })
         }, 1000)
     })
