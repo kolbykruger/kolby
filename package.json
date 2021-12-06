@@ -6,7 +6,7 @@
     "main": "slices/index.js",
     "scripts": {
         "dev": "nuxt",
-        "dev:host": "nuxt --hostname 0.0.0.0 --port 80",
+        "dev:host": "nuxt --hostname 0.0.0.0 --port 443",
         "nuxt:build": "nuxt build",
         "build": "nuxt generate",
         "start": "nuxt start",
