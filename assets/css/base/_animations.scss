@@ -1,0 +1,9 @@
+[data-anim] {
+    // transform: translateY(6vh);
+    // opacity: 0;
+
+    @media (prefers-reduced-motion) {
+        transform: none !important;
+        opacity: 1 !important;
+    }
+}
