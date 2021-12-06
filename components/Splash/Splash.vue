@@ -29,7 +29,7 @@ export default {
             timeline: null,
             textTimeline: null,
             ease: null,
-            initialLoad: true
+            initialLoad: true,
         }
     },
     computed: {
@@ -38,7 +38,7 @@ export default {
         },
         loading() {
             return this.$store.state.loading.loading
-        }
+        },
     },
     mounted() {
         gsap.registerPlugin(CustomEase)
@@ -51,69 +51,71 @@ export default {
         const splash = this.$refs.splash
         const strapText = this.$refs.strapText
 
+        // Initial Load
         this.timeline
             .set(splash, {
-                y: '0%'
+                y: '0%',
             })
             .to(splash, {
                 y: '-100%',
-                duration: 1,
-                delay: 1.2,
-                ease: this.ease
+                duration: 1.2,
+                delay: 1.5,
+                ease: 'expo.out',
             })
 
         this.textTimeline
             .set(strapText, {
                 y: '150%',
-                rotate: '3deg'
+                rotate: '3deg',
             })
             .to(strapText, {
                 y: '0',
                 rotate: '0deg',
                 duration: 0.8,
-                ease: this.ease
+                ease: this.ease,
             })
 
-        setTimeout(() => {
-            this.textTimeline.to(strapText, {
-                y: '-150%',
-                rotate: '-3deg',
-                duration: 0.8,
-                delay: 0,
-                ease: this.ease
-            })
-            this.initialLoad = false
-        }, 900)
+        this.$nextTick(() => {
+            setTimeout(() => {
+                this.textTimeline.to(strapText, {
+                    y: '-150%',
+                    rotate: '-3deg',
+                    duration: 1.2,
+                    delay: 0,
+                    ease: this.ease,
+                })
+                this.initialLoad = false
+            }, 1000)
+        })
     },
     watch: {
-        loading: function(value) {
+        loading(value) {
             const splash = this.$refs.splash
             const strapText = this.$refs.strapText
             if (value) {
                 this.timeline
                     .set(splash, {
                         y: '100%',
-                        duration: 0
+                        duration: 0,
                     })
                     .to(splash, {
                         y: '0%',
                         duration: 0.8,
-                        ease: this.ease
+                        // ease: this.ease,
+                        ease: this.ease,
                     })
             } else {
-                this.timeline
-                    .set(splash, {
-                        y: '0%'
-                    })
-                    .to(splash, {
+                this.$nextTick(() => {
+                    this.timeline.to(splash, {
                         y: '-100%',
-                        duration: 1,
-                        delay: 0.4,
-                        ease: this.ease
+                        duration: 1.2,
+                        delay: 0.6,
+                        ease: 'expo.out',
                     })
+                })
             }
-        }
-    }
+        },
+    },
 }
 </script>
 
