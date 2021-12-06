@@ -69,6 +69,10 @@ pre {
         &.deleted {
             color: #f7768e;
             color: darken(#f7768e, 25%);
+
+            html[theme='dark'] & {
+                color: #f7768e;
+            }
         }
 
         &.selector,
@@ -80,6 +84,10 @@ pre {
         &.inserted {
             color: #73daca;
             color: darken(#73daca, 25%);
+
+            html[theme='dark'] & {
+                color: #73daca;
+            }
         }
 
         &.atrule,
@@ -88,16 +96,28 @@ pre {
         &.class-name {
             color: #89ddff;
             color: darken(#89ddff, 25%);
+
+            html[theme='dark'] & {
+                color: #89ddff;
+            }
         }
 
         &.punctuation {
             color: #b267e6;
             color: darken(#b267e6, 25%);
+
+            html[theme='dark'] & {
+                color: #b267e6;
+            }
         }
 
         &.string {
             color: #ffdb69;
             color: darken(#ffdb69, 25%);
+
+            html[theme='dark'] & {
+                color: #ffdb69;
+            }
         }
 
         &.comment {
