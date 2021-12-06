@@ -3,10 +3,10 @@
         <div class="container">
             <NameTitle ref="title" />
             <h2 ref="subTitle" class="introduction-subtitle">I design and create web <b>experiences</b></h2>
-            <p ref="description" class="introduction-description">
+            <!-- <p ref="description" class="introduction-description">
                 I'm a designer & developer based in Vermont that is passionate about creating extraordinary online
                 experiences through web design, web development, and ux/ui.
-            </p>
+            </p> -->
             <button
                 ref="button"
                 @click="scrollNext"
@@ -183,7 +183,7 @@ export default {
     &-subtitle {
         max-width: 9em;
         margin-top: 1em;
-        margin-bottom: 1em;
+        // margin-bottom: 1em;
 
         b {
             color: c('primary-base');
