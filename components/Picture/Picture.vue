@@ -1,7 +1,7 @@
 <template>
     <figure class="picture" :style="{ 'aspect-ratio': field.dimensions.width / field.dimensions.height }">
-        <nuxt-picture v-if="!dev" fit="clip" loading="lazy" :src="field.url" :sizes="sizes" />
-        <prismic-image fit="clip" class="picture-dev" v-if="dev" :field="field" />
+        <nuxt-picture v-if="!isDev" fit="clip" loading="lazy" :src="field.url" :sizes="sizes" />
+        <prismic-image v-if="isDev" fit="clip" loading="lazy" class="picture-dev" :field="field" />
 
         <!-- <Picture
             :field="document.data.Cover"
@@ -24,10 +24,11 @@
 <script>
 export default {
     name: 'Picture',
-    data() {
-        return {
-            dev: false,
-        }
+    computed: {
+        isDev() {
+            const state = process.env.NODE_ENV
+            return state == 'development' ? true : false
+        },
     },
     props: {
         field: {
@@ -56,13 +57,6 @@ export default {
                 'desktop-large': '100vw',
             },
         },
-    },
-    created() {
-        const state = process.env.NODE_ENV
-        console.log(state)
-        if (state == 'development') {
-            this.dev = true
-        }
     },
 }
 </script>
