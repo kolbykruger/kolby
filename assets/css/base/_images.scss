@@ -1,10 +1,10 @@
 figure {
     position: relative;
     display: block;
-    border-radius: 0.125em;
-    transform: translate(0, 2em) rotateX(10deg);
-    transition: transform 0.9s;
-    transition-timing-function: cubic-bezier(0.6, 0.2, 0.1, 1);
+    // border-radius: 0.125em;
+    // transform: translate(0, 2em) rotateX(10deg);
+    // transition: transform 0.9s;
+    // transition-timing-function: cubic-bezier(0.6, 0.2, 0.1, 1);
 
     &::before {
         content: '';
