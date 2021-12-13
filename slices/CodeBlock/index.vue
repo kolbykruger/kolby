@@ -102,8 +102,6 @@ export default {
 </script>
 
 <style lang="scss">
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
-
 .code-block {
     padding-bottom: 4vh;
 
