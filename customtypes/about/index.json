@@ -57,6 +57,9 @@
             },
             "scrolly": {
               "type": "SharedSlice"
+            },
+            "accordion": {
+              "type": "SharedSlice"
             }
           }
         }

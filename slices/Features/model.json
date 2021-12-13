@@ -1,0 +1,66 @@
+{
+  "id": "features",
+  "type": "SharedSlice",
+  "name": "Features",
+  "description": "Features",
+  "variations": [
+    {
+      "id": "default-slice",
+      "name": "Default slice",
+      "docURL": "...",
+      "version": "sktwi1xtmkfgx8626",
+      "description": "Features",
+      "primary": {
+        "title": {
+          "type": "StructuredText",
+          "config": {
+            "single": "heading1",
+            "label": "Title",
+            "placeholder": "This is where it all begins..."
+          }
+        },
+        "description": {
+          "type": "StructuredText",
+          "config": {
+            "single": "paragraph",
+            "label": "Description",
+            "placeholder": "A nice description of your product"
+          }
+        }
+      },
+      "items": {
+        "Video": {
+          "config": {
+            "label": "Video",
+            "placeholder": "",
+            "select": "media"
+          },
+          "type": "Link"
+        },
+        "Icon": {
+          "config": {
+            "label": "Icon",
+            "placeholder": ""
+          },
+          "type": "Text"
+        },
+        "Title": {
+          "config": {
+            "label": "Title",
+            "placeholder": ""
+          },
+          "type": "Text"
+        },
+        "Description": {
+          "config": {
+            "label": "Description",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "paragraph,strong,em,hyperlink,preformatted"
+          },
+          "type": "StructuredText"
+        }
+      }
+    }
+  ]
+}
