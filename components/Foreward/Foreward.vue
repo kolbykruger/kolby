@@ -1,13 +1,23 @@
 <template>
     <section class="foreward">
         <div class="container">
-            <div
-                class="foreward-intro-image"
-                :style="{
-                    'aspect-ratio': document.data.Cover.dimensions.width / document.data.Cover.dimensions.height,
-                }"
-            >
-                <prismic-image :field="document.data.Cover" />
+            <div class="foreward-intro-image">
+                <!-- <prismic-image :field="document.data.Cover" /> -->
+                <Picture
+                    :field="document.data.Cover"
+                    :sizes="{
+                        'phone-small': '315px',
+                        phone: '400px',
+                        'phone-large': '400px',
+                        tablet: '568px',
+                        'laptop-small': '784px',
+                        laptop: '900px',
+                        'laptop-large': '990px',
+                        'desktop-small': '1160px',
+                        desktop: '1380px',
+                        'desktop-large': '2020px',
+                    }"
+                />
             </div>
             <div class="swip">
                 <svg
@@ -60,7 +70,21 @@
 export default {
     name: 'Foreward',
     props: {
-        document: Object,
+        document: {
+            type: Object,
+            default: () => ({
+                data: {
+                    Cover: {
+                        dimensions: {
+                            width: 1916,
+                            height: 1161,
+                        },
+                        alt: 'placeholder image',
+                        url: 'https://images.unsplash.com/photo-1638911022787-1e1edc253c70?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1916&q=80',
+                    },
+                },
+            }),
+        },
     },
 }
 </script>
@@ -96,6 +120,7 @@ export default {
         left: 0;
         width: 100%;
         height: 100%;
+        pointer-events: none;
 
         svg {
             width: 100%;
