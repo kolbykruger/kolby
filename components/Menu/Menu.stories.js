@@ -1,21 +1,16 @@
-// export default {
-//     title: 'Core/Menu',
-// }
-
-// export const Default = () => '<Menu />'
-
-// // const Template = (args, { argTypes }) => {
-// //     props: Object.keys(argTypes)
-// // }
-
-// // export const Primary = template.bind({})
-
-// // Primary.args = {
-// //     primary: true,
-// // }
-
 import Menu from './Menu.vue'
-export const Default = {
+
+export default {
     title: 'Core/Menu',
-    component: Menu,
+    component: 'Menu',
 }
+export const Default = () => '<Menu />'
+
+// const Template = (args, { argTypes }) => ({
+//     compnents: { Menu },
+//     props: Object.keys(argTypes),
+//     template: '<Menu v-bind="$props" />',
+// })
+
+// export const Primary = Template.bind({})
+// Primary.args = { open: 'true', label: 'Button' }
