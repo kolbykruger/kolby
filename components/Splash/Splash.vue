@@ -3,14 +3,7 @@
         <div class="splash-swipe" data-exclusion>
             <span class="splash-strap" ref="strap" :class="{ '-hidden': !initialLoad }">
                 <span class="splash-strap-text-container">
-                    <span class="splash-strap-text" ref="strapText" aria-label="kolby.">
-                        <span class="splash-strap-text-letter" data-letter="k" aria-hidden="true">k</span>
-                        <span class="splash-strap-text-letter" data-letter="o" aria-hidden="true">o</span>
-                        <span class="splash-strap-text-letter" data-letter="l" aria-hidden="true">l</span>
-                        <span class="splash-strap-text-letter" data-letter="b" aria-hidden="true">b</span>
-                        <span class="splash-strap-text-letter" data-letter="y" aria-hidden="true">y</span>
-                        <span class="splash-strap-text-letter" data-letter="." aria-hidden="true">.</span>
-                    </span>
+                    <span class="splash-strap-text" ref="strap" aria-label="kolby."> kolby. </span>
                 </span>
             </span>
         </div>
@@ -20,14 +13,17 @@
 <script>
 import { mapState } from 'vuex'
 import { gsap } from 'gsap'
+import { SplitText } from 'gsap/dist/SplitText'
 import { CustomEase } from 'gsap/dist/CustomEase'
 
 export default {
     name: 'Splash',
     data() {
         return {
-            timeline: null,
-            textTimeline: null,
+            timeline: {
+                splash: null,
+                strap: null,
+            },
             ease: null,
             initialLoad: true,
         }
@@ -40,48 +36,68 @@ export default {
             return this.$store.state.loading.loading
         },
     },
+    methods: {
+        loadingAnimation() {
+            const splash = this.$refs.splash
+            const strap = this.$refs.strap
+            const splitText = new SplitText(strap, {
+                type: 'lines,words,chars',
+                charsClass: 'strap-char',
+                wordsClass: 'strap-word',
+                linesClass: 'strap-line',
+            })
+
+            // Initial Load
+            this.timeline.strap
+                // Set initial position of characters
+                .set(splitText.chars, {
+                    y: '150%',
+                    rotateX: 110,
+                    d: 1300,
+                })
+                // Stagger characters to "on-screen"
+                .staggerTo(
+                    splitText.chars,
+                    0.95,
+                    {
+                        y: '0%',
+                        rotateX: 0,
+                        d: 0,
+                        ease: this.ease,
+                    },
+                    0.02
+                )
+                // move characters out after 0.2
+                .to(splitText.chars, 1.2, {
+                    y: '-150%',
+                    rotateX: 110,
+                    d: 1300,
+                    ease: this.ease,
+                    delay: 0.2,
+                })
+        },
+    },
     mounted() {
         gsap.registerPlugin(CustomEase)
-
+        gsap.registerPlugin(SplitText)
         this.ease = CustomEase.create('custom', 'M0,0 C0.23,1 0.32,1 1,1 ')
+        const splash = this.$refs.splash
 
         // initial load
-        this.timeline = gsap.timeline()
-        this.textTimeline = gsap.timeline()
-        const splash = this.$refs.splash
-        const strapText = this.$refs.strapText
+        this.timeline.splash = gsap.timeline()
+        this.timeline.strap = gsap.timeline({ repeat: 0 })
 
-        // Initial Load
-        this.timeline
-            .set(splash, {
-                y: '0%',
-            })
-            .to(splash, {
-                y: '-100%',
-                duration: 1.2,
-                delay: 1.5,
-                ease: 'expo.out',
-            })
+        requestAnimationFrame(() => {
+            this.loadingAnimation()
+        })
 
-        this.textTimeline
-            .set(strapText, {
-                y: '150%',
-                rotate: '3deg',
-            })
-            .to(strapText, {
-                y: '0',
-                rotate: '0deg',
-                duration: 0.8,
-                ease: this.ease,
-            })
-
+        // Handles initial loading
         this.$nextTick(() => {
             setTimeout(() => {
-                this.textTimeline.to(strapText, {
-                    y: '-150%',
-                    rotate: '-3deg',
+                this.timeline.splash.to(splash, {
+                    y: '-100%',
                     duration: 1.2,
-                    delay: 0,
+                    delay: 1,
                     ease: this.ease,
                 })
                 this.initialLoad = false
@@ -91,9 +107,9 @@ export default {
     watch: {
         loading(value) {
             const splash = this.$refs.splash
-            const strapText = this.$refs.strapText
             if (value) {
-                this.timeline
+                // If the page is loading
+                this.timeline.splash
                     .set(splash, {
                         y: '100%',
                         duration: 0,
@@ -101,15 +117,15 @@ export default {
                     .to(splash, {
                         y: '0%',
                         duration: 0.8,
-                        // ease: this.ease,
                         ease: this.ease,
                     })
             } else {
+                // If the page is finished loading
                 this.$nextTick(() => {
-                    this.timeline.to(splash, {
+                    this.timeline.splash.to(splash, {
                         y: '-100%',
                         duration: 1.2,
-                        delay: 0.6,
+                        delay: 0.8,
                         ease: 'expo.out',
                     })
                 })
@@ -194,11 +210,19 @@ export default {
 
         &-text {
             display: inline-flex;
-            transform: translateY(150%);
 
             &-letter {
                 position: relative;
             }
+        }
+
+        &-line {
+            overflow: hidden;
+        }
+
+        &-word {
+            perspective: 1000px;
+            transform-style: preserve-3d;
         }
     }
 }
