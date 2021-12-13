@@ -5,41 +5,56 @@
     "slice_type": "accordion",
     "items": [
       {
-        "Title": "streamline B2C communities",
+        "Icon": "embrace compelling applications",
+        "Title": "integrate e-business e-business",
         "Description": [
           {
             "type": "paragraph",
-            "text": "Enim do nulla culpa ullamco velit veniam laborum elit ullamco. Ipsum esse aute enim quis. Qui exercitation non excepteur ut fugiat sit est est adipisicing irure.",
+            "text": "Anim sunt cupidatat est commodo est nisi sunt quis nulla Lorem do dolore deserunt. Enim qui amet nulla aliqua tempor sit.",
             "spans": []
           }
         ]
       },
       {
-        "Title": "harness 24/365 architectures",
+        "Icon": "drive collaborative e-tailers",
+        "Title": "evolve synergistic eyeballs",
         "Description": [
           {
             "type": "paragraph",
-            "text": "Nostrud veniam aliqua minim consectetur. Enim irure qui aute. In eu eu mollit elit nulla officia ad id sint anim nulla Lorem deserunt deserunt culpa.",
+            "text": "Nostrud reprehenderit dolor deserunt consequat consectetur nisi fugiat proident do minim.",
             "spans": []
           }
         ]
       },
       {
-        "Title": "disintermediate ubiquitous infrastructures",
+        "Icon": "repurpose proactive synergies",
+        "Title": "target holistic metrics",
         "Description": [
           {
             "type": "paragraph",
-            "text": "Quis sint qui sint excepteur esse cillum qui sint sint irure labore anim exercitation.",
+            "text": "Labore do labore exercitation id id mollit cupidatat consequat fugiat nulla nulla nulla cillum. Adipisicing nostrud anim sit proident in duis. Anim velit irure eu nostrud eu et consequat consectetur proident aliquip irure tempor ex.",
             "spans": []
           }
         ]
       },
       {
-        "Title": "scale out-of-the-box methodologies",
+        "Icon": "deploy distributed architectures",
+        "Title": "revolutionize compelling blockchains",
         "Description": [
           {
             "type": "paragraph",
-            "text": "Lorem exercitation elit duis anim aute ut incididunt sit duis dolor cupidatat commodo aliqua ullamco. Nisi laboris ipsum reprehenderit mollit tempor do. Esse eu laboris magna quis esse elit.",
+            "text": "Reprehenderit officia nostrud est laboris pariatur mollit.",
+            "spans": []
+          }
+        ]
+      },
+      {
+        "Icon": "transform user-centric models",
+        "Title": "revolutionize front-end e-services",
+        "Description": [
+          {
+            "type": "paragraph",
+            "text": "Quis pariatur ullamco cupidatat tempor deserunt est excepteur nulla.",
             "spans": []
           }
         ]
@@ -49,7 +64,7 @@
       "heading": [
         {
           "type": "heading2",
-          "text": "Facilitate granular channels",
+          "text": "Reintermediate frictionless models",
           "spans": []
         }
       ]

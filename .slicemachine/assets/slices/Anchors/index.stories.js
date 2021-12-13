@@ -18,7 +18,7 @@ export const _DefaultSlice = () => ({
   },
   data() {
     return {
-      mock: {"variation":"default-slice","name":"Default slice","slice_type":"anchors","items":[{"Index":"e-enable mission-critical e-business","Name":"scale real-time functionalities","Anchor":"benchmark bricks-and-clicks methodologies"},{"Index":"exploit innovative channels","Name":"benchmark scalable ROI","Anchor":"aggregate bricks-and-clicks functionalities"},{"Index":"repurpose robust e-services","Name":"transform turn-key ROI","Anchor":"architect back-end infomediaries"}],"primary":{"Label":"embrace turn-key users","Page":{"link_type":"Web","url":"https://slicemachine.dev"}},"id":"_DefaultSlice"}
+      mock: {"variation":"default-slice","name":"Default slice","slice_type":"anchors","items":[{"Index":"monetize leading-edge metrics","Name":"syndicate impactful models","Anchor":"target magnetic convergence"},{"Index":"strategize viral ROI","Name":"grow sexy portals","Anchor":"aggregate real-time methodologies"},{"Index":"redefine bricks-and-clicks action-items","Name":"implement plug-and-play synergies","Anchor":"whiteboard visionary systems"},{"Index":"leverage wireless convergence","Name":"productize one-to-one technologies","Anchor":"evolve sticky experiences"}],"primary":{"Label":"productize 24/365 web-readiness","Page":{"link_type":"Web","url":"http://twitter.com"}},"id":"_DefaultSlice"}
     }
   },
   template: '<SliceZone :slices="[mock]" :resolver="resolve" />'

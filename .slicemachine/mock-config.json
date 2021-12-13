@@ -1,6 +1,5 @@
 {
   "slices": {
-    "Accordion": {},
     "Text": {
       "default-slice": {
         "primary": {
@@ -25,13 +24,6 @@
         "primary": {}
       }
     },
-    "Artwork": {},
-    "Anchors": {
-      "default-slice": {
-        "items": {},
-        "primary": {}
-      }
-    },
     "Tiles": {
       "default-slice": {
         "primary": {
@@ -50,10 +42,10 @@
         }
       }
     },
-    "Scrolly": {
+    "Features": {
       "default-slice": {
         "items": {
-          "Content": {
+          "Description": {
             "config": {
               "patternType": "PARAGRAPH",
               "blocks": 1
