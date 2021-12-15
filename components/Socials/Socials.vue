@@ -65,13 +65,18 @@ export default {
 
 <style lang="scss">
 .socials {
-    margin-top: 6vh;
+    @include mq('tablet') {
+        margin-top: 6vh;
+    }
 
     &-list {
         display: flex;
         align-items: flex-start;
         flex-flow: row wrap;
-        margin-left: -2rem;
+
+        @include mq('tablet') {
+            margin-left: -2rem;
+        }
     }
 
     &-item {
@@ -82,13 +87,18 @@ export default {
         display: flex;
         align-items: center;
         justify-content: center;
-        width: 2em;
-        height: 2em;
+        --size: 3em;
+        width: var(--size);
+        height: var(--size);
         padding: 0.25em;
         color: c('base-0');
         text-decoration: none;
         transition: 520ms cubic-bezier(0.075, 0.82, 0.165, 1);
         opacity: 0.7;
+
+        @include mq('tablet') {
+            --size: 2em;
+        }
 
         &:hover,
         &:focus {
