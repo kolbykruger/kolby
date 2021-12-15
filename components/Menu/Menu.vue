@@ -325,7 +325,7 @@ export default {
     left: 0;
     width: 100%;
     height: 100vh;
-    padding-bottom: 10vh;
+    // padding-bottom: 10vh;
     z-index: 100;
     will-change: transform;
 
@@ -333,9 +333,9 @@ export default {
         margin-bottom: env(safe-area-inset-bottom);
     }
 
-    @media (min-width: 968px) {
-        height: 110vh;
-    }
+    // @media (min-width: 968px) {
+    //     height: 110vh;
+    // }
 
     &.-open {
         .menu {
@@ -511,7 +511,7 @@ export default {
             margin-bottom: 0;
 
             &-lg {
-                padding-bottom: 8vh;
+                padding-bottom: 12vh;
             }
 
             &-sm {
