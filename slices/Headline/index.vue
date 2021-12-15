@@ -1,12 +1,17 @@
 <template>
-    <section class="headline" data-anim>
+    <section class="headline">
         <div class="container">
-            <prismic-rich-text :field="slice.primary.title" class="title" />
+            <prismic-rich-text :field="slice.primary.title" class="title" ref="headline" />
         </div>
     </section>
 </template>
 
 <script>
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
+import { SplitText } from 'gsap/dist/SplitText'
+import { CustomEase } from 'gsap/dist/CustomEase'
+
 export default {
     name: 'Headline',
     props: {
@@ -18,6 +23,43 @@ export default {
             },
         },
     },
+    mounted() {
+        gsap.registerPlugin(SplitText)
+        gsap.registerPlugin(CustomEase)
+        gsap.registerPlugin(ScrollTrigger)
+
+        const headline = this.$refs.headline.childNodes[0]
+        const ease = CustomEase.create('custom', 'M0,0 C0.215,0.61 0.355,1 1,1 ')
+        const splitText = new SplitText(headline, {
+            type: 'lines,words,chars',
+            charsClass: 'headline-char',
+            wordsClass: 'headline-word',
+            linesClass: 'headline-line',
+        })
+
+        gsap.set(splitText.chars, {
+            yPercent: 100,
+            rotateX: 110,
+            d: 1300,
+        })
+
+        ScrollTrigger.batch(headline, {
+            start: 'top 90%',
+            markers: false,
+            onEnter: batch => {
+                batch.forEach((section, i) => {
+                    gsap.to(section.querySelectorAll('.headline-char'), {
+                        yPercent: 0,
+                        rotateX: 0,
+                        d: 0,
+                        ease: ease,
+                        delay: i * 0.2,
+                        stagger: 0.02,
+                    })
+                })
+            },
+        })
+    },
 }
 </script>
 
@@ -26,6 +68,15 @@ export default {
     .container {
         padding-top: 10vh;
         padding-bottom: 10vh;
+    }
+
+    &-line {
+        overflow: hidden;
+    }
+
+    &-word {
+        perspective: 1000px;
+        transform-style: preserve-3d;
     }
 
     + .headline {
