@@ -6,6 +6,9 @@
                 <div class="footer-copy">
                     <h2>Have an idea?</h2>
                     <h2>Let's work together.</h2>
+                    <h3 class="footer-email">
+                        <a class="footer-email-link" href="mailto:hi@kolby.dev">hi@kolby.dev</a>
+                    </h3>
                     <Socials />
                 </div>
                 <div class="footer-cta">
@@ -62,6 +65,7 @@ export default {
 <style lang="scss">
 .footer {
     position: relative;
+    padding-bottom: 6vh;
     z-index: 2;
 
     @include mq('tablet') {
@@ -100,15 +104,63 @@ export default {
     &-copy,
     &-cta {
         flex: 1;
+
+        h2 + h2 {
+            margin-top: 0;
+        }
+    }
+
+    &-email {
+        position: relative;
+        display: inline-flex;
+        padding-bottom: 1em;
+        margin-bottom: 0;
+        overflow: hidden;
+
+        &-link {
+            color: c('base-0');
+            text-decoration: none;
+        }
+
+        &::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            display: block;
+            width: 100vw;
+            height: 1em;
+            background: url('/images/squiggle.svg');
+            background-size: 50px;
+            background-repeat: repeat-x;
+
+            animation: squiggle 1s linear infinite;
+
+            @keyframes squiggle {
+                0% {
+                    transform: translateX(0px);
+                }
+                100% {
+                    transform: translateX(-50px);
+                }
+            }
+        }
+
+        @include mq('tablet') {
+            display: none;
+        }
     }
 
     &-top {
         display: grid;
         place-content: center;
         position: absolute;
-        bottom: 3vh;
+        bottom: 0;
         left: 0;
         right: 0;
+
+        @include mq('tablet') {
+            bottom: 3vh;
+        }
     }
 
     &-scroll-top {
