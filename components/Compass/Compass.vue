@@ -185,8 +185,10 @@ export default {
     margin: 0 auto;
     clip-path: circle(50% at 50% 50%);
     overflow: hidden;
+    display: none;
 
     @include mq('tablet') {
+        display: block;
         max-width: 20vw;
         transform: translateY(25%);
         margin-left: auto;
