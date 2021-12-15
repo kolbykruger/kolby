@@ -17,9 +17,7 @@ export const Animations = {
             this.resetAnimations()
             this.$router.onReady(() => {
                 this.$nextTick(() => {
-                    setTimeout(() => {
-                        this.getAnimations()
-                    }, 1000)
+                    this.getAnimations()
                 })
             })
         },
@@ -44,7 +42,7 @@ export const Animations = {
                 // Start
                 const start = el.getAttribute('data-anim-start') || '80%'
                 // Duration
-                const duration = el.getAttribute('data-anim-duration') || 0.95
+                const duration = el.getAttribute('data-anim-duration') || 0.75
                 // Elements
                 let targets = el
                 const elements = el.getAttribute('data-anim-elements')
@@ -52,7 +50,7 @@ export const Animations = {
                     targets = elements
                 }
                 // Stagger
-                const stagger = el.getAttribute('data-anim-stagger') || 0.2
+                const stagger = el.getAttribute('data-anim-stagger') || 0.1
 
                 return this.timeline
                     .set(targets, {
@@ -98,20 +96,20 @@ export const Animations = {
         },
     },
     mounted() {
-        gsap.registerPlugin(CustomEase)
-        this.ease = CustomEase.create('custom', 'M0,0 C0.23,1 0.32,1 1,1 ')
-        this.initAnimations()
+        // gsap.registerPlugin(CustomEase)
+        // this.ease = CustomEase.create('custom', 'M0,0 C0.215,0.61 0.355,1 1,1')
+        // this.initAnimations()
     },
     updated() {
-        this.initAnimations()
+        // this.initAnimations()
     },
     watch: {
         $route() {
-            this.resetAnimations()
+            // this.resetAnimations()
         },
         loadingStatus(value) {
             if (!value) {
-                this.initTraveler()
+                // this.initTraveler()
             }
         },
     },
