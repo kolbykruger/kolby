@@ -58,12 +58,50 @@ export default {
             gsap.to(item, 0.66, {
                 scrollTrigger: {
                     trigger: item,
-                    toggleActions: 'play reverse play reverse',
+                    scrub: true,
+                    toggleActions: 'play play play play',
                     start: () => '+=' + window.innerHeight * i + ' center',
                     end: () => '+=' + window.innerHeight,
+                    onEnter: () => {
+                        gsap.to(item, {
+                            opacity: 1,
+                            scale: 1,
+                            clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0% 100%)',
+                            ease: 'power3.ease',
+                            duration: 0.66,
+                        })
+                    },
+                    onLeave: () => {
+                        const indexComparison = i + 1 == images.length
+                        if (!indexComparison) {
+                            gsap.to(item, {
+                                opacity: 0,
+                                scale: 0.8,
+                                clipPath: 'polygon(0 100%, 100% 100%, 100% 100%, 0% 100%)',
+                                ease: 'none',
+                                duration: 0.2,
+                            })
+                        }
+                    },
+                    onEnterBack: () => {
+                        gsap.to(item, {
+                            opacity: 1,
+                            scale: 1,
+                            clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0% 100%)',
+                            ease: 'power3.ease',
+                            duration: 0.66,
+                        })
+                    },
+                    onLeaveBack: () => {
+                        gsap.to(item, {
+                            opacity: 0,
+                            scale: 0.8,
+                            clipPath: 'polygon(0 0, 100% 0, 100% 0, 0 0)',
+                            ease: 'none',
+                            duration: 0.2,
+                        })
+                    },
                 },
-                opacity: 1,
-                ease: 'power3.inOut',
             })
         })
     },
@@ -108,6 +146,8 @@ export default {
             flex-direction: column;
             padding: 5vh 5vw;
             opacity: 0;
+            transform: scale(0.8);
+            clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
         }
 
         img {
