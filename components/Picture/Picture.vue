@@ -1,7 +1,23 @@
 <template>
-    <figure class="picture" :style="{ 'aspect-ratio': field.dimensions.width / field.dimensions.height }">
-        <nuxt-picture v-if="!isDev" fit="clip" loading="lazy" :src="field.url" :sizes="sizes" />
-        <prismic-image v-if="isDev" fit="clip" loading="lazy" class="picture-dev" :field="field" />
+    <figure ref="picture" class="picture" :style="{ 'aspect-ratio': field.dimensions.width / field.dimensions.height }">
+        <nuxt-picture
+            v-if="!isDev"
+            fit="clip"
+            loading="lazy"
+            :class="{ '-loaded': isLoaded }"
+            :src="field.url"
+            :sizes="sizes"
+            @load="isLoaded = true"
+        />
+        <prismic-image
+            v-if="isDev"
+            fit="clip"
+            loading="lazy"
+            class="picture-dev"
+            :class="{ '-loaded': isLoaded }"
+            :field="field"
+            @load="isLoaded = true"
+        />
 
         <!-- <Picture
             :field="document.data.Cover"
@@ -24,10 +40,15 @@
 <script>
 export default {
     name: 'Picture',
+    data() {
+        return {
+            isLoaded: false,
+        }
+    },
     computed: {
         isDev() {
-            const state = process.env.NODE_ENV
-            return state == 'development' ? true : false
+            // Returns the production/development state
+            return process.env.NODE_ENV == 'development' ? true : false
         },
     },
     props: {
@@ -57,6 +78,12 @@ export default {
                 'desktop-large': '100vw',
             },
         },
+        animation: {
+            type: Boolean,
+            defaults: () => {
+                return false
+            },
+        },
     },
 }
 </script>
@@ -66,6 +93,11 @@ export default {
     overflow: hidden;
 
     &-dev {
+    }
+
+    img {
+        &.-loaded {
+        }
     }
 }
 </style>
