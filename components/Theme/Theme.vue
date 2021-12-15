@@ -28,7 +28,7 @@ export default {
     computed: {
         getTheme() {
             return this.$store.state.theme.mode
-        }
+        },
     },
     methods: {
         theme() {
@@ -36,7 +36,7 @@ export default {
             this.$store.commit('theme/setTheme', { mode: mode })
             window.localStorage.setItem('theme', mode)
             document.querySelector('HTML').setAttribute('theme', mode)
-        }
+        },
     },
     beforeMount() {
         let colorSetting = window.localStorage.getItem('theme')
@@ -52,7 +52,7 @@ export default {
     mounted() {
         const colorSetting = window.localStorage.getItem('theme')
         this.$store.commit('theme/setTheme', { mode: colorSetting })
-    }
+    },
 }
 </script>
 
@@ -60,28 +60,39 @@ export default {
 .theme {
     display: flex;
     flex-direction: column;
-    --size: 2em;
+    --size: 3em;
     height: var(--size);
     width: var(--size);
-    transform: translateY(-0.15em);
+    transform: translateY(-5%);
     overflow: hidden;
+
+    @include mq('tablet') {
+        --size: 2em;
+    }
 
     button {
         display: flex;
         align-items: center;
         justify-content: center;
-        --size: 2em;
-        height: var(--size);
-        min-height: var(--size);
-        width: var(--size);
+        padding: 0.25em;
+        width: 100%;
+        height: 100%;
         color: c('menu-color');
         transition: opacity 200ms ease;
         outline: none;
 
+        @include mq('tablet') {
+            padding: 0.45em;
+        }
+
         svg {
-            --size: 0.875em;
-            width: var(--size);
-            height: var(--size);
+            width: 100%;
+            height: 100%;
+            padding: 0.25em;
+
+            @include mq('tablet') {
+                padding: 0;
+            }
 
             circle {
                 stroke-width: 4px;
