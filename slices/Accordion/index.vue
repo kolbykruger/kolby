@@ -1,11 +1,11 @@
 <template>
-    <section class="accordion" data-anim=".accordion-item">
+    <section class="accordion" data-anim>
         <div class="container">
             <div class="accordion-heading" v-if="slice.primary.heading">
                 <prismic-rich-text :field="slice.primary.heading" />
             </div>
             <div class="accordion-items">
-                <Item v-for="(item, index) in slice.items" :item="item" :index="index" :key="index" />
+                <Item v-for="(item, index) in slice.items" :item="item" :index="index" :key="index" data-anim-child />
             </div>
         </div>
     </section>
@@ -13,9 +13,11 @@
 
 <script>
 import Item from './item.vue'
+import { FadeUp } from '@/mixins/animations/FadeUp'
 
 export default {
     name: 'Accordion',
+    mixins: [FadeUp],
     components: {
         Item,
     },
