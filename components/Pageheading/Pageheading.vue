@@ -26,11 +26,14 @@ export default {
             let name = this.name ? (typeof this.name == 'object' ? this.name[0].text : this.name) : 'Pageheading'
             return name
         },
+        initialLoad() {
+            return this.$store.state.loading.initial
+        },
     },
     mounted() {
         gsap.registerPlugin(SplitText)
         gsap.registerPlugin(CustomEase)
-        const ease = CustomEase.create('custom', 'M0,0 C0.23,1 0.32,1 1,1 ')
+        const ease = CustomEase.create('custom', 'M0,0 C0.215,0.61 0.355,1 1,1 ')
         const tl = gsap.timeline()
         const title = this.$refs.pageheadingTitle
         const splitText = new SplitText(title, {
@@ -39,22 +42,34 @@ export default {
             wordsClass: 'pageheading-word',
             linesClass: 'pageheading-line',
         })
+
         tl.set(splitText.chars, {
             y: '100%',
             rotateX: 110,
             d: 1300,
-        }).staggerTo(
-            splitText.chars,
-            0.95,
-            {
-                y: '0%',
-                rotateX: 0,
-                d: 0,
-                ease: 'Power2.easeOut',
-                delay: 1.16,
-            },
-            0.014
-        )
+        })
+
+        this.$router.onReady(() => {
+            this.$nextTick(() => {
+                setTimeout(
+                    () => {
+                        tl.staggerTo(
+                            splitText.chars,
+                            0.75,
+                            {
+                                y: '0%',
+                                rotateX: 0,
+                                d: 0,
+                                ease: ease,
+                                delay: this.initialLoad ? 0.16 : 0.5,
+                            },
+                            0.02
+                        )
+                    },
+                    this.initialLoad ? 2000 : 1000
+                ) // page animation transition length
+            })
+        })
     },
 }
 </script>
