@@ -101,6 +101,8 @@ export default {
                     ease: this.ease,
                 })
                 this.initialLoad = false
+                // Notifies app that loads from now on are route navigations
+                this.$store.commit('loading/setInitialLoad', { status: false })
             }, 1000)
         })
     },
