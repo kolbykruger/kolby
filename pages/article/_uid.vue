@@ -4,7 +4,7 @@
             <article class="article">
                 <section class="article-header">
                     <div class="container">
-                        <p class="article-header-date">
+                        <p class="article-header-date" ref="articleDate">
                             <nuxt-link
                                 data-stick
                                 data-cursor="lg"
@@ -14,14 +14,16 @@
                                 to="/articles"
                                 >Articles</nuxt-link
                             >
-                            <span>—</span> {{ formatDate }}
+                            <span>— {{ formatDate }}</span>
                         </p>
+
                         <Pageheading :name="document.data.Name" size="small" />
 
                         <prismic-rich-text
                             class="article-header-lead"
                             v-if="document.data.Summary"
                             :field="document.data.Summary"
+                            ref="articleSummary"
                         />
                     </div>
                 </section>
@@ -34,6 +36,16 @@
                     <!-- <ArticleDetails :document="document" /> -->
 
                     <div data-sticky>
+                        <ShapeCollection
+                            :collection="{
+                                top: '0',
+                                transform: 'translate(0px, -40%)',
+                                left: '60%',
+                                width: '177px',
+                                height: '201px',
+                            }"
+                            :shapes="shapes"
+                        />
                         <TableOfContents :document="document" />
 
                         <div class="article-code-sections" data-sticky v-if="containsCodeBlock">
@@ -49,19 +61,25 @@
 </template>
 
 <script>
+import { gsap } from 'gsap'
+import { SplitText } from 'gsap/dist/SplitText'
+import { CustomEase } from 'gsap/dist/CustomEase'
+
 import SliceZone from 'vue-slicezone'
 import Pageheading from '~/components/Pageheading/Pageheading.vue'
 import ArticleDetails from '~/components/ArticleDetails/ArticleDetails.vue'
 import TableOfContents from '~/components/TableOfContents/TableOfContents.vue'
-import { Animations } from '~/mixins/animations/Animations.js'
+import ShapeCollection from '~/components/Shapes/ShapeCollection.vue'
+import { ArticleShapes } from '~/mixins/shapes/ArticleShapes.js'
 
 export default {
     components: {
         SliceZone,
         Pageheading,
         TableOfContents,
+        ShapeCollection,
     },
-    mixins: [Animations],
+    mixins: [ArticleShapes],
     data() {
         return {
             showCode: false,
@@ -89,6 +107,9 @@ export default {
             })
 
             return cb ? true : false
+        },
+        initialLoad() {
+            return this.$store.state.loading.initial
         },
     },
     methods: {
@@ -118,6 +139,65 @@ export default {
         } else {
             error({ statusCode: 404, message: 'Page not found' })
         }
+    },
+    mounted() {
+        gsap.registerPlugin(SplitText)
+        gsap.registerPlugin(CustomEase)
+
+        const ease = CustomEase.create('custom', 'M0,0 C0.215,0.61 0.355,1 1,1 ')
+        const tl = gsap.timeline()
+
+        const date = new SplitText(this.$refs.articleDate, {
+            type: 'lines,words,chars',
+            charsClass: 'pageheading-char',
+            wordsClass: 'pageheading-word',
+            linesClass: 'pageheading-line',
+        })
+
+        const summary = new SplitText(this.$refs.articleSummary, {
+            type: 'lines,words,chars',
+            charsClass: 'pageheading-char',
+            wordsClass: 'pageheading-word',
+            linesClass: 'pageheading-line',
+        })
+
+        gsap.set(date.chars, {
+            yPercent: 100,
+            rotateX: 110,
+            d: 1300,
+        })
+
+        gsap.set(summary.chars, {
+            yPercent: 100,
+            rotateX: 110,
+            d: 1300,
+        })
+
+        this.$router.onReady(() => {
+            this.$nextTick(() => {
+                setTimeout(
+                    () => {
+                        gsap.to(date.chars, {
+                            yPercent: 0,
+                            rotateX: 0,
+                            d: 0,
+                            ease: ease,
+                            stagger: 0.02,
+                            delay: this.initialLoad ? 0.16 : 0.5,
+                        })
+                        gsap.to(summary.chars, {
+                            yPercent: 0,
+                            rotateX: 0,
+                            d: 0,
+                            ease: ease,
+                            stagger: 0.01,
+                            delay: this.initialLoad ? 0.56 : 1.1,
+                        })
+                    },
+                    this.initialLoad ? 2000 : 1000
+                ) // page animation transition length
+            })
+        })
     },
 }
 </script>
@@ -215,6 +295,9 @@ export default {
         }
 
         &-date {
+            display: flex;
+            align-items: center;
+            flex-flow: row wrap;
             padding-bottom: 4vh;
 
             a {
@@ -270,6 +353,18 @@ export default {
 
         h5 {
             font-size: clamp(1.414rem, -0.875rem + 8.333vw, 1.414rem);
+        }
+    }
+
+    .art {
+        &-line {
+            // overflow: hidden;
+        }
+
+        &-char-parent {
+            overflow: hidden;
+            perspective: 1000px;
+            transform-style: preserve-3d;
         }
     }
 }
