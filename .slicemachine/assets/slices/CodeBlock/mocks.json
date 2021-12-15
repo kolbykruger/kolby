@@ -1,13 +1,19 @@
 [
-    {
-        "variation": "default-slice",
-        "name": "Default slice",
-        "slice_type": "code_block",
-        "items": [],
-        "primary": {
-            "Language": "css",
-            "File": "index.js",
-            "Code": [{ "type": "preformatted", "text": "body {\n  color: red;\n}", "spans": [] }]
+  {
+    "variation": "default-slice",
+    "name": "Default slice",
+    "slice_type": "code_block",
+    "items": [],
+    "primary": {
+      "Language": "scss",
+      "File": "strategize bricks-and-clicks action-items",
+      "Code": [
+        {
+          "type": "paragraph",
+          "text": "Veniam culpa occaecat ad aliqua veniam veniam excepteur ullamco aliquip anim elit aute et. Eiusmod elit voluptate dolore sit duis aliqua cillum do nulla. Ipsum adipisicing Lorem eiusmod laborum consectetur qui ex pariatur deserunt.",
+          "spans": []
         }
+      ]
     }
+  }
 ]

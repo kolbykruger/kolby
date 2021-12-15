@@ -62,6 +62,9 @@
             },
             "banner_image": {
               "type": "SharedSlice"
+            },
+            "shapes": {
+              "type": "SharedSlice"
             }
           }
         }

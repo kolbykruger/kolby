@@ -58,6 +58,9 @@
             },
             "features": {
               "type": "SharedSlice"
+            },
+            "panels": {
+              "type": "SharedSlice"
             }
           }
         }

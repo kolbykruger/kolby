@@ -1,0 +1,68 @@
+{
+  "id": "shapes",
+  "type": "SharedSlice",
+  "name": "Shapes",
+  "description": "Shapes",
+  "variations": [
+    {
+      "id": "default-slice",
+      "name": "Default slice",
+      "docURL": "...",
+      "version": "sktwi1xtmkfgx8626",
+      "description": "Shapes",
+      "primary": {
+        "Top": {
+          "config": {
+            "label": "Top",
+            "placeholder": ""
+          },
+          "type": "Text"
+        },
+        "Left": {
+          "config": {
+            "label": "Left",
+            "placeholder": ""
+          },
+          "type": "Text"
+        },
+        "Right": {
+          "config": {
+            "label": "Right",
+            "placeholder": ""
+          },
+          "type": "Text"
+        },
+        "Bottom": {
+          "config": {
+            "label": "Bottom",
+            "placeholder": ""
+          },
+          "type": "Text"
+        },
+        "Width": {
+          "config": {
+            "label": "Width",
+            "placeholder": ""
+          },
+          "type": "Text"
+        },
+        "Height": {
+          "config": {
+            "label": "Height",
+            "placeholder": ""
+          },
+          "type": "Text"
+        }
+      },
+      "items": {
+        "Shape": {
+          "config": {
+            "label": "Shape",
+            "placeholder": ""
+          },
+          "type": "Text"
+        }
+      }
+    }
+  ]
+}

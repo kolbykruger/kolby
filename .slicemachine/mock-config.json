@@ -18,12 +18,6 @@
         }
       }
     },
-    "ArticleBlock": {},
-    "CodeBlock": {
-      "default-slice": {
-        "primary": {}
-      }
-    },
     "Tiles": {
       "default-slice": {
         "primary": {
@@ -42,16 +36,10 @@
         }
       }
     },
-    "Features": {
+    "Shapes": {
       "default-slice": {
-        "items": {
-          "Description": {
-            "config": {
-              "patternType": "PARAGRAPH",
-              "blocks": 1
-            }
-          }
-        }
+        "primary": {},
+        "items": {}
       }
     }
   },
