@@ -48,6 +48,7 @@ export default {
     computed: {
         isDev() {
             // Returns the production/development state
+            // return false
             return process.env.NODE_ENV == 'development' ? true : false
         },
     },
