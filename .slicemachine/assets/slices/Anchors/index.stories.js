@@ -18,7 +18,7 @@ export const _DefaultSlice = () => ({
   },
   data() {
     return {
-      mock: {"variation":"default-slice","name":"Default slice","slice_type":"anchors","items":[{"Index":"incentivize compelling content","Name":"target seamless experiences","Anchor":"incubate efficient ROI"},{"Index":"streamline virtual markets","Name":"reinvent 24/7 action-items","Anchor":"incubate 24/7 users"},{"Index":"grow value-added platforms","Name":"scale frictionless functionalities","Anchor":"revolutionize dot-com e-tailers"},{"Index":"empower plug-and-play users","Name":"brand dynamic vortals","Anchor":"enable real-time ROI"},{"Index":"synergize magnetic interfaces","Name":"facilitate intuitive ROI","Anchor":"scale cutting-edge solutions"}],"primary":{"Label":"facilitate viral partnerships","Page":{"link_type":"Web","url":"https://prismic.io"}},"id":"_DefaultSlice"}
+      mock: {"variation":"default-slice","name":"Default slice","slice_type":"anchors","items":[{"Index":"disintermediate robust metrics","Name":"optimize vertical methodologies","Anchor":"embrace compelling networks"},{"Index":"recontextualize distributed infrastructures","Name":"visualize collaborative mindshare","Anchor":"benchmark cutting-edge e-markets"},{"Index":"mesh seamless systems","Name":"facilitate dynamic markets","Anchor":"synthesize robust applications"}],"primary":{"Label":"integrate 24/365 schemas","Page":{"link_type":"Web","url":"http://google.com"}},"id":"_DefaultSlice"}
     }
   },
   template: '<SliceZone :slices="[mock]" :resolver="resolve" />'
