@@ -8,9 +8,14 @@
                 <prismic-rich-text
                     :field="slice.primary.title"
                     class="textblock-title"
+                    ref="textblockTitle"
                     :htmlSerializer="htmlSerializer"
                 />
-                <prismic-rich-text :field="slice.primary.description" class="textblock-description" />
+                <prismic-rich-text
+                    :field="slice.primary.description"
+                    class="textblock-description"
+                    ref="textblockDescription"
+                />
 
                 <div
                     class="textblock-list-grid"
@@ -33,6 +38,10 @@
 </template>
 
 <script>
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
+import { SplitText } from 'gsap/dist/SplitText'
+import { CustomEase } from 'gsap/dist/CustomEase'
 import { Serializer } from '~/mixins/serializer/Serializer.js'
 
 export default {
@@ -47,6 +56,62 @@ export default {
         },
     },
     mixins: [Serializer],
+    mounted() {
+        gsap.registerPlugin(SplitText)
+        gsap.registerPlugin(CustomEase)
+        gsap.registerPlugin(ScrollTrigger)
+
+        const headline = this.$refs.textblockTitle.querySelector('h1,h2,h3')
+        const description = this.$refs.textblockDescription
+        const ease = CustomEase.create('custom', 'M0,0 C0.215,0.61 0.355,1 1,1 ')
+        const splitText = new SplitText(headline, {
+            type: 'lines,words,chars',
+            charsClass: 'headline-char',
+            wordsClass: 'headline-word',
+            linesClass: 'headline-line',
+        })
+
+        gsap.set(splitText.chars, {
+            yPercent: 100,
+            rotateX: 110,
+            d: 1300,
+        })
+
+        gsap.set(description, {
+            yPercent: 8,
+            alpha: 0,
+        })
+
+        let delay = 0
+        ScrollTrigger.batch(headline, {
+            start: 'top 90%',
+            markers: false,
+            onEnter: batch => {
+                batch.forEach((section, i) => {
+                    gsap.to(section.querySelectorAll('.headline-char'), {
+                        yPercent: 0,
+                        rotateX: 0,
+                        d: 0,
+                        ease: ease,
+                        delay: i * 0.2,
+                        stagger: 0.014,
+                    })
+                    delay = i * 0.2
+                })
+            },
+        })
+        ScrollTrigger.batch(description, {
+            start: 'top 90%',
+            onEnter: batch => {
+                console.log(delay)
+                gsap.to(batch, {
+                    yPercent: 0,
+                    alpha: 1,
+                    delay: delay + 0.5,
+                })
+            },
+        })
+    },
 }
 </script>
 
