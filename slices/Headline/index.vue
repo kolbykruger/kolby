@@ -1,7 +1,7 @@
 <template>
     <section class="headline">
         <div class="container">
-            <prismic-rich-text :field="slice.primary.title" class="title" ref="headline" />
+            <prismic-rich-text :field="slice.primary.title" class="headline-title" ref="headline" />
         </div>
     </section>
 </template>
@@ -54,7 +54,7 @@ export default {
                         d: 0,
                         ease: ease,
                         delay: i * 0.2,
-                        stagger: 0.02,
+                        stagger: 0.014,
                     })
                 })
             },
@@ -68,6 +68,10 @@ export default {
     .container {
         padding-top: 10vh;
         padding-bottom: 10vh;
+    }
+
+    &-title {
+        max-width: 80em;
     }
 
     &-line {
