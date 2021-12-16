@@ -119,21 +119,17 @@ export default {
         }
     }
 
-    &.-active {
-        z-index: 6;
-
-        .leaf {
-            &-action {
-                z-index: -1;
-                opacity: 0;
-                visibility: hidden;
-                pointer-events: none;
-            }
-        }
-
-        ~ .leaf .leaf-action-indicator {
-            transform: rotate(-270deg);
-        }
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 100%;
+        pointer-events: none;
+        height: 100%;
+        width: 8vw;
+        background-image: linear-gradient(90deg, rgba(0, 0, 0, 0.125), transparent);
+        user-select: none;
+        pointer-events: none;
     }
 
     &:nth-of-type(1) {
@@ -160,17 +156,21 @@ export default {
         z-index: 1;
     }
 
-    &::after {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 100%;
-        pointer-events: none;
-        height: 100%;
-        width: 8vw;
-        background-image: linear-gradient(90deg, rgba(0, 0, 0, 0.125), transparent);
-        user-select: none;
-        pointer-events: none;
+    &.-active {
+        z-index: 6;
+
+        .leaf {
+            &-action {
+                z-index: -1;
+                opacity: 0;
+                visibility: hidden;
+                pointer-events: none;
+            }
+        }
+
+        ~ .leaf .leaf-action-indicator {
+            transform: rotate(-270deg);
+        }
     }
 
     &-label {
