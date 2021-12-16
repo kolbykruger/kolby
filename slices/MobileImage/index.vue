@@ -13,7 +13,7 @@
                             :key="`slice-item-${i}`"
                             data-anim
                         >
-                            <Picture
+                            <!-- <Picture
                                 :field="item.Image"
                                 :sizes="{
                                     'phone-small': 'px',
@@ -27,7 +27,8 @@
                                     desktop: 'px',
                                     'desktop-large': 'px',
                                 }"
-                            />
+                            /> -->
+                            <Picture :field="item.Image" />
                         </div>
                     </Flickity>
                 </client-only>
@@ -92,12 +93,7 @@ export default {
         initialIndex() {
             return Math.round(this.slice.items.length / 2 - 1)
         },
-        onInit(evt) {
-            console.log(evt)
-            evt.on('ready', event => {
-                console.log(event)
-            })
-        },
+        onInit(evt) {},
     },
     mounted() {
         this.isMobile = screen.width <= 768 ? true : false
