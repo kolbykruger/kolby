@@ -12,17 +12,17 @@
         <div class="container">
             <div class="timeline-rail" :style="{ '--count': count }">
                 <div class="timeline-item" v-for="(item, index) in slice.items" :key="index">
-                    <p v-if="item.Eyebrow" class="timeline-label">{{ item.Eyebrow }}</p>
+                    <p v-if="item.Eyebrow" class="timeline-item-label">{{ item.Eyebrow }}</p>
 
-                    <div class="timeline-image" v-if="slice.variation == 'timelineImages'">
-                        <prismic-image v-if="item.Image" :field="item.Image" />
+                    <div class="timeline-item-image" v-if="slice.variation == 'timelineImages'">
+                        <Picture v-if="item.Image" :field="item.Image" />
                     </div>
 
-                    <p class="timeline-title">
+                    <p class="timeline-item-title">
                         <span>{{ firstWord(item.Title) }}</span
                         ><span>{{ otherWords(item.Title) }}</span>
                     </p>
-                    <prismic-rich-text class="timeline-summary" v-if="item.Summary" :field="item.Summary" />
+                    <prismic-rich-text class="timeline-item-summary" v-if="item.Summary" :field="item.Summary" />
                 </div>
             </div>
         </div>
@@ -161,57 +161,66 @@ export default {
                 height: 1.5em;
             }
         }
-    }
 
-    &-image {
-        margin-bottom: 2em;
-        width: 100%;
+        &-image {
+            position: relative;
+            margin-bottom: 2em;
+            width: 100%;
 
-        img {
-            background: c('base-4');
+            &::after {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: c('base-4');
+                opacity: 0.25;
+                z-index: -1;
+            }
 
-            html[theme='dark'] & {
-                background: c('base-7');
+            img {
+                width: 100%;
             }
         }
-    }
 
-    &-label,
-    &-title,
-    &-summary {
-        margin: 0;
-    }
-
-    &-label {
-        font-family: $font-2;
-        font-size: 1.125rem;
-        font-weight: 500;
-        margin-bottom: 1.5em;
-        color: c('base-5');
-    }
-
-    &-title {
-        max-width: 60%;
-        line-height: 1.2;
-
-        span {
-            display: block;
-        }
-    }
-
-    &-summary {
-        @media (min-width: 640px) {
-            max-width: 50em;
+        &-label,
+        &-title,
+        &-summary {
+            margin: 0;
         }
 
-        @include mq('tablet') {
-            max-width: 80%;
-        }
-
-        & > p {
-            font-size: 1.5rem;
-            margin-top: 1em;
+        &-label {
+            font-family: $font-2;
+            font-size: 1.125rem;
+            font-weight: 500;
+            margin-bottom: 1.5em;
             color: c('base-5');
+        }
+
+        &-title {
+            max-width: 60%;
+            line-height: 1.2;
+
+            span {
+                display: block;
+            }
+        }
+
+        &-summary {
+            @media (min-width: 640px) {
+                max-width: 50em;
+            }
+
+            @include mq('tablet') {
+                max-width: 80%;
+            }
+
+            & > p {
+                font-size: 1.5rem;
+                margin-top: 1em;
+                color: c('base-5');
+            }
         }
     }
 }
