@@ -61,6 +61,12 @@
             },
             "panels": {
               "type": "SharedSlice"
+            },
+            "tiles": {
+              "type": "SharedSlice"
+            },
+            "mobile_image": {
+              "type": "SharedSlice"
             }
           }
         }
