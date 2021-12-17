@@ -72,6 +72,11 @@ export default {
 
     &-title {
         max-width: 80em;
+
+        strong {
+            color: c('primary-base');
+            font-weight: inherit;
+        }
     }
 
     &-line {
