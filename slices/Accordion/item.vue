@@ -4,11 +4,12 @@
         <button
             data-cursor="md"
             class="accordion-item-button"
+            :class="{ 'accordion-item-button--icon': item.Icon ? true : false }"
             @click="toggleAccordion()"
             :aria-expanded="open"
             :aria-controls="`collapse_${index}`"
         >
-            <span class="accordion-item-button-icon" v-html="item.Icon" aria-hidden="true"></span>
+            <span class="accordion-item-button-icon" v-if="item.Icon" v-html="item.Icon" aria-hidden="true"></span>
             <p class="accordion-item-button-title">{{ item.Title }}</p>
             <div class="accordion-item-button-indicator" data-anchor data-exclusion>
                 <svg fill="none" viewBox="0 0 25 18" xmlns="http://www.w3.org/2000/svg">
@@ -85,13 +86,21 @@ export default {
 
         display: grid;
         align-items: center;
-        grid-template-columns: clamp(1.75rem, 2vw, 2.5rem) auto clamp(1.75rem, 2vw, 2.5rem);
+        grid-template-columns: auto clamp(1.75rem, 2vw, 2.5rem);
         grid-column-gap: clamp(0.75rem, 2vw, 1.5rem);
         width: 100%;
         padding: 1em 0;
         text-align: left;
         transition: max-height 250ms ease;
         cursor: pointer;
+
+        &--icon {
+            grid-template-columns: clamp(1.75rem, 2vw, 2.5rem) auto clamp(1.75rem, 2vw, 2.5rem);
+
+            & + .accordion-item-panel {
+                padding-left: calc(clamp(1.75rem, 2vw, 2.5rem) + clamp(0.75rem, 2vw, 1.5rem));
+            }
+        }
 
         @include mq('tablet') {
             padding: 2em 0;
@@ -134,7 +143,7 @@ export default {
     &-panel {
         position: relative;
         max-height: 0;
-        padding-left: calc(clamp(1.75rem, 2vw, 2.5rem) + clamp(0.75rem, 2vw, 1.5rem));
+        padding-left: 0;
         overflow: hidden;
         transition: max-height 0.32s ease;
 
