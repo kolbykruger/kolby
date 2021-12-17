@@ -1,5 +1,5 @@
 <template>
-    <div class="shapes">
+    <div class="shapes" :style="{ '-fit': fit }">
         <div class="shape-collection" :style="collection">
             <ShapeCollectionItem v-for="(shape, index) in shapes" :key="index" :shape="shape" :index="index" />
         </div>
@@ -56,6 +56,12 @@ export default {
                 ]
             },
         },
+        fit: {
+            type: Boolean,
+            default: () => {
+                return true
+            },
+        },
     },
     mounted() {
         gsap.registerPlugin(ScrollTrigger)
@@ -82,7 +88,13 @@ export default {
 
 <style lang="scss">
 .shapes {
-    position: relative;
+    z-index: -1;
+    pointer-events: none;
+    user-select: none;
+
+    &.-fit {
+        position: relative;
+    }
 }
 .shape-collection {
     position: absolute;
