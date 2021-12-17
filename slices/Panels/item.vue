@@ -2,6 +2,7 @@
     <div class="leaf" ref="leaf" :class="{ '-active': selected == index }" :style="{ '--width': width + '%' }">
         <div class="container">
             <p class="leaf-label">{{ index < 9 ? `0${index + 1}` : index }}</p>
+            <span class="leaf-icon" v-html="item.Icon"></span>
             <prismic-rich-text class="leaf-heading" :field="item.Heading" />
             <prismic-rich-text class="leaf-content" :field="item.Content" />
             <button
@@ -108,12 +109,20 @@ export default {
     flex-direction: column;
     flex-shrink: 0;
     width: 57.15%;
-    border-right: 1px solid c('base-4');
+    border-bottom: 1px solid c('base-4');
+    overflow: hidden;
+
+    @include mq('tablet') {
+        border-right: 1px solid c('base-4');
+        border-bottom: none;
+    }
 
     .container {
         height: 100%;
+        padding: 3em;
 
         @include mq('tablet') {
+            padding: 0;
             padding-top: 6vh;
             padding-bottom: 12vh;
         }
@@ -188,7 +197,31 @@ export default {
         opacity: 0.125;
     }
 
+    &-icon {
+        --size: 3em;
+        width: var(--size);
+        height: var(--size);
+
+        @include mq('tablet') {
+            --size: 6em;
+        }
+
+        svg {
+            --size: 3em;
+            width: var(--size);
+            height: var(--size);
+
+            @include mq('tablet') {
+                --size: 6em;
+            }
+        }
+    }
+
     &-heading {
+        h2,
+        h3 {
+            margin-top: 0.75em;
+        }
     }
 
     &-content {
