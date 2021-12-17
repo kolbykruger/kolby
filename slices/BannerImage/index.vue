@@ -1,8 +1,13 @@
 <template>
-    <section class="banner-image" ref="bannerImage">
-        <div class="banner-image-container">
-            <Picture :field="slice.primary.image" />
-            <!-- <prismic-image data-exclusion :field="slice.primary.image" /> -->
+    <section
+        class="banner-image"
+        :class="{ 'banner-image-full': slice.variation != 'bannerImageConfined' }"
+        ref="bannerImage"
+    >
+        <div class="container">
+            <div class="banner-image-container">
+                <Picture :field="slice.primary.image" />
+            </div>
         </div>
     </section>
 </template>
@@ -43,11 +48,17 @@ export default {
     overflow: hidden;
 
     @include mq('tablet') {
-        max-height: 90vh;
+        max-height: 96vh;
         height: 100%;
     }
 
-    &-container {
+    &-full {
+        .container {
+            padding: 0;
+        }
+    }
+
+    .container {
     }
 
     img {
