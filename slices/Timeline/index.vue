@@ -95,10 +95,15 @@ export default {
                 padding: 0 3.75em;
 
                 &::before {
-                    top: 0.55em;
-                    left: -0.5em;
+                    top: 0;
+                    left: -0.75em;
                     width: 1.5em;
                     height: 0.35em;
+
+                    @include mq('tablet') {
+                        top: 0.55em;
+                        left: -0.5em;
+                    }
                 }
             }
         }
@@ -139,16 +144,21 @@ export default {
     &-item {
         position: relative;
         padding: 0;
-        padding-left: 2.75em;
+        padding-left: 2em;
 
         &::before {
             content: '';
             position: absolute;
-            top: 0.55em;
-            left: -0.5em;
+            top: 0;
+            left: -0.75em;
             width: 1.5em;
             height: 0.35em;
             background: c('base-0');
+
+            @include mq('tablet') {
+                top: 0.55em;
+                left: -0.5em;
+            }
         }
 
         @include mq('tablet') {
@@ -200,6 +210,7 @@ export default {
 
         &-title {
             max-width: 60%;
+            @include fs-md;
             line-height: 1.2;
 
             span {
@@ -217,7 +228,7 @@ export default {
             }
 
             & > p {
-                font-size: 1.5rem;
+                @include fs-sm;
                 margin-top: 1em;
                 color: c('base-5');
             }
