@@ -24,6 +24,27 @@
         }
       },
       "items": {}
+    },
+    {
+      "id": "bannerImageConfined",
+      "name": "BannerImage - Confined",
+      "docURL": "...",
+      "version": "sktwi1xtmkfgx8626",
+      "description": "BannerImage",
+      "primary": {
+        "image": {
+          "config": {
+            "label": "Image",
+            "constraint": {
+              "width": 2560,
+              "height": 1440
+            },
+            "thumbnails": []
+          },
+          "type": "Image"
+        }
+      },
+      "items": {}
     }
   ]
 }

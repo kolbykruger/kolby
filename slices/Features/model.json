@@ -14,29 +14,35 @@
         "title": {
           "type": "StructuredText",
           "config": {
-            "single": "heading1",
             "label": "Title",
-            "placeholder": "This is where it all begins..."
+            "placeholder": "This is where it all begins...",
+            "allowTargetBlank": true,
+            "single": "heading2,heading3"
           }
         },
         "description": {
           "type": "StructuredText",
           "config": {
-            "single": "paragraph",
             "label": "Description",
-            "placeholder": "A nice description of your product"
+            "placeholder": "A nice description of your product",
+            "allowTargetBlank": true,
+            "multi": "paragraph,preformatted,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
           }
+        },
+        "Alignment": {
+          "config": {
+            "label": "Alignment",
+            "placeholder": "",
+            "options": [
+              "Left",
+              "Center"
+            ],
+            "default_value": "Left"
+          },
+          "type": "Select"
         }
       },
       "items": {
-        "Video": {
-          "config": {
-            "label": "Video",
-            "placeholder": "",
-            "select": "media"
-          },
-          "type": "Link"
-        },
         "Icon": {
           "config": {
             "label": "Icon",
@@ -47,18 +53,94 @@
         "Title": {
           "config": {
             "label": "Title",
-            "placeholder": ""
+            "placeholder": "",
+            "allowTargetBlank": false,
+            "single": "heading3,heading4"
           },
-          "type": "Text"
+          "type": "StructuredText"
         },
         "Description": {
           "config": {
             "label": "Description",
             "placeholder": "",
             "allowTargetBlank": true,
-            "single": "paragraph,strong,em,hyperlink,preformatted"
+            "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
           },
           "type": "StructuredText"
+        }
+      }
+    },
+    {
+      "id": "featuresWithLink",
+      "name": "Features - with Link",
+      "docURL": "...",
+      "version": "sktwi1xtmkfgx8626",
+      "description": "Features",
+      "primary": {
+        "title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Title",
+            "placeholder": "This is where it all begins...",
+            "allowTargetBlank": true,
+            "single": "heading2,heading3"
+          }
+        },
+        "description": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Description",
+            "placeholder": "A nice description of your product",
+            "allowTargetBlank": true,
+            "multi": "paragraph,preformatted,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+          }
+        },
+        "Alignment": {
+          "config": {
+            "label": "Alignment",
+            "placeholder": "",
+            "options": [
+              "Left",
+              "Center"
+            ],
+            "default_value": "Left"
+          },
+          "type": "Select"
+        }
+      },
+      "items": {
+        "Icon": {
+          "config": {
+            "label": "Icon",
+            "placeholder": ""
+          },
+          "type": "Text"
+        },
+        "Title": {
+          "config": {
+            "label": "Title",
+            "placeholder": "",
+            "allowTargetBlank": false,
+            "single": "heading3,heading4"
+          },
+          "type": "StructuredText"
+        },
+        "Description": {
+          "config": {
+            "label": "Description",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+          },
+          "type": "StructuredText"
+        },
+        "Relationship": {
+          "config": {
+            "label": "Relationship",
+            "customtypes": [],
+            "select": "document"
+          },
+          "type": "Link"
         }
       }
     }

@@ -18,7 +18,7 @@ export const _DefaultSlice = () => ({
   },
   data() {
     return {
-      mock: {"variation":"default-slice","name":"Default slice","slice_type":"textblock","items":[],"primary":{"Index":"monetize dynamic experiences","Eyebrow":"revolutionize ubiquitous supply-chains","title":[{"type":"heading2","text":"Seize collaborative niches","spans":[]}],"description":[{"type":"paragraph","text":"Enim mollit ipsum amet magna incididunt consequat officia culpa cupidatat eiusmod do fugiat. Aute id elit Lorem officia qui.","spans":[]}]},"id":"_DefaultSlice"}
+      mock: {"variation":"default-slice","name":"Default slice","slice_type":"textblock","items":[],"primary":{"Index":"recontextualize compelling ROI","Eyebrow":"aggregate out-of-the-box e-business","title":[{"type":"heading2","text":"Grow impactful markets","spans":[]}],"description":[{"type":"paragraph","text":"Sit minim aute velit sunt. Eu minim ad aute veniam cillum minim ut sit cillum labore dolore ex laborum quis veniam. Fugiat aute sit qui exercitation eiusmod dolore veniam exercitation magna qui consectetur adipisicing labore proident.","spans":[]}]},"id":"_DefaultSlice"}
     }
   },
   template: '<SliceZone :slices="[mock]" :resolver="resolve" />'
@@ -37,7 +37,7 @@ export const _TextblockWithGridList = () => ({
   },
   data() {
     return {
-      mock: {"variation":"textblockWithGridList","name":"Textblock - with Grid List","slice_type":"textblock","items":[{"Name":"enable wireless communities","Outline":"synergize 24/365 models"},{"Name":"integrate next-generation content","Outline":"strategize wireless ROI"},{"Name":"brand extensible action-items","Outline":"target next-generation synergies"},{"Name":"scale scalable networks","Outline":"repurpose world-class metrics"}],"primary":{"Index":"synergize dynamic action-items","Eyebrow":"disintermediate user-centric technologies","title":[{"type":"heading2","text":"Engage intuitive synergies","spans":[]}],"description":[{"type":"paragraph","text":"Nulla elit ipsum labore duis. Sit amet consequat enim proident eu consectetur aliqua qui ipsum.","spans":[]}]},"id":"_TextblockWithGridList"}
+      mock: {"variation":"textblockWithGridList","name":"Textblock - with Grid List","slice_type":"textblock","items":[{"Name":"iterate revolutionary applications","Outline":"unleash impactful users"},{"Name":"maximize leading-edge eyeballs","Outline":"deliver distributed metrics"},{"Name":"aggregate back-end bandwidth","Outline":"integrate seamless users"},{"Name":"synergize efficient blockchains","Outline":"synthesize magnetic technologies"}],"primary":{"Index":"aggregate strategic portals","Eyebrow":"envisioneer enterprise blockchains","title":[{"type":"heading2","text":"Leverage robust supply-chains","spans":[]}],"description":[{"type":"paragraph","text":"Voluptate sint qui consectetur aute.","spans":[]}]},"id":"_TextblockWithGridList"}
     }
   },
   template: '<SliceZone :slices="[mock]" :resolver="resolve" />'

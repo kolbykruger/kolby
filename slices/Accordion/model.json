@@ -17,8 +17,29 @@
             "label": "Heading",
             "placeholder": "This is where it all begins...",
             "allowTargetBlank": true,
-            "single": "heading2"
+            "single": "heading2,heading3"
           }
+        },
+        "Description": {
+          "config": {
+            "label": "Description",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,preformatted,em,hyperlink,image,embed,list-item,o-list-item,rtl,strong"
+          },
+          "type": "StructuredText"
+        },
+        "Alignment": {
+          "config": {
+            "label": "Alignment",
+            "placeholder": "",
+            "options": [
+              "Vertical",
+              "Horizontal"
+            ],
+            "default_value": "Vertical"
+          },
+          "type": "Select"
         }
       },
       "items": {

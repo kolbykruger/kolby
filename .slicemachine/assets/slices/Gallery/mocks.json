@@ -12,7 +12,7 @@
           },
           "alt": "Placeholder image",
           "copyright": null,
-          "url": "https://images.unsplash.com/photo-1579931794097-0ad001e51edb?w=null&h=null&fit=crop",
+          "url": "https://images.unsplash.com/photo-1606248897732-2c5ffe759c04?w=null&h=null&fit=crop",
           "crop": {
             "dimensions": {
               "width": 1024,
@@ -20,7 +20,7 @@
             },
             "alt": "Placeholder image",
             "copyright": null,
-            "url": "https://images.unsplash.com/photo-1579931794097-0ad001e51edb?w=1024&h=1024&fit=crop"
+            "url": "https://images.unsplash.com/photo-1606248897732-2c5ffe759c04?w=1024&h=1024&fit=crop"
           }
         },
         "Size": "Small"
@@ -33,7 +33,7 @@
           },
           "alt": "Placeholder image",
           "copyright": null,
-          "url": "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?w=null&h=null&fit=crop",
+          "url": "https://images.unsplash.com/photo-1601933973783-43cf8a7d4c5f?w=null&h=null&fit=crop",
           "crop": {
             "dimensions": {
               "width": 1024,
@@ -41,7 +41,7 @@
             },
             "alt": "Placeholder image",
             "copyright": null,
-            "url": "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?w=1024&h=1024&fit=crop"
+            "url": "https://images.unsplash.com/photo-1601933973783-43cf8a7d4c5f?w=1024&h=1024&fit=crop"
           }
         },
         "Size": "Small"
@@ -54,7 +54,7 @@
           },
           "alt": "Placeholder image",
           "copyright": null,
-          "url": "https://images.unsplash.com/photo-1531771686035-25f47595c87a?w=null&h=null&fit=crop",
+          "url": "https://images.unsplash.com/photo-1537498425277-c283d32ef9db?w=null&h=null&fit=crop",
           "crop": {
             "dimensions": {
               "width": 1024,
@@ -62,7 +62,7 @@
             },
             "alt": "Placeholder image",
             "copyright": null,
-            "url": "https://images.unsplash.com/photo-1531771686035-25f47595c87a?w=1024&h=1024&fit=crop"
+            "url": "https://images.unsplash.com/photo-1537498425277-c283d32ef9db?w=1024&h=1024&fit=crop"
           }
         },
         "Size": "Small"
@@ -75,7 +75,7 @@
           },
           "alt": "Placeholder image",
           "copyright": null,
-          "url": "https://images.unsplash.com/photo-1587905069134-008460d7a636?w=null&h=null&fit=crop",
+          "url": "https://images.unsplash.com/photo-1607582278038-6bebbd4d7b72?w=null&h=null&fit=crop",
           "crop": {
             "dimensions": {
               "width": 1024,
@@ -83,24 +83,24 @@
             },
             "alt": "Placeholder image",
             "copyright": null,
-            "url": "https://images.unsplash.com/photo-1587905069134-008460d7a636?w=1024&h=1024&fit=crop"
+            "url": "https://images.unsplash.com/photo-1607582278038-6bebbd4d7b72?w=1024&h=1024&fit=crop"
           }
         },
-        "Size": "Small"
+        "Size": "Large"
       }
     ],
     "primary": {
       "title": [
         {
           "type": "heading1",
-          "text": "Integrate end-to-end platforms",
+          "text": "Enhance intuitive systems",
           "spans": []
         }
       ],
       "description": [
         {
           "type": "paragraph",
-          "text": "Nisi mollit proident sunt non ad commodo mollit eu. Enim occaecat aliqua eu aliquip ad ullamco ullamco id amet. Velit proident enim sit tempor est proident commodo minim nulla laboris.",
+          "text": "Nulla id mollit pariatur ipsum eu elit labore eu sit et eu nulla pariatur aute.",
           "spans": []
         }
       ]

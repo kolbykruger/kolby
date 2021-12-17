@@ -67,6 +67,9 @@
             },
             "mobile_image": {
               "type": "SharedSlice"
+            },
+            "convoke": {
+              "type": "SharedSlice"
             }
           }
         }

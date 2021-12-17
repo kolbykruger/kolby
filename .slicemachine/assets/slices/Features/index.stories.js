@@ -18,9 +18,28 @@ export const _DefaultSlice = () => ({
   },
   data() {
     return {
-      mock: {"variation":"default-slice","name":"Default slice","slice_type":"features","items":[{"Video":{"link_type":"media","url":"https://source.unsplash.com/daily"},"Icon":"empower real-time models","Title":"brand front-end partnerships","Description":[{"type":"paragraph","text":"Duis labore est cupidatat eu amet fugiat velit veniam ipsum enim officia ullamco. Nulla aute ad occaecat culpa.","spans":[]}]},{"Video":{"link_type":"media","url":"https://source.unsplash.com/daily"},"Icon":"integrate world-class functionalities","Title":"harness leading-edge methodologies","Description":[{"type":"paragraph","text":"Duis elit nostrud et est.","spans":[]}]},{"Video":{"link_type":"media","url":"https://source.unsplash.com/daily"},"Icon":"utilize ubiquitous convergence","Title":"strategize wireless e-commerce","Description":[{"type":"paragraph","text":"Tempor mollit fugiat quis ut in qui.","spans":[]}]}],"primary":{"title":[{"type":"heading1","text":"Synthesize holistic solutions","spans":[]}],"description":[{"type":"paragraph","text":"Exercitation incididunt id amet ea fugiat dolor non ut laborum minim. Minim ullamco exercitation dolore pariatur nisi enim mollit velit est pariatur voluptate aliquip.","spans":[]}]},"id":"_DefaultSlice"}
+      mock: {"variation":"default-slice","name":"Default slice","slice_type":"features","items":[{"Icon":"optimize collaborative functionalities","Title":[{"type":"heading3","text":"Implement dynamic niches","spans":[]}],"Description":[{"type":"paragraph","text":"Ex fugiat in voluptate consectetur officia incididunt nisi nulla quis laborum nostrud. Fugiat aliqua Lorem tempor officia dolore commodo do enim elit.","spans":[]}]},{"Icon":"leverage integrated bandwidth","Title":[{"type":"heading3","text":"Engineer compelling functionalities","spans":[]}],"Description":[{"type":"paragraph","text":"Culpa exercitation ipsum ea dolor ex qui cupidatat laboris officia exercitation aliqua excepteur laborum. Est cillum cillum irure amet nisi sint et ipsum tempor veniam eiusmod eiusmod cillum.","spans":[]}]},{"Icon":"benchmark back-end models","Title":[{"type":"heading3","text":"Harness strategic e-business","spans":[]}],"Description":[{"type":"paragraph","text":"Cillum officia cillum proident occaecat eiusmod reprehenderit culpa tempor ipsum nulla minim minim reprehenderit. Elit voluptate culpa ut consectetur cupidatat velit cillum aliqua fugiat mollit id. Sunt incididunt cupidatat ut minim aute amet deserunt aliqua commodo ullamco pariatur.","spans":[]}]},{"Icon":"cultivate ubiquitous applications","Title":[{"type":"heading3","text":"Syndicate cutting-edge blockchains","spans":[]}],"Description":[{"type":"paragraph","text":"Adipisicing exercitation ea laboris aute aliquip pariatur mollit.","spans":[]}]}],"primary":{"title":[{"type":"heading2","text":"Incentivize cross-platform methodologies","spans":[]}],"description":[{"type":"paragraph","text":"Culpa voluptate velit in. Ad adipisicing velit id labore eu adipisicing eiusmod aliqua aliquip dolore laboris. Nisi nisi commodo anim ullamco quis fugiat.","spans":[]}],"Alignment":"Left"},"id":"_DefaultSlice"}
     }
   },
   template: '<SliceZone :slices="[mock]" :resolver="resolve" />'
 })
 _DefaultSlice.storyName = 'Default slice'
+
+export const _FeaturesWithLink = () => ({
+  components: {
+    MyComponent,
+    SliceZone
+  },
+  methods: {
+    resolve() {
+      return MyComponent
+    }
+  },
+  data() {
+    return {
+      mock: {"variation":"featuresWithLink","name":"Features - with Link","slice_type":"features","items":[{"Icon":"optimize web-enabled e-commerce","Title":[{"type":"heading3","text":"Recontextualize extensible functionalities","spans":[]}],"Description":[{"type":"paragraph","text":"Dolor occaecat minim id reprehenderit veniam pariatur sint voluptate aliquip enim ullamco nisi nostrud laboris. Commodo non eu in sint excepteur sint enim. Duis proident laborum anim minim duis est adipisicing exercitation nulla culpa consectetur dolor qui.","spans":[]}],"Relationship":{"link_type":"Web","url":"http://google.com"}},{"Icon":"reintermediate viral deliverables","Title":[{"type":"heading3","text":"Engineer B2C mindshare","spans":[]}],"Description":[{"type":"paragraph","text":"Cupidatat aliqua voluptate sint. Laborum dolore mollit sunt consequat in cupidatat qui.","spans":[]}],"Relationship":{"link_type":"Web","url":"https://prismic.io"}}],"primary":{"title":[{"type":"heading2","text":"Enable clicks-and-mortar infomediaries","spans":[]}],"description":[{"type":"paragraph","text":"Do enim ipsum duis laborum eiusmod minim.","spans":[]}],"Alignment":"Center"},"id":"_FeaturesWithLink"}
+    }
+  },
+  template: '<SliceZone :slices="[mock]" :resolver="resolve" />'
+})
+_FeaturesWithLink.storyName = 'Features - with Link'

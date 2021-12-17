@@ -18,7 +18,7 @@ export const _DefaultSlice = () => ({
   },
   data() {
     return {
-      mock: {"variation":"default-slice","name":"Default slice","slice_type":"anchors","items":[{"Index":"disintermediate robust metrics","Name":"optimize vertical methodologies","Anchor":"embrace compelling networks"},{"Index":"recontextualize distributed infrastructures","Name":"visualize collaborative mindshare","Anchor":"benchmark cutting-edge e-markets"},{"Index":"mesh seamless systems","Name":"facilitate dynamic markets","Anchor":"synthesize robust applications"}],"primary":{"Label":"integrate 24/365 schemas","Page":{"link_type":"Web","url":"http://google.com"}},"id":"_DefaultSlice"}
+      mock: {"variation":"default-slice","name":"Default slice","slice_type":"anchors","items":[{"Index":"incentivize strategic metrics","Name":"enable global platforms","Anchor":"innovate dynamic metrics"},{"Index":"leverage real-time relationships","Name":"leverage holistic initiatives","Anchor":"grow real-time channels"},{"Index":"e-enable best-of-breed channels","Name":"mesh distributed mindshare","Anchor":"whiteboard best-of-breed deliverables"}],"primary":{"Label":"disintermediate robust models","Page":{"link_type":"Web","url":"http://twitter.com"}},"id":"_DefaultSlice"}
     }
   },
   template: '<SliceZone :slices="[mock]" :resolver="resolve" />'
