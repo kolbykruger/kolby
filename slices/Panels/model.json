@@ -12,6 +12,13 @@
       "description": "Panels",
       "primary": {},
       "items": {
+        "Icon": {
+          "config": {
+            "label": "Icon",
+            "placeholder": ""
+          },
+          "type": "Text"
+        },
         "Heading": {
           "config": {
             "label": "Heading",
