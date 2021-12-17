@@ -1,31 +1,35 @@
 <template>
-    <section class="features">
+    <section class="features" :class="alignment">
         <div class="container">
-            <!-- <prismic-rich-text :field="slice.primary.title" class="title" />
-    <prismic-rich-text :field="slice.primary.description" /> -->
-
-            <div class="features-grid">
-                <div class="features-videos" data-cursor="invisible">
-                    <div class="features-video" v-if="video">
-                        <video loading="lazy" width="320" height="240" autoplay muted loop playsinline>
-                            <source :src="video.url" type="video/mp4" />
-                        </video>
-                    </div>
-                </div>
-                <div class="features-actions">
-                    <button
-                        class="features-action"
-                        :class="{ '-active': selected == index }"
-                        v-for="(item, index) in slice.items"
-                        :key="index"
-                        @click="updateSelected(index)"
+            <prismic-rich-text :field="slice.primary.title" class="features-title" />
+            <prismic-rich-text :field="slice.primary.description" class="features-description" />
+            <div class="features-grid features-grid-links" v-if="slice.variation == 'featuresWithLink'">
+                <div class="features-item" v-for="(item, index) in slice.items" :key="index">
+                    <nuxt-link
+                        data-cursor="lg"
+                        data-magnetic="0.03,0.03"
+                        class="features-item-link"
+                        :to="link(item.Relationship)"
                     >
-                        <div class="features-action-icon" v-html="item.Icon"></div>
-                        <div class="features-action-text">
-                            <p class="features-action-title">{{ item.Title }} - {{ index }}</p>
-                            <prismic-rich-text class="features-action-description" :field="item.Description" />
-                        </div>
-                    </button>
+                        <span class="features-item-icon" v-if="item.Icon" v-html="item.Icon"></span>
+                        <prismic-rich-text :field="item.Title" class="features-item-title" ref="featuresTitle" />
+                        <prismic-rich-text
+                            :field="item.Description"
+                            class="features-item-description"
+                            ref="featuresDescription"
+                        />
+                    </nuxt-link>
+                </div>
+            </div>
+            <div class="features-grid" v-else>
+                <div class="features-item" v-for="(item, index) in slice.items" :key="index">
+                    <span class="features-item-icon" v-if="item.Icon" v-html="item.Icon"></span>
+                    <prismic-rich-text :field="item.Title" class="features-item-title" ref="featuresTitle" />
+                    <prismic-rich-text
+                        :field="item.Description"
+                        class="features-item-description"
+                        ref="featuresDescription"
+                    />
                 </div>
             </div>
         </div>
@@ -44,52 +48,80 @@ export default {
             },
         },
     },
-    data() {
-        return {
-            selected: 0,
-            video: null,
-        }
-    },
-    methods: {
-        updateSelected(index) {
-            this.selected = index
-            this.video = this.slice.items[index].Video
+    computed: {
+        alignment() {
+            const a = this.slice.primary.Alignment ? this.slice.primary.Alignment : 'Left'
+            return 'features-alignment-' + a.toLowerCase()
         },
     },
-    mounted() {
-        this.video = this.slice.items[0].Video
+    methods: {
+        link(link) {
+            const type = link.type
+            const uid = link.uid
+            const path = type == 'article' ? 'article/' : '/'
+            return path + uid
+        },
     },
 }
 </script>
 
 <style lang="scss">
 .features {
-    &-grid {
-        display: grid;
-        grid-template-columns: 2fr 1fr;
-        grid-gap: 3em;
+    margin-top: 12vh;
+    margin-bottom: 12vh;
+    overflow: hidden;
+
+    .container {
     }
 
-    &-videos {
-        position: relative;
-        aspect-ratio: 640 / 360;
-        background: c('base-8');
-        overflow: hidden;
+    &-title {
+        max-width: 100em;
 
-        iframe,
-        video {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            margin: 0;
-            // display: none;
-            z-index: 2;
+        h1,
+        h2,
+        h3 {
+            font-family: $font-1;
         }
 
-        html[theme='dark'] & {
-            background: c('base-9');
+        h2 {
+            max-width: 10em;
+        }
+
+        h3 {
+            max-width: 18em;
+        }
+    }
+
+    &-description {
+    }
+
+    &-grid {
+        max-width: 100em;
+        // margin: 0 auto;
+        margin-top: 12vh;
+
+        @include mq('tablet') {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 3em;
+        }
+
+        &-links {
+            .features-item {
+                padding: 0;
+            }
+        }
+    }
+
+    &-item {
+        position: relative;
+        border: 1px solid c('base-4');
+        padding: 3em;
+        margin-bottom: 1em;
+        border-radius: 0.375em;
+
+        @include mq('tablet') {
+            margin-bottom: 0;
         }
 
         &::after {
@@ -99,81 +131,71 @@ export default {
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: linear-gradient(
-                to right,
-                rgba(#f4f1ee, 0) 0,
-                rgba(#f4f1ee, 0.8) 50%,
-                rgba(#f4f1ee, 0) 100%
-            );
-            animation: video-loading 0.96s infinite linear;
-            z-index: 1;
+            background: c('base-4');
+            opacity: 0.1;
+            z-index: -1;
+        }
 
-            html[theme='dark'] & {
-                background-image: linear-gradient(
-                    to right,
-                    rgba(#13161b, 0) 0,
-                    rgba(#13161b, 0.8) 50%,
-                    rgba(#13161b, 0) 100%
-                );
-            }
+        &-link {
+            display: block;
+            padding: 3vw;
+            text-decoration: none;
+            color: c('base-0');
+        }
 
-            @keyframes video-loading {
-                0% {
-                    transform: translate3d(-100%, 0, 0);
+        &-icon {
+            --size: 3em;
+            width: var(--size);
+            height: var(--size);
+
+            svg {
+                --size: 3em;
+                width: var(--size);
+                height: var(--size);
+
+                path {
+                    fill: c('base-4');
                 }
-                100% {
-                    transform: translate3d(100%, 0, 0);
-                }
-            }
-        }
-    }
-
-    &-actions {
-    }
-
-    &-action {
-        appearance: none;
-        background: none;
-        border: none;
-        outline: none;
-        color: inherit;
-        font-family: inherit;
-        font-size: inherit;
-
-        display: grid;
-        grid-template-columns: clamp(1.75rem, 2vw, 2.5rem) auto clamp(1.75rem, 2vw, 2.5rem);
-        grid-column-gap: clamp(0.75rem, 2vw, 1.5rem);
-        width: 100%;
-        padding: 2em;
-        margin-bottom: 0.5em;
-        border-radius: 0.375em;
-        text-align: left;
-        cursor: pointer;
-
-        &:focus {
-            outline: none;
-        }
-
-        &.-active {
-            background: c('base-8');
-
-            html[theme='dark'] & {
-                background: c('base-9');
             }
         }
 
-        svg {
-            width: 100%;
-            height: 100%;
-
-            path {
-                fill: c('base-0');
+        &-title {
+            h1,
+            h2,
+            h3,
+            h4 {
+                margin-top: 0.75em;
+                @include fs-lg;
+                // font-family: $font-1;
             }
         }
 
         &-description {
-            * {
-                font-size: clamp(1.125rem, -0.875rem + 3.333vw, 1.563rem);
+            p {
+                @include fs-xxs;
+            }
+        }
+    }
+
+    &-alignment {
+        &-center {
+            .features {
+                &-title {
+                    text-align: center;
+                    margin: 0 auto;
+
+                    h1,
+                    h2,
+                    h3,
+                    h4 {
+                        margin-left: auto;
+                        margin-right: auto;
+                    }
+                }
+                &-grid {
+                    margin: 0 auto;
+                    text-align: center;
+                }
             }
         }
     }
