@@ -13,21 +13,6 @@
                             :key="`slice-item-${i}`"
                             data-anim
                         >
-                            <!-- <Picture
-                                :field="item.Image"
-                                :sizes="{
-                                    'phone-small': 'px',
-                                    phone: 'px',
-                                    'phone-large': 'px',
-                                    tablet: 'px',
-                                    'laptop-small': 'px',
-                                    laptop: 'px',
-                                    'laptop-large': 'px',
-                                    'desktop-small': 'px',
-                                    desktop: 'px',
-                                    'desktop-large': 'px',
-                                }"
-                            /> -->
                             <Picture :field="item.Image" />
                         </div>
                     </Flickity>
