@@ -119,10 +119,8 @@ export default {
 
     .container {
         height: 100%;
-        padding: 3em;
 
         @include mq('tablet') {
-            padding: 0;
             padding-top: 6vh;
             padding-bottom: 12vh;
         }
