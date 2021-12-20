@@ -1,5 +1,5 @@
 <template>
-    <section class="menu" ref="menu" tabindex="-1" :class="{ '-open': status, '-closed': !open }">
+    <section class="menu" ref="menu" :class="{ '-open': status, '-closed': !open }" tabindex="-1">
         <div class="menu-background">
             <span class="menu-background-noise"></span>
             <span class="menu-background-artwork"></span>
