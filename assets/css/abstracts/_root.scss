@@ -1,6 +1,7 @@
 html {
-    transition: 1s ease;
-    //colors
+    transition: 0.95s ease;
+
+    // Colors
     @each $name, $color in $colors {
         @if type-of($color) == 'map' {
             @each $subname, $subcolor in $color {
@@ -11,8 +12,28 @@ html {
         }
     }
 
+    // Font Families
+    @each $name, $size in $font-family {
+        --font-family-#{$name}: #{$size};
+    }
+
+    // Font Size
+    @each $name, $size in $font-size {
+        --font-size-#{$name}: #{$size};
+    }
+
+    // Line Height
+    @each $name, $size in $line-height {
+        --line-height-#{$name}: #{$size};
+    }
+
+    // Flow Space
+    @each $name, $size in $flow-space {
+        --flow-space-#{$name}: #{$size};
+    }
+
     &[theme='dark'] {
-        //colors
+        // Colors
         @each $name, $color in $dark {
             @if type-of($color) == 'map' {
                 @each $subname, $subcolor in $color {

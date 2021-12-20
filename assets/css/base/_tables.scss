@@ -1,7 +1,7 @@
 table {
     display: table;
     width: 100%;
-    margin: 0.8em auto 1.5em;
+    margin: fs('xl') auto fs('xxl');
     table-layout: fixed;
     border-collapse: collapse;
     color: #c0cefc;
@@ -9,7 +9,8 @@ table {
     border-radius: 0.25rem;
     overflow: hidden;
 
-    td, th {
+    td,
+    th {
         padding: 1em;
         text-align: left;
         line-height: 1.6;
@@ -27,5 +28,4 @@ table {
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
     }
-
 }

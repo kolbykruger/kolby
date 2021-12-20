@@ -1,0 +1,31 @@
+$font-size: (
+    xxs: 'clamp(1rem, calc(-0.875rem + 3.333vw), 1.375rem)',
+    xs: 'clamp(1.125rem, calc(-0.875rem + 3.333vw), 1.563rem)',
+    sm: 'clamp(1.2rem, calc(-0.875rem + 3vw), 1.693rem)',
+    md: 'clamp(1.563rem, calc(-0.875rem + 3.333vw), 1.953rem)',
+    lg: 'clamp(1.563rem, calc(-0.875rem + 3.333vw), 2.441rem)',
+    xl: 'clamp(2.441rem, calc(-0.875rem + 4.333vw), 3.815rem)',
+    xxl: 'clamp(3.052rem, calc(-0.875rem + 5.333vw), 5.96rem)',
+    xxxl: 'clamp(3.052rem, calc(-0.875rem + 8.333vw), 7.451rem)',
+    max: 'clamp(3.815rem, calc(-0.875rem + 8.333vw), 11.642rem)',
+);
+
+$line-height: (
+    xs: 1em,
+    sm: 1.15em,
+    md: 1.2em,
+    lg: 1.225em,
+    xl: 1.25em,
+    xxl: 'clamp(1.275em, calc(-0.875rem + 3vw), 1.45em)',
+);
+
+$flow-space: (
+    xs: 0.125em,
+    sm: 0.25em,
+    md: 0.5em,
+    lg: 0.75em,
+    xl: 1em,
+    xxl: 1.5em,
+    xxxl: 2em,
+    max: 3em,
+);

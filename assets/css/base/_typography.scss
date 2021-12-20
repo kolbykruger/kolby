@@ -28,12 +28,12 @@ small {
     + a[name] + h4,
     + h5,
     + a[name] + h5 {
-        margin-top: 1em;
+        margin-top: fs('xl');
     }
 }
 
 p {
-    margin-bottom: 0.5em;
+    margin-bottom: fs('md');
 
     + p {
         margin-top: 1.5em;
@@ -74,7 +74,7 @@ h3,
 h4,
 h5 {
     line-height: 1.25;
-    margin-bottom: 0.5em;
+    margin-bottom: fs('md');
     font-weight: 500;
 }
 
@@ -82,12 +82,12 @@ h2,
 h3,
 h4,
 h5 {
-    margin-top: 1.5em;
+    margin-top: fs('xxl');
 
     + h2,
     + h3,
     + h4 {
-        margin-top: 0.75em;
+        margin-top: fs('lg');
     }
 }
 
@@ -96,9 +96,9 @@ h3 + h4 {
 }
 
 strong {
-    font-weight: 500;
     display: inline-block;
     color: c('base-0');
+    font-weight: 500;
 }
 
 em {

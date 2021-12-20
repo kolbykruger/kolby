@@ -1,67 +1,71 @@
 // tiny
 @mixin fs-xxs() {
-    font-size: clamp(1rem, -0.875rem + 3.333vw, 1.375rem);
+    font-size: var(--font-size-xxs);
 }
 
 // small
 @mixin fs-xs() {
-    font-size: clamp(1.125rem, -0.875rem + 3.333vw, 1.563rem);
+    font-size: var(--font-size-xs);
 }
 
 // p
 @mixin fs-sm() {
-    font-size: clamp(1.2rem, -0.875rem + 3vw, 1.693rem);
-    line-height: 1.45;
-    line-height: clamp(1.275, -0.875rem + 3vw, 1.45);
+    font-size: var(--font-size-sm);
+    line-height: var(--line-height-xxl);
+    margin-bottom: var(--flow-space-md);
     font-weight: 400;
     color: c('base-5');
-    margin-bottom: 0.5rem;
 }
 
 // h5
 @mixin fs-md() {
-    font-size: clamp(1.563rem, -0.875rem + 3.333vw, 1.953rem);
-    line-height: 1.25;
+    font-size: var(--font-size-md);
+    line-height: var(--line-height-md);
+    line-height: var(--line-height-xl);
     font-weight: 400;
-    margin-bottom: 0.5em;
+    margin-bottom: var(--flow-space-md);
 }
 
 // h4
 @mixin fs-lg() {
-    font-size: clamp(1.563rem, -0.875rem + 3.333vw, 2.441rem);
-    line-height: 1.25;
+    font-size: var(--font-size-lg);
+    line-height: var(--line-height-lg);
+    line-height: var(--line-height-xl);
     font-weight: 400;
-    margin-bottom: 0.5em;
+    margin-bottom: var(--flow-space-md);
 }
 
 // h3
 @mixin fs-xl() {
-    font-size: clamp(2.441rem, -0.875rem + 4.333vw, 3.815rem);
-    line-height: 1.225;
+    font-size: var(--font-size-xl);
+    line-height: var(--line-height-xl);
+    line-height: var(--line-height-lg);
     font-weight: 400;
-    margin-bottom: 0.5em;
+    margin-bottom: var(--flow-space-md);
 }
 
 // h2
 @mixin fs-xxl() {
-    font-family: $font-1;
-    font-size: clamp(3.052rem, -0.875rem + 5.333vw, 5.96rem);
-    line-height: 1.2;
-    margin-bottom: 0.5em;
+    font-family: var(--font-family-fancy);
+    font-size: var(--font-size-xxl);
+    line-height: var(--line-height-xxl);
+    line-height: var(--line-height-md);
+    margin-bottom: var(--flow-space-md);
 }
 
 // h1 - small variant
 @mixin fs-xxxl() {
-    font-family: $font-1;
-    font-size: clamp(3.052rem, -0.875rem + 8.333vw, 7.451rem);
-    line-height: 1.15;
-    margin-bottom: 0.5em;
+    font-family: var(--font-family-fancy);
+    font-size: var(--font-size-xxxl);
+    line-height: var(--line-height-xxxl);
+    line-height: var(--line-height-xs);
+    margin-bottom: var(--flow-space-md);
 }
 
 // h1
 @mixin fs-max() {
-    font-family: $font-1;
-    font-size: clamp(3.815rem, -0.875rem + 8.333vw, 11.642rem);
-    line-height: 1;
-    margin-bottom: 0.5em;
+    font-family: var(--font-family-fancy);
+    font-size: var(--font-size-max);
+    line-height: var(--line-height-xs);
+    margin-bottom: var(--flow-space-md);
 }

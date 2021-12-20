@@ -1,8 +1,8 @@
 ol:not([class]),
 ul:not([class]),
 dl:not([class]) {
-    margin-top: 1em;
-    margin-bottom: 2em;
+    margin-top: fs('xl');
+    margin-bottom: fs('xxxl');
     padding-left: 2em;
     padding-right: 2em;
 
@@ -10,7 +10,7 @@ dl:not([class]) {
     dt,
     dd {
         margin: 0;
-        margin-bottom: 0.25em;
+        margin-bottom: fs('sm');
         padding-left: 0.75em;
         word-break: break-word;
         line-height: inherit;

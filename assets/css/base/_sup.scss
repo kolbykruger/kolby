@@ -5,12 +5,11 @@
     color: c('primary-base');
 
     + .heading {
-
         h1,
         h2,
         h3,
         h4 {
-            margin-top: 0.25em;
+            margin-top: fs('sm');
         }
     }
 }

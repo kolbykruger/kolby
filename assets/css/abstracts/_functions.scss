@@ -1,23 +1,29 @@
-//color
+// Colors
 @function c($color-name) {
     @return var(--color-#{$color-name});
 }
 
-//sizing
-@function s($sizing) {
-    @return var(--size-#{$sizing});
+// Font Family
+@function ff($sizing) {
+    @return var(--font-family-#{$sizing});
 }
 
-//structure
-@function g($sizing) {
-    @return var(--grid-#{$sizing});
+// Font Sizing
+@function fs($sizing) {
+    @return var(--font-size-#{$sizing});
 }
 
-@function bp($sizing) {
-    @return $sizing;
+// Line Height
+@function lh($sizing) {
+    @return var(--line-height-#{$sizing});
 }
 
-//breakpoints
+// Line Height
+@function flow($sizing) {
+    @return var(--flow-spacing-#{$sizing});
+}
+
+// Breakpoints
 @mixin mq($breakpoint, $type: 'min-width') {
     // If the breakpoint exists in the map.
     @if map-has-key($breakpoints, $breakpoint) {
