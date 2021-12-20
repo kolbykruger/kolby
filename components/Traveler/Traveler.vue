@@ -2,13 +2,9 @@
     <div class="traveler" :class="{ '-initiated': status }" ref="traveler" aria-hidden="true">
         <div class="traveler-blend">
             <span ref="travelerBackground" class="traveler-background"></span>
-            <span ref="travelerMeat" class="traveler-meat"></span>
             <span ref="travelerNoise" class="traveler-noise"></span>
         </div>
-        <div class="traveler-overlay">
-            <span class="traveler-dots"></span>
-        </div>
-        <span class="visually-hidden">{{ counter }}</span>
+        <span class="visually-hidden" aria-hidden="true">{{ counter }}</span>
     </div>
 </template>
 
@@ -159,6 +155,19 @@ export default {
 
         html[theme='dark'] & {
             opacity: 0.18;
+        }
+    }
+
+    &-injection {
+        // mix-blend-mode: overlay;
+
+        iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
     }
 
