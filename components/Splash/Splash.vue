@@ -139,7 +139,7 @@ export default {
 
 <style lang="scss">
 .page-enter-active {
-    transition-duration: opacity 0.25s ease-out;
+    // transition-duration: opacity 0.25s ease-out;
     transition-delay: 1s;
 
     .page-contents {
