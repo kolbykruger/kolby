@@ -27,7 +27,7 @@
                         <li class="textblock-list-item" v-for="(item, i) in slice.items" :key="`slice-item-${i}`">
                             <p class="textblock-list-name">{{ item.Name }}</p>
                             <p class="textblock-list-outline">
-                                <small>{{ item.Outline }}</small>
+                                {{ item.Outline }}
                             </p>
                         </li>
                     </ul>
@@ -167,10 +167,11 @@ export default {
         }
 
         &-outline {
+            @include fs-xxs;
             margin: 0;
             margin-top: 0.25em;
             opacity: 0.75;
-            line-height: 1;
+            // line-height: 1;
         }
     }
 }
