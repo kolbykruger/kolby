@@ -39,6 +39,13 @@
             "single": "preformatted"
           },
           "type": "StructuredText"
+        },
+        "Figure": {
+          "config": {
+            "label": "Figure",
+            "placeholder": ""
+          },
+          "type": "Number"
         }
       },
       "items": {}

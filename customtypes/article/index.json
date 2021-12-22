@@ -49,6 +49,14 @@
         },
         "type": "Select"
       },
+      "Narration": {
+        "config": {
+          "label": "Narration",
+          "placeholder": "",
+          "select": "media"
+        },
+        "type": "Link"
+      },
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",
