@@ -1,11 +1,13 @@
 // tiny
 @mixin fs-xxs() {
     font-size: var(--font-size-xxs);
+    line-height: var(--line-height-lg);
 }
 
 // small
 @mixin fs-xs() {
     font-size: var(--font-size-xs);
+    line-height: var(--line-height-xl);
 }
 
 // p
