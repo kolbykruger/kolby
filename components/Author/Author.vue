@@ -1,17 +1,19 @@
 <template>
-    <div class="author">
-        <div class="author-image">
-            <img src="/images/kolby.png" alt="Kolby Kruger - smiling." />
+    <section class="author">
+        <div class="container">
+            <div class="author-image">
+                <img src="/images/kolby-squircle.png" alt="Kolby Kruger - smiling." />
+            </div>
+            <div class="author-name">
+                <p><small>Kolby Kruger</small></p>
+            </div>
         </div>
-        <div class="author-name">
-            <p><small>Kolby Kruger</small></p>
-        </div>
-    </div>
+    </section>
 </template>
 
 <script>
 export default {
-    name: 'Author'
+    name: 'Author',
 }
 </script>
 
@@ -29,8 +31,6 @@ export default {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            border-radius: 50%;
-            background: c('menu-color');
         }
     }
 
