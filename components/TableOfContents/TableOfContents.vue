@@ -1,13 +1,8 @@
 <template>
-    <section class="toc" v-if="document" :data-uid="uid" ref="toc">
+    <div class="toc" v-if="document" :data-uid="uid" ref="toc">
         <div class="toc-container" v-if="links.length > 0">
-            <span class="article-aside-background">
-                <div class="article-aside-border"></div>
-            </span>
+            <p class="toc-label">Table of contents</p>
             <ul class="toc-list">
-                <li class="toc-list-item toc-list-item-header">
-                    <small>Sections</small>
-                </li>
                 <li class="toc-list-item" v-for="(link, index) in links" :key="index" :data-type="link.type">
                     <nuxt-link class="toc-list-item-link" :to="{ path: path, hash: hash(link.id) }">
                         {{ link.name ? link.name : link.id }}
@@ -15,7 +10,7 @@
                 </li>
             </ul>
         </div>
-    </section>
+    </div>
 </template>
 
 <script>
@@ -68,14 +63,6 @@ export default {
                 })
                 this.$refs.toc.classList.add('-active')
             }
-
-            // window.addEventListener('scroll', event => {
-            //     const arr = this.links.filter(item => {
-            //         return item.offset <= window.scrollY
-            //     })
-            //     const [activeItem] = arr.slice(-1)
-            //     this.activeItem = [activeItem]
-            // })
         },
     },
     mounted() {
@@ -109,6 +96,11 @@ export default {
         }
     }
 
+    &-label {
+        @include fs-xxs;
+        padding-bottom: 0.5em;
+    }
+
     &-list {
         margin-top: 0;
         margin-bottom: 0;
@@ -124,7 +116,7 @@ export default {
 
             &[data-type='h3'] {
                 font-size: 1rem;
-                padding-left: 0.75em;
+                padding-left: 1em;
                 color: var(--color-base-6);
             }
 
@@ -142,7 +134,7 @@ export default {
                 position: relative;
                 display: inline-flex;
                 text-decoration: none;
-                padding: 0.3em 0;
+                padding: 0.25em 0;
                 color: c('base-0');
                 transition: 0.66s cubic-bezier(0.075, 0.82, 0.165, 1);
 
