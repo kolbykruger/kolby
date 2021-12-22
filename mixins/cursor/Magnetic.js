@@ -28,7 +28,11 @@ export const Magnetic = {
             }
 
             magnetic.forEach(magnet => {
-                const attr = magnet.dataset.magnetic
+                const attr = magnet.getAttribute('data-magnetic')
+
+                if (!attr) {
+                    return false
+                }
                 const vals = attr ? attr.split(',') : null
                 const options = {
                     x: vals ? vals[0] : this.options.x,
