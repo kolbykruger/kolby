@@ -1,11 +1,10 @@
 <template>
-    <div class="button" :class="'button-size-' + size" ref="btn">
-        <nuxt-link data-magnetic class="button-link" :to="location" v-if="location">
-            <span><slot></slot></span>
-        </nuxt-link>
-        <button data-magnetic class="button-btn" v-else @click="emitClick">
-            <span><slot></slot></span>
-        </button>
+    <div class="button" :class="['button-size-' + size, 'button-type-' + type]" ref="btn">
+        <component data-magnetic :is="element" :to="location" @click="emitClick" class="button-action">
+            <span v-if="$slots.preicon" class="button-icon button-icon-pre"><slot name="preicon"></slot></span>
+            <span class="button-content"><slot></slot></span>
+            <span v-if="$slots.posticon" class="button-icon button-icon-post"><slot name="posticon"></slot></span>
+        </component>
     </div>
 </template>
 
@@ -18,6 +17,14 @@ export default {
             type: String,
             default: 'normal',
         },
+        type: {
+            type: String,
+            default: 'button',
+        },
+        magnetic: {
+            type: Boolean,
+            default: false,
+        },
     },
     data() {
         return {
@@ -25,11 +32,17 @@ export default {
             y: 0,
         }
     },
-    computed: {},
+    computed: {
+        element() {
+            return this.location ? 'nuxt-link' : 'button'
+        },
+    },
     methods: {
         emitClick(event) {
             // add a @clicked to parent button component
-            this.$emit('clicked', event)
+            if (!this.location) {
+                this.$emit('clicked', event)
+            }
         },
     },
     mounted() {},
@@ -39,71 +52,124 @@ export default {
 <style lang="scss">
 .button {
     &-link,
-    &-btn {
+    &-action {
         position: relative;
         display: inline-flex;
         align-items: center;
-        height: 68px;
-        margin-right: 0.7em;
-        margin-bottom: 0.7em;
-        padding: 0 1.4em;
-        border-radius: 2em;
         text-decoration: none;
         color: c('base-0');
-        border: 1px solid c('base-4');
         background: transparent;
         font-size: 1.5rem;
-        transition: color 0.2s ease, border-color 0.3s ease;
         overflow: hidden;
+        outline: none;
 
         &[data-magnetic] {
             display: inline-flex;
         }
+    }
 
-        .article & {
-            border-color: c('base-4');
+    &-type {
+        &-button {
+            .button {
+                &-action {
+                    height: 68px;
+                    padding: 0 1.4em;
+                    margin-right: 0.7em;
+                    margin-bottom: 0.7em;
+                    border-radius: 2em;
+                    border: 1px solid c('base-4');
+                    transition: color 0.2s ease, border-color 0.3s ease;
+
+                    .article & {
+                        border-color: c('base-4');
+                    }
+
+                    &::before {
+                        content: '';
+                        position: absolute;
+                        left: 50%;
+                        top: 100%;
+                        width: 100%;
+                        height: 100%;
+                        border-radius: 50%;
+                        background-color: c('base-0');
+                        transform: translate(-50%, 0%);
+                        transition: 0.2s ease;
+                        z-index: -1;
+                        // mix-blend-mode: difference;
+                    }
+
+                    &::after {
+                        content: '';
+                        position: absolute;
+
+                        --offset: 0;
+                        top: var(--offset);
+                        left: var(--offset);
+                        bottom: var(--offset);
+                        right: var(--offset);
+                        border-radius: 2em;
+                        background: radial-gradient(ellipse at 0% 0%, c('base-3'), transparent 75%);
+                        opacity: 0.12;
+                    }
+
+                    &:hover {
+                        color: c('base-9');
+                        border-color: transparent;
+
+                        html[theme='dark'] & {
+                            border-color: transparent;
+                        }
+
+                        &::before {
+                            transform: translate(-50%, -100%);
+                            border-radius: 2em;
+                        }
+                    }
+                }
+            }
         }
 
-        &::before {
-            content: '';
-            position: absolute;
-            left: 50%;
-            top: 100%;
+        &-text {
+            .button {
+                &-action {
+                    @include fs-sm;
+                    padding: 0;
+                }
+            }
+        }
+    }
+
+    &-icon,
+    &-content {
+        position: relative;
+        display: block;
+    }
+
+    &-content {
+        line-height: 1;
+
+        + .button-icon {
+            margin-left: 0.7em;
+        }
+    }
+
+    &-icon {
+        --size: 1.125em;
+        width: var(--size);
+        height: var(--size);
+
+        + .button-content {
+            margin-left: 0.7em;
+        }
+
+        svg {
+            display: block;
             width: 100%;
             height: 100%;
-            border-radius: 50%;
-            background-color: c('base-0');
-            transform: translate(-50%, 0%);
-            transition: 0.2s ease;
-            z-index: -1;
-            // mix-blend-mode: difference;
-        }
 
-        &::after {
-            content: '';
-            position: absolute;
-
-            --offset: 0;
-            top: var(--offset);
-            left: var(--offset);
-            bottom: var(--offset);
-            right: var(--offset);
-            border-radius: 2em;
-            background: radial-gradient(ellipse at 0% 0%, c('base-3'), transparent 75%);
-            opacity: 0.12;
-        }
-
-        &:hover {
-            color: c('base-9');
-            border-color: transparent;
-
-            html[theme='dark'] & {
-                border-color: transparent;
-            }
-
-            &::before {
-                transform: translate(-50%, -100%);
-                border-radius: 2em;
+            > * {
+                fill: c('base-3');
             }
         }
     }
@@ -111,10 +177,18 @@ export default {
     &.button-size {
         &-small {
             .button {
-                &-link,
-                &-btn {
-                    height: 52px;
-                    font-size: 1.125rem;
+                &-type {
+                    &-button {
+                        .button {
+                            &-action {
+                                height: 52px;
+                                font-size: 1.125rem;
+                            }
+                        }
+                    }
+                }
+                &-action {
+                    font-size: 1.25rem;
                 }
             }
         }
