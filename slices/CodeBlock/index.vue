@@ -6,7 +6,7 @@
                 class="code-block-code"
                 :field="slice.primary.Code"
                 :htmlSerializer="codeSerializer"
-                contenteditable="true"
+                :contenteditable="!isMobile"
                 @keydown="preventEdits"
             />
             <textarea class="code-block-raw" ref="codeBlockRaw" v-html="raw"></textarea>
@@ -43,6 +43,11 @@ export default {
                 return {}
             },
         },
+    },
+    data() {
+        return {
+            isMobile: false,
+        }
     },
     computed: {
         raw() {
@@ -97,6 +102,11 @@ export default {
                 // console.log(err)
             }
         },
+    },
+    mounted() {
+        window.addEventListener('resize', () => {
+            this.isMobile = screen.width <= 768 ? true : false
+        })
     },
 }
 </script>
