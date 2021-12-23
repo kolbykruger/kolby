@@ -60,23 +60,6 @@ article {
         margin: 0 auto;
         @extend .page-spacer;
     }
-
-    &.-hidden {
-        overflow: hidden;
-        animation: hidden 1s ease forwards;
-
-        @keyframes hidden {
-            99% {
-                max-height: 0;
-                opacity: 0;
-            }
-            100% {
-                max-height: 0;
-                opacity: 0;
-                visibility: hidden;
-            }
-        }
-    }
 }
 
 article {
@@ -85,8 +68,20 @@ article {
     @extend .page-spacer;
 
     main {
-        max-width: 52em;
+        order: 2;
+        max-width: 100%;
         width: 100%;
+
+        @include mq('laptop-small') {
+            max-width: 52em;
+            flex: 1;
+            order: 0;
+        }
+    }
+
+    aside {
+        position: relative;
+        z-index: 10;
     }
 }
 
