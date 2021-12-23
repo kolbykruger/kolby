@@ -52,7 +52,7 @@ export default {
         },
     ],
     components: true,
-    buildModules: ['@nuxt/image'],
+    buildModules: ['@nuxt/image', '@nuxtjs/svg'],
     transpile: ['gsap', 'three'],
     modules: [
         '@nuxt/image',
