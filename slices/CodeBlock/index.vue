@@ -1,5 +1,6 @@
 <template>
-    <section class="code-block" data-anim data-cursor="invisible">
+    <section class="code-block" data-cursor="invisible">
+        <a :data-figure="slice.primary.Figure || slice.primary.File || 'MISSING FIGURE'" :name="hash"></a>
         <div class="container">
             <prismic-rich-text
                 spellcheck="false"
@@ -56,6 +57,9 @@ export default {
             code = code.replace('</pre>', '')
 
             return code
+        },
+        hash() {
+            return Math.random().toString(36).substr(2, 9)
         },
     },
     methods: {
