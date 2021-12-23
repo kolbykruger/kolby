@@ -1,7 +1,7 @@
 <template>
     <component :is="tag" ref="title" class="name-title" data-anim>
-        <span class="name-title-text"> Kolby </span>
-        <span class="name-title-star">
+        <span class="name-title-text" ref="firstName"> Kolby </span>
+        <span class="name-title-star" ref="star">
             <svg
                 enable-background="new 0 0 14.4 14.5"
                 version="1.1"
@@ -18,11 +18,16 @@
                 />
             </svg>
         </span>
-        <span class="name-title-text"> Kruger </span>
+        <span class="name-title-text" ref="lastName"> Kruger </span>
     </component>
 </template>
 
 <script>
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
+import { SplitText } from 'gsap/dist/SplitText'
+import { CustomEase } from 'gsap/dist/CustomEase'
+
 export default {
     name: 'NameTitle',
     props: {
@@ -30,6 +35,71 @@ export default {
             type: String,
             default: 'h1',
         },
+        animation: {
+            type: Boolean,
+            default: false,
+        },
+    },
+    mounted() {
+        gsap.registerPlugin(SplitText)
+        gsap.registerPlugin(CustomEase)
+        gsap.registerPlugin(ScrollTrigger)
+
+        if (!this.animation) {
+            return false
+        }
+
+        const timeline = gsap.timeline()
+        const ease = CustomEase.create('custom', 'M0,0 C0.23,1 0.32,1 1,1 ')
+        const nametitle = this.$refs.title
+        const firstName = this.$refs.firstName
+        const lastName = this.$refs.lastName
+        const star = this.$refs.star
+
+        const splitTextOptions = {
+            type: 'lines,words,chars',
+            charsClass: 'name-title-char',
+            wordsClass: 'name-title-word',
+            linesClass: 'name-title-line',
+        }
+
+        const firstNameSplitText = new SplitText(firstName, splitTextOptions)
+        const lastNameSplitText = new SplitText(lastName, splitTextOptions)
+
+        const name = gsap.utils.toArray([...firstNameSplitText.chars, ...lastNameSplitText.chars])
+
+        timeline
+            .set(name, {
+                yPercent: 100,
+                rotateX: 110,
+                d: 1300,
+            })
+            .set(star, {
+                scale: 0,
+            })
+
+        ScrollTrigger.batch(name, {
+            trigger: nametitle,
+            start: 'top 90%',
+            markers: false,
+            onEnter: batch => {
+                timeline
+                    .to(batch, {
+                        yPercent: 0,
+                        rotateX: 0,
+                        d: 0,
+                        ease: ease,
+                        duration: 1.6,
+                        delay: 0.2,
+                        stagger: 0.014,
+                    })
+                    .to(star, 1, {
+                        scale: 1,
+                        delay: -0.8,
+                        ease: 'Power2.easeOut',
+                    })
+            },
+        })
     },
 }
 </script>
@@ -87,6 +157,15 @@ export default {
                 fill: c('base-0');
             }
         }
+    }
+
+    &-line {
+        overflow: hidden;
+    }
+
+    &-word {
+        perspective: 1000px;
+        transform-style: preserve-3d;
     }
 }
 </style>
