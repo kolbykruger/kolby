@@ -119,6 +119,9 @@
             },
             "embed": {
               "type": "SharedSlice"
+            },
+            "desktop_image": {
+              "type": "SharedSlice"
             }
           }
         }
