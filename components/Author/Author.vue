@@ -2,11 +2,9 @@
     <section class="author">
         <div class="container">
             <div class="author-image">
-                <img src="/images/kolby-squircle.png" alt="Kolby Kruger - smiling." />
+                <img src="/images/kolby-squircle.png" alt="Kolby Kruger" />
             </div>
-            <div class="author-name">
-                <p><small>Kolby Kruger</small></p>
-            </div>
+            <p class="author-name">Kolby Kruger</p>
         </div>
     </section>
 </template>
@@ -19,13 +17,31 @@ export default {
 
 <style lang="scss">
 .author {
-    margin-bottom: 3vh;
+    margin-bottom: 0;
+
+    @include mq('laptop-small') {
+        margin-bottom: 3vh;
+    }
+
+    .container {
+        display: flex;
+        align-items: center;
+        flex-flow: row wrap;
+
+        @include mq('laptop-small') {
+            display: block;
+        }
+    }
 
     &-image {
-        --size: 60px;
+        --size: 40px;
         width: var(--size);
         height: var(--size);
         overflow: hidden;
+
+        @include mq('laptop-small') {
+            --size: 60px;
+        }
 
         img {
             width: 100%;
@@ -35,14 +51,16 @@ export default {
     }
 
     &-name {
-        margin-top: 1em;
+        margin-left: 1em;
         margin-bottom: 0;
         color: c('base-5');
         font-weight: 500;
+        @include fs-sm;
 
-        small {
-            color: c('base-5');
-            font-weight: 500;
+        @include mq('laptop-small') {
+            @include fs-xxs;
+            margin-top: 0.75em;
+            margin-left: 0;
         }
     }
 }
