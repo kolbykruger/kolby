@@ -7,15 +7,15 @@
                 <div class="container">
                     <div class="work-intro-details">
                         <p>
-                            I've had the opportunity to work on some amazing projects with some marvelous people. I'm
-                            lucky enough to have been part of over
-                            <span style="color: var(--color-primary-base)">{{ projectsCount + 14 }} ~</span> creative
-                            experiences & products.
+                            I ventured into design and development to express my creativity;
+                            {{ careerDurationInYears }} years and a couple hundred energy drinks later, there's nowhere
+                            else I'd rather be. I've had the opportunity to work on over
+                            <span style="color: var(--color-primary-base)">{{ projectsCount + 14 }} ~</span> projects,
+                            and collaborated with some extraordinary people.
                         </p>
                     </div>
                 </div>
             </section>
-            <Scroller />
 
             <section class="case-studies" v-if="cases">
                 <div class="container">
@@ -94,6 +94,13 @@ export default {
         projectsCount() {
             const projects = this.projects
             return projects ? projects.length : null
+        },
+        careerDurationInYears() {
+            const startDate = new Date('June 1, 2016')
+            const todayDate = new Date()
+            const difference = todayDate.getTime() - startDate.getTime()
+            const years = difference / (1000 * 60 * 60 * 24 * 365)
+            return Math.ceil(years)
         },
     },
 }
