@@ -45,18 +45,6 @@
         "items": {}
       }
     },
-    "Headline": {
-      "default-slice": {
-        "primary": {
-          "title": {
-            "config": {
-              "patternType": "HEADING",
-              "blocks": 1
-            }
-          }
-        }
-      }
-    },
     "Accordion": {
       "default-slice": {
         "primary": {
@@ -75,7 +63,19 @@
         }
       }
     },
-    "CodeBlock": {}
+    "CodeBlock": {},
+    "Panels": {
+      "default-slice": {
+        "items": {
+          "Content": {
+            "config": {
+              "patternType": "PARAGRAPH",
+              "blocks": 1
+            }
+          }
+        }
+      }
+    }
   },
   "_cts": {
     "page": {

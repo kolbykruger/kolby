@@ -18,7 +18,7 @@ export const _DefaultSlice = () => ({
   },
   data() {
     return {
-      mock: {"variation":"default-slice","name":"Default slice","slice_type":"branding","items":[{"Color":"#7bcc68","ColorName":"seize 24/7 e-tailers"},{"Color":"#722042","ColorName":"harness sexy architectures"},{"Color":"#a9e38a","ColorName":"syndicate front-end networks"},{"Color":"#f7a0f7","ColorName":"envisioneer global e-business"}],"primary":{"Typography":{"dimensions":{"width":1024,"height":682},"alt":"Placeholder image","copyright":null,"url":"https://images.unsplash.com/photo-1448932223592-d1fc686e76ea?w=1024&h=682&fit=crop"},"Logo":{"dimensions":{"width":1024,"height":682},"alt":"Placeholder image","copyright":null,"url":"https://images.unsplash.com/photo-1607582278038-6bebbd4d7b72?w=1024&h=682&fit=crop"}},"id":"_DefaultSlice"}
+      mock: {"variation":"default-slice","name":"Default slice","slice_type":"branding","items":[{"Color":"#596d03","ColorName":"expedite turn-key communities"},{"Color":"#6f8a79","ColorName":"integrate sexy e-markets"},{"Color":"#cf8f71","ColorName":"generate next-generation supply-chains"},{"Color":"#55a2fd","ColorName":"synergize one-to-one systems"}],"primary":{"Typography":{"dimensions":{"width":1024,"height":682},"alt":"Placeholder image","copyright":null,"url":"https://images.unsplash.com/photo-1537498425277-c283d32ef9db?w=1024&h=682&fit=crop"},"Logo":{"dimensions":{"width":1024,"height":682},"alt":"Placeholder image","copyright":null,"url":"https://images.unsplash.com/photo-1591012911207-0dbac31f37da?w=1024&h=682&fit=crop"}},"id":"_DefaultSlice"}
     }
   },
   template: '<SliceZone :slices="[mock]" :resolver="resolve" />'

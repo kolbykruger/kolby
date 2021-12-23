@@ -18,7 +18,7 @@ export const _DefaultSlice = () => ({
   },
   data() {
     return {
-      mock: {"variation":"default-slice","name":"Default slice","slice_type":"textblock","items":[],"primary":{"Index":"recontextualize compelling ROI","Eyebrow":"aggregate out-of-the-box e-business","title":[{"type":"heading2","text":"Grow impactful markets","spans":[]}],"description":[{"type":"paragraph","text":"Sit minim aute velit sunt. Eu minim ad aute veniam cillum minim ut sit cillum labore dolore ex laborum quis veniam. Fugiat aute sit qui exercitation eiusmod dolore veniam exercitation magna qui consectetur adipisicing labore proident.","spans":[]}]},"id":"_DefaultSlice"}
+      mock: {"variation":"default-slice","name":"Default slice","slice_type":"textblock","items":[],"primary":{"Index":"synergize bricks-and-clicks content","Eyebrow":"deliver intuitive portals","title":[{"type":"heading2","text":"Disintermediate plug-and-play infrastructures","spans":[]}],"description":[{"type":"paragraph","text":"Est incididunt excepteur exercitation.","spans":[]}]},"id":"_DefaultSlice"}
     }
   },
   template: '<SliceZone :slices="[mock]" :resolver="resolve" />'
@@ -37,7 +37,7 @@ export const _TextblockWithGridList = () => ({
   },
   data() {
     return {
-      mock: {"variation":"textblockWithGridList","name":"Textblock - with Grid List","slice_type":"textblock","items":[{"Name":"iterate revolutionary applications","Outline":"unleash impactful users"},{"Name":"maximize leading-edge eyeballs","Outline":"deliver distributed metrics"},{"Name":"aggregate back-end bandwidth","Outline":"integrate seamless users"},{"Name":"synergize efficient blockchains","Outline":"synthesize magnetic technologies"}],"primary":{"Index":"aggregate strategic portals","Eyebrow":"envisioneer enterprise blockchains","title":[{"type":"heading2","text":"Leverage robust supply-chains","spans":[]}],"description":[{"type":"paragraph","text":"Voluptate sint qui consectetur aute.","spans":[]}]},"id":"_TextblockWithGridList"}
+      mock: {"variation":"textblockWithGridList","name":"Textblock - with Grid List","slice_type":"textblock","items":[{"Name":"benchmark world-class infrastructures","Outline":"iterate wireless ROI"},{"Name":"synergize dynamic web-readiness","Outline":"innovate efficient infrastructures"},{"Name":"exploit 24/365 schemas","Outline":"enable front-end niches"},{"Name":"unleash innovative infrastructures","Outline":"enhance bricks-and-clicks ROI"}],"primary":{"Index":"recontextualize compelling interfaces","Eyebrow":"harness impactful systems","title":[{"type":"heading2","text":"Cultivate distributed solutions","spans":[]}],"description":[{"type":"paragraph","text":"Reprehenderit exercitation ad mollit veniam duis adipisicing ipsum reprehenderit magna duis duis elit.","spans":[]}]},"id":"_TextblockWithGridList"}
     }
   },
   template: '<SliceZone :slices="[mock]" :resolver="resolve" />'
