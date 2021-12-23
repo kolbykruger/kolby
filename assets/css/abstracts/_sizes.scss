@@ -1,3 +1,9 @@
+// mini
+@mixin fs-mini() {
+    font-size: var(--font-size-mini);
+    line-height: var(--line-height-lg);
+}
+
 // tiny
 @mixin fs-xxs() {
     font-size: var(--font-size-xxs);
