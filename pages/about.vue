@@ -2,7 +2,7 @@
     <main class="page about" id="content">
         <div class="page-contents">
             <Foreward :document="document" />
-            <NameTitle tag="h2" />
+            <NameTitle tag="h2" :animation="true" />
             <slice-zone class="slices" type="about" uid="about" />
         </div>
     </main>
