@@ -41,65 +41,7 @@ export default {
     mounted() {
         this.setOffset()
 
-        const header = this.$refs.header
-        const bounds = header.getBoundingClientRect()
-        let isScrolling
-        let position = {
-            current: 0,
-            previous: 0,
-        }
-
-        let scrollDistance = (callback, refresh) => {
-            // Check if a proper callback was initialized
-            if (!callback || typeof callback !== 'function') {
-                return
-            }
-
-            //
-            let isScrolling, start, end, distance
-
-            window.addEventListener(
-                'scroll',
-                event => {
-                    // Set the starting position
-                    if (!start) {
-                        start = window.pageYOffset
-                    }
-
-                    // Clear the timeout if still scrolling
-                    window.clearTimeout(isScrolling)
-
-                    // set a timeout to detect when scrolling ends
-                    isScrolling = setTimeout(() => {
-                        // Calculate the distance
-                        end = window.pageYOffset
-                        distance = end - start
-
-                        // Trigger the callback
-                        callback(distance, start, end)
-
-                        // Reset the calculations
-                        start = end = distance = null
-                    }, refresh || 66)
-                },
-                false
-            )
-        }
-
-        scrollDistance(distance => {
-            if (this.menuStatus) {
-                return false
-            }
-
-            if (distance < 0 && parseInt(Math.abs(distance), 10) > 16 && window.pageYOffset > bounds.height) {
-                header.classList.add('-sticky')
-            } else {
-                header.classList.remove('-sticky')
-            }
-        })
-
         window.addEventListener('resize', event => {
-            this.bounds = header.getBoundingClientRect()
             this.setOffset()
         })
     },
@@ -118,20 +60,6 @@ export default {
     left: 0;
     width: 100%;
     z-index: 150;
-
-    &.-sticky {
-        position: fixed;
-        animation: header-sticky 300ms ease forwards;
-
-        @keyframes header-sticky {
-            from {
-                transform: translateY(calc(-150% + 1.25em));
-            }
-            to {
-                transform: translateY(0);
-            }
-        }
-    }
 
     @include mq('tablet') {
         top: 3.75em;
