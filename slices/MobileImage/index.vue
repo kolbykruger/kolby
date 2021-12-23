@@ -51,7 +51,7 @@ export default {
                 adaptiveHeight: false,
                 setGallerySize: true,
                 prevNextButtons: false,
-                freeScroll: true,
+                freeScroll: false,
                 selectedAttraction: 0.01,
                 friction: 0.2,
                 groupCells: this.groupCells(),
@@ -147,13 +147,22 @@ export default {
         border-radius: 3.3em;
         box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.07);
         overflow: hidden;
-        width: 85%;
+        width: 80%;
         margin: 0 5vw;
         user-select: none;
+        opacity: 0.6;
+        transform: scale(0.8);
+        transition: all 0.62s ease;
+
+        &.is-selected {
+            transform: scale(1);
+            opacity: 1;
+        }
 
         @include mq('tablet') {
             width: calc(100% / #{var(--count)} - 3vw);
             margin: 0 1.5vw;
+            border: 0.3em solid #fff;
 
             &[data-count='5'] {
                 width: calc(100% / #{var(--count)} - 1.5vw);
@@ -161,10 +170,21 @@ export default {
             }
         }
 
+        @include mq('desktop-small') {
+            border: 0.7em solid #fff;
+        }
+
         img {
             border: 1px solid #fafafa;
             border-radius: 3.3em;
             padding: 0.5em;
+
+            @include mq('tablet') {
+                padding: 0.25em;
+            }
+            @include mq('desktop-small') {
+                padding: 0.5em;
+            }
         }
     }
 
