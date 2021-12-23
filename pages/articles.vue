@@ -74,7 +74,7 @@ import { Animations } from '~/mixins/animations/Animations.js'
 export default {
     data() {
         return {
-            categories: ['Code', 'Guide'],
+            categories: ['Guide', 'Spotlight'],
             ease: null,
         }
     },
