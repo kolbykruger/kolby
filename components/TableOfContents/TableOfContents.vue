@@ -1,6 +1,6 @@
 <template>
     <div class="toc" v-if="document" :data-uid="uid" ref="toc">
-        <div class="toc-container" v-if="links.length > 0">
+        <div class="toc-container" v-show="!showCode" v-if="links.length > 0">
             <p class="toc-label">Table of contents</p>
             <ul class="toc-list">
                 <li class="toc-list-item" v-for="(link, index) in links" :key="index" :data-type="link.type">
@@ -10,18 +10,33 @@
                 </li>
             </ul>
         </div>
+
+        <div class="toc-container" v-show="showCode" v-if="codeblocks.length > 0">
+            <p class="toc-label">Code Snippets</p>
+            <ul class="toc-list">
+                <li class="toc-list-item" v-for="(figure, index) in codeblocks" :key="index">
+                    <nuxt-link class="toc-list-item-link" :to="{ path: path, hash: hash(figure.id) }">
+                        {{ figure.name ? figure.name : figure.id }}
+                    </nuxt-link>
+                </li>
+            </ul>
+        </div>
     </div>
 </template>
 
 <script>
+import { gsap } from 'gsap'
+
 export default {
     name: 'TableOfContents',
     props: {
         document: Object,
+        showCode: Boolean,
     },
     data() {
         return {
             links: [],
+            codeblocks: [],
             activeItem: null,
         }
     },
@@ -39,8 +54,10 @@ export default {
         },
         getAnchorLinks() {
             this.links = []
+            this.codeblocks = []
 
-            const anchors = document.querySelectorAll('a[name]')
+            const anchors = document.querySelectorAll('a[name]:not([data-figure])')
+            const figures = document.querySelectorAll('a[name][data-figure]')
 
             anchors.forEach(item => {
                 const id = item.getAttribute('name')
@@ -55,13 +72,29 @@ export default {
                 })
             })
 
+            figures.forEach(item => {
+                const id = item.getAttribute('name')
+                const name = item.getAttribute('data-figure')
+                const offset = item.getBoundingClientRect().top - 1
+                this.codeblocks.push({
+                    id,
+                    name,
+                    offset,
+                })
+            })
+
             if (this.links.length > 0) {
                 this.links.unshift({
                     id: 'content',
                     name: 'Introduction',
                     offset: 0,
                 })
-                this.$refs.toc.classList.add('-active')
+
+                gsap.to(this.$refs.toc, {
+                    y: 0,
+                    alpha: 1,
+                    visibility: 'visible',
+                })
             }
         },
     },
@@ -80,12 +113,14 @@ export default {
 
 <style lang="scss">
 .toc {
+    display: none;
     opacity: 0;
     visibility: hidden;
     transform: translate(0, 3em);
+    max-width: 275px;
 
-    &.-active {
-        animation: toc-enter 0.92s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
+    @include mq('laptop-small') {
+        display: block;
     }
 
     @keyframes toc-enter {
@@ -113,11 +148,20 @@ export default {
             padding-left: 0;
             margin-bottom: 0;
             font-size: 1.125rem;
+            line-height: 1.2;
 
             &[data-type='h3'] {
                 font-size: 1rem;
                 padding-left: 1em;
                 color: var(--color-base-6);
+
+                a {
+                    padding: 0.125em 0;
+                }
+
+                + [data-type='h2'] {
+                    padding-top: 0.25em;
+                }
             }
 
             &-header {
