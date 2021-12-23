@@ -1,0 +1,26 @@
+{
+  "id": "desktop_image",
+  "type": "SharedSlice",
+  "name": "DesktopImage",
+  "description": "DesktopImage",
+  "variations": [
+    {
+      "id": "default-slice",
+      "name": "Default slice",
+      "docURL": "...",
+      "version": "sktwi1xtmkfgx8626",
+      "description": "DesktopImage",
+      "primary": {},
+      "items": {
+        "Image": {
+          "config": {
+            "label": "Image",
+            "constraint": {},
+            "thumbnails": []
+          },
+          "type": "Image"
+        }
+      }
+    }
+  ]
+}
