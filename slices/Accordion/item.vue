@@ -52,20 +52,20 @@ export default {
             this.open = !this.open
             const panel = this.$refs.accordionPanel
         },
+        calculatePanelHeight() {
+            const panel = this.$refs.accordionPanel || false
+            if (panel) {
+                this.panelHeight = panel.scrollHeight
+            }
+        },
     },
     mounted() {
-        this.panelHeight = panelHeight()
+        // Run to calculate the panel height
+        this.calculatePanelHeight()
 
         window.addEventListener('resize', () => {
-            this.panelHeight = panelHeight()
+            this.calculatePanelHeight()
         })
-
-        function panelHeight() {
-            const panel = this.$refs.accordionPanel
-            if (panel) {
-                return panel.scrollHeight
-            }
-        }
     },
 }
 </script>
