@@ -154,7 +154,7 @@ export default {
         background-image: url('/noise/noise.gif');
         background-size: auto;
         background-repeat: repeat;
-        opacity: 1;
+        opacity: 0.5;
 
         html[theme='dark'] & {
             opacity: 0.18;
