@@ -1,10 +1,15 @@
 <template>
     <section class="foreward">
         <div class="container">
-            <div class="foreward-image" ref="forewardImage">
-                <!-- <prismic-image :field="document.data.Cover" /> -->
-                <Picture :field="document.data.Cover" />
+            <div class="foreward-text">
+                <h2 ref="forewardText">
+                    <span>Kolby</span>
+                    <span>Kruger</span>
+                </h2>
             </div>
+        </div>
+        <div class="foreward-image" ref="forewardImage">
+            <Picture :field="document.data.Cover" />
         </div>
     </section>
 </template>
@@ -13,6 +18,9 @@
 import { gsap } from 'gsap'
 import { CustomEase } from 'gsap/dist/CustomEase'
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
+import { SplitText } from 'gsap/dist/SplitText'
+
+import NameTitle from '@/components/Pageheading/NameTitle.vue'
 
 export default {
     name: 'Foreward',
@@ -33,22 +41,40 @@ export default {
             }),
         },
     },
+    components: {
+        NameTitle,
+    },
     computed: {
         initialLoad() {
             return this.$store.state.loading.initial
         },
     },
     mounted() {
+        gsap.registerPlugin(SplitText)
         gsap.registerPlugin(CustomEase)
         gsap.registerPlugin(ScrollTrigger)
         const ease = CustomEase.create('custom', 'M0,0 C0.215,0.61 0.355,1 1,1 ')
         const image = this.$refs.forewardImage
-        const i = image.querySelector('img')
+        const imageElem = image.querySelector('figure')
+        const text = this.$refs.forewardText
         const timeline = gsap.timeline()
-        const loadType = gsap.set(image, {
-            scale: 1.5,
-            yPercent: 100,
+
+        const splitText = new SplitText(text, {
+            type: 'lines,words,chars',
+            charsClass: 'foreward-text-char',
+            wordsClass: 'foreward-text-word',
+            linesClass: 'foreward-text-line',
         })
+
+        timeline
+            .set(image, {
+                yPercent: 100,
+            })
+            .set(splitText.chars, {
+                yPercent: 150,
+                rotateX: 110,
+                d: 1300,
+            })
 
         this.$router.onReady(() => {
             this.$nextTick(() => {
@@ -56,26 +82,40 @@ export default {
                     () => {
                         timeline
                             .to(image, {
-                                yPercent: 8,
+                                yPercent: 0,
                                 duration: 1.2,
                                 ease: 'expo.out',
                             })
-                            .to(image, 0.75, {
-                                scale: 1,
-                                delay: -0.3,
-                                ease: ease,
+                            .to(image, {
+                                clipPath: 'polygon(42% 0, 90% 0, 90% 100%, 42% 100%)',
+                                duration: 0.95,
+                                delay: -0.2,
+                                ease: 'expo.out',
                             })
-                            .to(i, {
-                                scrollTrigger: {
-                                    trigger: image,
-                                    start: 'top bottom',
-                                    scrub: true,
+                            .staggerTo(
+                                splitText.chars,
+                                0.75,
+                                {
+                                    yPercent: 0,
+                                    rotateX: 0,
+                                    d: 0,
+                                    ease: ease,
+                                    delay: -0.65,
                                 },
-                                yPercent: 18,
-                            })
+                                0.02
+                            )
+                        // .to(imageElem, {
+                        //     scrollTrigger: {
+                        //         trigger: image,
+                        //         start: 'top bottom',
+                        //         scrub: true,
+                        //     },
+                        //     yPercent: 18,
+                        // })
                     },
                     this.initialLoad ? 2000 : 1200
-                ) // page animation transition length
+                    // page animation transition length
+                )
             })
         })
     },
@@ -85,8 +125,47 @@ export default {
 <style lang="scss">
 .foreward {
     position: relative;
-    // margin-bottom: 20vh;
-    aspect-ratio: 1.77778 / 1;
+    transform: none;
+    // aspect-ratio: 1.77778 / 1;
+
+    @include mq('tablet') {
+        transform: translateY(calc(var(--offset) * -1));
+    }
+
+    .container {
+        position: absolute;
+        z-index: 2;
+
+        @include mq('tablet') {
+            min-height: 100vh;
+        }
+    }
+
+    &-text {
+        display: flex;
+        align-items: center;
+
+        @include mq('tablet') {
+            min-height: 100vh;
+        }
+
+        h2 {
+            @include fs-max;
+            text-transform: uppercase;
+        }
+        span {
+            display: block;
+        }
+
+        &-line {
+            overflow: hidden;
+        }
+
+        &-word {
+            perspective: 1000px;
+            transform-style: preserve-3d;
+        }
+    }
 
     &-image {
         position: relative;
@@ -96,6 +175,22 @@ export default {
         left: 0;
         width: 100%;
         height: 100%;
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+
+        @include mq('tablet') {
+            min-height: 100vh;
+        }
+
+        // Go to this one
+        //clip-path: polygon(38% 0, 91% 0, 91% 100%, 38% 100%);
+
+        figure {
+            width: 100vw;
+
+            @include mq('tablet') {
+                height: 100vh;
+            }
+        }
 
         img {
             object-fit: cover;
