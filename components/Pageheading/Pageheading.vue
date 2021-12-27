@@ -86,7 +86,11 @@ export default {
 
     &-size-small {
         h1 {
-            font-size: clamp(3.052rem, -0.875rem + 8.333vw, 7.451rem);
+            @include fs-xl;
+
+            @include mq('laptop-small') {
+                @include fs-xxl;
+            }
         }
     }
 
