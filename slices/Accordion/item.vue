@@ -54,11 +54,18 @@ export default {
         },
     },
     mounted() {
-        this.panelHeight = this.$refs.accordionPanel.scrollHeight
+        this.panelHeight = panelHeight()
 
         window.addEventListener('resize', () => {
-            this.panelHeight = this.$refs.accordionPanel.scrollHeight
+            this.panelHeight = panelHeight()
         })
+
+        function panelHeight() {
+            const panel = this.$refs.accordionPanel
+            if (panel) {
+                return panel.scrollHeight
+            }
+        }
     },
 }
 </script>
