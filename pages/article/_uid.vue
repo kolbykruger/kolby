@@ -212,26 +212,25 @@ export default {
 
         const date = new SplitText(this.$refs.articleDate, {
             type: 'lines,words,chars',
-            charsClass: 'pageheading-char',
-            wordsClass: 'pageheading-word',
-            linesClass: 'pageheading-line',
+            charsClass: 'article-header-date-char',
+            wordsClass: 'article-header-date-word',
+            linesClass: 'article-header-date-line',
         })
 
-        const summary = new SplitText(this.$refs.articleSummary, {
-            type: 'lines,words,chars',
-            charsClass: 'pageheading-char',
-            wordsClass: 'pageheading-word',
-            linesClass: 'pageheading-line',
+        const summary = new SplitText(this.$refs.articleSummary.children, {
+            type: 'lines,words',
+            wordsClass: 'article-header-lead-word',
+            linesClass: 'article-header-lead-line',
         })
 
         gsap.set(date.chars, {
-            yPercent: 100,
+            yPercent: 150,
             rotateX: 110,
             d: 1300,
         })
 
         gsap.set(summary.words, {
-            yPercent: 100,
+            yPercent: 150,
             rotateX: 110,
             d: 1300,
         })
@@ -363,6 +362,15 @@ export default {
                 margin: 0 0.25em;
                 opacity: 0.25;
             }
+
+            &-line {
+                overflow: hidden;
+            }
+
+            &-word {
+                perspective: 1000px;
+                transform-style: preserve-3d;
+            }
         }
 
         &-lead {
@@ -374,6 +382,15 @@ export default {
 
             &:empty {
                 padding-bottom: 2vh;
+            }
+
+            &-line {
+                overflow: hidden;
+            }
+
+            &-word {
+                perspective: 1000px;
+                transform-style: preserve-3d;
             }
         }
     }
@@ -405,13 +422,21 @@ export default {
         h2 {
             font-family: $font-1;
             //font-size: clamp(1.999rem, -0.875rem + 8.333vw, 3.998rem);
-            @include fs-xl;
+            @include fs-lg;
             font-weight: 600;
+
+            @include mq('laptop-small') {
+                @include fs-xl;
+            }
         }
 
         h3 {
-            @include fs-lg;
+            @include fs-md;
             //font-size: clamp(1.699rem, -0.875rem + 8.333vw, 2.827rem);
+
+            @include mq('laptop-small') {
+                @include fs-lg;
+            }
         }
 
         h4 {
