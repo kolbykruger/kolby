@@ -88,13 +88,13 @@ export default {
             const tr = this.$refs.travelerBackground
 
             TweenLite.to(tr, 1.5, {
-                backgroundColor: color ? color : 'transparent',
+                '--color': color ? color : 'transparent',
             })
         },
         resetTraveler() {
             const tr = this.$refs.travelerBackground
             TweenLite.to(tr, 1.5, {
-                backgroundColor: 'transparent',
+                '--color': 'transparent',
             })
             this.destroyAnimations()
             this.elems = null
@@ -144,6 +144,9 @@ export default {
 
     &-background {
         z-index: -1;
+        --color: var(--color-background);
+        background: linear-gradient(to right, var(--color), c('background'));
+        opacity: 0.6;
     }
 
     &-noise {
@@ -151,7 +154,7 @@ export default {
         background-image: url('/noise/noise.gif');
         background-size: auto;
         background-repeat: repeat;
-        opacity: 0.4;
+        opacity: 1;
 
         html[theme='dark'] & {
             opacity: 0.18;
