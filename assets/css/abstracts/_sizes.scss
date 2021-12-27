@@ -29,7 +29,7 @@
 @mixin fs-md() {
     font-size: var(--font-size-md);
     line-height: var(--line-height-md);
-    line-height: var(--line-height-xl);
+    //line-height: var(--line-height-xl);
     font-weight: 400;
     margin-bottom: var(--flow-space-md);
 }
