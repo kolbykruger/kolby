@@ -143,7 +143,15 @@ export default {
             return image ? image.dimensions.width / 4 : null
         },
     },
-    mounted() {},
+    mounted() {
+        this.flickityOptions.freeScroll = screen.width <= 1200 ? false : true
+        this.flickityOptions.pageDots = screen.width <= 1200 ? true : false
+
+        window.addEventListener('reize', () => {
+            this.flickityOptions.freeScroll = screen.width <= 1200 ? false : true
+            this.flickityOptions.pageDots = screen.width <= 1200 ? true : false
+        })
+    },
 }
 </script>
 
@@ -183,17 +191,7 @@ export default {
         &-slider {
             position: relative;
             margin: 0 auto;
-            margin-left: 20px;
 
-            @include mq('phone-small') {
-                margin-left: 30px;
-            }
-            @include mq('phone-large') {
-                margin-left: 100px;
-            }
-            @include mq('laptop-small') {
-                margin-left: 120px;
-            }
             @include mq('laptop') {
                 margin-left: 150px;
             }
@@ -209,6 +207,7 @@ export default {
         }
 
         &-button {
+            display: none;
             position: absolute;
             top: calc(50% - 5vh);
             left: 3vw;
@@ -217,6 +216,10 @@ export default {
             width: var(--size);
             height: var(--size);
             background: none;
+
+            @include mq('laptop') {
+                display: block;
+            }
 
             svg {
                 width: 100%;
@@ -244,13 +247,18 @@ export default {
     }
 
     &-item {
-        min-width: 980px;
-        min-height: 600px;
-        margin-right: 10vw;
-        width: min-content;
-        opacity: 0.5;
+        width: 100%;
+        padding: 2em;
         transition: opacity 0.4s ease, transform 0.9s cubic-bezier(0.23, 1, 0.32, 1);
         user-select: none;
+
+        @include mq('laptop') {
+            min-width: 980px;
+            width: min-content;
+            min-height: 600px;
+            margin-right: 10vw;
+            opacity: 0.5;
+        }
 
         &.is-selected {
             opacity: 1;
