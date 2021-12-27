@@ -1,7 +1,7 @@
 <template>
     <div class="splash" ref="splash" aria-hidden="true">
         <div class="splash-swipe" data-exclusion>
-            <span class="splash-strap" ref="strap" :class="{ '-hidden': !initialLoad }">
+            <span class="splash-strap" :class="{ '-hidden': !initialLoad }">
                 <span class="splash-strap-text-container">
                     <span class="splash-strap-text" ref="strap" aria-label="kolby."> kolby. </span>
                 </span>
@@ -51,16 +51,19 @@ export default {
             this.timeline.strap
                 // Set initial position of characters
                 .set(splitText.chars, {
-                    y: '150%',
+                    yPercent: 150,
                     rotateX: 110,
                     d: 1300,
+                })
+                .set(strap, {
+                    alpha: 1,
                 })
                 // Stagger characters to "on-screen"
                 .staggerTo(
                     splitText.chars,
                     0.95,
                     {
-                        y: '0%',
+                        yPercent: 0,
                         rotateX: 0,
                         d: 0,
                         ease: this.ease,
@@ -69,7 +72,7 @@ export default {
                 )
                 // move characters out after 0.2
                 .to(splitText.chars, 1.2, {
-                    y: '-150%',
+                    yPercent: -150,
                     rotateX: 110,
                     d: 1300,
                     ease: this.ease,
@@ -95,7 +98,7 @@ export default {
         this.$nextTick(() => {
             setTimeout(() => {
                 this.timeline.splash.to(splash, {
-                    y: '-100%',
+                    yPercent: -150,
                     duration: 1.2,
                     delay: 1,
                     ease: this.ease,
@@ -113,11 +116,11 @@ export default {
                 // If the page is loading
                 this.timeline.splash
                     .set(splash, {
-                        y: '100%',
+                        yPercent: 150,
                         duration: 0,
                     })
                     .to(splash, {
-                        y: '0%',
+                        yPercent: 0,
                         duration: 0.8,
                         ease: this.ease,
                     })
@@ -125,7 +128,7 @@ export default {
                 // If the page is finished loading
                 this.$nextTick(() => {
                     this.timeline.splash.to(splash, {
-                        y: '-100%',
+                        yPercent: -150,
                         duration: 1.2,
                         delay: 0.8,
                         ease: 'expo.out',
@@ -212,6 +215,7 @@ export default {
 
         &-text {
             display: inline-flex;
+            opacity: 0;
 
             &-letter {
                 position: relative;
