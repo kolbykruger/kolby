@@ -6,7 +6,7 @@
                 <prismic-rich-text v-if="slice.primary.title" :field="slice.primary.description" />
             </div>
 
-            <div class="scrolly-container">
+            <div class="scrolly-container" :style="{ '--count': slice.items.length }">
                 <div class="scrolly-items" :style="{ '--count': slice.items.length }">
                     <div class="scrolly-images">
                         <div class="scrolly-images-image" v-for="(item, index) in slice.items" :key="index">
@@ -40,6 +40,24 @@ export default {
             },
         },
     },
+    methods: {
+        onImageEnter(item) {
+            gsap.to(item, {
+                alpha: 1,
+                scale: 1,
+                ease: 'power3.ease',
+                duration: 0.35,
+            })
+        },
+        onImageLeave(item) {
+            gsap.to(item, {
+                alpha: 0,
+                scale: 0.8,
+                ease: 'none',
+                duration: 0.2,
+            })
+        },
+    },
     mounted() {
         gsap.registerPlugin(ScrollTrigger)
 
@@ -63,20 +81,16 @@ export default {
                     start: () => '+=' + window.innerHeight * i + ' center',
                     end: () => '+=' + window.innerHeight,
                     onEnter: () => {
-                        gsap.to(item, {
-                            opacity: 1,
-                            scale: 1,
-                            ease: 'power3.ease',
-                            duration: 0.66,
-                        })
+                        this.onImageEnter(item)
+                    },
+                    onEnterBack: () => {
+                        this.onImageEnter(item)
                     },
                     onLeave: () => {
-                        gsap.to(item, {
-                            opacity: 0,
-                            scale: 0.8,
-                            ease: 'none',
-                            duration: 0.2,
-                        })
+                        this.onImageLeave(item)
+                    },
+                    onLeaveBack: () => {
+                        this.onImageLeave(item)
                     },
                 },
             })
