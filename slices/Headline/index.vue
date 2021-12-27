@@ -38,7 +38,7 @@ export default {
         })
 
         gsap.set(splitText.chars, {
-            yPercent: 100,
+            yPercent: 150,
             rotateX: 110,
             d: 1300,
         })

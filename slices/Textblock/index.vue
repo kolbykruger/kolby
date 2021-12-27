@@ -62,13 +62,18 @@ export default {
         gsap.registerPlugin(ScrollTrigger)
 
         const headline = this.$refs.textblockTitle.querySelector('h1,h2,h3')
-        const description = this.$refs.textblockDescription
+        const description = this.$refs.textblockDescription.children
         const ease = CustomEase.create('custom', 'M0,0 C0.215,0.61 0.355,1 1,1 ')
         const splitText = new SplitText(headline, {
             type: 'lines,words,chars',
-            charsClass: 'headline-char',
-            wordsClass: 'headline-word',
-            linesClass: 'headline-line',
+            charsClass: 'textblock-char',
+            wordsClass: 'textblock-word',
+            linesClass: 'textblock-line',
+        })
+        const descSplitText = new SplitText(description, {
+            type: 'lines,words',
+            linesClass: 'textblock-description-line',
+            wordsClass: 'textblock-description-word',
         })
 
         gsap.set(splitText.chars, {
@@ -77,9 +82,8 @@ export default {
             d: 1300,
         })
 
-        gsap.set(description, {
-            yPercent: 8,
-            alpha: 0,
+        gsap.set(descSplitText.words, {
+            yPercent: 150,
         })
 
         let delay = 0
@@ -88,7 +92,7 @@ export default {
             markers: false,
             onEnter: batch => {
                 batch.forEach((section, i) => {
-                    gsap.to(section.querySelectorAll('.headline-char'), {
+                    gsap.to(section.querySelectorAll('.textblock-char'), {
                         yPercent: 0,
                         rotateX: 0,
                         d: 0,
@@ -103,11 +107,12 @@ export default {
         ScrollTrigger.batch(description, {
             start: 'top 90%',
             onEnter: batch => {
-                console.log(delay)
-                gsap.to(batch, {
-                    yPercent: 0,
-                    alpha: 1,
-                    delay: delay + 0.5,
+                batch.forEach((section, i) => {
+                    gsap.to(section.querySelectorAll('.textblock-description-word'), {
+                        yPercent: 0,
+                        delay: 0.5 * i,
+                        stagger: 0.005,
+                    })
                 })
             },
         })
@@ -149,6 +154,12 @@ export default {
         }
     }
 
+    &-description {
+        &-line {
+            overflow: hidden;
+        }
+    }
+
     &-list {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
@@ -173,6 +184,15 @@ export default {
             opacity: 0.75;
             // line-height: 1;
         }
+    }
+
+    &-line {
+        overflow: hidden;
+    }
+
+    &-word {
+        perspective: 1000px;
+        transform-style: preserve-3d;
     }
 }
 </style>
