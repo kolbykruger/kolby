@@ -1,3 +1,8 @@
+html {
+    scroll-behavior: smooth;
+    overscroll-behavior: none;
+}
+
 body {
     position: relative;
     background: c('background');
@@ -5,8 +10,6 @@ body {
     line-height: 1;
     overflow-x: hidden;
     transition: background 1s ease, color 1s ease;
-    scroll-behavior: smooth;
-    overscroll-behavior: none;
     padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
 }
 
@@ -24,28 +27,28 @@ main {
 }
 
 .page-spacer {
-    padding: 0 20px;
+    padding: 0 1.25em;
 
     @include mq('phone-small') {
-        padding: 0 30px;
+        padding: 0 1.875em;
     }
     @include mq('phone-large') {
-        padding: 0 100px;
+        padding: 0 6.25em;
     }
     @include mq('laptop-small') {
-        padding: 0 120px;
+        padding: 0 7.5em;
     }
     @include mq('laptop') {
-        padding: 0 150px;
+        padding: 0 9.375em;
     }
     @include mq('laptop-large') {
-        padding: 0 180px;
+        padding: 0 11.25em;
     }
     @include mq('desktop-small') {
-        padding: 0 220px;
+        padding: 0 13.75em;
     }
     @include mq('desktop') {
-        padding: 0 270px;
+        padding: 0 16.875em;
     }
 }
 
@@ -73,7 +76,7 @@ article {
         width: 100%;
 
         @include mq('laptop-small') {
-            max-width: 52em;
+            max-width: 50em;
             flex: 1;
             order: 0;
         }
