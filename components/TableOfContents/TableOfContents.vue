@@ -61,7 +61,7 @@ export default {
 
             anchors.forEach(item => {
                 const id = item.getAttribute('name')
-                const name = item.nextElementSibling.textContent
+                const name = item.parentNode.textContent.replace('#', '')
                 const type = item.getAttribute('data-type')
                 const offset = item.getBoundingClientRect().top - 1
                 this.links.push({
