@@ -23,8 +23,37 @@ dl:not([class]) {
 
 ul:not([class]) {
     list-style: disc;
+
+    li {
+        &::marker {
+            color: c('primary-base');
+        }
+    }
 }
 
 ol:not([class]) {
     list-style: decimal;
+    counter-reset: section;
+
+    li {
+        counter-reset: section;
+
+        &::marker {
+            color: c('primary-base');
+            content: '0' counter(list-item) '.';
+            font-variant-numeric: tabular-nums;
+            font-family: var(--font-family-mono);
+            font-size: 0.875rem;
+
+            @include mq('tablet') {
+                @include fs-xxs;
+            }
+        }
+
+        &:nth-of-type(n + 9) {
+            &::marker {
+                content: counter(list-item) '.';
+            }
+        }
+    }
 }
