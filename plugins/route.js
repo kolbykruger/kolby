@@ -17,7 +17,7 @@ export async function scrollBehavior(to, from, savedPosition) {
             const offset = el.getBoundingClientRect().top + window.scrollY - 16
             return window.scrollTo({ top: offset, behavior: 'smooth' })
         } else {
-            return window.scrollTo(0, el.offsetTop)
+            return window.scrollTo(0, el.offsetTop - 16)
         }
     }
 
