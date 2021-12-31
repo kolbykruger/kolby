@@ -34,14 +34,10 @@ export default {
     }
 
     &-image {
-        --size: 40px;
+        --size: 60px;
         width: var(--size);
         height: var(--size);
         overflow: hidden;
-
-        @include mq('laptop-small') {
-            --size: 60px;
-        }
 
         img {
             width: 100%;
