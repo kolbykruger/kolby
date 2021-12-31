@@ -43,7 +43,7 @@
                 </main>
 
                 <aside class="article-track">
-                    <Author />
+                    <Author :document="document" />
                     <ShapeCollection
                         :collection="{
                             top: '0',
@@ -55,24 +55,31 @@
                         :shapes="shapes"
                     />
 
-                    <p>
-                        <small>{{ formatDate }}</small>
-                    </p>
-
                     <div data-sticky>
-                        <section v-if="document.data.Narration.url">
+                        <section>
                             <div class="container">
-                                <Button type="text" size="small" @clicked="listenToArticle">
+                                <Button
+                                    type="text"
+                                    size="small"
+                                    @clicked="listenToArticle"
+                                    v-if="document.data.Narration.url"
+                                >
                                     <template #preicon>
                                         <Headphones />
                                     </template>
                                     Listen to this article
                                 </Button>
-                                <Button type="text" size="small" @clicked="toggleCodeSections">
+                                <Button
+                                    type="text"
+                                    size="small"
+                                    :class="{ '-active': showCode }"
+                                    @clicked="toggleCodeSections"
+                                    v-if="containsCodeBlock"
+                                >
                                     <template #preicon>
                                         <Terminal />
                                     </template>
-                                    {{ showCode ? 'Show entire article' : 'Show code snippets' }}
+                                    {{ showCode ? 'Return to full article' : 'Show code snippets' }}
                                 </Button>
                             </div>
                         </section>
@@ -142,19 +149,10 @@ export default {
         return {
             showCode: false,
             showAudio: false,
+            scrollPositionHistory: 0,
         }
     },
     computed: {
-        formatDate() {
-            const d = this.document.last_publication_date
-            const date = new Date(d)
-            const options = {
-                month: 'long',
-                day: 'numeric',
-                year: 'numeric',
-            }
-            return date.toLocaleString('en-us', options)
-        },
         containsCodeBlock() {
             const slices = this.document.data.slices
             if (!slices) {
@@ -180,6 +178,9 @@ export default {
                 if (!status) {
                     //section.style.display = this.showCode ? 'none' : null
                     if (this.showCode) {
+                        this.scrollPositionHistory = pageYOffset
+                        window.scrollTo({ top: 0, behavior: 'smooth' })
+
                         gsap.to(section, {
                             height: 0,
                             maxHeight: 0,
@@ -187,6 +188,7 @@ export default {
                             visibility: 'hidden',
                             ease: 'power3.ease',
                             duration: 1,
+                            delay: 0.3,
                         })
                     } else {
                         gsap.to(section, {
@@ -197,6 +199,7 @@ export default {
                             ease: 'power3.ease',
                             duration: 1,
                         })
+                        window.scrollTo({ top: this.scrollPositionHistory, behavior: 'smooth' })
                     }
                 }
             })
@@ -352,6 +355,28 @@ export default {
                 perspective: 1000px;
                 transform-style: preserve-3d;
             }
+        }
+    }
+
+    &-date {
+        position: relative;
+        margin-bottom: 4vh;
+
+        &::after {
+            content: '';
+            position: absolute;
+            margin-top: 2vh;
+            display: block;
+            width: 100%;
+            height: 1px;
+            background: c('base-4');
+            background: linear-gradient(to right, c('base-4') 65%, transparent);
+        }
+
+        p {
+            color: c('base-3');
+            @include fs-xxs;
+            opacity: 0.8;
         }
     }
 
