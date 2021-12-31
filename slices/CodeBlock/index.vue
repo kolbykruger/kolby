@@ -97,15 +97,18 @@ export default {
 
 <style lang="scss">
 .code-block {
+    --negative-margin: -1.25em;
     padding-bottom: 4vh;
-    margin-left: calc(#{flow('max')} * -1);
-    margin-right: calc(#{flow('max')} * -1);
+    margin-left: var(--negative-margin);
+    margin-right: var(--negative-margin);
     width: initial;
     outline: none;
 
-    @include mq('tablet') {
-        margin-left: calc(#{flow('xxxl')} * -1);
-        margin-right: calc(#{flow('xxxl')} * -1);
+    @include mq('phone-small') {
+        --negative-margin: -1.875em;
+    }
+    @include mq('phone-large') {
+        --negative-margin: -3em;
     }
 
     .container {
@@ -115,13 +118,16 @@ export default {
 
     &-code {
         pre {
+            --negative-margin: 1.25em;
             margin: 0 auto;
-            padding-left: calc(2em + #{flow('xxl')});
-            padding-right: calc(2em + #{flow('xxl')});
+            padding-left: var(--negative-margin);
+            padding-right: var(--negative-margin);
 
-            @include mq('tablet') {
-                padding-left: 2em;
-                padding-right: 2em;
+            @include mq('phone-small') {
+                --negative-margin: 1.875em;
+            }
+            @include mq('phone-large') {
+                --negative-margin: 3em;
             }
         }
 

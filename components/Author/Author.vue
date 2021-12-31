@@ -51,7 +51,7 @@ export default {
             height: 100%;
             background: c('base-9');
             border-radius: 0.375em;
-            opacity: 0.35;
+            opacity: 0.4;
             z-index: -1;
             pointer-events: none;
         }

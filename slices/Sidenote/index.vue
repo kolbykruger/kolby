@@ -46,14 +46,20 @@ export default {
 
 <style lang="scss">
 .sidenote {
+    --negative-margin: -1.25em;
     position: relative;
     width: initial;
-    margin-left: calc(#{flow('max')} * -1);
-    margin-right: calc(#{flow('max')} * -1);
+    margin-left: var(--negative-margin);
+    margin-right: var(--negative-margin);
+
+    @include mq('phone-small') {
+        --negative-margin: -1.875em;
+    }
+    @include mq('phone-large') {
+        --negative-margin: -3em;
+    }
 
     @include mq('tablet') {
-        margin-left: calc(#{flow('xxxl')} * -1);
-        margin-right: calc(#{flow('xxxl')} * -1);
         border-radius: 0.125rem 0.375rem 0.376rem 0.125rem;
     }
 
@@ -66,15 +72,15 @@ export default {
     }
 
     &::before {
-        width: 5px;
+        width: 6px;
         height: 100%;
         background: c('inflection');
         background: linear-gradient(to bottom, c('inflection') 60%, transparent);
         // opacity: 0.8;
-        border-radius: 0.125em 0 0 0;
 
         @include mq('tablet') {
             width: 4px;
+            border-radius: 0.125em 0 0 0;
         }
     }
 

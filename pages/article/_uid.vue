@@ -58,17 +58,13 @@
                     <div data-sticky>
                         <section>
                             <div class="container">
-                                <Button
-                                    type="text"
-                                    size="small"
-                                    @clicked="listenToArticle"
+                                <Audio
                                     v-if="document.data.Narration.url"
-                                >
-                                    <template #preicon>
-                                        <Headphones />
-                                    </template>
-                                    Listen to this article
-                                </Button>
+                                    :isShowing="showAudio"
+                                    :source="document.data.Narration.url"
+                                    :title="document.data.Name[0].text"
+                                    @clicked="showAudio = false"
+                                />
                                 <Button
                                     type="text"
                                     size="small"
@@ -98,14 +94,6 @@
                                 </Button>
                             </div>
                         </section> -->
-
-                        <Audio
-                            v-if="document.data.Narration.url"
-                            :isShowing="showAudio"
-                            :source="document.data.Narration.url"
-                            :title="document.data.Name[0].text"
-                            @clicked="showAudio = false"
-                        />
                     </div>
                 </aside>
             </article>
@@ -163,7 +151,7 @@ export default {
                 return slice.slice_type == 'code_block'
             })
 
-            return cb ? true : false
+            return cb.length > 0 ? true : false
         },
         initialLoad() {
             return this.$store.state.loading.initial
@@ -251,7 +239,6 @@ export default {
             })
             .set(content, {
                 alpha: 0,
-                yPercent: 5,
             })
             .set(track, {
                 alpha: 0,
@@ -280,7 +267,6 @@ export default {
                                 delay: -0.1,
                             })
                             .to(content, {
-                                yPercent: 0,
                                 alpha: 1,
                                 ease: ease,
                                 delay: -0.25,
