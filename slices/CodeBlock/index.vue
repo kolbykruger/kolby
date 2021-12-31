@@ -7,8 +7,6 @@
                 class="code-block-code"
                 :field="slice.primary.Code"
                 :htmlSerializer="codeSerializer"
-                :contenteditable="!isMobile"
-                @keydown="preventEdits"
             />
             <textarea class="code-block-raw" ref="codeBlockRaw" v-html="raw"></textarea>
             <div>
@@ -43,11 +41,6 @@ export default {
             },
         },
     },
-    data() {
-        return {
-            isMobile: false,
-        }
-    },
     computed: {
         raw() {
             let code = PrismicDOM.RichText.asHtml(this.slice.primary.Code)
@@ -77,14 +70,6 @@ export default {
             }
             return null
         },
-        preventEdits(event) {
-            if (event.ctrlKey) {
-                return true
-            } else {
-                event.preventDefault()
-                return false
-            }
-        },
         copyRaw(e) {
             const raw = this.$refs.codeBlockRaw
 
@@ -106,11 +91,7 @@ export default {
             }
         },
     },
-    mounted() {
-        window.addEventListener('resize', () => {
-            this.isMobile = screen.width <= 768 ? true : false
-        })
-    },
+    mounted() {},
 }
 </script>
 
@@ -133,8 +114,6 @@ export default {
     }
 
     &-code {
-        outline: none;
-
         pre {
             margin: 0 auto;
             padding-left: calc(2em + #{flow('xxl')});
