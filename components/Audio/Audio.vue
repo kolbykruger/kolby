@@ -268,32 +268,46 @@ export default {
         // Range Handle
         &::-webkit-slider-thumb {
             -webkit-appearance: none;
-            width: 1em;
-            height: 1em;
+            width: 1.5em;
+            height: 1.5em;
             border-radius: 50%;
             background: c('primary-base');
             cursor: pointer;
             transition: all 0.15s ease-in-out;
+
+            @include mq('tablet') {
+                width: 1em;
+                height: 1em;
+            }
         }
         &::-moz-range-thumb {
-            width: 1em;
-            height: 1em;
-            border: 0;
+            -moz-appearance: none;
+            width: 1.5em;
+            height: 1.5em;
             border-radius: 50%;
             background: c('primary-base');
             cursor: pointer;
-            transition: background 0.15s ease-in-out;
+            transition: all 0.15s ease-in-out;
+
+            @include mq('tablet') {
+                width: 1em;
+                height: 1em;
+            }
         }
     }
 
     button {
         position: relative;
-        --size: 1em;
+        --size: 2em;
         width: var(--size);
         height: var(--size);
         outline: none;
         display: grid;
         place-content: center;
+
+        @include mq('tablet') {
+            --size: 1em;
+        }
 
         &::after {
             content: '';
@@ -315,10 +329,14 @@ export default {
         }
 
         svg {
-            --size: 0.5em;
+            --size: 1em;
             display: block;
             width: var(--size);
             height: var(--size);
+
+            @include mq('tablet') {
+                --size: 0.5em;
+            }
 
             > * {
                 fill: c('base-1');
@@ -431,11 +449,13 @@ export default {
                 }
 
                 &:hover {
-                    transform: translateY(0);
+                    @include mq('tablet') {
+                        transform: translateY(0);
 
-                    &::-webkit-slider-thumb {
-                        transform: scale(1.5);
-                        box-shadow: 1px 1px 8px c('base-9');
+                        &::-webkit-slider-thumb {
+                            transform: scale(1.5);
+                            box-shadow: 1px 1px 8px c('base-9');
+                        }
                     }
                 }
             }
@@ -447,9 +467,13 @@ export default {
             }
 
             svg {
-                --size: 0.65em;
+                --size: 1em;
                 width: var(--size);
                 height: var(--size);
+
+                @include mq('tablet') {
+                    --size: 0.65em;
+                }
             }
         }
     }

@@ -255,7 +255,6 @@ export default {
             })
             .set(track, {
                 alpha: 0,
-                xPercent: -20,
             })
 
         this.$router.onReady(() => {
@@ -276,7 +275,6 @@ export default {
                                 stagger: 0.01,
                             })
                             .to(track, {
-                                xPercent: 0,
                                 alpha: 1,
                                 ease: ease,
                                 delay: -0.1,
