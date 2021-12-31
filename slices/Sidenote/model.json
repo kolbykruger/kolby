@@ -18,7 +18,8 @@
             "options": [
               "Info",
               "Success",
-              "Warning"
+              "Warning",
+              "Error"
             ],
             "default_value": "Info"
           },
