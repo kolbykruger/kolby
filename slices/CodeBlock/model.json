@@ -44,9 +44,9 @@
         "Figure": {
           "config": {
             "label": "Figure",
-            "placeholder": ""
+            "placeholder": "01. File name or purpose"
           },
-          "type": "Number"
+          "type": "Text"
         },
         "Stamp": {
           "config": {

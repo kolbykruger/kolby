@@ -18,7 +18,7 @@ export const _DefaultSlice = () => ({
   },
   data() {
     return {
-      mock: {"variation":"default-slice","name":"Default slice","slice_type":"shapes","items":[{"Shape":"recontextualize seamless deliverables"},{"Shape":"expedite compelling metrics"},{"Shape":"reinvent robust initiatives"},{"Shape":"seize cross-media convergence"}],"primary":{"Top":"integrate impactful e-markets","Left":"visualize wireless experiences","Right":"matrix sexy architectures","Bottom":"expedite e-business systems","Width":"streamline back-end metrics","Height":"target dot-com e-tailers"},"id":"_DefaultSlice"}
+      mock: {"variation":"default-slice","name":"Default slice","slice_type":"shapes","items":[{"Shape":"repurpose leading-edge ROI"},{"Shape":"deliver rich ROI"},{"Shape":"evolve B2C applications"},{"Shape":"integrate out-of-the-box models"},{"Shape":"strategize collaborative markets"}],"primary":{"Top":"whiteboard magnetic mindshare","Left":"drive seamless platforms","Right":"benchmark rich relationships","Bottom":"expedite value-added schemas","Width":"embrace web-enabled technologies","Height":"visualize cross-platform channels"},"id":"_DefaultSlice"}
     }
   },
   template: '<SliceZone :slices="[mock]" :resolver="resolve" />'

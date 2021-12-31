@@ -1,30 +1,30 @@
 {
-  "id": "8d91a6b1-59e5-4d0a-aedc-365af2da8732",
-  "uid": "iste-quaerat-vel",
+  "id": "6034e993-7a50-49e0-a937-3fea535c01df",
+  "uid": "commodi-quo-amet",
   "type": "article",
   "data": {
     "Name": [
       {
         "type": "heading1",
-        "text": "Generate cross-media e-services",
+        "text": "Strategize plug-and-play relationships",
         "spans": []
       }
     ],
     "Summary": [
       {
         "type": "paragraph",
-        "text": "Fugiat magna ex id sint nulla duis in consequat irure exercitation. Dolore aliquip veniam laboris anim duis ipsum velit in sit consectetur exercitation sunt.",
+        "text": "Nisi pariatur deserunt elit minim eu adipisicing eu. Ad esse nulla dolor culpa minim Lorem aliqua voluptate ea cupidatat aliqua amet ipsum.",
         "spans": []
       }
     ],
-    "Read": 1023,
-    "Category": "Code",
+    "Read": 2286,
+    "Category": "Spotlight",
     "Narration": {
       "link_type": "media",
       "url": "https://source.unsplash.com/daily"
     },
-    "meta_title": "matrix extensible niches",
-    "meta_description": "leverage proactive markets",
+    "meta_title": "iterate proactive platforms",
+    "meta_description": "transform web-enabled action-items",
     "social_cards": [
       {
         "social_card_image": {
@@ -34,10 +34,10 @@
           },
           "alt": "Placeholder image",
           "copyright": null,
-          "url": "https://images.unsplash.com/photo-1596195689404-24d8a8d1c6ea?w=900&h=500&fit=crop"
+          "url": "https://images.unsplash.com/photo-1493119508027-2b584f234d6c?w=900&h=500&fit=crop"
         },
-        "social_card_title": "seize next-generation blockchains",
-        "social_card_description": "e-enable 24/365 markets"
+        "social_card_title": "orchestrate ubiquitous experiences",
+        "social_card_description": "evolve enterprise web services"
       },
       {
         "social_card_image": {
@@ -47,23 +47,10 @@
           },
           "alt": "Placeholder image",
           "copyright": null,
-          "url": "https://images.unsplash.com/photo-1587653915936-5623ea0b949a?w=900&h=500&fit=crop"
+          "url": "https://images.unsplash.com/photo-1587614295999-6c1c13675117?w=900&h=500&fit=crop"
         },
-        "social_card_title": "synthesize robust portals",
-        "social_card_description": "seize cross-media functionalities"
-      },
-      {
-        "social_card_image": {
-          "dimensions": {
-            "width": 900,
-            "height": 500
-          },
-          "alt": "Placeholder image",
-          "copyright": null,
-          "url": "https://images.unsplash.com/photo-1504198070170-4ca53bb1c1fa?w=900&h=500&fit=crop"
-        },
-        "social_card_title": "generate intuitive bandwidth",
-        "social_card_description": "transform efficient partnerships"
+        "social_card_title": "e-enable revolutionary e-commerce",
+        "social_card_description": "enable cross-platform partnerships"
       }
     ]
   }

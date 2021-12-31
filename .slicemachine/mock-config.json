@@ -63,14 +63,21 @@
         }
       }
     },
-    "CodeBlock": {
-      "default-slice": {
-        "primary": {}
-      }
-    },
     "Panels": {
       "default-slice": {
         "items": {
+          "Content": {
+            "config": {
+              "patternType": "PARAGRAPH",
+              "blocks": 1
+            }
+          }
+        }
+      }
+    },
+    "Sidenote": {
+      "default-slice": {
+        "primary": {
           "Content": {
             "config": {
               "patternType": "PARAGRAPH",
