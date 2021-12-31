@@ -39,27 +39,27 @@ export const Serializer = {
                 const breakpoints = [
                     {
                         dimension: 320,
-                        format: 207,
+                        format: 320,
                     },
                     {
                         dimension: 375,
-                        format: 262,
+                        format: 375,
                     },
                     {
                         dimension: 460,
-                        format: 347,
+                        format: 460,
                     },
                     {
                         dimension: 600,
-                        format: 487,
+                        format: 600,
                     },
                     {
                         dimension: 640,
-                        format: 527,
+                        format: 640,
                     },
                     {
                         dimension: 768,
-                        format: 655,
+                        format: 800,
                     },
                     {
                         dimension: 1024,
@@ -67,7 +67,7 @@ export const Serializer = {
                     },
                     {
                         dimension: 1200,
-                        format: 739,
+                        format: 852,
                     },
                     {
                         dimension: 1280,
@@ -75,11 +75,11 @@ export const Serializer = {
                     },
                     {
                         dimension: 1350,
-                        format: 800,
+                        format: 896,
                     },
                     {
                         dimension: 2560,
-                        format: 800,
+                        format: 896,
                     },
                 ]
 
