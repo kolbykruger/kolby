@@ -117,14 +117,14 @@ export default {
 <style lang="scss">
 .code-block {
     padding-bottom: 4vh;
-    margin-left: calc(flow('max') * -1);
-    margin-right: calc(flow('max') * -1);
+    margin-left: calc(#{flow('max')} * -1);
+    margin-right: calc(#{flow('max')} * -1);
     width: initial;
     outline: none;
 
     @include mq('tablet') {
-        margin-left: calc(flow('xxxl') * -1);
-        margin-right: calc(flow('xxxl') * -1);
+        margin-left: calc(#{flow('xxxl')} * -1);
+        margin-right: calc(#{flow('xxxl')} * -1);
     }
 
     .container {
@@ -137,8 +137,8 @@ export default {
 
         pre {
             margin: 0 auto;
-            padding-left: calc(2em + flow('xxl'));
-            padding-right: calc(2em + flow('xxl'));
+            padding-left: calc(2em + #{flow('xxl')});
+            padding-right: calc(2em + #{flow('xxl')});
 
             @include mq('tablet') {
                 padding-left: 2em;

@@ -125,12 +125,12 @@
 
         figure {
             margin-top: flow('xxxl');
-            margin-left: calc(flow('max') * -1);
-            margin-right: calc(flow('max') * -1);
+            margin-left: calc(#{flow('max')} * -1);
+            margin-right: calc(#{flow('max')} * -1);
 
             @include mq('tablet') {
-                margin-left: calc(flow('xxxl') * -1);
-                margin-right: calc(flow('xxxl') * -1);
+                margin-left: calc(#{flow('xxxl')} * -1);
+                margin-right: calc(#{flow('xxxl')} * -1);
             }
         }
     }

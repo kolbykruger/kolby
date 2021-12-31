@@ -21,7 +21,7 @@ export default {
     },
     computed: {
         type() {
-            return this.slice.Type || 'info'
+            return this.slice.Type ? this.slice.Type : 'info'
         },
     },
 }
@@ -32,15 +32,15 @@ export default {
     position: relative;
     width: initial;
     margin-top: 3em;
-    margin-left: calc(flow('max') * -1);
-    margin-right: calc(flow('max') * -1);
+    margin-left: calc(#{flow('max')} * -1);
+    margin-right: calc(#{flow('max')} * -1);
     padding: 2em;
 
     overflow: hidden;
 
     @include mq('tablet') {
-        margin-left: calc(flow('xxxl') * -1);
-        margin-right: calc(flow('xxxl') * -1);
+        margin-left: calc(#{flow('xxxl')} * -1);
+        margin-right: calc(#{flow('xxxl')} * -1);
         border-radius: 0.125rem 0.375rem 0.376rem 0.125rem;
     }
 
