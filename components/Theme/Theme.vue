@@ -60,7 +60,7 @@ export default {
 .theme {
     display: flex;
     flex-direction: column;
-    --size: 3em;
+    --size: 2em;
     height: var(--size);
     width: var(--size);
     transform: translateY(-5%);
