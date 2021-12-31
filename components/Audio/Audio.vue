@@ -16,15 +16,20 @@
             </div>
 
             <div class="audio-player-details">
-                <p class="audio-player-track">{{ title }}</p>
-                <button class="audio-player-exit" data-cursor="xxs" data-stick @click="close">
+                <!-- <button class="audio-player-exit" data-cursor="xxs" data-stick @click="close">
                     <ChevronDown />
                     <span class="visually-hidden">Minimize audio player</span>
-                </button>
+                </button> -->
             </div>
             <div class="audio-player-controls">
                 <div class="audio-player-actions">
-                    <button class="audio-player-actions-play" data-cursor="xxs" data-stick @click="playState">
+                    <button
+                        class="audio-player-actions-play"
+                        data-cursor="xxs"
+                        data-stick
+                        @click="playState"
+                        :class="{ '-playing': isPlaying }"
+                    >
                         <span class="audio-player-icon" v-if="!isPlaying">
                             <Play />
                             <span class="visually-hidden">Play audio</span>
@@ -81,8 +86,8 @@
 
 <script>
 // Icons
-import Play from '~/assets/svg/duotone/play.svg?inline'
-import Pause from '~/assets/svg/duotone/pause.svg?inline'
+import Play from '~/assets/svg/audio/play.svg?inline'
+import Pause from '~/assets/svg/audio/pause.svg?inline'
 import Replay from '~/assets/svg/duotone/replay.svg?inline'
 import VolumeHigh from '~/assets/svg/duotone/volume-high.svg?inline'
 import VolumeSlash from '~/assets/svg/duotone/volume-slash.svg?inline'
@@ -229,24 +234,41 @@ export default {
 
 <style lang="scss">
 .audio {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    padding: 2em;
+    position: relative;
+    // position: fixed;
+    // bottom: 0;
+    // left: 0;
+    // right: 0;
+    padding: 0.25em 1em 1em;
+    margin-bottom: 3em;
     width: 100%;
     max-width: 100%;
-    background: c('base-9');
-    transform: translateY(100%);
+    // transform: translateY(100%);
     transition: transform 0.15s ease-in-out;
     z-index: 20;
+
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: c('base-9');
+        border-radius: 0.375em;
+        opacity: 0.4;
+        z-index: -1;
+        pointer-events: none;
+        user-select: none;
+    }
 
     @include mq('laptop-small') {
         left: unset;
         right: unset;
+        margin-left: -2em;
+        margin-right: -2em;
         max-width: 300px;
-        padding: 1.5em;
-        padding-top: 0.75em;
+        padding: 0.25em 1em 1em;
         border-radius: 0.375em 0.375em 0 0;
     }
 
@@ -298,7 +320,7 @@ export default {
 
     button {
         position: relative;
-        --size: 2em;
+        --size: 1.5em;
         width: var(--size);
         height: var(--size);
         outline: none;
@@ -319,7 +341,7 @@ export default {
             background: c('base-8');
             z-index: -1;
             pointer-events: none;
-            border-radius: 0.275em;
+            border-radius: 50%;
         }
 
         span {
@@ -329,7 +351,7 @@ export default {
         }
 
         svg {
-            --size: 1em;
+            --size: 0.75em;
             display: block;
             width: var(--size);
             height: var(--size);
@@ -364,17 +386,46 @@ export default {
             justify-content: space-between;
             align-items: center;
             margin-top: 0.75em;
+            margin-bottom: 0.5em;
+
+            @include mq('tablet') {
+                margin-bottom: 0;
+            }
         }
 
         &-actions {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: auto auto auto;
             grid-gap: 0.4em;
+            align-items: center;
 
             button {
             }
 
-            &-play {
+            .audio-player-actions-play {
+                --size: 1.5em;
+                svg {
+                    --size: 0.575em;
+                    * {
+                        fill: c('secondary-base');
+                    }
+                }
+
+                &::after {
+                    background: c('secondary-base');
+                    opacity: 0.1;
+                }
+
+                &.-playing {
+                    svg * {
+                        fill: c('tertiary-base');
+                    }
+
+                    &::after {
+                        background: c('tertiary-base');
+                        opacity: 0.1;
+                    }
+                }
             }
 
             &-reset {
@@ -433,20 +484,16 @@ export default {
 
         &-seek {
             input[type='range'] {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                margin-bottom: 0;
                 background: linear-gradient(
                     90deg,
                     c('primary-base') var(--current),
-                    rgba(217, 220, 227, 0.25) var(--current)
+                    rgba(217, 220, 227, 0.125) var(--current)
                 );
-                margin-bottom: 1em;
                 transform: translateY(2px);
-
-                @include mq('tablet') {
-                    position: absolute;
-                    bottom: 0;
-                    left: 0;
-                    margin-bottom: 0;
-                }
 
                 &:hover {
                     @include mq('tablet') {
@@ -462,6 +509,10 @@ export default {
         }
 
         button.audio-player-exit {
+            position: absolute;
+            bottom: 100%;
+            right: 0;
+
             &::after {
                 display: none;
             }
