@@ -18,9 +18,9 @@
     @return var(--line-height-#{$sizing});
 }
 
-// Line Height
+// Flow
 @function flow($sizing) {
-    @return var(--flow-spacing-#{$sizing});
+    @return var(--flow-space-#{$sizing});
 }
 
 // Breakpoints
