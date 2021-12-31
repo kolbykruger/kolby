@@ -18,7 +18,8 @@
             "options": [
               "html",
               "scss",
-              "javascript"
+              "javascript",
+              "css"
             ],
             "default_value": "html"
           },
@@ -46,6 +47,13 @@
             "placeholder": ""
           },
           "type": "Number"
+        },
+        "Stamp": {
+          "config": {
+            "label": "Stamp",
+            "placeholder": ""
+          },
+          "type": "Timestamp"
         }
       },
       "items": {}
