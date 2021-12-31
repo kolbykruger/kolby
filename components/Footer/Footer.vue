@@ -25,16 +25,6 @@
                     data-anim
                     data-anim-start="bottom"
                 >
-                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" fill="none">
-                        <path
-                            d="M34.4018 26.5679C35.2661 26.787 35.9995 27.4939 35.9995 28.3855V28.3855C35.9995 29.2772 35.2713 30.013 34.392 29.8647C28.0634 28.7971 23.0778 21.6001 22.343 15.0043C22.2421 14.0986 22.9882 13.3585 23.8995 13.3585V13.3585C24.8108 13.3585 25.5417 14.1002 25.6672 15.0028C26.3588 19.9777 30.016 25.4561 34.4018 26.5679Z"
-                            fill="#0B0E11"
-                        />
-                        <path
-                            d="M23.8495 13.3585C24.7608 13.3585 25.5069 14.0986 25.406 15.0043C24.6712 21.6001 19.6856 28.7971 13.357 29.8647C12.4778 30.013 11.7495 29.2772 11.7495 28.3855V28.3855C11.7495 27.4939 12.483 26.7869 13.347 26.5664C17.7173 25.4514 21.3868 19.9755 22.0813 15.0027C22.2073 14.1002 22.9382 13.3585 23.8495 13.3585V13.3585Z"
-                            fill="#0B0E11"
-                        />
-                    </svg>
                     <span class="visually-hidden">Scroll to the top.</span>
                 </button>
             </div>
@@ -76,21 +66,23 @@ export default {
     }
 
     &-magic {
-        position: absolute;
-        top: -300%;
-        left: 0;
-        width: 100%;
-        height: 400%;
-        z-index: -1;
-        pointer-events: none;
-        user-select: none;
-        background: radial-gradient(ellipse at 10% 90%, c('base-0'), transparent 60%);
-        opacity: 0.2;
-        filter: blur(var(--size));
-        transition: background 0.66s cubic-bezier(0.075, 0.82, 0.165, 1);
+        @include mq('tablet') {
+            position: absolute;
+            top: -300%;
+            left: 0;
+            width: 100%;
+            height: 400%;
+            z-index: -1;
+            pointer-events: none;
+            user-select: none;
+            background: radial-gradient(ellipse at 10% 90%, c('base-0'), transparent 60%);
+            opacity: 0.2;
+            filter: blur(var(--size));
+            transition: background 0.66s cubic-bezier(0.075, 0.82, 0.165, 1);
 
-        html[theme='dark'] & {
-            background: radial-gradient(ellipse at 10% 90%, c('base-3'), transparent 60%);
+            html[theme='dark'] & {
+                background: radial-gradient(ellipse at 10% 90%, c('base-3'), transparent 60%);
+            }
         }
     }
 
@@ -120,29 +112,6 @@ export default {
         &-link {
             color: c('base-0');
             text-decoration: none;
-        }
-
-        &::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            display: block;
-            width: 100vw;
-            height: 1em;
-            background: url('/images/squiggle.svg');
-            background-size: 50px;
-            background-repeat: repeat-x;
-
-            animation: squiggle 1s linear infinite;
-
-            @keyframes squiggle {
-                0% {
-                    transform: translateX(0px);
-                }
-                100% {
-                    transform: translateX(-50px);
-                }
-            }
         }
 
         @include mq('tablet') {
