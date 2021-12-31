@@ -13,9 +13,9 @@ a[class=''] {
 }
 
 a[name] {
-    display: block;
-    width: 1px;
-    height: 1px;
+    // display: block;
+    // width: 1px;
+    // height: 1px;
 }
 
 .link__gradient {
@@ -55,25 +55,30 @@ a[name] {
 
 .anchor-link {
     &-indicator {
-        position: absolute;
-        top: clamp(0.05rem, calc(-0.875rem + 1.75vw), 0.25rem);
-        left: calc(-1em - 0.3vw);
-        transform: scale(0.8);
-        font-family: var(--font-family-base);
-        font-weight: 500;
-        text-decoration: none;
-        opacity: 0.1;
-        color: c('quaternary-base');
-        transition: 0.3s ease;
+        display: none;
 
-        &[data-type='h2'] {
-            top: clamp(0.125rem, calc(-0.875rem + 1.75vw), 0.5rem);
-            opacity: 0.15;
-        }
+        @include mq('tablet') {
+            position: absolute;
+            top: clamp(0.05rem, calc(-0.875rem + 1.75vw), 0.25rem);
+            left: calc(-1em - 0.3vw);
+            display: block;
+            transform: scale(0.8);
+            font-family: var(--font-family-base);
+            font-weight: 500;
+            text-decoration: none;
+            opacity: 0.1;
+            color: c('quaternary-base');
+            transition: 0.3s ease;
 
-        &:hover {
-            opacity: 0.8;
-            color: c('primary-base');
+            &[data-type='h2'] {
+                top: clamp(0.125rem, calc(-0.875rem + 1.75vw), 0.5rem);
+                opacity: 0.15;
+            }
+
+            &:hover {
+                opacity: 0.8;
+                color: c('primary-base');
+            }
         }
     }
 }
