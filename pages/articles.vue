@@ -6,38 +6,38 @@
             <section class="articles-filters">
                 <div class="container">
                     <div class="articles-filters-grid" ref="articlesFilterGrid">
-                        <ul class="articles-filters-categories">
-                            <li>
-                                <button
-                                    data-stick
-                                    data-cursor="lg"
-                                    class="button"
-                                    data-category=""
-                                    :class="{ '-active': !category }"
-                                    @click=";[filterArticles($event, null)]"
-                                >
-                                    <small>Latest</small>
-                                </button>
-                            </li>
-                            <li v-for="(item, index) in categories" :key="index">
-                                <button
-                                    data-stick
-                                    data-cursor="lg"
-                                    class="button"
-                                    :data-category="item.toLowerCase()"
-                                    :class="{ '-active': category == item.toLowerCase() }"
-                                    @click=";[filterArticles($event, item)]"
-                                >
-                                    <small>{{ item }}</small>
-                                </button>
-                            </li>
-                            <span class="articles-filters-categories-marker" ref="marker"></span>
-                        </ul>
-                        <p class="articles-filters-count" v-if="filteredArticles">
-                            <small
-                                >{{ filteredArticles.length }}
-                                {{ filteredArticles.length > 1 ? 'articles' : 'article' }}</small
+                        <div class="articles-filters-categories">
+                            <ul class="articles-filters-categories-list">
+                                <li v-for="(item, index) in categories" :key="index">
+                                    <button
+                                        data-stick
+                                        data-cursor="lg"
+                                        class="button"
+                                        :data-category="item.toLowerCase()"
+                                        :class="{ '-active': category == item.toLowerCase() }"
+                                        @click="updateSelectedCategory(item)"
+                                    >
+                                        {{ item }}
+                                    </button>
+                                </li>
+                                <span class="articles-filters-categories-list-marker" ref="marker"></span>
+                            </ul>
+
+                            <select
+                                class="articles-filters-categories-select"
+                                ref="selectFilter"
+                                name=""
+                                id=""
+                                v-model="selectedCategory"
                             >
+                                <option :value="item.toLowerCase()" v-for="(item, index) in categories" :key="index">
+                                    {{ item }}
+                                </option>
+                            </select>
+                        </div>
+
+                        <p class="articles-filters-count" v-if="filteredArticles">
+                            <small>{{ filteredArticles.length }} {{ filteredArticlesLabel }}</small>
                         </p>
                     </div>
                 </div>
@@ -74,7 +74,8 @@ import { Animations } from '~/mixins/animations/Animations.js'
 export default {
     data() {
         return {
-            categories: ['Guide', 'Spotlight'],
+            categories: ['Latest', 'Guide', 'Spotlight', 'Snippets'],
+            selectedCategory: null,
             ease: null,
         }
     },
@@ -97,32 +98,41 @@ export default {
             const category = this.$route.query.category
             const articles = this.articles
 
-            return category
+            const categoryCheckForLatest = category == 'latest' ? null : category
+
+            return categoryCheckForLatest
                 ? articles.results.filter(a => {
                       return a.data.Category.toLowerCase() == category.toLowerCase()
                   })
                 : articles.results
         },
+        filteredArticlesLabel() {
+            const count = this.filteredArticles.length
+            return count == 0 || count >= 2 ? 'articles' : 'article'
+        },
         category() {
             const category = this.$route.query.category
-            return category ? category.toLowerCase() : null
+            return category ? category.toLowerCase() : 'Latest'
         },
         path() {
             return this.$route.path
         },
     },
     methods: {
-        filterArticles(event, item) {
+        filterArticles(category) {
             const path = this.path
-            const hash = item ? item : null
-            const query = hash ? { category: hash } : null
+            const query = category ? { category: category } : null
             this.$router.push({ path: path, query: query })
 
             const marker = this.$refs.marker
-            const bounds = event.target.getBoundingClientRect()
+            const selectedCategory = this.$refs.articlesFilterGrid.querySelector(`button[data-category="${category}"]`)
+            const bounds = selectedCategory.getBoundingClientRect()
             const afBounds = this.$refs.articlesFilterGrid.getBoundingClientRect()
 
             this.moveMarker(marker, bounds.left - afBounds.left, bounds.width)
+        },
+        updateSelectedCategory(category) {
+            this.selectedCategory = category.toLowerCase()
         },
         moveMarker(elem, x, width) {
             gsap.to(elem, 0.66, {
@@ -163,11 +173,18 @@ export default {
             )
         },
     },
+    watch: {
+        selectedCategory(value) {
+            const selectedCategory = value.toLowerCase()
+            this.filterArticles(selectedCategory)
+        },
+    },
     mounted() {
         gsap.registerPlugin(CustomEase)
         this.ease = CustomEase.create('custom', 'M0,0 C0.23,1 0.32,1 1,1 ')
 
         const category = this.category
+        this.selectedCategory = this.category.toLowerCase()
 
         const marker = this.$refs.marker
         const afBounds = this.$refs.articlesFilterGrid.getBoundingClientRect()
@@ -209,16 +226,25 @@ export default {
     }
 
     &-filters {
-        margin-bottom: 6vh;
+        margin-top: 4vh;
+        margin-bottom: 2vh;
+
+        @include mq('laptop-small') {
+            margin-bottom: 6vh;
+        }
 
         .container {
         }
 
         &-grid {
             position: relative;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 6vw;
+            align-items: center;
+            overflow: hidden;
 
             @include mq('laptop-large') {
-                display: grid;
                 grid-template-columns: 50em 18em;
                 grid-gap: 6em;
                 place-content: center;
@@ -238,58 +264,71 @@ export default {
         }
 
         &-categories {
-            position: relative;
-            display: flex;
-            flex-flow: row wrap;
-            align-items: center;
-            margin-bottom: 0;
-
-            &-marker {
-                //--width: 80px;
-                position: absolute;
-                top: calc(100% - 2px);
-                left: 0;
-                display: inline-block;
-                height: 5px;
-                //width: var(--width);
-                //transform: translateX(var(--offset));
-                transition: 0.66s cubic-bezier(0.075, 0.82, 0.165, 1);
-                background: c('base-0');
-                z-index: 2;
-            }
-
-            li {
+            &-list {
+                position: relative;
+                display: none;
+                flex-flow: row nowrap;
+                align-items: center;
                 margin-bottom: 0;
+                overflow-x: auto;
+                overflow-y: hidden;
+                white-space: nowrap;
 
-                button {
-                    margin-right: 1em;
-                    padding: 0 0.25em;
-                    color: c('base-4');
-                    outline: none;
+                @include mq('laptop-small') {
+                    display: flex;
+                }
 
-                    html[theme='dark'] & {
-                        color: c('base-4');
-                    }
+                &-marker {
+                    //--width: 80px;
+                    position: absolute;
+                    top: calc(100% - 2px);
+                    left: 0;
+                    display: inline-block;
+                    height: 5px;
+                    //width: var(--width);
+                    //transform: translateX(var(--offset));
+                    transition: 0.66s cubic-bezier(0.075, 0.82, 0.165, 1);
+                    background: c('base-0');
+                    z-index: 2;
+                }
 
-                    &.-active {
-                        color: c('base-0');
+                li {
+                    margin-bottom: 0;
+
+                    button {
+                        margin-right: 1em;
+                        padding: 0 0.25em;
+                        color: c('base-3');
+                        outline: none;
+                        @include fs-xxs;
 
                         html[theme='dark'] & {
+                            // color: c('base-4');
+                        }
+
+                        &.-active {
                             color: c('base-0');
+
+                            html[theme='dark'] & {
+                                color: c('base-0');
+                            }
                         }
                     }
+                }
+            }
+            &-select {
+                display: inline-flex;
+
+                @include mq('laptop-small') {
+                    display: none;
                 }
             }
         }
 
         &-count {
-            display: none;
-
-            @include mq('laptop-large') {
-                display: block;
-                text-align: right;
-                padding-right: 0.5em;
-            }
+            display: block;
+            text-align: right;
+            padding-right: 0.5em;
         }
     }
 
