@@ -38,11 +38,11 @@
                     </div>
                 </section>
 
-                <main class="article-content">
+                <main class="article-content" ref="articleContent">
                     <slice-zone class="slices" type="article" :uid="$route.params.uid" />
                 </main>
 
-                <aside class="article-track">
+                <aside class="article-track" ref="articleTrack">
                     <Author :document="document" />
                     <ShapeCollection
                         :collection="{
@@ -230,51 +230,63 @@ export default {
         const ease = CustomEase.create('custom', 'M0,0 C0.215,0.61 0.355,1 1,1 ')
         const tl = gsap.timeline()
 
-        const date = new SplitText(this.$refs.articleDate, {
-            type: 'lines,words,chars',
-            charsClass: 'article-header-date-char',
-            wordsClass: 'article-header-date-word',
-            linesClass: 'article-header-date-line',
-        })
-
         const summary = new SplitText(this.$refs.articleSummary.children, {
             type: 'lines,words',
             wordsClass: 'article-header-lead-word',
             linesClass: 'article-header-lead-line',
         })
 
-        gsap.set(date.chars, {
-            yPercent: 150,
-            rotateX: 110,
-            d: 1300,
-        })
+        const date = this.$refs.articleDate
+        const content = this.$refs.articleContent
+        const track = this.$refs.articleTrack
 
-        gsap.set(summary.words, {
+        tl.set(summary.words, {
             yPercent: 150,
             rotateX: 110,
             d: 1300,
         })
+            .set(date, {
+                alpha: 0,
+                xPercent: -20,
+            })
+            .set(content, {
+                alpha: 0,
+                yPercent: 5,
+            })
+            .set(track, {
+                alpha: 0,
+                xPercent: -20,
+            })
 
         this.$router.onReady(() => {
             this.$nextTick(() => {
                 setTimeout(
                     () => {
-                        gsap.to(date.chars, {
-                            yPercent: 0,
-                            rotateX: 0,
-                            d: 0,
+                        tl.to(date, {
+                            xPercent: 0,
+                            alpha: 1,
                             ease: ease,
-                            stagger: 0.02,
                             delay: this.initialLoad ? 0.16 : 0.5,
                         })
-                        gsap.to(summary.words, {
-                            yPercent: 0,
-                            rotateX: 0,
-                            d: 0,
-                            ease: ease,
-                            stagger: 0.01,
-                            delay: this.initialLoad ? 0.56 : 1.1,
-                        })
+                            .to(summary.words, {
+                                yPercent: 0,
+                                rotateX: 0,
+                                d: 0,
+                                ease: ease,
+                                stagger: 0.01,
+                            })
+                            .to(track, {
+                                xPercent: 0,
+                                alpha: 1,
+                                ease: ease,
+                                delay: -0.1,
+                            })
+                            .to(content, {
+                                yPercent: 0,
+                                alpha: 1,
+                                ease: ease,
+                                delay: -0.25,
+                            })
                     },
                     this.initialLoad ? 2000 : 1000
                 ) // page animation transition length
