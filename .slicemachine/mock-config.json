@@ -63,7 +63,11 @@
         }
       }
     },
-    "CodeBlock": {},
+    "CodeBlock": {
+      "default-slice": {
+        "primary": {}
+      }
+    },
     "Panels": {
       "default-slice": {
         "items": {
