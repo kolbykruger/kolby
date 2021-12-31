@@ -279,7 +279,7 @@ export default {
     input[type='range'] {
         -webkit-appearance: none;
         width: 100%;
-        height: 5px;
+        height: 3px;
         outline: none;
         padding: 0;
         margin: 0;
@@ -326,6 +326,7 @@ export default {
         outline: none;
         display: grid;
         place-content: center;
+        border-radius: 50%;
 
         @include mq('tablet') {
             --size: 1em;
@@ -452,9 +453,9 @@ export default {
             width: 145px;
             height: 2em;
             padding: 0 0.75em;
-            background: c('base-9');
+            // background: c('base-9');
             border-radius: 1em;
-            box-shadow: 1px 1px 4px #000;
+            // box-shadow: 1px 1px 4px #000;
 
             input[type='range'].audio-player-volume-seek {
                 position: absolute;
@@ -465,7 +466,7 @@ export default {
                 background: linear-gradient(
                     90deg,
                     c('primary-base') var(--current),
-                    rgba(217, 220, 227, 0.25) var(--current)
+                    rgba(217, 220, 227, 0.125) var(--current)
                 );
 
                 &::-webkit-slider-thumb {
