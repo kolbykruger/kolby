@@ -1,13 +1,24 @@
 <template>
     <section class="sidenote" :class="`sidenote-${type}`">
         <div class="container">
-            <div class="sidenote-icon"></div>
+            <div class="sidenote-icon">
+                <Warning v-if="type == 'warning'" />
+                <Success v-if="type == 'success'" />
+                <Error v-if="type == 'error'" />
+                <Info v-if="type == 'info'" />
+            </div>
             <prismic-rich-text class="sidenote-content" :field="slice.primary.Content" />
         </div>
     </section>
 </template>
 
 <script>
+// Icons
+import Warning from '~/assets/svg/status/alert-triangle.svg?inline'
+import Success from '~/assets/svg/status/check-circle-2.svg?inline'
+import Error from '~/assets/svg/status/cross-octagon.svg?inline'
+import Info from '~/assets/svg/status/info.svg?inline'
+
 export default {
     name: 'Sidenote',
     props: {
@@ -18,6 +29,12 @@ export default {
                 return {}
             },
         },
+    },
+    components: {
+        Warning,
+        Success,
+        Error,
+        Info,
     },
     computed: {
         type() {
@@ -31,12 +48,8 @@ export default {
 .sidenote {
     position: relative;
     width: initial;
-    margin-top: 3em;
     margin-left: calc(#{flow('max')} * -1);
     margin-right: calc(#{flow('max')} * -1);
-    padding: 2em;
-
-    overflow: hidden;
 
     @include mq('tablet') {
         margin-left: calc(#{flow('xxxl')} * -1);
@@ -56,6 +69,9 @@ export default {
         width: 5px;
         height: 100%;
         background: c('inflection');
+        background: linear-gradient(to bottom, c('inflection') 60%, transparent);
+        // opacity: 0.8;
+        border-radius: 0.125em 0 0 0;
 
         @include mq('tablet') {
             width: 4px;
@@ -67,7 +83,7 @@ export default {
         height: 100%;
         background: c('base-8');
         border-radius: 0.375em;
-        opacity: 0.4;
+        opacity: 0.5;
         z-index: -1;
         user-select: none;
         pointer-events: none;
@@ -75,40 +91,83 @@ export default {
 
     &-info,
     &-success,
-    &-warning {
+    &-warning,
+    &-error {
         &::after {
             opacity: 0.05;
         }
     }
 
     &-info {
-        &::before,
+        &::before {
+            background: linear-gradient(to bottom, c('quaternary-base'), transparent);
+        }
         &::after {
-            background: c('secondary-base');
+            background: c('quaternary-base');
+        }
+        .sidenote-icon svg * {
+            fill: c('quaternary-base');
         }
     }
 
     &-success {
-        &::before,
+        &::before {
+            background: linear-gradient(to bottom, c('secondary-base') 60%, transparent);
+        }
         &::after {
-            background: c('tertiary-base');
+            background: c('secondary-base');
+        }
+        .sidenote-icon svg * {
+            fill: c('secondary-base');
         }
     }
 
     &-warning {
-        &::before,
+        &::before {
+            background: linear-gradient(to bottom, c('tertiary-base') 60%, transparent);
+        }
+        &::after {
+            background: c('tertiary-base');
+        }
+        .sidenote-icon svg * {
+            fill: c('tertiary-base');
+        }
+    }
+
+    &-error {
+        &::before {
+            background: linear-gradient(to bottom, c('primary-base') 60%, transparent);
+        }
         &::after {
             background: c('primary-base');
+        }
+        .sidenote-icon svg * {
+            fill: c('primary-base');
         }
     }
 
     .container {
-        position: relative;
+        margin-top: 3em;
+        padding: 2em;
+        padding-top: 1em;
 
         > .sidenote-content {
             > * {
                 @include fs-xxs;
             }
+        }
+    }
+
+    &-icon {
+        margin-bottom: 1em;
+        transform: translateX(-0.25em);
+        color: c('secondary-base');
+        transition: 0.3s ease;
+
+        svg {
+            --size: 2.5em;
+            width: var(--size);
+            height: var(--size);
         }
     }
 }
