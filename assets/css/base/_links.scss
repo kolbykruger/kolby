@@ -2,15 +2,13 @@ a:not([class]),
 a[class=''] {
     color: c('primary-base');
     text-decoration: none;
-    transition: color 1s ease;
+    box-shadow: 0px 0px 0px c('primary-base');
+    transition: 0.3s ease;
 
     &:hover,
     &:focus {
-        color: c('primary-light');
-    }
-
-    &:visited {
-        color: c('primary-dark');
+        color: c('primary-base');
+        box-shadow: 0px 2px 0px c('primary-base');
     }
 }
 
