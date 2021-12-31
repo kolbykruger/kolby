@@ -145,7 +145,7 @@ export default {
     &-background {
         z-index: -1;
         --color: var(--color-background);
-        background: linear-gradient(to right, var(--color), c('background'));
+        background: linear-gradient(to right, var(--color) 60%, c('background'));
         opacity: 0.6;
     }
 
