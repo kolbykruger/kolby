@@ -30,6 +30,9 @@ export const Serializer = {
             if (type == 'image') {
                 // Break the url on the predefined width
                 const img = element.url.split('&w')[0]
+                // Get file type
+                const type = element.url.substring(element.url.lastIndexOf('.') + 1, element.url.length) || 'png'
+                const extension = type.split('?')[0]
                 // Append the url with the format and clip
                 const imgix = '&fm=webp&fit=clip'
                 // Define the breakpoints for the image
@@ -97,7 +100,7 @@ export const Serializer = {
                 return `
                 <figure class="picture" style="aspect-ratio: ${element.dimensions.width} / ${
                     element.dimensions.height
-                }">
+                }" type="${extension}">
                     <picture class>
                         <source type="image/webp"
                             srcset="${sets.join(', ')}"
