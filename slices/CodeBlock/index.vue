@@ -13,15 +13,13 @@
             <textarea class="code-block-raw" ref="codeBlockRaw" v-html="raw"></textarea>
             <div>
                 <div class="code-block-toolbar">
-                    <p class="code-block-language" :data-lang="slice.primary.Language || 'html'">
-                        <small>{{ slice.primary.Language || 'html' }}</small>
-                    </p>
+                    <div class="code-block-language" :data-lang="slice.primary.Language || 'html'">
+                        {{ slice.primary.Language || 'html' }}
+                    </div>
                     <button @click="copyRaw" class="code-block-button">Copy</button>
                 </div>
                 <div class="code-block-file" v-if="slice.primary.File">
-                    <p>
-                        <small>{{ slice.primary.File }}</small>
-                    </p>
+                    {{ slice.primary.File }}
                 </div>
             </div>
         </div>
@@ -59,7 +57,8 @@ export default {
             return code
         },
         hash() {
-            return Math.random().toString(36).substr(2, 9)
+            const date = new Date(this.slice.primary.Stamp).getTime()
+            return date ? date : Math.random().toString(36).substr(2, 9)
         },
     },
     methods: {
@@ -118,6 +117,15 @@ export default {
 <style lang="scss">
 .code-block {
     padding-bottom: 4vh;
+    margin-left: calc(flow('max') * -1);
+    margin-right: calc(flow('max') * -1);
+    width: initial;
+    outline: none;
+
+    @include mq('tablet') {
+        margin-left: calc(flow('xxxl') * -1);
+        margin-right: calc(flow('xxxl') * -1);
+    }
 
     .container {
         position: relative;
@@ -125,8 +133,17 @@ export default {
     }
 
     &-code {
+        outline: none;
+
         pre {
             margin: 0 auto;
+            padding-left: calc(2em + flow('xxl'));
+            padding-right: calc(2em + flow('xxl'));
+
+            @include mq('tablet') {
+                padding-left: 2em;
+                padding-right: 2em;
+            }
         }
 
         &:hover,
@@ -191,21 +208,19 @@ export default {
         position: absolute;
         bottom: 0;
         right: 0.5em;
+        @include fs-mini;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.125rem;
+        font-weight: 500;
+        color: c('base-6');
+        height: 34px;
+        padding: 0 0.5em;
+        border-radius: 4px;
 
-        small {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.125rem;
-            font-weight: 500;
-            color: c('base-6');
-            height: 34px;
-            padding: 0 0.5em;
-            border-radius: 4px;
-
-            html[theme='dark'] & {
-                color: c('base-5');
-            }
+        html[theme='dark'] & {
+            color: c('base-5');
         }
     }
 
