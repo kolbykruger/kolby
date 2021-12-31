@@ -1,5 +1,6 @@
 $colors: (
     background: #f4f1ee,
+    backgroundOpaque: rgba(#f4f1ee, 0.8),
     menu: (
         background: #0b0e11,
         color: #f4f1ee,
@@ -34,13 +35,13 @@ $colors: (
         darkest: darken(#ff6f61, 24%),
     ),
     secondary: (
-        lightest: lighten(#5a5b9f, 24%),
-        lighter: lighten(#5a5b9f, 16%),
-        light: lighten(#5a5b9f, 8%),
-        base: #5a5b9f,
-        dark: darken(#5a5b9f, 8%),
-        darker: darken(#5a5b9f, 16%),
-        darkest: darken(#5a5b9f, 24%),
+        lightest: lighten(#009874, 24%),
+        lighter: lighten(#009874, 16%),
+        light: lighten(#009874, 8%),
+        base: #009874,
+        dark: darken(#009874, 8%),
+        darker: darken(#009874, 16%),
+        darkest: darken(#009874, 24%),
     ),
     tertiary: (
         lightest: lighten(#f0c05a, 24%),
@@ -51,10 +52,20 @@ $colors: (
         darker: darken(#f0c05a, 16%),
         darkest: darken(#f0c05a, 24%),
     ),
+    quaternary: (
+        lightest: lighten(#5773ff, 24%),
+        lighter: lighten(#5773ff, 16%),
+        light: lighten(#5773ff, 8%),
+        base: #5773ff,
+        dark: darken(#5773ff, 8%),
+        darker: darken(#5773ff, 16%),
+        darkest: darken(#5773ff, 24%),
+    ),
 );
 
 $dark: (
     background: #13161b,
+    backgroundOpaque: rgba(#13161b, 0.8),
     menu: (
         background: #0b0e11,
         color: #f4f1ee,
