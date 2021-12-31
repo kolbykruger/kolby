@@ -14,7 +14,17 @@
                                 to="/articles"
                                 >Articles</nuxt-link
                             >
-                            <span>— {{ formatDate }}</span>
+                            <span class="article-header-separator">—</span>
+                            <span class="code">
+                                <nuxt-link
+                                    class="code-link"
+                                    :to="{
+                                        path: '/articles',
+                                        query: { category: document.data.Category.toLowerCase() },
+                                    }"
+                                    >{{ document.data.Category }}</nuxt-link
+                                >
+                            </span>
                         </p>
 
                         <Pageheading :name="document.data.Name" size="small" />
@@ -44,6 +54,10 @@
                         }"
                         :shapes="shapes"
                     />
+
+                    <p>
+                        <small>{{ formatDate }}</small>
+                    </p>
 
                     <div data-sticky>
                         <section v-if="document.data.Narration.url">
@@ -93,6 +107,9 @@
 </template>
 
 <script>
+// Meta
+import { ArticleMeta } from '@/mixins/meta/ArticleMeta.js'
+
 // Animations
 import { gsap } from 'gsap'
 import { SplitText } from 'gsap/dist/SplitText'
@@ -120,7 +137,7 @@ export default {
         Headphones,
         Terminal,
     },
-    mixins: [ArticleShapes],
+    mixins: [ArticleShapes, ArticleMeta],
     data() {
         return {
             showCode: false,
@@ -300,8 +317,10 @@ export default {
             }
 
             span {
-                margin: 0 0.25em;
-                opacity: 0.25;
+                &.article-header-separator {
+                    margin: 0 0.25em;
+                    opacity: 0.25;
+                }
             }
 
             &-line {
