@@ -3,13 +3,13 @@
         <nuxt-link class="article-item-link" data-cursor="lg" :to="'/article/' + article.uid">
             <div class="article-item-details">
                 <p class="article-item-date">
-                    <small>{{ formatDate }}</small>
+                    {{ formatDate }}<span>—</span><span class="code">{{ article.data.Category }}</span>
                 </p>
             </div>
 
             <h2 class="article-item-title">{{ article.data.Name[0].text }}</h2>
 
-            <!-- <prismic-rich-text class="article-item-summary" :field="article.data.Summary" /> -->
+            <prismic-rich-text class="article-item-summary" :field="article.data.Summary" />
         </nuxt-link>
     </li>
 </template>
@@ -37,14 +37,26 @@ export default {
 <style lang="scss">
 .article {
     &-item {
+        position: relative;
         margin-bottom: 3vh;
         padding-bottom: 3vh;
-        border-bottom: 1px solid c('base-4');
+
+        &::after {
+            content: '';
+            position: absolute;
+            margin-top: 3vh;
+            display: block;
+            width: 100%;
+            height: 1px;
+            background: c('base-4');
+            background: linear-gradient(to right, c('base-4') 65%, transparent);
+        }
 
         a {
             display: inline-block;
             text-decoration: none;
             color: c('base-0');
+            max-width: 50em;
 
             &:hover,
             &:focus {
@@ -58,16 +70,19 @@ export default {
         }
 
         &-title {
-            font-family: $font-0;
+            font-family: $font-1;
             font-size: clamp(2.441rem, -0.875rem + 8.333vw, 3.052rem);
+            @include fs-lg;
             margin: 0;
             margin-bottom: 0;
             transition: color 0.66s cubic-bezier(0.075, 0.82, 0.165, 1);
         }
 
         &-summary {
+            margin-top: flow('lg');
+
             p {
-                font-size: clamp(1.125rem, -0.875rem + 3.333vw, 1.563rem);
+                @include fs-xxs;
             }
         }
 
@@ -75,6 +90,7 @@ export default {
             display: flex;
             align-items: center;
             margin-top: 0.5em;
+            margin-bottom: flow('sm');
 
             span {
                 margin: 0 0.35em;
@@ -86,6 +102,8 @@ export default {
         }
 
         &-date {
+            @include fs-xxs;
+            opacity: 0.6;
         }
 
         &-read {
