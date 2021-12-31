@@ -114,6 +114,7 @@
                             <span class="navigation-item-spoiler-active">{{ contact }}</span>
                         </button>
                     </p>
+                    <canvas ref="canvas"></canvas>
                 </aside>
             </div>
         </div>
@@ -121,10 +122,10 @@
 </template>
 
 <script>
+const confetti = require('canvas-confetti')
 import { gsap } from 'gsap'
 import { CustomEase } from 'gsap/dist/CustomEase'
 import Theme from '@/components/Theme/Theme.vue'
-
 import ArrowExternal from '@/assets/svg/arrows/Arrow-External.svg?inline'
 
 export default {
@@ -177,9 +178,20 @@ export default {
             document.execCommand('copy')
             e.target.removeChild(el)
             this.contact = 'Copied!'
+            this.celebrate()
             setTimeout(() => {
                 this.contact = this.email
             }, 3000)
+        },
+        celebrate() {
+            const canvas = this.$refs.canvas
+            const c = confetti.create(canvas, {
+                resize: true,
+            })
+            c({
+                particleCount: 100,
+                spread: 160,
+            })
         },
     },
     mounted() {
@@ -652,6 +664,12 @@ export default {
                 }
             }
         }
+    }
+
+    canvas {
+        width: 100%;
+        height: 100vh;
+        z-index: -1;
     }
 
     @keyframes artwork-in {
