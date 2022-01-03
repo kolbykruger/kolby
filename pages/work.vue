@@ -3,6 +3,8 @@
         <div class="page-contents">
             <Pageheading name="Work" />
 
+            <canvas id="canvas" ref="canvas" />
+
             <section class="work-intro">
                 <div class="container">
                     <div class="work-intro-details">
@@ -48,6 +50,7 @@
 import Pageheading from '~/components/Pageheading/Pageheading.vue'
 import CaseStudyItem from '~/components/CaseStudyItem/CaseStudyItem.vue'
 import { Animations } from '~/mixins/animations/Animations.js'
+import { CaseStudies } from '@/mixins/webgl/CaseStudies'
 
 export default {
     components: {
@@ -55,7 +58,7 @@ export default {
         CaseStudyItem,
         // SliceZone,
     },
-    mixins: [Animations],
+    mixins: [Animations, CaseStudies],
     async asyncData({ $prismic, params, error }) {
         const document = await $prismic.api.query($prismic.predicates.at('document.type', 'work'))
 
@@ -241,5 +244,9 @@ export default {
             }
         }
     }
+}
+
+#canvas {
+    position: fixed;
 }
 </style>

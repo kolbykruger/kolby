@@ -1,23 +1,24 @@
 <template>
     <figure ref="picture" class="picture" :style="{ 'aspect-ratio': field.dimensions.width / field.dimensions.height }">
         <nuxt-picture
-            v-if="!isDev"
             fit="clip"
             loading="lazy"
+            crossorigin="anonymous"
             :class="{ '-loaded': isLoaded }"
             :src="field.url"
             :sizes="sizes"
             @load="isLoaded = true"
         />
-        <prismic-image
+        <!-- <prismic-image
             v-if="isDev"
             fit="clip"
             loading="lazy"
+            crossorigin="anonymous"
             class="picture-dev"
             :class="{ '-loaded': isLoaded }"
             :field="field"
             @load="isLoaded = true"
-        />
+        /> -->
 
         <!-- <Picture
             :field="document.data.Cover"

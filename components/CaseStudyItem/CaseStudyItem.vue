@@ -2,7 +2,7 @@
     <div class="case-study-card" ref="caseStudy" :data-traveler="item.data.Accent">
         <div class="case-study-card-cover">
             <nuxt-link data-knob data-cursor="md" :to="'/works/' + item.uid">
-                <prismic-image data-exclusion :field="item.data.Cover" v-if="item.data.Cover" />
+                <Picture :field="item.data.Cover" />
             </nuxt-link>
         </div>
 
@@ -46,61 +46,17 @@ export default {
     props: {
         item: Object,
     },
-    data() {
-        return {
-            animations: false,
-            mouse: {
-                x: 0,
-                y: 0,
-            },
-        }
-    },
-    mounted() {
-        gsap.registerPlugin(ScrollTrigger)
-        gsap.registerPlugin(CustomEase)
-
-        const ease = CustomEase.create('custom', 'M0,0 C0.23,1 0.32,1 1,1 ')
-        const $el = this
-        const caseStudy = this.$refs.caseStudy
-        const caseStudyCover = caseStudy.querySelector('.case-study-card-cover')
-        const caseStudyCoverImg = caseStudyCover.querySelector('img')
-
-        caseStudy.addEventListener('mouseenter', () => {
-            this.animations = true
-        })
-        caseStudy.addEventListener('mouseleave', () => {
-            this.animations = false
-        })
-        caseStudy.addEventListener('mousemove', e => {
-            const bounds = caseStudy.getBoundingClientRect()
-
-            this.mouse.x = e.clientX / bounds.width - 0.5
-            this.mouse.y = -(e.clientY / bounds.height - 0.5)
-
-            requestAnimationFrame(() => {
-                if (!this.animations) {
-                    return false
-                }
-
-                gsap.to(caseStudyCoverImg, {
-                    x: 25 * this.mouse.x,
-                    y: 25 * this.mouse.y * -1,
-                    ease: 'power3.out',
-                })
-            })
-        })
-    },
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .case-study-card {
     position: relative;
     display: flex;
     align-items: center;
     flex-flow: row wrap;
     gap: 3em;
-    min-height: 100vh;
+    // min-height: 100vh;
 
     &-cover {
         position: relative;
@@ -123,6 +79,8 @@ export default {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            opacity: 0;
+            position: relative;
         }
     }
     &-details {

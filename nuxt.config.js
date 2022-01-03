@@ -77,7 +77,7 @@ export default {
         fallback: true,
     },
     build: {
-        transpile: ['vue-slicezone', 'nuxt-sm'],
+        transpile: ['vue-slicezone', 'nuxt-sm', 'three'],
     },
     storybook: {
         stories: ['~/.slicemachine/assets/**/*.stories.@(js|jsx|ts|tsx|svelte)', '~/assets/css/internals.scss'],
