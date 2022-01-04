@@ -1,5 +1,5 @@
 <template>
-    <div class="swiper">
+    <div class="swiper" :class="{ 'swiper-constrain': constrain }">
         <div class="swiper-track" ref="swiper">
             <div class="swiper-thumb" :style="{ '--width': width + 'px', '--offset': offset + 'px' }"></div>
         </div>
@@ -14,6 +14,14 @@ export default {
         progress: {
             type: Number,
             default: 0,
+        },
+        index: {
+            type: Number,
+            default: 0,
+        },
+        constrain: {
+            type: Boolean,
+            default: false,
         },
     },
     data() {
@@ -36,17 +44,32 @@ export default {
             // Returns the offset in pixels
             this.offset = (this.bounds - this.width) * this.progress
         },
-        swipe() {},
+        calculateOffsetFromIndex() {
+            console.log(this.index)
+            const currentProgress = this.index / (this.count - 1)
+            console.log(this.index, this.count, currentProgress)
+            this.offset = (this.bounds - this.width) * currentProgress
+        },
     },
     mounted() {
-        this.getBounds()
-        this.calculateWidth()
-        this.calculateOffset()
+        if (this.$refs.swiper) {
+            this.getBounds()
+            this.calculateWidth()
+            this.calculateOffset()
+
+            if (this.index > 0) {
+                this.calculateOffsetFromIndex()
+            }
+        }
 
         window.addEventListener('resize', () => {
             this.getBounds()
             this.calculateWidth()
             this.calculateOffset()
+
+            if (this.index > 0) {
+                this.calculateOffsetFromIndex()
+            }
         })
     },
     watch: {
@@ -63,6 +86,12 @@ export default {
     width: 100%;
     overflow: hidden;
     z-index: 2;
+
+    &-constrain {
+        margin: 0 auto;
+        margin-top: 3vh;
+        max-width: 180px;
+    }
 
     &-track {
         position: relative;
