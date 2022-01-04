@@ -16,6 +16,12 @@
                             <Picture :field="item.Image" />
                         </div>
                     </Flickity>
+                    <Swiper
+                        :count="slice.items.length"
+                        :progress="progress"
+                        :index="initialIndex()"
+                        :constrain="true"
+                    />
                 </client-only>
             </div>
         </div>
@@ -23,8 +29,13 @@
 </template>
 
 <script>
+import Swiper from '@/components/Swiper/Swiper'
+
 export default {
     name: 'MobileImage',
+    components: {
+        Swiper,
+    },
     props: {
         slice: {
             type: Object,
@@ -39,6 +50,7 @@ export default {
     data() {
         return {
             isMobile: null,
+            progress: 0,
         }
     },
     computed: {
@@ -56,7 +68,7 @@ export default {
                 friction: 0.2,
                 groupCells: this.groupCells(),
                 initialIndex: this.initialIndex(),
-                pageDots: this.pageDots(),
+                pageDots: false,
             }
         },
         size() {
@@ -72,13 +84,14 @@ export default {
         groupCells() {
             return this.isMobile ? 1 : this.slice.items.length
         },
-        pageDots() {
-            return this.isMobile ? true : false
-        },
         initialIndex() {
             return Math.round(this.slice.items.length / 2 - 1)
         },
-        onInit(evt) {},
+        onInit(evt) {
+            evt.on('scroll', progress => {
+                this.progress = progress
+            })
+        },
     },
     mounted() {
         this.isMobile = screen.width <= 768 ? true : false
@@ -114,22 +127,6 @@ export default {
         &-slider {
             width: 100%;
         }
-
-        &-page-dots {
-            .dot {
-                width: 6vw;
-                height: 0.2em;
-                margin: 0 1.5vw;
-                background: c('base-4');
-                border-radius: 1em;
-                opacity: 1;
-                transition: 0.3s ease;
-
-                &.is-selected {
-                    background: c('base-0');
-                }
-            }
-        }
     }
 
     &-grid {
@@ -148,7 +145,7 @@ export default {
         box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.07);
         overflow: hidden;
         width: 80%;
-        margin: 0 5vw;
+        margin: 0 2.5vw;
         user-select: none;
         opacity: 0.6;
         transform: scale(0.8);
