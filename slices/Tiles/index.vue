@@ -214,11 +214,15 @@ export default {
     },
     watch: {
         $route() {
-            this.tl.pause()
+            if (this.tl) {
+                this.tl.pause()
+            }
         },
     },
     beforeDestroy() {
-        this.tl.pause()
+        if (this.tl) {
+            this.tl.pause()
+        }
     },
 }
 </script>
