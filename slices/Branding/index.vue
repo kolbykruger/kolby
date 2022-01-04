@@ -95,6 +95,12 @@ export default {
         border-radius: 0.125em;
         box-shadow: 0 18px 35px rgba(50, 50, 93, 0.1), -1px 0 15px rgba(0, 0, 0, 0.07);
         overflow: hidden;
+
+        @include mq('tablet') {
+            &::before {
+                @include image-noise;
+            }
+        }
     }
 
     &-swatch {
