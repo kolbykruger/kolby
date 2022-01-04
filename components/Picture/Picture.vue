@@ -97,6 +97,12 @@ export default {
     &-dev {
     }
 
+    picture {
+        display: flex;
+        width: 100%;
+        height: 100%;
+    }
+
     img {
         &.-loaded {
         }
