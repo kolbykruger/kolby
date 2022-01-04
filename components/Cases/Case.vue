@@ -96,7 +96,6 @@ export default {
             height: 100%;
             object-fit: cover;
             opacity: 0.5;
-            // mix-blend-mode: exclusion;
             transition: 0.3s ease;
 
             @include mq('laptop') {
@@ -106,32 +105,18 @@ export default {
     }
 
     &-background {
-        background: var(--accent);
-        background: linear-gradient(to bottom right, var(--accent) 30%, transparent);
         background: radial-gradient(circle at 0% 0%, var(--accent) 30%, c('background'));
         transition: 0.3s ease;
-        opacity: 0.18;
+
+        @include mq('laptop-large') {
+            opacity: 0.18;
+        }
 
         &::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url('/noise/noise-2.png');
-            background-size: auto;
-            background-repeat: repeat;
-            opacity: 0.18;
-            mix-blend-mode: overlay;
-
             @include mq('laptop-large') {
-                // background-image: url('/noise/noise.gif');
+                @include image-noise;
             }
         }
-    }
-
-    .hover-state {
     }
 
     @mixin case-active-state {
@@ -182,7 +167,7 @@ export default {
         grid-auto-columns: 1fr;
         grid-gap: 2em;
         padding: 1.25em;
-        z-index: 20;
+        z-index: 2;
 
         @include mq('phone-small') {
             padding: 1.875em;
