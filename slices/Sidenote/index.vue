@@ -72,90 +72,100 @@ export default {
     }
 
     &::before {
-        width: 6px;
-        height: 100%;
-        background: c('inflection');
-        background: linear-gradient(to bottom, c('inflection') 60%, transparent);
-        // opacity: 0.8;
-
-        @include mq('tablet') {
-            width: 4px;
-            border-radius: 0.125em 0 0 0;
-        }
-    }
-
-    &::after {
         width: 100%;
         height: 100%;
         background: c('base-8');
         border-radius: 0.375em;
         opacity: 0.5;
-        z-index: -1;
         user-select: none;
         pointer-events: none;
+    }
+
+    @include mq('laptop-large') {
+        &::after {
+            @include image-noise;
+            opacity: 0.03;
+            mix-blend-mode: unset;
+        }
     }
 
     &-info,
     &-success,
     &-warning,
     &-error {
-        &::after {
+        &::before {
             opacity: 0.05;
         }
     }
 
     &-info {
         &::before {
-            background: linear-gradient(to bottom, c('quaternary-base'), transparent);
-        }
-        &::after {
             background: c('quaternary-base');
         }
         .sidenote-icon svg * {
             fill: c('quaternary-base');
         }
+        .container::before {
+            background: linear-gradient(to bottom, c('quaternary-base'), transparent);
+        }
     }
 
     &-success {
         &::before {
-            background: linear-gradient(to bottom, c('secondary-base') 60%, transparent);
-        }
-        &::after {
             background: c('secondary-base');
         }
         .sidenote-icon svg * {
             fill: c('secondary-base');
         }
+        .container::before {
+            background: linear-gradient(to bottom, c('secondary-base') 60%, transparent);
+        }
     }
 
     &-warning {
         &::before {
-            background: linear-gradient(to bottom, c('tertiary-base') 60%, transparent);
-        }
-        &::after {
             background: c('tertiary-base');
         }
         .sidenote-icon svg * {
             fill: c('tertiary-base');
         }
+        .container::before {
+            background: linear-gradient(to bottom, c('tertiary-base') 60%, transparent);
+        }
     }
 
     &-error {
         &::before {
-            background: linear-gradient(to bottom, c('primary-base') 60%, transparent);
-        }
-        &::after {
             background: c('primary-base');
         }
         .sidenote-icon svg * {
             fill: c('primary-base');
         }
+        .container::before {
+            background: linear-gradient(to bottom, c('primary-base') 60%, transparent);
+        }
     }
 
     .container {
+        position: relative;
         margin-top: 3em;
         padding: 2em;
         padding-top: 1em;
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 6px;
+            height: 100%;
+            // opacity: 0.8;
+
+            @include mq('tablet') {
+                width: 4px;
+                border-radius: 0.125em 0 0 0;
+            }
+        }
 
         > .sidenote-content {
             > * {
