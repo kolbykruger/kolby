@@ -30,7 +30,7 @@ export const Magnetic = {
             magnetic.forEach(magnet => {
                 const attr = magnet.getAttribute('data-magnetic')
 
-                if (!attr) {
+                if (attr === false) {
                     return false
                 }
                 const vals = attr ? attr.split(',') : null
@@ -55,6 +55,7 @@ export const Magnetic = {
                     this.magnetic.active = true
 
                     const bounds = magnet.getBoundingClientRect()
+                    console.log(bounds)
                     this.magnetic.x = bounds.left //- window.pageXOffset
                     this.magnetic.y = bounds.top //- window.pageYOffset
                     this.magnetic.width = bounds.width
