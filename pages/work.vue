@@ -58,7 +58,7 @@ export default {
         CaseStudyItem,
         // SliceZone,
     },
-    mixins: [Animations, CaseStudies],
+    mixins: [Animations],
     async asyncData({ $prismic, params, error }) {
         const document = await $prismic.api.query($prismic.predicates.at('document.type', 'work'))
 
