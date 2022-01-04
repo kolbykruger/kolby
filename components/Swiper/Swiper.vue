@@ -61,13 +61,19 @@ export default {
 .swiper {
     position: relative;
     width: 100%;
+    overflow: hidden;
+    z-index: 2;
 
     &-track {
         position: relative;
         display: block;
         width: 100%;
         height: 1.5px;
-        background: c('base-4');
+        background: c('base-7');
+
+        html[theme='dark'] & {
+            background: c('base-4');
+        }
     }
 
     &-thumb {
@@ -77,8 +83,13 @@ export default {
         width: var(--width);
         height: 1.5px;
         border-radius: 1px;
-        background: c('base-0');
+        background: c('quaternary-base');
         transform: translateX(var(--offset));
+        will-change: transform;
+
+        html[theme='dark'] & {
+            background: c('base-0');
+        }
     }
 }
 </style>
