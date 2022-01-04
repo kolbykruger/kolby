@@ -110,7 +110,7 @@ export default {
                         //         start: 'top bottom',
                         //         scrub: true,
                         //     },
-                        //     yPercent: 18,
+                        //     y: `${image.getBoundingClientRect().height}px`,
                         // })
                     },
                     this.initialLoad ? 2000 : 1200
@@ -192,10 +192,21 @@ export default {
             }
         }
 
+        picture {
+            @include mq('laptop-large') {
+                position: relative;
+
+                &::before {
+                    @include image-noise;
+                }
+            }
+        }
+
         img {
             object-fit: cover;
             width: 100%;
             height: 100%;
+            opacity: 0.9;
         }
     }
 }
