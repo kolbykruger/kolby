@@ -21,6 +21,7 @@
                         :progress="progress"
                         :index="initialIndex()"
                         :constrain="true"
+                        v-if="isMobile"
                     />
                 </client-only>
             </div>
@@ -49,7 +50,7 @@ export default {
     },
     data() {
         return {
-            isMobile: null,
+            isMobile: false,
             progress: 0,
         }
     },
