@@ -150,14 +150,23 @@ export default {
     }
 
     &-noise {
+        background-image: url('/noise/noise-2.png');
         z-index: 1000;
-        background-image: url('/noise/noise.gif');
+        opacity: 0.5;
         background-size: auto;
         background-repeat: repeat;
-        opacity: 0.5;
 
         html[theme='dark'] & {
             opacity: 0.18;
+        }
+
+        @include mq('laptop-large') {
+            background-image: url('/noise/noise.gif');
+            opacity: 0.5;
+
+            html[theme='dark'] & {
+                opacity: 0.18;
+            }
         }
     }
 
