@@ -5,28 +5,24 @@
 
             <slice-zone class="slices" type="home" uid="home" />
 
-            <section class="case-studies" v-if="cases">
-                <div class="container">
-                    <CaseStudyItem v-for="study in cases.results" :key="study.id" :item="study" />
-                    <div class="actions actions-center">
-                        <Button location="/work">View more work</Button>
-                    </div>
-                </div>
-            </section>
+            <Cases :cases="cases.results" v-if="cases" />
         </div>
     </main>
 </template>
 
 <script>
 import Introduction from '~/components/Introduction/Introduction.vue'
+import Cases from '~/components/Cases/Cases.vue'
 import { Animations } from '~/mixins/animations/Animations.js'
 import SliceZone from 'vue-slicezone'
+import ArrowRight from '~/assets/svg/arrows/Arrow-Right.svg?inline'
 
 export default {
     components: {
         Introduction,
-        // Headline,
+        Cases,
         SliceZone,
+        ArrowRight,
     },
     mixins: [Animations],
     async asyncData({ $prismic, params, error }) {
