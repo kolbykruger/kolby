@@ -55,7 +55,7 @@ export const Magnetic = {
                     this.magnetic.active = true
 
                     const bounds = magnet.getBoundingClientRect()
-                    console.log(bounds)
+
                     this.magnetic.x = bounds.left //- window.pageXOffset
                     this.magnetic.y = bounds.top //- window.pageYOffset
                     this.magnetic.width = bounds.width
