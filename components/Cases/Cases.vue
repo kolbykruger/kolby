@@ -61,7 +61,6 @@ export default {
                 setGallerySize: true,
                 prevNextButtons: false,
                 freeScroll: true,
-                freeScrollFriction: 0.01,
                 selectedAttraction: 0.01,
                 friction: 0.18,
                 groupCells: this.groupCells(),

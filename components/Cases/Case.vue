@@ -2,7 +2,21 @@
     <div class="case" ref="case" :style="{ '--accent': item.data.Accent }">
         <span class="case-cover">
             <span class="case-background"></span>
-            <Picture class="case-image" :field="item.data.Cover" />
+            <Picture
+                :field="item.data.Cover"
+                :sizes="{
+                    'phone-small': '375px',
+                    phone: '460px',
+                    'phone-large': '600px',
+                    tablet: '768px',
+                    'laptop-small': '1024px',
+                    laptop: '399px',
+                    'laptop-large': '449px',
+                    'desktop-small': '533px',
+                    desktop: '639px',
+                    'desktop-large': '853px',
+                }"
+            />
         </span>
 
         <div class="case-details">
