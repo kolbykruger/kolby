@@ -1,6 +1,6 @@
 <template>
     <div class="button" :class="['button-size-' + size, 'button-type-' + type]" ref="btn">
-        <component data-magnetic :is="element" :to="location" @click="emitClick" class="button-action">
+        <component data-cursor="sm" data-magnetic :is="element" :to="location" @click="emitClick" class="button-action">
             <span v-if="$slots.preicon" class="button-icon button-icon-pre"><slot name="preicon"></slot></span>
             <span class="button-content"><slot></slot></span>
             <span v-if="$slots.posticon" class="button-icon button-icon-post"><slot name="posticon"></slot></span>
