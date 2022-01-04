@@ -81,7 +81,7 @@ export default {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            opacity: 0.3;
+            opacity: 0.5;
             // mix-blend-mode: exclusion;
             transition: 0.3s ease;
 
@@ -94,14 +94,33 @@ export default {
     &-background {
         background: var(--accent);
         background: linear-gradient(to bottom right, var(--accent) 30%, transparent);
-        background: radial-gradient(circle at 0% 0%, var(--accent) 30%, transparent);
+        background: radial-gradient(circle at 0% 0%, var(--accent) 30%, c('background'));
         transition: 0.3s ease;
-        opacity: 0.08;
+        opacity: 0.18;
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('/noise/noise-2.png');
+            background-size: auto;
+            background-repeat: repeat;
+            opacity: 0.18;
+            mix-blend-mode: overlay;
+
+            @include mq('laptop-large') {
+                // background-image: url('/noise/noise.gif');
+            }
+        }
     }
 
-    &:hover,
-    &:focus,
-    &:focus-within {
+    .hover-state {
+    }
+
+    @mixin case-active-state {
         .case {
             &-cover {
                 figure {
@@ -127,18 +146,39 @@ export default {
         }
     }
 
+    @include mq('laptop', 'max-width') {
+        @include case-active-state;
+    }
+
+    @include mq('laptop') {
+        &:hover,
+        &:focus,
+        &:focus-within {
+            @include case-active-state;
+        }
+    }
+
     &-details {
         position: relative;
         height: 100%;
-        min-height: 60vh;
-        padding: 6em;
+        min-height: 80vh;
         display: grid;
         flex-direction: column;
         grid-template-columns: 1fr;
         grid-auto-columns: 1fr;
         grid-gap: 2em;
+        padding: 1.25em;
         z-index: 20;
 
+        @include mq('phone-small') {
+            padding: 1.875em;
+        }
+        @include mq('phone-large') {
+            padding: 6.25em;
+        }
+        @include mq('tablet') {
+            min-height: 60vh;
+        }
         @include mq('laptop') {
             min-height: 80vh;
         }

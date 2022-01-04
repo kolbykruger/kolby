@@ -1,10 +1,13 @@
 <template>
     <section class="cases">
         <div class="container">
+            <h2>Recent work</h2>
+        </div>
+        <div class="cases-container">
             <div class="cases-list" data-cursor="invisible">
                 <client-only>
                     <Flickity ref="flickity" class="cases-slider" :options="flickityOptions" @init="onInit">
-                        <Case v-for="study in cases" :key="study.id" :item="study" />
+                        <Case v-for="study in reducedCases" :key="study.id" :item="study" />
                     </Flickity>
                     <!-- <div class="flickity-indicator" ref="indicator">
                         <span
@@ -12,7 +15,7 @@
                             :style="{ '--progress': thumbProgress + 'px', '--width': thumbWidth + 'px' }"
                         ></span>
                     </div> -->
-                    <Swiper :count="cases.length" :progress="progress" />
+                    <Swiper v-if="isMobile" :count="reducedCases.length" :progress="progress" />
                 </client-only>
             </div>
             <div class="actions actions-center">
@@ -44,24 +47,25 @@ export default {
         return {
             selectedIndex: 0,
             progress: 0,
-            isMobile: null,
+            isMobile: false,
         }
     },
     computed: {
         flickityOptions() {
             return {
                 cellSelector: '.case',
-                cellAlign: 'center',
+                cellAlign: 'left',
                 contain: true,
                 imagesLoaded: true,
                 adaptiveHeight: false,
                 setGallerySize: true,
                 prevNextButtons: false,
                 freeScroll: true,
+                freeScrollFriction: 0.01,
                 selectedAttraction: 0.01,
                 friction: 0.18,
                 groupCells: this.groupCells(),
-                initialIndex: this.initialIndex(),
+                initialIndex: 0,
                 pageDots: false,
             }
         },
@@ -73,13 +77,13 @@ export default {
             const count = this.cases.length
             const index = this.selectedIndex
         },
+        reducedCases() {
+            return this.isMobile ? this.cases : this.cases.slice(0, 3)
+        },
     },
     methods: {
         groupCells() {
             return this.isMobile ? 1 : this.cases.length
-        },
-        initialIndex() {
-            return Math.round(this.cases.length / 2 - 1)
         },
         onInit(evt) {
             this.selectedIndex = evt.selectedIndex
@@ -104,7 +108,6 @@ export default {
 <style lang="scss">
 .cases {
     .container {
-        padding: 0;
     }
 
     &-list {
