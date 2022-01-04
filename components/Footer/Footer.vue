@@ -6,9 +6,18 @@
                 <div class="footer-copy">
                     <h2>Have an idea?</h2>
                     <h2>Let's work together.</h2>
-                    <h3 class="footer-email">
-                        <a class="footer-email-link" href="mailto:hi@kolby.dev">hi@kolby.dev</a>
-                    </h3>
+
+                    <button
+                        :href="`mailto:${contact}`"
+                        data-cursor="xl"
+                        data-magnetic
+                        data-stick
+                        class="footer-email"
+                        @click="copyEmail"
+                    >
+                        <span class="footer-email-active">{{ contact }}</span>
+                    </button>
+
                     <Socials />
                 </div>
                 <div class="footer-cta">
@@ -33,22 +42,59 @@
 </template>
 
 <script>
+const confetti = require('canvas-confetti')
 import Socials from '../Socials/Socials.vue'
+
 export default {
     components: { Socials },
     name: 'Footer',
+    data() {
+        return {
+            contact: null,
+        }
+    },
     computed: {
         year() {
             const d = new Date()
             return d.getFullYear()
+        },
+        email() {
+            return this.$store.state.contact.email
         },
     },
     methods: {
         scrollToTop() {
             window.scrollTo({ top: 0, behavior: 'smooth' })
         },
+        copyEmail(e) {
+            const el = document.createElement('textarea')
+            el.value = this.email
+            el.setAttribute('readonly', '')
+            el.classList.add('visually-hidden')
+            e.target.appendChild(el)
+            el.select()
+            document.execCommand('copy')
+            e.target.removeChild(el)
+            this.contact = 'Copied!'
+            this.celebrate()
+            setTimeout(() => {
+                this.contact = this.email
+            }, 3000)
+        },
+        celebrate() {
+            const canvas = this.$refs.canvas
+            const c = confetti.create(canvas, {
+                resize: true,
+            })
+            c({
+                particleCount: 100,
+                spread: 160,
+            })
+        },
     },
-    mounted() {},
+    mounted() {
+        this.contact = this.email
+    },
 }
 </script>
 
