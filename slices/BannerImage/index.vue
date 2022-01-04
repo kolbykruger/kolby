@@ -28,10 +28,10 @@ export default {
         gsap.registerPlugin(ScrollTrigger)
 
         const bannerImage = this.$refs.bannerImage
-        gsap.set(bannerImage.querySelector('img'), {
+        gsap.set(bannerImage.querySelector('picture'), {
             yPercent: -12,
         })
-        gsap.to(bannerImage.querySelector('img'), {
+        gsap.to(bannerImage.querySelector('picture'), {
             scrollTrigger: {
                 trigger: bannerImage,
                 start: 'top bottom',
@@ -59,6 +59,14 @@ export default {
     }
 
     .container {
+    }
+
+    picture {
+        position: relative;
+
+        &::before {
+            @include image-noise;
+        }
     }
 
     img {
