@@ -73,6 +73,7 @@ export default {
         width: 100%;
         height: auto;
         object-fit: cover;
+        opacity: 0.9;
         // transform: translateY(-150px);
 
         @include mq('tablet') {
