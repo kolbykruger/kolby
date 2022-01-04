@@ -132,6 +132,10 @@ export default {
         },
     },
     mounted() {
+        if (screen.width <= 600) {
+            return false
+        }
+
         gsap.registerPlugin(ScrollTrigger)
         gsap.registerPlugin(CustomEase)
 
@@ -302,8 +306,10 @@ export default {
         picture {
             position: relative;
 
-            &::before {
-                @include image-noise;
+            @include mq('tablet') {
+                &::before {
+                    @include image-noise;
+                }
             }
         }
 
