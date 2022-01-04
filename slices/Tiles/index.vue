@@ -16,22 +16,78 @@
             </div> -->
             <div class="tiles-row">
                 <div class="tiles-item" v-for="(item, index) in createTileRow(2)" :key="index">
-                    <prismic-image :field="item.Image" />
+                    <Picture
+                        :field="item.Image"
+                        :sizes="{
+                            'phone-small': '179px',
+                            phone: '220px',
+                            'phone-large': '287px',
+                            tablet: '240px',
+                            'laptop-small': '234px',
+                            laptop: '275px',
+                            'laptop-large': '309px',
+                            'desktop-small': '366px',
+                            desktop: '440px',
+                            'desktop-large': '586px',
+                        }"
+                    />
                 </div>
             </div>
             <div class="tiles-row">
                 <div class="tiles-item" v-for="(item, index) in createTileRow(1)" :key="index">
-                    <prismic-image :field="item.Image" />
+                    <Picture
+                        :field="item.Image"
+                        :sizes="{
+                            'phone-small': '179px',
+                            phone: '220px',
+                            'phone-large': '287px',
+                            tablet: '240px',
+                            'laptop-small': '234px',
+                            laptop: '275px',
+                            'laptop-large': '309px',
+                            'desktop-small': '366px',
+                            desktop: '440px',
+                            'desktop-large': '586px',
+                        }"
+                    />
                 </div>
             </div>
             <div class="tiles-row">
                 <div class="tiles-item" v-for="(item, index) in createTileRow(2)" :key="index">
-                    <prismic-image :field="item.Image" />
+                    <Picture
+                        :field="item.Image"
+                        :sizes="{
+                            'phone-small': '179px',
+                            phone: '220px',
+                            'phone-large': '287px',
+                            tablet: '240px',
+                            'laptop-small': '234px',
+                            laptop: '275px',
+                            'laptop-large': '309px',
+                            'desktop-small': '366px',
+                            desktop: '440px',
+                            'desktop-large': '586px',
+                        }"
+                    />
                 </div>
             </div>
             <div class="tiles-row">
                 <div class="tiles-item" v-for="(item, index) in createTileRow(1)" :key="index">
-                    <prismic-image :field="item.Image" />
+                    <Picture
+                        :field="item.Image"
+                        :sizes="{
+                            'phone-small': '179px',
+                            phone: '220px',
+                            'phone-large': '287px',
+                            tablet: '240px',
+                            'laptop-small': '234px',
+                            laptop: '275px',
+                            'laptop-large': '309px',
+                            'desktop-small': '366px',
+                            desktop: '440px',
+                            'desktop-large': '586px',
+                        }"
+                    />
                 </div>
             </div>
         </div>
@@ -167,10 +223,13 @@ export default {
 .tiles {
     --tile-offset: 32vh;
     position: relative;
-    height: 125vh;
-    // margin-top: var(--tile-offset);
-    margin-bottom: var(--tile-offset);
+    height: 100vh;
     overflow: hidden;
+
+    @include mq('laptop-small') {
+        height: 125vh;
+        margin-bottom: var(--tile-offset);
+    }
 
     &-text {
         position: absolute;
@@ -224,13 +283,29 @@ export default {
         grid-template-columns: repeat(6, 1fr);
         gap: var(--size);
         margin-bottom: var(--size);
+        min-width: 300vw;
         will-change: transform;
+
+        @include mq('tablet') {
+            min-width: 200vw;
+        }
+        @include mq('laptop-small') {
+            min-width: 100vw;
+        }
     }
 
     &-item {
         overflow: hidden;
         aspect-ratio: 600 / 450;
         will-change: transform;
+
+        picture {
+            position: relative;
+
+            &::before {
+                @include image-noise;
+            }
+        }
 
         img {
             width: 100%;
