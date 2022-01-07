@@ -8,7 +8,7 @@
 
             <div class="scrolly-container" :style="{ '--count': slice.items.length }">
                 <div class="scrolly-items" :style="{ '--count': slice.items.length }">
-                    <div class="scrolly-images" v-if="!isMobile">
+                    <div class="scrolly-images">
                         <div class="scrolly-images-image" v-for="(item, index) in slice.items" :key="index">
                             <!-- <prismic-image :field="item.Image" /> -->
                             <Picture :field="item.Image" :noise="true" />
@@ -18,7 +18,7 @@
                     <div class="scrolly-content">
                         <div class="scrolly-content-item" v-for="(item, index) in slice.items" :key="index">
                             <div class="scrolly-content-image">
-                                <Picture :field="item.Image" :noise="true" />
+                                <Picture :field="item.Image" />
                             </div>
                             <prismic-rich-text class="scrolly-content-text" :field="item.Content" />
                         </div>
