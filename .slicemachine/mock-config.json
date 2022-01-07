@@ -74,18 +74,6 @@
           }
         }
       }
-    },
-    "Sidenote": {
-      "default-slice": {
-        "primary": {
-          "Content": {
-            "config": {
-              "patternType": "PARAGRAPH",
-              "blocks": 1
-            }
-          }
-        }
-      }
     }
   },
   "_cts": {

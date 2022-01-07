@@ -40,6 +40,21 @@
             "default_value": "Vertical"
           },
           "type": "Select"
+        },
+        "Color": {
+          "config": {
+            "label": "Color",
+            "placeholder": "",
+            "options": [
+              "Primary",
+              "Secondary",
+              "Tertiary",
+              "Quaternary",
+              "Random"
+            ],
+            "default_value": "Primary"
+          },
+          "type": "Select"
         }
       },
       "items": {

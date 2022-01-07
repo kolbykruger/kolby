@@ -18,7 +18,7 @@ export const _DefaultSlice = () => ({
   },
   data() {
     return {
-      mock: {"variation":"default-slice","name":"Default slice","slice_type":"shapes","items":[{"Shape":"repurpose leading-edge ROI"},{"Shape":"deliver rich ROI"},{"Shape":"evolve B2C applications"},{"Shape":"integrate out-of-the-box models"},{"Shape":"strategize collaborative markets"}],"primary":{"Top":"whiteboard magnetic mindshare","Left":"drive seamless platforms","Right":"benchmark rich relationships","Bottom":"expedite value-added schemas","Width":"embrace web-enabled technologies","Height":"visualize cross-platform channels"},"id":"_DefaultSlice"}
+      mock: {"variation":"default-slice","name":"Default slice","slice_type":"shapes","items":[{"Shape":"morph plug-and-play solutions"},{"Shape":"strategize turn-key architectures"},{"Shape":"implement front-end architectures"}],"primary":{"Top":"exploit cross-media partnerships","Left":"grow ubiquitous vortals","Right":"synthesize web-enabled web services","Bottom":"deploy best-of-breed networks","Width":"benchmark B2B infrastructures","Height":"implement seamless relationships"},"id":"_DefaultSlice"}
     }
   },
   template: '<SliceZone :slices="[mock]" :resolver="resolve" />'

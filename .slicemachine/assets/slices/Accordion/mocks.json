@@ -5,45 +5,78 @@
     "slice_type": "accordion",
     "items": [
       {
-        "Icon": "innovate bricks-and-clicks convergence",
-        "Title": "incubate integrated eyeballs",
+        "Icon": "engage cross-platform synergies",
+        "Title": "disintermediate visionary platforms",
         "Description": [
           {
             "type": "paragraph",
-            "text": "Veniam laborum ullamco proident. Adipisicing ut mollit ullamco fugiat velit officia laborum velit culpa quis mollit Lorem duis duis Lorem. Aute duis veniam esse tempor consectetur.",
+            "text": "Velit laborum exercitation pariatur ut nulla pariatur ullamco consequat. Minim irure ut esse officia voluptate veniam aute anim excepteur anim velit tempor.",
             "spans": []
           }
         ]
       },
       {
-        "Icon": "seize open-source blockchains",
-        "Title": "matrix mission-critical e-services",
+        "Icon": "harness viral communities",
+        "Title": "redefine impactful solutions",
         "Description": [
           {
             "type": "paragraph",
-            "text": "Id reprehenderit esse sit et aliquip.",
+            "text": "Ullamco sunt occaecat nostrud adipisicing voluptate nisi nostrud.",
             "spans": []
           }
         ]
       },
       {
-        "Icon": "brand frictionless bandwidth",
-        "Title": "leverage value-added convergence",
+        "Icon": "deliver 24/365 communities",
+        "Title": "matrix efficient synergies",
         "Description": [
           {
             "type": "paragraph",
-            "text": "Et mollit commodo duis culpa fugiat fugiat reprehenderit ullamco exercitation quis.",
+            "text": "Excepteur exercitation cillum ut culpa Lorem nostrud excepteur eiusmod aliqua incididunt. Anim dolor velit nisi non proident esse irure id nostrud quis tempor in.",
             "spans": []
           }
         ]
       },
       {
-        "Icon": "e-enable cross-platform solutions",
-        "Title": "recontextualize robust experiences",
+        "Icon": "grow proactive methodologies",
+        "Title": "matrix bleeding-edge ROI",
         "Description": [
           {
             "type": "paragraph",
-            "text": "Consequat exercitation nostrud eiusmod minim fugiat laboris. Incididunt do aute magna mollit nostrud aute nulla excepteur.",
+            "text": "Do ut esse consectetur veniam elit aliquip irure labore commodo aliqua excepteur.",
+            "spans": []
+          }
+        ]
+      },
+      {
+        "Icon": "transition robust deliverables",
+        "Title": "deliver seamless convergence",
+        "Description": [
+          {
+            "type": "paragraph",
+            "text": "In anim sunt dolor cillum incididunt sunt occaecat adipisicing aliqua elit ea sit.",
+            "spans": []
+          }
+        ]
+      },
+      {
+        "Icon": "reintermediate transparent ROI",
+        "Title": "utilize world-class content",
+        "Description": [
+          {
+            "type": "paragraph",
+            "text": "Ut consectetur non do aliqua eiusmod amet cupidatat velit velit. Id sit ipsum nulla anim cupidatat quis.",
+            "spans": []
+          }
+        ]
+      },
+      {
+        "Icon": "recontextualize 24/365 e-markets",
+        "Title": "target sexy bandwidth",
+        "Description": [
+          {
+            "type": "paragraph",
+            "text": "Eu culpa Lorem elit fugiat. Ut aliquip aliquip ea.",
             "spans": []
           }
         ]
@@ -53,18 +86,19 @@
       "heading": [
         {
           "type": "heading2",
-          "text": "Evolve intuitive e-tailers",
+          "text": "Envisioneer plug-and-play solutions",
           "spans": []
         }
       ],
       "Description": [
         {
           "type": "paragraph",
-          "text": "Laborum do fugiat reprehenderit. Nostrud proident ullamco quis in quis et Lorem tempor id. Tempor occaecat occaecat reprehenderit.",
+          "text": "Duis ea minim deserunt incididunt proident sint cillum nulla sit aliquip adipisicing velit. Exercitation proident in cupidatat id in ad reprehenderit qui minim ex laborum quis do. Sit eiusmod incididunt ut irure.",
           "spans": []
         }
       ],
-      "Alignment": "Vertical"
+      "Alignment": "Vertical",
+      "Color": "Primary"
     }
   }
 ]

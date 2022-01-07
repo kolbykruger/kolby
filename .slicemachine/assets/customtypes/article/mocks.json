@@ -1,30 +1,30 @@
 {
-  "id": "6034e993-7a50-49e0-a937-3fea535c01df",
-  "uid": "commodi-quo-amet",
+  "id": "436b28da-c33a-4d23-a568-906d1a0497cb",
+  "uid": "iusto-vel-et",
   "type": "article",
   "data": {
     "Name": [
       {
         "type": "heading1",
-        "text": "Strategize plug-and-play relationships",
+        "text": "Engage next-generation content",
         "spans": []
       }
     ],
     "Summary": [
       {
         "type": "paragraph",
-        "text": "Nisi pariatur deserunt elit minim eu adipisicing eu. Ad esse nulla dolor culpa minim Lorem aliqua voluptate ea cupidatat aliqua amet ipsum.",
+        "text": "Sunt excepteur pariatur proident adipisicing reprehenderit irure.",
         "spans": []
       }
     ],
-    "Read": 2286,
-    "Category": "Spotlight",
+    "Read": 2393,
+    "Category": "Code",
     "Narration": {
       "link_type": "media",
       "url": "https://source.unsplash.com/daily"
     },
-    "meta_title": "iterate proactive platforms",
-    "meta_description": "transform web-enabled action-items",
+    "meta_title": "generate dynamic e-tailers",
+    "meta_description": "deploy dynamic infomediaries",
     "social_cards": [
       {
         "social_card_image": {
@@ -34,10 +34,10 @@
           },
           "alt": "Placeholder image",
           "copyright": null,
-          "url": "https://images.unsplash.com/photo-1493119508027-2b584f234d6c?w=900&h=500&fit=crop"
+          "url": "https://images.unsplash.com/photo-1591012911207-0dbac31f37da?w=900&h=500&fit=crop"
         },
-        "social_card_title": "orchestrate ubiquitous experiences",
-        "social_card_description": "evolve enterprise web services"
+        "social_card_title": "enhance compelling vortals",
+        "social_card_description": "orchestrate intuitive vortals"
       },
       {
         "social_card_image": {
@@ -47,10 +47,23 @@
           },
           "alt": "Placeholder image",
           "copyright": null,
-          "url": "https://images.unsplash.com/photo-1587614295999-6c1c13675117?w=900&h=500&fit=crop"
+          "url": "https://images.unsplash.com/photo-1606248897732-2c5ffe759c04?w=900&h=500&fit=crop"
         },
-        "social_card_title": "e-enable revolutionary e-commerce",
-        "social_card_description": "enable cross-platform partnerships"
+        "social_card_title": "enable killer eyeballs",
+        "social_card_description": "whiteboard dot-com action-items"
+      },
+      {
+        "social_card_image": {
+          "dimensions": {
+            "width": 900,
+            "height": 500
+          },
+          "alt": "Placeholder image",
+          "copyright": null,
+          "url": "https://images.unsplash.com/photo-1593642532973-d31b6557fa68?w=900&h=500&fit=crop"
+        },
+        "social_card_title": "seize integrated technologies",
+        "social_card_description": "reinvent visionary technologies"
       }
     ]
   }
