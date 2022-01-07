@@ -1,13 +1,18 @@
 <template>
-    <figure ref="picture" class="picture" :style="{ 'aspect-ratio': field.dimensions.width / field.dimensions.height }">
-        <nuxt-picture
+    <figure
+        ref="picture"
+        class="picture"
+        :class="{ '-loaded': !isLoading, '-noise': noise }"
+        :style="{ 'aspect-ratio': field.dimensions.width / field.dimensions.height }"
+    >
+        <nuxt-img
             fit="clip"
             loading="lazy"
             crossorigin="anonymous"
-            :class="{ '-loaded': isLoaded }"
+            :class="{ '-loaded': !isLoading }"
             :src="field.url"
             :sizes="sizes"
-            @load="isLoaded = true"
+            @load.native="isLoading = false"
         />
         <!-- <prismic-image
             v-if="isDev"
@@ -17,7 +22,7 @@
             class="picture-dev"
             :class="{ '-loaded': isLoaded }"
             :field="field"
-            @load="isLoaded = true"
+            @load="isLoading = false"
         /> -->
 
         <!-- <Picture
@@ -43,7 +48,7 @@ export default {
     name: 'Picture',
     data() {
         return {
-            isLoaded: false,
+            isLoading: true,
         }
     },
     computed: {
@@ -67,24 +72,28 @@ export default {
         },
         sizes: {
             type: Object,
-            defaults: {
-                'phone-small': '100vw',
-                phone: '100vw',
-                'phone-large': '100vw',
-                tablet: '100vw',
-                'laptop-small': '100vw',
-                laptop: '100vw',
-                'laptop-large': '100vw',
-                'desktop-small': '100vw',
-                desktop: '100vw',
-                'desktop-large': '100vw',
+            default() {
+                return {
+                    'phone-small': '100vw',
+                    phone: '100vw',
+                    'phone-large': '100vw',
+                    tablet: '100vw',
+                    'laptop-small': '100vw',
+                    laptop: '100vw',
+                    'laptop-large': '100vw',
+                    'desktop-small': '100vw',
+                    desktop: '100vw',
+                    'desktop-large': '100vw',
+                }
             },
         },
         animation: {
             type: Boolean,
-            defaults: () => {
-                return false
-            },
+            defaults: false,
+        },
+        noise: {
+            type: Boolean,
+            defaults: false,
         },
     },
 }
@@ -94,13 +103,17 @@ export default {
 .picture {
     overflow: hidden;
 
-    &-dev {
+    &.-noise {
+        @include mq('laptop-large') {
+            position: relative;
+
+            &::before {
+                @include image-noise;
+            }
+        }
     }
 
-    picture {
-        display: flex;
-        width: 100%;
-        height: 100%;
+    &.-loaded {
     }
 
     img {
