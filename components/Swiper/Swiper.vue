@@ -34,7 +34,9 @@ export default {
     computed: {},
     methods: {
         getBounds() {
-            this.bounds = this.$refs.swiper.getBoundingClientRect().width
+            if (this.$refs.swiper) {
+                this.bounds = this.$refs.swiper.getBoundingClientRect().width
+            }
         },
         calculateWidth() {
             // Returns the width in pixels
@@ -45,9 +47,7 @@ export default {
             this.offset = (this.bounds - this.width) * this.progress
         },
         calculateOffsetFromIndex() {
-            console.log(this.index)
             const currentProgress = this.index / (this.count - 1)
-            console.log(this.index, this.count, currentProgress)
             this.offset = (this.bounds - this.width) * currentProgress
         },
     },
