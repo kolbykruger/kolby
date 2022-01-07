@@ -6,7 +6,22 @@
     >
         <div class="container">
             <div class="banner-image-container">
-                <Picture :field="slice.primary.image" />
+                <Picture
+                    :field="slice.primary.image"
+                    :noise="true"
+                    :sizes="{
+                        'phone-small': '375px',
+                        phone: '460px',
+                        'phone-large': '600px',
+                        tablet: '768px',
+                        'laptop-small': '1024px',
+                        laptop: '1200px',
+                        'laptop-large': '1350px',
+                        'desktop-small': '1600px',
+                        desktop: '1920px',
+                        'desktop-large': '2560px',
+                    }"
+                />
             </div>
         </div>
     </section>
@@ -28,17 +43,19 @@ export default {
         gsap.registerPlugin(ScrollTrigger)
 
         const bannerImage = this.$refs.bannerImage
-        gsap.set(bannerImage.querySelector('picture'), {
-            yPercent: -12,
-        })
-        gsap.to(bannerImage.querySelector('picture'), {
-            scrollTrigger: {
-                trigger: bannerImage,
-                start: 'top bottom',
-                scrub: true,
-            },
-            yPercent: 12,
-        })
+        // const img = bannerImage.querySelector('img')
+
+        // gsap.set(img, {
+        //     yPercent: -12,
+        // })
+        // gsap.to(img, {
+        //     scrollTrigger: {
+        //         trigger: bannerImage,
+        //         start: 'top bottom',
+        //         scrub: true,
+        //     },
+        //     yPercent: 12,
+        // })
     },
 }
 </script>
@@ -59,14 +76,6 @@ export default {
     }
 
     .container {
-    }
-
-    picture {
-        position: relative;
-
-        &::before {
-            @include image-noise;
-        }
     }
 
     img {
