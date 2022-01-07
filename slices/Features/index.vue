@@ -11,7 +11,11 @@
                         class="features-item-link"
                         :to="link(item.Relationship)"
                     >
-                        <span class="features-item-icon" v-if="item.Icon" v-html="item.Icon"></span>
+                        <!-- <span
+                            class="features-item-icon"
+                            v-if="item.Icon"
+                            v-html="require(`../assets/svg/${item.Icon}.svg?raw`)"
+                        ></span> -->
                         <prismic-rich-text :field="item.Title" class="features-item-title" ref="featuresTitle" />
                         <prismic-rich-text
                             :field="item.Description"
@@ -23,7 +27,14 @@
             </div>
             <div class="features-grid" v-else>
                 <div class="features-item" v-for="(item, index) in slice.items" :key="index">
-                    <span class="features-item-icon" v-if="item.Icon" v-html="item.Icon"></span>
+                    <!-- <span class="features-item-icon" v-if="item.Icon" v-html="item.Icon"></span> -->
+                    <span
+                        class="features-item-icon"
+                        v-if="item.Icon"
+                        v-html="require(`~/assets/svg/${item.Icon}.svg?raw`)"
+                    >
+                        <!-- <img :src="`../assets/svg/${item.Icon}.svg`" /> -->
+                    </span>
                     <prismic-rich-text :field="item.Title" class="features-item-title" ref="featuresTitle" />
                     <prismic-rich-text
                         :field="item.Description"
@@ -115,10 +126,11 @@ export default {
 
     &-item {
         position: relative;
-        border: 1px solid c('base-4');
+        // border: 1px solid c('base-4');
         padding: 3em;
         margin-bottom: 1em;
-        border-radius: 0.375em;
+        // border-radius: 0.375em;
+        border-radius: 0.125em;
 
         @include mq('tablet') {
             margin-bottom: 0;
@@ -132,6 +144,7 @@ export default {
             width: 100%;
             height: 100%;
             background: c('base-4');
+            background: radial-gradient(circle at 0% 0%, c('base-3') 30%, c('background'));
             opacity: 0.1;
             z-index: -1;
         }
@@ -153,8 +166,8 @@ export default {
                 width: var(--size);
                 height: var(--size);
 
-                path {
-                    fill: c('base-4');
+                * {
+                    fill: c('base-2');
                 }
             }
         }

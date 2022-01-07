@@ -1,8 +1,8 @@
 <template>
     <div class="leaf" ref="leaf" :class="{ '-active': selected == index }" :style="{ '--width': width + '%' }">
         <div class="container">
-            <p class="leaf-label">{{ index < 9 ? `0${index + 1}` : index }}</p>
-            <span class="leaf-icon" v-html="item.Icon"></span>
+            <p class="leaf-label">{{ index <= 9 ? `0${index + 1}` : index }}</p>
+            <span class="leaf-icon" v-if="item.Icon" v-html="require(`~/assets/svg/${item.Icon}.svg?raw`)"></span>
             <prismic-rich-text class="leaf-heading" :field="item.Heading" />
             <prismic-rich-text class="leaf-content" :field="item.Content" />
             <button
@@ -118,11 +118,25 @@ export default {
     }
 
     .container {
+        position: relative;
         height: 100%;
 
         @include mq('tablet') {
             padding-top: 6vh;
             padding-bottom: 12vh;
+
+            &::after {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: c('base-4');
+                background: radial-gradient(circle at 0% 0%, c('base-3') 30%, c('background'));
+                opacity: 0.1;
+                z-index: -1;
+            }
         }
     }
 
@@ -212,6 +226,10 @@ export default {
             @include mq('tablet') {
                 --size: 6em;
             }
+
+            * {
+                fill: c('base-3');
+            }
         }
     }
 
@@ -262,7 +280,7 @@ export default {
             width: 100%;
             height: 100%;
 
-            path {
+            * {
                 fill: c('base-3');
             }
         }
