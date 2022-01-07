@@ -1,5 +1,5 @@
 <template>
-    <div class="accordion-item" :data-index="index" :class="{ '-expanded': open }">
+    <div class="accordion-item" :data-index="index" :class="[{ '-expanded': open }, 'accordion-item-accent-' + accent]">
         <a :name="encodeURIComponent(item.Title)"></a>
         <button
             data-cursor="md"
@@ -9,7 +9,12 @@
             :aria-expanded="open"
             :aria-controls="`collapse_${index}`"
         >
-            <span class="accordion-item-button-icon" v-if="item.Icon" v-html="item.Icon" aria-hidden="true"></span>
+            <span
+                class="accordion-item-button-icon"
+                v-if="item.Icon"
+                v-html="require(`~/assets/svg/${item.Icon}.svg?raw`)"
+                aria-hidden="true"
+            ></span>
             <p class="accordion-item-button-title">{{ item.Title }}</p>
             <div class="accordion-item-button-indicator" data-anchor data-exclusion>
                 <svg fill="none" viewBox="0 0 25 18" xmlns="http://www.w3.org/2000/svg">
@@ -40,11 +45,14 @@ export default {
     props: {
         item: Object,
         index: Number,
+        color: String,
     },
     data() {
         return {
             open: false,
             panelHeight: 0,
+            accent: 'primary',
+            colors: ['primary', 'secondary', 'tertiary', 'quaternary'],
         }
     },
     methods: {
@@ -58,10 +66,17 @@ export default {
                 this.panelHeight = panel.scrollHeight
             }
         },
+        assignRandomColor() {
+            const arr = this.colors
+            this.accent = arr[Math.floor(Math.random() * arr.length)]
+        },
     },
     mounted() {
         // Run to calculate the panel height
         this.calculatePanelHeight()
+        if (this.color) {
+            this.color == 'Random' ? this.assignRandomColor() : (this.accent = this.color.toLowerCase())
+        }
 
         window.addEventListener('resize', () => {
             this.calculatePanelHeight()
@@ -76,8 +91,46 @@ export default {
         width: 100%;
         height: 100%;
 
-        path {
+        * {
             fill: c('base-0');
+        }
+    }
+
+    &.accordion-item-accent {
+        &-secondary {
+            .accordion-item-button {
+                &[aria-expanded='true'] {
+                    .accordion-item-button-title,
+                    .accordion-item-button-icon svg path {
+                        color: c('secondary-base');
+                        fill: c('secondary-base');
+                    }
+                }
+            }
+        }
+
+        &-tertiary {
+            .accordion-item-button {
+                &[aria-expanded='true'] {
+                    .accordion-item-button-title,
+                    .accordion-item-button-icon svg path {
+                        color: c('tertiary-base');
+                        fill: c('tertiary-base');
+                    }
+                }
+            }
+        }
+
+        &-quaternary {
+            .accordion-item-button {
+                &[aria-expanded='true'] {
+                    .accordion-item-button-title,
+                    .accordion-item-button-icon svg path {
+                        color: c('quaternary-base');
+                        fill: c('quaternary-base');
+                    }
+                }
+            }
         }
     }
 

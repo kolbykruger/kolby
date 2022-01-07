@@ -10,7 +10,14 @@
                 />
             </div>
             <div class="accordion-items">
-                <Item v-for="(item, index) in slice.items" :item="item" :index="index" :key="index" data-anim-child />
+                <Item
+                    v-for="(item, index) in slice.items"
+                    :item="item"
+                    :index="index"
+                    :key="index"
+                    :color="slice.primary.Color"
+                    data-anim-child
+                />
             </div>
         </div>
     </section>
