@@ -27,29 +27,7 @@ main {
 }
 
 .page-spacer {
-    padding: 0 1.25em;
-
-    @include mq('phone-small') {
-        padding: 0 1.875em;
-    }
-    @include mq('phone-large') {
-        padding: 0 6.25em;
-    }
-    @include mq('laptop-small') {
-        padding: 0 7.5em;
-    }
-    @include mq('laptop') {
-        padding: 0 9.375em;
-    }
-    @include mq('laptop-large') {
-        padding: 0 11.25em;
-    }
-    @include mq('desktop-small') {
-        padding: 0 13.75em;
-    }
-    @include mq('desktop') {
-        padding: 0 16.875em;
-    }
+    @include content-spacing;
 }
 
 section,
