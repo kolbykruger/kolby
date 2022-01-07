@@ -112,6 +112,7 @@ export default {
     watch: {
         loading(value) {
             const splash = this.$refs.splash
+            const status = value
             if (value) {
                 // If the page is loading
                 this.timeline.splash
@@ -124,6 +125,12 @@ export default {
                         duration: 0.8,
                         ease: this.ease,
                     })
+                // setTimeout(() => {
+                //     if (status) {
+                //         this.timeline.strap.restart()
+                //         this.timeline.strap.repeat(0)
+                //     }
+                // }, 1500)
             } else {
                 // If the page is finished loading
                 this.$nextTick(() => {
