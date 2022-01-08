@@ -26,6 +26,7 @@
                     />
                 </svg>
             </button>
+            <canvas id="webgl" ref="webgl"></canvas>
         </div>
     </section>
 </template>
@@ -34,6 +35,7 @@
 import { gsap } from 'gsap'
 import { SplitText } from 'gsap/dist/SplitText'
 import { CustomEase } from 'gsap/dist/CustomEase'
+import { Canvas } from '@/mixins/intro/Canvas'
 import NameTitle from '@/components/Pageheading/NameTitle.vue'
 
 export default {
@@ -41,6 +43,7 @@ export default {
     components: {
         NameTitle,
     },
+    mixins: [Canvas],
     methods: {
         scrollNext() {
             const next = this.$refs.intro.nextElementSibling.childNodes[0]
