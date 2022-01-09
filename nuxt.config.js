@@ -1,5 +1,4 @@
 import smConfig from './sm.json'
-import { getStoriesPaths } from 'slice-machine-ui/helpers/storybook'
 import { scrollBehavior } from './plugins/route.js'
 
 if (!smConfig.apiEndpoint) {
@@ -79,9 +78,6 @@ export default {
     build: {
         transpile: ['vue-slicezone', 'nuxt-sm', 'three'],
     },
-    storybook: {
-        stories: ['~/.slicemachine/assets/**/*.stories.@(js|jsx|ts|tsx|svelte)', '~/assets/css/internals.scss'],
-    },
     image: {
         provider: 'prismic',
         prismic: {},
@@ -108,5 +104,4 @@ export default {
         middleware: 'pages',
         scrollBehavior,
     },
-    ignore: [...getStoriesPaths().map(path => path.replace('../', '~/'))],
 }
