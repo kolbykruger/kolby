@@ -3,7 +3,7 @@
         <div class="page-contents">
             <Pageheading name="Work" />
 
-            <canvas id="canvas" ref="canvas" />
+            <!-- <canvas id="canvas" ref="canvas" /> -->
 
             <section class="work-intro">
                 <div class="container">
@@ -50,7 +50,7 @@
 import Pageheading from '~/components/Pageheading/Pageheading.vue'
 import CaseStudyItem from '~/components/CaseStudyItem/CaseStudyItem.vue'
 import { Animations } from '~/mixins/animations/Animations.js'
-import { CaseStudies } from '@/mixins/webgl/CaseStudies'
+// import { CaseStudies } from '@/mixins/webgl/CaseStudies'
 
 export default {
     components: {
