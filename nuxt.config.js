@@ -52,7 +52,7 @@ export default {
     ],
     components: true,
     buildModules: ['@nuxt/image', '@nuxtjs/svg'],
-    transpile: ['gsap', 'three'],
+    transpile: ['gsap'],
     modules: [
         '@nuxt/image',
         '@nuxtjs/style-resources',
@@ -76,7 +76,7 @@ export default {
         fallback: true,
     },
     build: {
-        transpile: ['vue-slicezone', 'nuxt-sm', 'three'],
+        transpile: ['vue-slicezone', 'nuxt-sm'],
     },
     image: {
         provider: 'prismic',

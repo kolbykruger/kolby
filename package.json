@@ -28,7 +28,6 @@
         "nuxt": "^2.14.7",
         "nuxt-sm": "^0.0.9",
         "prismjs": "^1.24.1",
-        "three": "^0.131.3",
         "vue-essential-slices": "^0.2.0",
         "vue-flickity": "^1.2.1",
         "vue-slicezone": "^0.1.0"
