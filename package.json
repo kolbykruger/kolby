@@ -45,5 +45,8 @@
         "slice-machine-ui": "^0.1.2",
         "vue-loader": "16.8.3",
         "webpack": "^5.0.0"
+    },
+    "resolutions": {
+        "webpack": "4.46.0"
     }
 }
