@@ -34,7 +34,7 @@
     },
     "devDependencies": {
         "@babel/runtime-corejs3": "^7.12.5",
-        "@nuxt/image": "^0.6.0",
+        "@nuxt/image": "^0.7.0",
         "@nuxtjs/style-resources": "^1.2.1",
         "@nuxtjs/svg": "^0.3.0",
         "core-js": "^3.16.2",
