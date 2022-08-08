@@ -133,7 +133,7 @@ export default {
         mix-blend-mode: overlay;
     }
 
-    span {
+    :where(span) {
         position: fixed;
         top: 0;
         left: 0;
@@ -143,45 +143,75 @@ export default {
     }
 
     &-background {
-        z-index: -1;
         --color: var(--color-background);
         background: linear-gradient(to right, var(--color) 60%, c('background'));
-        opacity: 0.6;
     }
 
     &-noise {
+        top: -10rem;
+        left: -10rem;
+        width: calc(100% + 20rem);
+        height: calc(100% + 20rem);
         background-image: url('/noise/noise-2.png');
-        z-index: 1000;
-        opacity: 0.5;
         background-size: auto;
         background-repeat: repeat;
+        animation: noise 1s steps(2) infinite;
+        opacity: 0.8;
+        z-index: 1000;
 
         html[theme='dark'] & {
-            opacity: 0.18;
+            opacity: 0.3;
         }
 
-        @include mq('laptop-large') {
-            background-image: url('/noise/noise.gif');
-            opacity: 0.5;
-
-            html[theme='dark'] & {
-                opacity: 0.18;
+        @keyframes noise {
+            0% {
+                transform: translate3d(0, 9rem, 0);
+            }
+            10% {
+                transform: translate3d(-1rem, -4rem, 0);
+            }
+            20% {
+                transform: translate3d(-8rem, 2rem, 0);
+            }
+            30% {
+                transform: translate3d(9rem, -9rem, 0);
+            }
+            40% {
+                transform: translate3d(-2rem, 7rem, 0);
+            }
+            50% {
+                transform: translate3d(-9rem, -4rem, 0);
+            }
+            60% {
+                transform: translate3d(2rem, 6rem, 0);
+            }
+            70% {
+                transform: translate3d(7rem, -8rem, 0);
+            }
+            80% {
+                transform: translate3d(-9rem, 1rem, 0);
+            }
+            90% {
+                transform: translate3d(6rem, -5rem, 0);
+            }
+            to {
+                transform: translate3d(-7rem, 0, 0);
             }
         }
     }
 
-    &-injection {
-        // mix-blend-mode: overlay;
+    // &-injection {
+    //     // mix-blend-mode: overlay;
 
-        iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-    }
+    //     iframe {
+    //         position: absolute;
+    //         top: 0;
+    //         left: 0;
+    //         width: 100%;
+    //         height: 100%;
+    //         object-fit: cover;
+    //     }
+    // }
 
     // &-dots {
     //     background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAACBJREFUeNpiWLly5X8gYCCEGUEEMYCJgUgwqhAvAAgwANmrIO6kDMxtAAAAAElFTkSuQmCC');
