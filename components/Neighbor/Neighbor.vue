@@ -8,9 +8,7 @@
             </style>
             <p>Next</p>
             <nuxt-link
-                data-progress="4"
-                data-callback="route"
-                :data-callback-location="'/works/' + page.uid"
+                class="case-study-neighbor--link"
                 data-magnetic="0.1, 0.1, 0.1"
                 data-cursor="lg"
                 :to="'/works/' + page.uid"

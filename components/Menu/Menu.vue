@@ -40,16 +40,29 @@
                                 <nuxt-link
                                     data-cursor="lg"
                                     class="navigation-link"
-                                    to="/approach"
-                                    @click.native="setMenuStatus('/approach')"
+                                    to="/resume"
+                                    @click.native="setMenuStatus('/resume')"
                                 >
-                                    <span data-text="Approach">Approach</span>
+                                    <span data-text="Resumé">Resumé</span>
                                     <span class="navigation-link-sticky" aria-hidden="true"></span>
                                 </nuxt-link>
                             </div>
                         </li>
                     </ul>
                     <ul ref="navSmall" class="navigation-items navigation-items-sm">
+                        <li class="navigation-item navigation-item-sm">
+                            <div class="navigation-item-bit">
+                                <nuxt-link
+                                    data-stick
+                                    data-cursor="xl"
+                                    class="navigation-link"
+                                    to="/reviews"
+                                    @click.native="setMenuStatus('/reviews')"
+                                >
+                                    <span data-text="Reviews">Reviews</span>
+                                </nuxt-link>
+                            </div>
+                        </li>
                         <li class="navigation-item navigation-item-sm">
                             <div class="navigation-item-bit">
                                 <nuxt-link
@@ -189,8 +202,14 @@ export default {
                 resize: true,
             })
             c({
-                particleCount: 100,
-                spread: 160,
+                particleCount: 125,
+                startVelocity: 75,
+                spread: 125,
+                angle: 120,
+                origin: {
+                    x: 1,
+                    y: 1,
+                },
             })
         },
     },
@@ -667,9 +686,15 @@ export default {
     }
 
     canvas {
-        width: 100%;
+        bottom: 0;
+        right: 0;
+        top: 0;
+        left: 0;
+        width: 100vw;
         height: 100vh;
         z-index: -1;
+        pointer-events: none;
+        user-select: none;
     }
 
     @keyframes artwork-in {

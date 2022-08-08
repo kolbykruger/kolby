@@ -36,13 +36,16 @@
                         </div>
                         <div v-if="slice.variation == 'railWithDateCompany'">
                             <p class="rail-item-date" v-if="item.Date">
-                                {{ i == 0 ? '~ ' : '' }}{{ formatDate(item.Date) || '2021' }}
+                                {{ formatDate(item.Date) || '2022' }}
+                                <span v-if="item.end_date"> — {{ formatDate(item.end_date) || '2022' }} </span>
                             </p>
                             <prismic-rich-text class="rail-item-title" :field="item.Title" />
                             <div class="rail-item-title">
                                 <h4>
-                                    —
-                                    <prismic-link :field="item.Link">{{ item.Company || 'Company' }}</prismic-link>
+                                    <span v-if="item.Link.url">—</span>
+                                    <prismic-link v-if="item.Link.url" :field="item.Link">{{
+                                        item.Company || 'Company'
+                                    }}</prismic-link>
                                 </h4>
                             </div>
                             <prismic-rich-text class="rail-item-summary" :field="item.Summary" />
@@ -120,6 +123,7 @@ export default {
         formatDate(d) {
             const date = new Date(d)
             const options = {
+                month: 'short',
                 year: 'numeric',
             }
             return date.toLocaleDateString('en-us', options)

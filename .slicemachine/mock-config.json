@@ -74,6 +74,48 @@
           }
         }
       }
+    },
+    "Tiles": {
+      "default-slice": {
+        "items": {}
+      }
+    },
+    "Embed": {
+      "default-slice": {
+        "primary": {}
+      }
+    },
+    "Rail": {},
+    "Textblock": {
+      "textblockWithGridList": {
+        "items": {
+          "summary": {
+            "config": {
+              "patternType": "PARAGRAPH",
+              "blocks": 1
+            }
+          }
+        }
+      }
+    },
+    "Quote": {
+      "default": {
+        "primary": {},
+        "items": {
+          "tagline": {
+            "config": {
+              "patternType": "HEADING",
+              "blocks": 1
+            }
+          },
+          "quote": {
+            "config": {
+              "patternType": "PARAGRAPH",
+              "blocks": 1
+            }
+          }
+        }
+      }
     }
   },
   "_cts": {
@@ -149,6 +191,10 @@
         }
       },
       "FeaturedWork": {}
+    },
+    "menu": {
+      "menu_links": {},
+      "small_menu_links": {}
     }
   }
 }

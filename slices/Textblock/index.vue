@@ -19,16 +19,35 @@
 
                 <div
                     class="textblock-list-grid"
-                    v-if="slice.variation == 'textblockWithGridList'"
+                    v-if="slice.variation == 'textblockWithGridList' || slice.variation == 'textblockWithGridButton'"
                     data-anim
                     data-anim-elements=".textblock-list-item"
                 >
                     <ul class="textblock-list">
                         <li class="textblock-list-item" v-for="(item, i) in slice.items" :key="`slice-item-${i}`">
                             <p class="textblock-list-name">{{ item.Name }}</p>
-                            <p class="textblock-list-outline">
+                            <p class="textblock-list-outline" v-if="item.Outline">
                                 {{ item.Outline }}
                             </p>
+                            <prismic-rich-text
+                                class="textblock-list-outline"
+                                v-if="item.summary"
+                                :field="item.summary"
+                            />
+                            <div class="textblock-list-action" v-if="slice.variation == 'textblockWithGridButton'">
+                                <div v-if="item.button.url">
+                                    <a
+                                        v-if="item.button.link_type == 'Media'"
+                                        :href="item.button.url"
+                                        target="_blank"
+                                        rel="nofollow norefer"
+                                        >{{ item.button_text ? item.button_text : 'Learn More' }}</a
+                                    >
+                                    <nuxt-link v-else :to="item.button.url">{{
+                                        item.button_text ? item.button_text : 'Learn More'
+                                    }}</nuxt-link>
+                                </div>
+                            </div>
                         </li>
                     </ul>
                 </div>
@@ -182,7 +201,19 @@ export default {
             margin: 0;
             margin-top: 0.25em;
             opacity: 0.75;
+
+            > p {
+                @include fs-xxs;
+            }
             // line-height: 1;
+        }
+
+        &-action {
+            @include fs-xxs;
+            margin: 0;
+            margin-top: 0.25em;
+            opacity: 0.75;
+            line-height: 1;
         }
     }
 

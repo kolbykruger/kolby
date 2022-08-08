@@ -56,6 +56,7 @@
                                 tag="div"
                             >
                                 <ArticleItem v-for="article in filteredArticles" :key="article.id" :article="article" />
+                                <p :key="-1" v-if="filteredArticles.length < 1">No articles found.</p>
                             </transition-group>
                         </ul>
                     </div>

@@ -68,7 +68,8 @@
           },
           "type": "StructuredText"
         }
-      }
+      },
+      "imageUrl": "https://images.prismic.io/slice-machine/621a5ec4-0387-4bc5-9860-2dd46cbc07cd_default_ss.png?auto=compress,format"
     },
     {
       "id": "railWithDateCompany",
@@ -116,6 +117,13 @@
           },
           "type": "Date"
         },
+        "end_date": {
+          "type": "Date",
+          "config": {
+            "label": "End Date",
+            "placeholder": ""
+          }
+        },
         "Company": {
           "config": {
             "label": "Company",
@@ -150,7 +158,8 @@
           },
           "type": "StructuredText"
         }
-      }
+      },
+      "imageUrl": "https://images.prismic.io/slice-machine/621a5ec4-0387-4bc5-9860-2dd46cbc07cd_default_ss.png?auto=compress,format"
     },
     {
       "id": "railWithImages",
@@ -220,7 +229,8 @@
           },
           "type": "StructuredText"
         }
-      }
+      },
+      "imageUrl": "https://images.prismic.io/slice-machine/621a5ec4-0387-4bc5-9860-2dd46cbc07cd_default_ss.png?auto=compress,format"
     }
   ]
 }

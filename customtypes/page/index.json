@@ -70,6 +70,9 @@
             },
             "convoke": {
               "type": "SharedSlice"
+            },
+            "quote": {
+              "type": "SharedSlice"
             }
           }
         }

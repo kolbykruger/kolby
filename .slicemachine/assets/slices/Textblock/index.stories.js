@@ -18,12 +18,12 @@ export const _DefaultSlice = () => ({
   },
   data() {
     return {
-      mock: {"variation":"default-slice","name":"Default slice","slice_type":"textblock","items":[],"primary":{"Index":"synergize bricks-and-clicks content","Eyebrow":"deliver intuitive portals","title":[{"type":"heading2","text":"Disintermediate plug-and-play infrastructures","spans":[]}],"description":[{"type":"paragraph","text":"Est incididunt excepteur exercitation.","spans":[]}]},"id":"_DefaultSlice"}
+      mock: {"variation":"default-slice","version":"sktwi1xtmkfgx8626","items":[{}],"primary":{"Index":"stared","Eyebrow":"attack","title":[{"type":"heading2","text":"Terrible","spans":[]}],"description":[{"type":"paragraph","text":"Reprehenderit cupidatat excepteur cupidatat minim ut elit quis consequat commodo et magna adipisicing.","spans":[]}]},"slice_type":"textblock","id":"_DefaultSlice"}
     }
   },
   template: '<SliceZone :slices="[mock]" :resolver="resolve" />'
 })
-_DefaultSlice.storyName = 'Default slice'
+_DefaultSlice.storyName = ''
 
 export const _TextblockWithGridList = () => ({
   components: {
@@ -37,9 +37,28 @@ export const _TextblockWithGridList = () => ({
   },
   data() {
     return {
-      mock: {"variation":"textblockWithGridList","name":"Textblock - with Grid List","slice_type":"textblock","items":[{"Name":"benchmark world-class infrastructures","Outline":"iterate wireless ROI"},{"Name":"synergize dynamic web-readiness","Outline":"innovate efficient infrastructures"},{"Name":"exploit 24/365 schemas","Outline":"enable front-end niches"},{"Name":"unleash innovative infrastructures","Outline":"enhance bricks-and-clicks ROI"}],"primary":{"Index":"recontextualize compelling interfaces","Eyebrow":"harness impactful systems","title":[{"type":"heading2","text":"Cultivate distributed solutions","spans":[]}],"description":[{"type":"paragraph","text":"Reprehenderit exercitation ad mollit veniam duis adipisicing ipsum reprehenderit magna duis duis elit.","spans":[]}]},"id":"_TextblockWithGridList"}
+      mock: {"variation":"textblockWithGridList","version":"sktwi1xtmkfgx8626","items":[{"Name":"as","Outline":"help","summary":[{"type":"paragraph","text":"Duis laboris cupidatat ea est aute in occaecat eiusmod nisi ullamco elit. Esse magna labore sint. Sunt cupidatat excepteur laborum labore voluptate eiusmod eu cupidatat velit elit cupidatat mollit.","spans":[]}]}],"primary":{"Index":"loose","Eyebrow":"effect","title":[{"type":"heading2","text":"About","spans":[]}],"description":[{"type":"paragraph","text":"Velit in eiusmod eu culpa occaecat est eu consequat irure in commodo magna aliquip. Occaecat id proident amet labore ex duis ad deserunt consequat eiusmod. Labore irure mollit consequat cillum sunt.","spans":[]}]},"slice_type":"textblock","id":"_TextblockWithGridList"}
     }
   },
   template: '<SliceZone :slices="[mock]" :resolver="resolve" />'
 })
-_TextblockWithGridList.storyName = 'Textblock - with Grid List'
+_TextblockWithGridList.storyName = ''
+
+export const _TextblockWithGridButton = () => ({
+  components: {
+    MyComponent,
+    SliceZone
+  },
+  methods: {
+    resolve() {
+      return MyComponent
+    }
+  },
+  data() {
+    return {
+      mock: {"variation":"textblockWithGridButton","version":"sktwi1xtmkfgx8626","items":[{"Name":"parent","Outline":"tribe","summary":[{"type":"paragraph","text":"Labore consectetur magna esse in ex ullamco tempor. Officia enim officia eiusmod est dolore excepteur ipsum ea velit.","spans":[]}],"button":{"link_type":"Web","url":"http://google.com"},"button_text":"send"}],"primary":{"Index":"usual","Eyebrow":"twelve","title":[{"type":"heading2","text":"Unhappy","spans":[]}],"description":[{"type":"paragraph","text":"Non ex fugiat ipsum elit id voluptate veniam elit ullamco duis incididunt voluptate ut. Labore officia incididunt adipisicing nisi eu culpa consectetur.","spans":[]}]},"slice_type":"textblock","id":"_TextblockWithGridButton"}
+    }
+  },
+  template: '<SliceZone :slices="[mock]" :resolver="resolve" />'
+})
+_TextblockWithGridButton.storyName = ''

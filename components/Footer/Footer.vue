@@ -1,6 +1,7 @@
 <template>
     <footer class="footer" ref="footer" data-traveler="transparent" data-anim>
         <div class="container">
+            <div class="footer-squiggle" v-html="squiggle" />
             <span class="footer-magic"></span>
             <div class="footer-grid">
                 <div class="footer-copy">
@@ -44,6 +45,7 @@
 <script>
 const confetti = require('canvas-confetti')
 import Socials from '../Socials/Socials.vue'
+import squiggle from '@/assets/svg/animated/squiggle.svg?raw'
 
 export default {
     components: { Socials },
@@ -51,6 +53,7 @@ export default {
     data() {
         return {
             contact: null,
+            squiggle,
         }
     },
     computed: {
@@ -193,6 +196,14 @@ export default {
             path {
                 fill: c('base-0');
             }
+        }
+    }
+
+    &-squiggle {
+        width: 100%;
+
+        svg {
+            height: 5px;
         }
     }
 }

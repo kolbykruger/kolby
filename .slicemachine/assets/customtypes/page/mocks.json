@@ -1,17 +1,26 @@
 {
-  "id": "798df17b-6953-4a57-8abe-bceaf6cf34ea",
-  "uid": "dolor-repellendus-eum",
+  "id": "mock-doc-id",
+  "url": null,
   "type": "page",
+  "href": null,
+  "tags": [],
+  "first_publication_date": "1970-01-01T00:00:01+0000",
+  "last_publication_date": "1970-01-01T00:00:01+0000",
+  "slugs": [],
+  "linked_documents": [],
+  "lang": "en-us",
+  "alternate_languages": [],
   "data": {
     "Name": [
       {
         "type": "heading1",
-        "text": "Integrate interactive metrics",
+        "text": "Tonight",
         "spans": []
       }
     ],
-    "meta_title": "brand e-business markets",
-    "meta_description": "matrix transparent deliverables",
+    "slices": [],
+    "meta_title": "brought",
+    "meta_description": "any",
     "social_cards": [
       {
         "social_card_image": {
@@ -19,51 +28,12 @@
             "width": 900,
             "height": 500
           },
-          "alt": "Placeholder image",
+          "alt": null,
           "copyright": null,
-          "url": "https://images.unsplash.com/photo-1560762484-813fc97650a0?w=900&h=500&fit=crop"
+          "url": "https://images.unsplash.com/photo-1471897488648-5eae4ac6686b"
         },
-        "social_card_title": "transform turn-key metrics",
-        "social_card_description": "deliver granular convergence"
-      },
-      {
-        "social_card_image": {
-          "dimensions": {
-            "width": 900,
-            "height": 500
-          },
-          "alt": "Placeholder image",
-          "copyright": null,
-          "url": "https://images.unsplash.com/photo-1576662712957-9c79ae1280f8?w=900&h=500&fit=crop"
-        },
-        "social_card_title": "seize sexy e-markets",
-        "social_card_description": "engage ubiquitous relationships"
-      },
-      {
-        "social_card_image": {
-          "dimensions": {
-            "width": 900,
-            "height": 500
-          },
-          "alt": "Placeholder image",
-          "copyright": null,
-          "url": "https://images.unsplash.com/photo-1587905069134-008460d7a636?w=900&h=500&fit=crop"
-        },
-        "social_card_title": "unleash interactive relationships",
-        "social_card_description": "e-enable plug-and-play e-markets"
-      },
-      {
-        "social_card_image": {
-          "dimensions": {
-            "width": 900,
-            "height": 500
-          },
-          "alt": "Placeholder image",
-          "copyright": null,
-          "url": "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=900&h=500&fit=crop"
-        },
-        "social_card_title": "mesh collaborative models",
-        "social_card_description": "strategize cross-platform e-markets"
+        "social_card_title": "screen",
+        "social_card_description": "now"
       }
     ]
   }

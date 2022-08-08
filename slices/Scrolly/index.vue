@@ -152,7 +152,7 @@ export default {
                                         // skewSetter(proxy.skew)
                                         gsap.to(fig, {
                                             skewY: proxy.skew + 'deg',
-                                            duration: 0.05,
+                                            duration: 0.55,
                                             ease: 'power3.out',
                                         })
                                     },

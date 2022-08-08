@@ -3,6 +3,8 @@ import { gsap } from 'gsap'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 import vertex from 'raw-loader!glslify-loader!./shaders/vertex.glsl'
 import fragment from 'raw-loader!glslify-loader!./shaders/fragment.glsl'
+import vertexParticles from 'raw-loader!glslify-loader!./shaders/vertexParticles.glsl'
+import fragmentParticles from 'raw-loader!glslify-loader!./shaders/fragmentParticles.glsl'
 
 export const Canvas = {
     name: 'Canvas',
@@ -26,6 +28,8 @@ export const Canvas = {
             uniforms: undefined,
             materials: undefined,
             counter: 0.0,
+            particleGeometry: undefined,
+            particleMaterial: undefined,
         }
     },
     methods: {
@@ -66,15 +70,22 @@ export const Canvas = {
                 antialias: true,
                 alpha: true,
             })
+            // this.renderer.setClearColor(0x111111, 1)
         },
         createControls() {
             // Controls
             this.controls = new OrbitControls(this.camera, this.renderer.domElement)
+            this.controls.autoRotate = true
+            this.controls.autoRotateSpeed = 1.0
+            this.controls.enableDamping = true
+        },
+        createFog() {
+            this.scene.fog = new THREE.FogExp2(0x000000, 0.001)
         },
         createGeometry() {
             const textureLoader = new THREE.TextureLoader()
             // Uniforms
-            const color = new THREE.Color('skybl')
+            const color = new THREE.Color('skyblue')
 
             // HDR
             // const hdrEquirect = new THREE.RGBELoader().load('./src/empty_warehouse_01_2k.hdr', () => {
@@ -82,7 +93,7 @@ export const Canvas = {
             // })
 
             // Normals
-            const normalMap = textureLoader.load('./src/normal.jpg')
+            const normalMap = textureLoader.load('/normals/normal.jpg')
             normalMap.wrapS = THREE.RepeatWrapping
             normalMap.wrapT = THREE.RepeatWrapping
             normalMap.repeat.set(1, 1)
@@ -107,14 +118,44 @@ export const Canvas = {
             this.scene.add(mesh)
 
             // Background
-            const plane = new THREE.PlaneBufferGeometry(1000, 1000)
-            const mat = new THREE.MeshBasicMaterial({
-                color: 0xffff00,
-            })
-            const mes = new THREE.Mesh(plane, mat)
-            mes.position.z = -100
-            this.scene.add(mes)
+            // const plane = new THREE.PlaneBufferGeometry(1000, 1000)
+            // const mat = new THREE.MeshBasicMaterial({
+            //     color: 0xffff00,
+            // })
+            // const mes = new THREE.Mesh(plane, mat)
+            // mes.position.z = -100
+            // this.scene.add(mes)
         },
+        createParticles() {
+            const vertices = []
+
+            for (let i = 0; i < 10000; i++) {
+                const x = THREE.MathUtils.randFloatSpread(2000)
+                const y = THREE.MathUtils.randFloatSpread(2000)
+                const z = THREE.MathUtils.randFloatSpread(2000)
+
+                vertices.push(x, y, z)
+            }
+
+            this.particleGeometry = new THREE.BufferGeometry()
+            this.particleGeometry.setAttribute('position', new THREE.Float32BufferAttribute(vertices, 3))
+
+            const sprite = new THREE.TextureLoader().load('/textures/circle.png')
+
+            this.particleMaterial = new THREE.PointsMaterial({
+                size: 8,
+                sizeAttenuation: true,
+                map: sprite,
+                alphaTest: 0.5,
+                transparent: true,
+                color: 0x181e24,
+            })
+
+            const particles = new THREE.Points(this.particleGeometry, this.particleMaterial)
+
+            this.scene.add(particles)
+        },
+
         createLighting() {
             const light = new THREE.DirectionalLight(0xfff0dd, 25)
             const helper = new THREE.DirectionalLightHelper(light, 5)
@@ -138,8 +179,14 @@ export const Canvas = {
                 // Renderer
                 this.renderer.render(this.scene, this.camera)
 
+                // Camera
+                // this.camera.position.x = -50 * elapsedTime
+                // this.camera.lookAt(new THREE.Vector3(0, 0, 0))
+
                 // Controls
-                this.controls.update()
+                if (this.controls) {
+                    this.controls.update()
+                }
 
                 // Callback
                 window.requestAnimationFrame(tick)
@@ -151,12 +198,16 @@ export const Canvas = {
     mounted() {
         this.setSizes()
         this.createScene()
-        this.createGeometry()
-        this.createLighting()
+        this.createFog()
+        // this.createGeometry()
+        this.createParticles()
+        // this.createLighting()
         this.createCamera()
         this.createRenderer()
         this.resize()
-        this.createControls()
+        if (process.env.NODE_ENV == 'development') {
+            this.createControls()
+        }
         this.animate()
 
         // Events

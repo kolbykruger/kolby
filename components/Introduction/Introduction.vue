@@ -1,5 +1,7 @@
 <template>
     <section class="introduction" ref="intro">
+        <!-- <canvas id="webgl" ref="webgl"></canvas> -->
+        <span class="webgl-overlay"></span>
         <div class="container">
             <NameTitle ref="title" />
             <h2 ref="subTitle" class="introduction-subtitle">I design and create web <b>experiences</b></h2>
@@ -26,7 +28,6 @@
                     />
                 </svg>
             </button>
-            <canvas id="webgl" ref="webgl"></canvas>
         </div>
     </section>
 </template>
@@ -35,7 +36,7 @@
 import { gsap } from 'gsap'
 import { SplitText } from 'gsap/dist/SplitText'
 import { CustomEase } from 'gsap/dist/CustomEase'
-import { Canvas } from '@/mixins/intro/Canvas'
+//import { Canvas } from '@/mixins/intro/Canvas'
 import NameTitle from '@/components/Pageheading/NameTitle.vue'
 
 export default {
@@ -43,7 +44,6 @@ export default {
     components: {
         NameTitle,
     },
-    mixins: [Canvas],
     methods: {
         scrollNext() {
             const next = this.$refs.intro.nextElementSibling.childNodes[0]
@@ -181,6 +181,7 @@ export default {
         align-items: center;
         justify-content: center;
         text-align: center;
+        z-index: 2;
     }
 
     &-subtitle {
@@ -211,6 +212,30 @@ export default {
                 fill: c('base-0');
             }
         }
+    }
+
+    canvas {
+        background: c('background');
+        filter: blur(3px);
+        opacity: 0.7;
+        // z-index: -1;
+
+        // + .webgl-overlay {
+        //     position: absolute;
+        //     top: 0;
+        //     left: 0;
+        //     width: 100%;
+        //     height: 100%;
+        //     background-image: url('/noise/noise-2.png');
+        //     // background-image: url('/noise/noise.gif');
+        //     background-size: auto;
+        //     background-repeat: repeat;
+        //     opacity: 0.1;
+        //     mix-blend-mode: overlay;
+        //     z-index: 2;
+        //     user-select: none;
+        //     pointer-events: none;
+        // }
     }
 }
 </style>

@@ -19,6 +19,7 @@
                             <prismic-rich-text class="cs-summary" :field="document.data.Summary" />
                             <p class="cs-website" v-if="document.data.Website">
                                 <a
+                                    class="cs-website-link"
                                     data-magnetic
                                     :href="document.data.Website.url"
                                     target="_blank"
@@ -208,6 +209,7 @@ export default {
             display: inline-flex;
             align-items: center;
             height: 64px;
+            text-decoration: none;
 
             svg {
                 margin-left: 0.4em;

@@ -2,6 +2,7 @@
   "id": "menu",
   "label": "Menu",
   "repeatable": false,
+  "status": true,
   "json": {
     "Main": {
       "title": {
@@ -16,25 +17,48 @@
         "config": {
           "fields": {
             "label": {
-              "type": "StructuredText",
+              "type": "Text",
               "config": {
-                "single": "paragraph",
-                "label": "Link Label",
-                "placeholder": "Link Label..."
+                "label": "Label",
+                "placeholder": ""
               }
             },
             "link": {
               "type": "Link",
               "config": {
                 "label": "Link",
-                "placeholder": "Select a Link..."
+                "placeholder": "Select a Link...",
+                "allowTargetBlank": false,
+                "select": null
               }
             }
           },
           "label": "Menu Links"
         }
+      },
+      "small_menu_links": {
+        "type": "Group",
+        "config": {
+          "label": "Small Menu Links",
+          "fields": {
+            "label": {
+              "type": "Text",
+              "config": {
+                "label": "Label",
+                "placeholder": ""
+              }
+            },
+            "link": {
+              "type": "Link",
+              "config": {
+                "label": "Link",
+                "placeholder": "",
+                "select": null
+              }
+            }
+          }
+        }
       }
     }
-  },
-  "status": true
+  }
 }
