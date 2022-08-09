@@ -11,42 +11,30 @@
         "build": "nuxt generate",
         "start": "nuxt start",
         "generate": "nuxt generate",
-        "prepublishOnly": "node ./node_modules/sm-commons/scripts/bundle",
-        "storybook": "nuxt storybook",
-        "build-storybook": "nuxt storybook build",
         "slicemachine": "start-slicemachine --port 9999"
     },
     "dependencies": {
         "@gsap/business": "^3.8.0",
         "@nuxtjs/prismic": "^1.3.2",
+        "@prismicio/slice-simulator-vue": "^0.2.1",
         "canvas-confetti": "^1.4.0",
         "clipboard": "^2.0.8",
-        "cookies": "^0.8.0",
-        "glslify-loader": "^2.0.0",
         "gsap": "npm:@gsap/business@^3.8.0",
-        "nuxt": "^2.14.7",
-        "nuxt-sm": "0.0.9",
+        "nuxt": "^2.12.2",
+        "nuxt-sm": "^0.1.6",
         "prismjs": "^1.24.1",
-        "three": "^0.131.3",
-        "vue-essential-slices": "^0.2.0",
         "vue-flickity": "^1.2.1",
         "vue-slicezone": "^0.1.0"
     },
     "devDependencies": {
-        "@babel/runtime-corejs3": "^7.12.5",
         "@nuxt/image": "^0.7.0",
         "@nuxtjs/style-resources": "^1.2.1",
-        "@nuxtjs/svg": "^0.3.0",
-        "core-js": "^3.16.2",
+        "@nuxtjs/svg": "^0.4.0",
+        "core-js": "^3.18.2",
         "nodemon": "^2.0.6",
         "raw-loader": "^4.0.2",
-        "sass": "^1.38.0",
+        "sass": "^1.42.1",
         "sass-loader": "^10.2.0",
-        "slice-machine-ui": "^0.1.2",
-        "vue-loader": "16.8.3",
-        "webpack": "^5.0.0"
-    },
-    "resolutions": {
-        "webpack": "4.46.0"
+        "slice-machine-ui": "^0.4.2"
     }
 }
