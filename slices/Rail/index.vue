@@ -60,6 +60,7 @@
                         <span></span>
                     </div>
                 </Flickity>
+                <Swiper :count="slice.items.length" :progress="progress" :index="0" :constrain="true" />
             </client-only>
             <button
                 data-cursor="lg"
@@ -83,6 +84,8 @@
 </template>
 
 <script>
+import Swiper from '@/components/Swiper/Swiper'
+
 export default {
     name: 'Rail',
     props: {
@@ -109,6 +112,8 @@ export default {
                 friction: 0.2,
             },
             selectedIndex: 0,
+            isMobile: false,
+            progress: 0,
         }
     },
     computed: {
@@ -138,6 +143,9 @@ export default {
             this.selectedIndex = evt.selectedIndex
             evt.on('change', event => {
                 this.selectedIndex = event
+            })
+            evt.on('scroll', progress => {
+                this.progress = progress
             })
         },
         aspectRatio(image) {

@@ -98,7 +98,11 @@ export default {
             width: 100%;
             height: 1px;
             background: c('base-4');
-            background: linear-gradient(to right, c('base-4') 65%, transparent);
+            background: linear-gradient(to right, c('base-7') 65%, transparent);
+
+            html[theme='dark'] & {
+                background: linear-gradient(to right, c('base-4') 65%, transparent);
+            }
         }
     }
 

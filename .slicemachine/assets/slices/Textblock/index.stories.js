@@ -18,7 +18,7 @@ export const _DefaultSlice = () => ({
   },
   data() {
     return {
-      mock: {"variation":"default-slice","version":"sktwi1xtmkfgx8626","items":[{}],"primary":{"Index":"stared","Eyebrow":"attack","title":[{"type":"heading2","text":"Terrible","spans":[]}],"description":[{"type":"paragraph","text":"Reprehenderit cupidatat excepteur cupidatat minim ut elit quis consequat commodo et magna adipisicing.","spans":[]}]},"slice_type":"textblock","id":"_DefaultSlice"}
+      mock: {"variation":"default-slice","version":"sktwi1xtmkfgx8626","items":[{}],"primary":{"Index":"ask","Eyebrow":"dozen","title":[{"type":"heading2","text":"Carried","spans":[]}],"description":[{"type":"paragraph","text":"Reprehenderit ipsum quis nulla. In aliqua labore in dolor minim et ea. Et esse irure labore.","spans":[]}]},"slice_type":"textblock","id":"_DefaultSlice"}
     }
   },
   template: '<SliceZone :slices="[mock]" :resolver="resolve" />'
@@ -37,7 +37,7 @@ export const _TextblockWithGridList = () => ({
   },
   data() {
     return {
-      mock: {"variation":"textblockWithGridList","version":"sktwi1xtmkfgx8626","items":[{"Name":"as","Outline":"help","summary":[{"type":"paragraph","text":"Duis laboris cupidatat ea est aute in occaecat eiusmod nisi ullamco elit. Esse magna labore sint. Sunt cupidatat excepteur laborum labore voluptate eiusmod eu cupidatat velit elit cupidatat mollit.","spans":[]}]}],"primary":{"Index":"loose","Eyebrow":"effect","title":[{"type":"heading2","text":"About","spans":[]}],"description":[{"type":"paragraph","text":"Velit in eiusmod eu culpa occaecat est eu consequat irure in commodo magna aliquip. Occaecat id proident amet labore ex duis ad deserunt consequat eiusmod. Labore irure mollit consequat cillum sunt.","spans":[]}]},"slice_type":"textblock","id":"_TextblockWithGridList"}
+      mock: {"variation":"textblockWithGridList","version":"sktwi1xtmkfgx8626","items":[{"Name":"bag","Outline":"repeat","summary":[{"type":"paragraph","text":"Fugiat esse ipsum laboris est non.","spans":[]}]}],"primary":{"Index":"particularly","Eyebrow":"ocean","title":[{"type":"heading2","text":"Public","spans":[]}],"description":[{"type":"paragraph","text":"Nulla labore sunt aliquip id Lorem ullamco veniam incididunt.","spans":[]}]},"slice_type":"textblock","id":"_TextblockWithGridList"}
     }
   },
   template: '<SliceZone :slices="[mock]" :resolver="resolve" />'
@@ -56,7 +56,7 @@ export const _TextblockWithGridButton = () => ({
   },
   data() {
     return {
-      mock: {"variation":"textblockWithGridButton","version":"sktwi1xtmkfgx8626","items":[{"Name":"parent","Outline":"tribe","summary":[{"type":"paragraph","text":"Labore consectetur magna esse in ex ullamco tempor. Officia enim officia eiusmod est dolore excepteur ipsum ea velit.","spans":[]}],"button":{"link_type":"Web","url":"http://google.com"},"button_text":"send"}],"primary":{"Index":"usual","Eyebrow":"twelve","title":[{"type":"heading2","text":"Unhappy","spans":[]}],"description":[{"type":"paragraph","text":"Non ex fugiat ipsum elit id voluptate veniam elit ullamco duis incididunt voluptate ut. Labore officia incididunt adipisicing nisi eu culpa consectetur.","spans":[]}]},"slice_type":"textblock","id":"_TextblockWithGridButton"}
+      mock: {"variation":"textblockWithGridButton","version":"sktwi1xtmkfgx8626","items":[{"Name":"public","Outline":"experiment","summary":[{"type":"paragraph","text":"Cupidatat non nulla aliqua et proident aute. Ad do nulla ex voluptate proident ullamco fugiat id dolore laboris.","spans":[]}],"button":{"link_type":"Web","url":"https://slicemachine.dev"},"button_text":"hall"}],"primary":{"Index":"guess","Eyebrow":"steam","title":[{"type":"heading2","text":"Picture","spans":[]}],"description":[{"type":"paragraph","text":"Ad deserunt nulla quis. Id excepteur consectetur laborum ut non incididunt veniam aute laborum proident anim qui consequat commodo dolore. Consectetur nostrud consequat excepteur tempor dolor laboris incididunt reprehenderit est minim eiusmod excepteur reprehenderit magna.","spans":[]}]},"slice_type":"textblock","id":"_TextblockWithGridButton"}
     }
   },
   template: '<SliceZone :slices="[mock]" :resolver="resolve" />'

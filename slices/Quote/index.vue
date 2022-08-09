@@ -46,6 +46,8 @@ export default {
 
 <style lang="scss">
 .quote {
+    margin-bottom: 6vh;
+
     .grid {
     }
 
@@ -55,6 +57,21 @@ export default {
         flex-direction: column;
         padding: 3em;
         border-radius: 0.125em;
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 6px;
+            height: 100%;
+            background: linear-gradient(to bottom, c('base-3') 60%, transparent);
+
+            @include mq('tablet') {
+                width: 4px;
+                border-radius: 0.125em 0 0 0;
+            }
+        }
 
         &::after {
             content: '';
@@ -70,8 +87,13 @@ export default {
         }
 
         &--quotemark {
+            margin-bottom: 1em;
+            transform: translateX(-0.25em);
+            color: c('secondary-base');
+            transition: 0.3s ease;
+
             svg {
-                --size: 4em;
+                --size: 3.5em;
                 width: var(--size);
                 height: var(--size);
 

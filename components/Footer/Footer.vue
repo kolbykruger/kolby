@@ -1,21 +1,21 @@
 <template>
     <footer class="footer" ref="footer" data-traveler="transparent" data-anim>
         <div class="container">
-            <div class="footer-squiggle" v-html="squiggle" />
+            <div class="footer-squig">
+                <div
+                    class="footer-squiggle"
+                    v-if="$store.state.theme.mode == 'dark'"
+                    :style="{ 'background-image': `url(${squiggleDarkMode})` }"
+                ></div>
+                <div class="footer-squiggle" v-else :style="{ 'background-image': `url(${squiggle})` }"></div>
+            </div>
             <span class="footer-magic"></span>
             <div class="footer-grid">
                 <div class="footer-copy">
                     <h2>Have an idea?</h2>
                     <h2>Let's work together.</h2>
 
-                    <button
-                        :href="`mailto:${contact}`"
-                        data-cursor="xl"
-                        data-magnetic
-                        data-stick
-                        class="footer-email"
-                        @click="copyEmail"
-                    >
+                    <button :href="`mailto:${contact}`" class="footer-email" @click="copyEmail">
                         <span class="footer-email-active">{{ contact }}</span>
                     </button>
 
@@ -45,7 +45,8 @@
 <script>
 const confetti = require('canvas-confetti')
 import Socials from '../Socials/Socials.vue'
-import squiggle from '@/assets/svg/animated/squiggle.svg?raw'
+import squiggle from '@/assets/svg/animated/squiggle.svg?data'
+import squiggleDarkMode from '@/assets/svg/animated/squiggle-dark-mode.svg?data'
 
 export default {
     components: { Socials },
@@ -54,6 +55,7 @@ export default {
         return {
             contact: null,
             squiggle,
+            squiggleDarkMode,
         }
     },
     computed: {
@@ -201,9 +203,11 @@ export default {
 
     &-squiggle {
         width: 100%;
+        height: 5px;
+        mix-blend-mode: difference;
 
-        svg {
-            height: 5px;
+        @include mq('tablet') {
+            max-width: 280px;
         }
     }
 }

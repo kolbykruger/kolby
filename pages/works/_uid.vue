@@ -8,7 +8,7 @@
                 ></span>
             </div>
 
-            <Pageheading :name="document.data.Name" />
+            <Pageheading :name="document.data.Name" :squiggle="true" />
 
             <section class="cs-intro">
                 <div class="container">

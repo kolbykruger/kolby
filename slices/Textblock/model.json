@@ -183,6 +183,7 @@
           "config": {
             "label": "Button",
             "placeholder": "",
+            "allowTargetBlank": true,
             "select": null
           }
         },

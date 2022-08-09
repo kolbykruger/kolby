@@ -96,6 +96,9 @@
             }
           }
         }
+      },
+      "textblockWithGridButton": {
+        "items": {}
       }
     },
     "Quote": {

@@ -5,6 +5,18 @@
                 <h1 aria-hidden="true" :aria-label="pagename" class="pageheading-title" ref="pageheadingTitle">
                     {{ pagename }}
                 </h1>
+                <div class="pageheading-squig" v-if="squiggle">
+                    <div
+                        class="pageheading-squiggle"
+                        v-if="$store.state.theme.mode == 'dark'"
+                        :style="{ 'background-image': `url(${squiggleDarkMode})` }"
+                    ></div>
+                    <div
+                        class="pageheading-squiggle"
+                        v-else
+                        :style="{ 'background-image': `url(${squiggleLightMode})` }"
+                    ></div>
+                </div>
             </div>
         </div>
     </section>
@@ -14,12 +26,24 @@
 import { gsap } from 'gsap'
 import { SplitText } from 'gsap/dist/SplitText'
 import { CustomEase } from 'gsap/dist/CustomEase'
+import squiggleLightMode from '@/assets/svg/animated/squiggle.svg?data'
+import squiggleDarkMode from '@/assets/svg/animated/squiggle-dark-mode.svg?data'
 
 export default {
     name: 'pageheading',
     props: {
         name: [String, Object, Array],
         size: String,
+        squiggle: {
+            type: Boolean,
+            default: false,
+        },
+    },
+    data() {
+        return {
+            squiggleLightMode,
+            squiggleDarkMode,
+        }
     },
     computed: {
         pagename() {
@@ -108,6 +132,16 @@ export default {
     &-word {
         perspective: 1000px;
         transform-style: preserve-3d;
+    }
+
+    &-squiggle {
+        width: 100%;
+        height: 5px;
+        margin-bottom: 3.5em;
+
+        @include mq('tablet') {
+            max-width: 24%;
+        }
     }
 }
 </style>

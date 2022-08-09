@@ -37,15 +37,12 @@
                             <div class="textblock-list-action" v-if="slice.variation == 'textblockWithGridButton'">
                                 <div v-if="item.button.url">
                                     <a
-                                        v-if="item.button.link_type == 'Media'"
+                                        data-stick
+                                        data-cursor="md"
                                         :href="item.button.url"
-                                        target="_blank"
-                                        rel="nofollow norefer"
+                                        :target="item.button.url.includes('.pdf') ? '_blank' : item.button.target"
                                         >{{ item.button_text ? item.button_text : 'Learn More' }}</a
                                     >
-                                    <nuxt-link v-else :to="item.button.url">{{
-                                        item.button_text ? item.button_text : 'Learn More'
-                                    }}</nuxt-link>
                                 </div>
                             </div>
                         </li>

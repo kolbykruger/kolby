@@ -1,5 +1,5 @@
 <template>
-    <SliceSimulator #default="props">
+    <SliceSimulator :state="state" #default="props">
         <SliceZone v-bind="props" />
     </SliceSimulator>
 </template>
@@ -18,5 +18,22 @@ export default {
     data() {
         return { state }
     },
+    mounted() {
+        document.body.id = 'simulating'
+    },
 }
 </script>
+
+<style lang="scss">
+#simulating {
+    .slice-simulator {
+        background: c('background') !important;
+    }
+
+    .header,
+    .footer,
+    .splash {
+        opacity: 0 !important;
+    }
+}
+</style>
