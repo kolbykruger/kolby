@@ -23,7 +23,7 @@
                     data-anim
                     data-anim-elements=".textblock-list-item"
                 >
-                    <ul class="textblock-list">
+                    <ul class="textblock-list" ref="textblockList">
                         <li class="textblock-list-item" v-for="(item, i) in slice.items" :key="`slice-item-${i}`">
                             <p class="textblock-list-name">{{ item.Name }}</p>
                             <p class="textblock-list-outline" v-if="item.Outline">
@@ -79,6 +79,7 @@ export default {
 
         const headline = this.$refs.textblockTitle.querySelector('h1,h2,h3')
         const description = this.$refs.textblockDescription.children
+        const list = this.$refs.textblockList
         const ease = CustomEase.create('custom', 'M0,0 C0.215,0.61 0.355,1 1,1 ')
         const splitText = new SplitText(headline, {
             type: 'lines,words,chars',
@@ -132,6 +133,34 @@ export default {
                 })
             },
         })
+
+        // Conditionally animate list children if they exist
+        if (list) {
+            let listChildren = list.children
+            if (!listChildren) {
+                return false
+            }
+
+            gsap.set(listChildren, {
+                yPercent: 150,
+                alpha: 0,
+            })
+
+            ScrollTrigger.batch(list, {
+                start: 'top 90%',
+                onEnter: batch => {
+                    batch.forEach((section, i) => {
+                        console.log(section.children)
+                        gsap.to(section.children, {
+                            yPercent: 0,
+                            alpha: 1,
+                            delay: 0.5 * i,
+                            stagger: 0.05,
+                        })
+                    })
+                },
+            })
+        }
     },
 }
 </script>
@@ -178,9 +207,18 @@ export default {
 
     &-list {
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        grid-gap: 2vw;
+        grid-template-columns: repeat(1, 1fr);
+        grid-gap: 2vh;
         margin-top: 6vh;
+
+        @include mq('tablet') {
+            grid-gap: 2vw;
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @include mq('laptop-small') {
+            grid-template-columns: repeat(3, 1fr);
+        }
 
         &-grid {
         }

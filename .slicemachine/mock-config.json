@@ -119,6 +119,38 @@
           }
         }
       }
+    },
+    "Timeline": {
+      "default-slice": {
+        "items": {
+          "Summary": {
+            "config": {
+              "patternType": "PARAGRAPH",
+              "blocks": 1
+            }
+          }
+        }
+      },
+      "timelineVertical": {
+        "items": {
+          "Summary": {
+            "config": {
+              "patternType": "PARAGRAPH",
+              "blocks": 1
+            }
+          }
+        }
+      },
+      "timelineImages": {
+        "items": {
+          "Summary": {
+            "config": {
+              "patternType": "PARAGRAPH",
+              "blocks": 1
+            }
+          }
+        }
+      }
     }
   },
   "_cts": {

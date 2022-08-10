@@ -82,6 +82,7 @@ export default {
         width: 100%;
         height: auto;
         object-fit: cover;
+        object-position: top;
         opacity: 0.9;
         // transform: translateY(-150px);
 

@@ -4,7 +4,7 @@
             <prismic-rich-text :field="slice.primary.title" class="title" />
             <prismic-rich-text :field="slice.primary.description" v-if="slice.primary.description" />
 
-            <div class="gallery-items grid grid-col-4 grid-gap-lg">
+            <div class="gallery-items">
                 <div
                     class="gallery-item"
                     :class="item.Size ? 'gallery-item-' + item.Size.toLowerCase() : ''"
@@ -139,6 +139,25 @@ export default {
 
     &-items {
         margin-top: 5vh;
+
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        grid-gap: 2vw;
+
+        @include mq('phone-large') {
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 3vw;
+        }
+
+        @include mq('laptop') {
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 2.5em;
+        }
+
+        @include mq('desktop-small') {
+            grid-template-columns: repeat(4, 1fr);
+            grid-gap: 2.5em;
+        }
     }
 
     &-item {

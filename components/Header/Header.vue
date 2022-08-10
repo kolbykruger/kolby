@@ -9,7 +9,13 @@
         <div class="container">
             <div class="grid grid-col-2 grid-gap-lg">
                 <Mark />
-                <Navicon />
+                <div class="header--actions">
+                    <Button location="/contact" size="small" v-if="showButton">
+                        Start your project
+                        <template #posticon><ArrowRight /></template>
+                    </Button>
+                    <Navicon />
+                </div>
             </div>
         </div>
     </header>
@@ -18,12 +24,19 @@
 <script>
 import Mark from '~/components/Header/Mark'
 import Navicon from '~/components/Header/Navicon'
+import ArrowRight from '~/assets/svg/arrows/Arrow-Right.svg?inline'
 
 export default {
     name: 'Header',
     components: {
         Mark,
         Navicon,
+        ArrowRight,
+    },
+    data() {
+        return {
+            showButton: false,
+        }
     },
     computed: {
         menuStatus() {
@@ -37,9 +50,16 @@ export default {
             const bounds = header ? header.getBoundingClientRect() : 0
             document.documentElement.style.setProperty('--offset', bounds.height + 60 + 'px')
         },
+        checkRouteForButton() {
+            const whitelist = ['/contact', '/approach']
+            const route = this.$route
+            console.log(route)
+            this.showButton = whitelist.includes(route.path) ? true : false
+        },
     },
     mounted() {
         this.setOffset()
+        this.checkRouteForButton()
 
         window.addEventListener('resize', event => {
             this.setOffset()
@@ -48,12 +68,13 @@ export default {
     watch: {
         $route() {
             this.setOffset()
+            this.checkRouteForButton()
         },
     },
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .header {
     position: absolute;
     top: 1.25em;
@@ -97,6 +118,16 @@ export default {
 
     .grid {
         align-items: center;
+    }
+
+    &--actions {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+    }
+
+    .button.button-size-small .button-action {
+        margin-bottom: 0;
     }
 }
 </style>

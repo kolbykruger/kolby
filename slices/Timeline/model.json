@@ -31,11 +31,12 @@
             "label": "Summary",
             "placeholder": "",
             "allowTargetBlank": true,
-            "single": "paragraph"
+            "multi": "paragraph,hyperlink,strong,em"
           },
           "type": "StructuredText"
         }
-      }
+      },
+      "imageUrl": "https://images.prismic.io/slice-machine/621a5ec4-0387-4bc5-9860-2dd46cbc07cd_default_ss.png?auto=compress,format"
     },
     {
       "id": "timelineVertical",
@@ -64,11 +65,12 @@
             "label": "Summary",
             "placeholder": "",
             "allowTargetBlank": true,
-            "single": "paragraph"
+            "multi": "paragraph,strong,em,hyperlink"
           },
           "type": "StructuredText"
         }
-      }
+      },
+      "imageUrl": "https://images.prismic.io/slice-machine/621a5ec4-0387-4bc5-9860-2dd46cbc07cd_default_ss.png?auto=compress,format"
     },
     {
       "id": "timelineImages",
@@ -108,11 +110,12 @@
             "label": "Summary",
             "placeholder": "",
             "allowTargetBlank": true,
-            "single": "paragraph"
+            "multi": "paragraph,em,strong,hyperlink"
           },
           "type": "StructuredText"
         }
-      }
+      },
+      "imageUrl": "https://images.prismic.io/slice-machine/621a5ec4-0387-4bc5-9860-2dd46cbc07cd_default_ss.png?auto=compress,format"
     }
   ]
 }

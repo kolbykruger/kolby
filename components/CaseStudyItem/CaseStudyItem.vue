@@ -1,7 +1,7 @@
 <template>
     <div class="case-study-card" ref="caseStudy" :data-traveler="item.data.Accent">
         <div class="case-study-card-cover">
-            <nuxt-link data-knob data-cursor="md" :to="'/works/' + item.uid">
+            <nuxt-link data-cursor="xl" :to="'/works/' + item.uid">
                 <Picture :field="item.data.Cover" />
             </nuxt-link>
         </div>
@@ -73,6 +73,12 @@ export default {
             width: 100%;
             height: 100%;
             position: relative;
+
+            &:hover {
+                img {
+                    transform: scale(1.08);
+                }
+            }
         }
 
         img {
@@ -81,6 +87,7 @@ export default {
             object-fit: cover;
             // opacity: 0;
             position: relative;
+            transition: transform 1s cubic-bezier(0.19, 1, 0.22, 1);
         }
     }
     &-details {

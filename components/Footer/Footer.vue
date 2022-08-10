@@ -35,6 +35,7 @@
                     data-anim
                     data-anim-start="bottom"
                 >
+                    <PartArrowDown />
                     <span class="visually-hidden">Scroll to the top.</span>
                 </button>
             </div>
@@ -45,6 +46,7 @@
 <script>
 const confetti = require('canvas-confetti')
 import Socials from '../Socials/Socials.vue'
+import PartArrowDown from '@/assets/svg/arrows/Part-Arrow-Down.svg?inline'
 import squiggle from '@/assets/svg/animated/squiggle.svg?data'
 import squiggleDarkMode from '@/assets/svg/animated/squiggle-dark-mode.svg?data'
 
@@ -57,6 +59,9 @@ export default {
             squiggle,
             squiggleDarkMode,
         }
+    },
+    components: {
+        PartArrowDown,
     },
     computed: {
         year() {
@@ -184,17 +189,20 @@ export default {
     }
 
     &-scroll-top {
-        --size: 3em;
+        --size: 1.5em;
         display: grid;
         place-content: center;
         width: var(--size);
         height: var(--size);
-        padding: 1em;
         border-radius: 50%;
         cursor: pointer;
         overflow: hidden;
 
         svg {
+            width: 100%;
+            height: 100%;
+            transform: rotate(180deg);
+
             path {
                 fill: c('base-0');
             }

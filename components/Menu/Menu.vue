@@ -40,10 +40,10 @@
                                 <nuxt-link
                                     data-cursor="lg"
                                     class="navigation-link"
-                                    to="/resume"
-                                    @click.native="setMenuStatus('/resume')"
+                                    to="/approach"
+                                    @click.native="setMenuStatus('/approach')"
                                 >
-                                    <span data-text="Resumé">Resumé</span>
+                                    <span data-text="Approach">Approach</span>
                                     <span class="navigation-link-sticky" aria-hidden="true"></span>
                                 </nuxt-link>
                             </div>
@@ -56,10 +56,10 @@
                                     data-stick
                                     data-cursor="xl"
                                     class="navigation-link"
-                                    to="/reviews"
-                                    @click.native="setMenuStatus('/reviews')"
+                                    to="/articles"
+                                    @click.native="setMenuStatus('/articles')"
                                 >
-                                    <span data-text="Reviews">Reviews</span>
+                                    <span data-text="Articles">Articles</span>
                                 </nuxt-link>
                             </div>
                         </li>
@@ -69,10 +69,23 @@
                                     data-stick
                                     data-cursor="xl"
                                     class="navigation-link"
-                                    to="/articles"
-                                    @click.native="setMenuStatus('/articles')"
+                                    to="/resume"
+                                    @click.native="setMenuStatus('/resume')"
                                 >
-                                    <span data-text="Articles">Articles</span>
+                                    <span data-text="Resumé">Resumé</span>
+                                </nuxt-link>
+                            </div>
+                        </li>
+                        <li class="navigation-item navigation-item-sm">
+                            <div class="navigation-item-bit">
+                                <nuxt-link
+                                    data-stick
+                                    data-cursor="xl"
+                                    class="navigation-link"
+                                    to="/reviews"
+                                    @click.native="setMenuStatus('/reviews')"
+                                >
+                                    <span data-text="Reviews">Reviews</span>
                                 </nuxt-link>
                             </div>
                         </li>
@@ -91,7 +104,7 @@
                                 </a>
                             </div>
                         </li>
-                        <li class="navigation-item navigation-item-sm">
+                        <!-- <li class="navigation-item navigation-item-sm">
                             <div class="navigation-item-bit">
                                 <a
                                     data-stick
@@ -105,7 +118,7 @@
                                     <ArrowExternal />
                                 </a>
                             </div>
-                        </li>
+                        </li> -->
                         <li class="navigation-item navigation-item-sm navigation-item-sm--theme">
                             <div class="navigation-item-bit">
                                 <Theme />

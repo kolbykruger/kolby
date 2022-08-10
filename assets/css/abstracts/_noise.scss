@@ -14,3 +14,21 @@
     user-select: none;
     pointer-events: none;
 }
+
+@mixin image-noise-with-motion {
+    content: '';
+    position: absolute;
+    top: -10rem;
+    left: -10rem;
+    width: calc(100% + 20rem);
+    height: calc(100% + 20rem);
+    background-image: url('/noise/noise-2.png');
+    background-size: auto;
+    background-repeat: repeat;
+    animation: noise 1s steps(2) infinite;
+    mix-blend-mode: overlay;
+    opacity: 0.03;
+    z-index: 2;
+    user-select: none;
+    pointer-events: none;
+}

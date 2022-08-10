@@ -3,41 +3,14 @@
         <span class="pointer-svg" ref="pointerSVG">
             <span class="pointer-circle" ref="pointerCircle"></span>
             <span class="pointer-progress" ref="pointerProgress">
-                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" fill="none">
-                    <path
-                        xmlns="http://www.w3.org/2000/svg"
-                        d="M46.9995 24C46.9995 36.7025 36.7021 47 23.9995 47C11.297 47 0.999512 36.7025 0.999512 24C0.999512 11.2975 11.297 1 23.9995 1C36.7021 1 46.9995 11.2975 46.9995 24Z"
-                        class="pointer-progress-track"
-                    />
-                    <path
-                        xmlns="http://www.w3.org/2000/svg"
-                        d="M46.9995 24C46.9995 36.7025 36.7021 47 23.9995 47C11.297 47 0.999512 36.7025 0.999512 24C0.999512 11.2975 11.297 1 23.9995 1C36.7021 1 46.9995 11.2975 46.9995 24Z"
-                        class="pointer-progress-fill"
-                    />
-                </svg>
+                <PointerProgress />
             </span>
             <span class="pointer-arrow" ref="pointerArrow">
                 <span class="pointer-arrow-right" v-if="arrow.direction == 'right' && arrow.active">
-                    <svg fill="none" viewBox="0 0 17 25" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="m1.6141 25c0.89165 0 1.5986-0.7334 1.8176-1.5977 1.1117-4.3858 6.5902-8.043 11.565-8.7346 0.9026-0.1255 1.6443-0.8564 1.6443-1.7677 0-0.0083 0-0.0167-2e-4 -0.025 2e-4 -0.0083 2e-4 -0.0167 2e-4 -0.025 0-0.9113-0.7417-1.6422-1.6442-1.7682-4.9728-0.6946-10.449-4.364-11.564-8.7344-0.22043-0.86397-0.92744-1.5974-1.8191-1.5974-0.89166 0-1.6275 0.72825-1.4792 1.6075 0.77137 4.5725 4.7424 8.4439 9.3745 10.518-4.6321 2.0736-8.6031 5.945-9.3745 10.518-0.14833 0.8792 0.5875 1.6075 1.4792 1.6075z"
-                            clip-rule="evenodd"
-                            fill="#0B0E11"
-                            fill-rule="evenodd"
-                        />
-                    </svg>
+                    <PointerRight />
                 </span>
                 <span class="pointer-arrow-down" v-if="arrow.direction == 'down' && arrow.active">
-                    <svg viewBox="0 0 97 67" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="m1.9986 12.996c-1.1011-0.088-1.9986-0.9754-1.9986-2.08l-6.7312e-7 -8.9158c-8.3393e-8 -1.1046 0.89943-2.0053 2.0025-1.9476 28.898 1.5128 51.94 35.49 52.962 64.518 0.0389 1.1039-0.86 1.9959-1.9646 1.9959h-9.2c-1.1046 0-1.9958-0.8943-2.0454-1.9978-1.0151-22.584-18.921-49.908-39.756-51.572z"
-                            fill="#0B0E11"
-                        />
-                        <path
-                            d="m44 66.566c-1.1046 0-2.0035-0.892-1.9646-1.9959 1.0222-29.027 24.064-63.005 52.962-64.518 1.1031-0.057744 2.0025 0.84303 2.0025 1.9476v8.9158c0 1.1046-0.8975 1.992-1.9985 2.0807-20.748 1.6715-38.736 28.991-39.756 51.572-0.0498 1.1035-0.941 1.9978-2.0456 1.9978h-9.2z"
-                            fill="#0B0E11"
-                        />
-                    </svg>
+                    <PointerDown />
                 </span>
                 <span class="pointer-arrow-left" v-if="arrow.direction == 'left' && arrow.active"> </span>
                 <span class="pointer-arrow-up" v-if="arrow.direction == 'up' && arrow.active"> </span>
@@ -68,6 +41,11 @@ import { State } from '~/mixins/cursor/State.js'
 import { Reset } from '~/mixins/cursor/Reset.js'
 import { mapGetters } from 'vuex'
 
+// Vectors
+import PointerDown from '@/assets/svg/cursor/pointer-down.svg?inline'
+import PointerRight from '@/assets/svg/cursor/pointer-right.svg?inline'
+import PointerProgress from '@/assets/svg/cursor/pointer-progress.svg?inline'
+
 export default {
     name: 'Pointer',
     props: {
@@ -90,6 +68,11 @@ export default {
         State,
         Reset,
     ],
+    components: {
+        PointerDown,
+        PointerRight,
+        PointerProgress,
+    },
     computed: {
         checkPerformance() {
             try {

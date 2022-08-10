@@ -188,6 +188,7 @@ export default {
                     }
                 }
                 &-action {
+                    height: 52px;
                     font-size: 1.25rem;
                 }
             }

@@ -79,11 +79,16 @@ export default {
 
     &-colors {
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(2, 1fr);
         grid-gap: 1vh;
         margin-top: 5vh;
 
         @include mq('tablet') {
+            grid-template-columns: repeat(calc(var(--count) / 2), 1fr);
+            grid-gap: 1.5vw;
+        }
+
+        @include mq('laptop-large') {
             grid-template-columns: repeat(var(--count), 1fr);
             grid-gap: 1.5vw;
         }
@@ -98,7 +103,7 @@ export default {
 
         @include mq('tablet') {
             &::before {
-                @include image-noise;
+                @include image-noise-with-motion;
             }
         }
     }

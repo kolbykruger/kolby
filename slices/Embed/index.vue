@@ -23,6 +23,9 @@ export default {
 
 <style lang="scss">
 .embed {
+    padding-top: 10vh;
+    padding-bottom: 10vh;
+
     &-item {
         position: relative;
         //max-width: 600px;
@@ -43,6 +46,7 @@ export default {
                 border: none;
                 border-radius: 0.125em;
                 overflow: hidden;
+                margin: 0;
             }
         }
     }
