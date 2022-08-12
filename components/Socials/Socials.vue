@@ -80,7 +80,9 @@ export default {
     }
 
     &-item {
-        margin: 0.75em;
+        @include mq('tablet') {
+            margin: 0.75em;
+        }
     }
 
     &-link {

@@ -1,7 +1,6 @@
 {
   "id": "mock-doc-id",
-  "uid": "throat",
-  "url": "/throat",
+  "url": null,
   "type": "contact",
   "href": null,
   "tags": [],
@@ -12,6 +11,7 @@
   "lang": "en-us",
   "alternate_languages": [],
   "data": {
-    "name": "earlier"
+    "name": "percent",
+    "slices": []
   }
 }

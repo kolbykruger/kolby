@@ -77,8 +77,14 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss">
 .page-contents--thank-you {
     text-align: center;
+
+    .pageheading {
+        &-name {
+            max-width: 100%;
+        }
+    }
 }
 </style>

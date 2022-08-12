@@ -91,17 +91,15 @@
                         </li>
                         <li class="navigation-item navigation-item-sm">
                             <div class="navigation-item-bit">
-                                <a
+                                <nuxt-link
                                     data-stick
                                     data-cursor="xl"
                                     class="navigation-link"
-                                    :href="$store.state.contact.socials.github"
-                                    target="_blank"
-                                    rel="noopener norefer"
+                                    to="/contact"
+                                    @click.native="setMenuStatus('/contact')"
                                 >
-                                    <span data-text="Github">Github</span>
-                                    <ArrowExternal />
-                                </a>
+                                    <span data-text="Contact">Contact</span>
+                                </nuxt-link>
                             </div>
                         </li>
                         <!-- <li class="navigation-item navigation-item-sm">

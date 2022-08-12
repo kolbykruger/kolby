@@ -11,7 +11,7 @@
                 <Mark />
                 <div class="header--actions">
                     <Button location="/contact" size="small" v-if="showButton">
-                        Start your project
+                        Get in touch
                         <template #posticon><ArrowRight /></template>
                     </Button>
                     <Navicon />
@@ -53,7 +53,6 @@ export default {
         checkRouteForButton() {
             const whitelist = ['/contact', '/approach']
             const route = this.$route
-            console.log(route)
             this.showButton = whitelist.includes(route.path) ? true : false
         },
     },
@@ -65,6 +64,7 @@ export default {
             this.setOffset()
         })
     },
+    created() {},
     watch: {
         $route() {
             this.setOffset()
@@ -124,6 +124,14 @@ export default {
         display: flex;
         align-items: center;
         justify-content: flex-end;
+
+        .button {
+            display: none;
+
+            @include mq('tablet') {
+                display: inline-flex;
+            }
+        }
     }
 
     .button.button-size-small .button-action {

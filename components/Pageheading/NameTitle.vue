@@ -106,40 +106,54 @@ export default {
 
 <style lang="scss">
 .name-title {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
     margin-bottom: 0;
     text-transform: uppercase;
     font-size: 6.25vw;
     font-size: clamp(3.815rem, -0.875rem + 8.333vw, 11.642rem);
     width: 100%;
 
+    @include mq('laptop-small') {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
     &-text {
         flex: 1;
 
         &:first-of-type {
-            text-align: right;
+            @include mq('laptop-small') {
+                text-align: right;
 
-            .pageheading-line {
-                text-align: right !important;
+                .pageheading-line {
+                    text-align: right !important;
+                }
             }
         }
 
         &:last-of-type {
-            text-align: left;
+            @include mq('laptop-small') {
+                text-align: left;
 
-            .pageheading-line {
-                text-align: left !important;
+                .pageheading-line {
+                    text-align: left !important;
+                }
             }
         }
     }
 
     &-star {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto;
         max-width: 50px;
         max-width: clamp(20px, -0.875rem + 3.333vw, 50px);
         width: 100%;
-        margin: 0 2.5vw;
+
+        @include mq('laptop-small') {
+            margin: 0 2.5vw;
+        }
 
         svg {
             width: 100%;

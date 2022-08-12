@@ -18,6 +18,17 @@
           "label": "uid",
           "placeholder": ""
         }
+      },
+      "slices": {
+        "type": "Slices",
+        "fieldset": "Slice Zone",
+        "config": {
+          "choices": {
+            "artwork": {
+              "type": "SharedSlice"
+            }
+          }
+        }
       }
     }
   }

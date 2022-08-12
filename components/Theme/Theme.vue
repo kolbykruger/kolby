@@ -66,6 +66,10 @@ export default {
     transform: translateY(-5%);
     overflow: hidden;
 
+    .footer & {
+        --size: 3em;
+    }
+
     @include mq('tablet') {
         --size: 2em;
     }

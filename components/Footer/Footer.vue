@@ -16,7 +16,7 @@
                     <h2>Let's work together.</h2>
 
                     <button :href="`mailto:${contact}`" class="footer-email" @click="copyEmail">
-                        <span class="footer-email-active">{{ contact }}</span>
+                        <span class="footer-email-link footer-email-active">{{ contact }}</span>
                     </button>
 
                     <Socials />
@@ -170,11 +170,13 @@ export default {
         position: relative;
         display: inline-flex;
         padding-bottom: 1em;
+        padding-left: 0;
         margin-bottom: 0;
         overflow: hidden;
 
         &-link {
-            color: c('base-0');
+            margin-top: 1em;
+            color: c('primary-base');
             text-decoration: none;
         }
 

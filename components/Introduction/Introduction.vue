@@ -185,9 +185,14 @@ export default {
     }
 
     &-subtitle {
+        @include fs-lg;
         max-width: 9em;
         margin-top: 1em;
         // margin-bottom: 1em;
+
+        @include mq('tablet') {
+            @include fs-xxl;
+        }
 
         b {
             color: c('primary-base');

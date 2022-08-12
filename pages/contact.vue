@@ -1,10 +1,36 @@
 <template>
-    <main class="page" id="content">
+    <main class="page page-contact" id="content">
         <div class="page-contents">
-            <Pageheading name="Contact" />
-            <section>
+            <slice-zone class="slices" type="contact" uid="contact" />
+            <Pageheading name="Get in touch." />
+            <section class="contact">
                 <div class="container">
-                    <Form :form="form" v-if="form" />
+                    <h2>Have a project, or want to talk?</h2>
+                    <div class="contact-grid">
+                        <Form :form="form" v-if="form" />
+                        <div class="contact-details">
+                            <div class="contact-information-section">
+                                <h3>Say hello</h3>
+                                <p><a :href="'mailto:' + $store.state.contact.email">hi@kolby.dev</a></p>
+                            </div>
+                            <div class="contact-information-section">
+                                <h3>Social</h3>
+                                <p>
+                                    <a :href="$store.state.contact.socials.github" target="_blank">Github</a><br />
+                                    <a :href="$store.state.contact.socials.linkedin" target="_blank">LinkedIn</a>
+                                </p>
+                            </div>
+                            <div class="contact-information-section">
+                                <h3>About</h3>
+                                <p>
+                                    <nuxt-link to="/about" href="">About</nuxt-link><br />
+                                    <nuxt-link to="/articles" href="">Articles</nuxt-link><br />
+                                    <nuxt-link to="/resume" href="">Resume</nuxt-link><br />
+                                    <nuxt-link to="/work" href="">Work</nuxt-link>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </section>
         </div>
@@ -12,6 +38,7 @@
 </template>
 
 <script>
+import SliceZone from 'vue-slicezone'
 import Pageheading from '~/components/Pageheading/Pageheading.vue'
 import Send from '~/assets/svg/duotone/send.svg?inline'
 import Form from '~/components/Form/Form.vue'
@@ -19,6 +46,7 @@ import Form from '~/components/Form/Form.vue'
 export default {
     components: {
         Pageheading,
+        SliceZone,
         Send,
         Form,
     },
@@ -125,3 +153,54 @@ export default {
     },
 }
 </script>
+
+<style lang="scss">
+.page-contact {
+    .artwork {
+        display: none;
+
+        @include mq('tablet') {
+            display: block;
+        }
+    }
+}
+.contact {
+    .container {
+        > h2 {
+            @include fs-xl;
+        }
+    }
+    &-grid {
+        display: flex;
+        flex-direction: column-reverse;
+
+        @include mq('tablet') {
+            display: grid;
+            grid-template-columns: 1fr minmax(200px, 20%);
+            grid-gap: 3em;
+        }
+    }
+
+    &-details {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 3em;
+
+        @include mq('tablet') {
+            display: block;
+        }
+
+        h3 {
+            @include fs-lg;
+        }
+
+        .contact-information-section:last-of-type {
+            display: none;
+
+            @include mq('tablet') {
+                display: block;
+            }
+        }
+    }
+}
+</style>
