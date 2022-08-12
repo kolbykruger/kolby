@@ -154,12 +154,12 @@ export default {
             {
                 scrollTrigger: {
                     trigger: '.tiles',
-                    start: 'top bottom',
-                    end: 'bottom 100px',
+                    start: '-100% 50%',
+                    end: '150% top',
                     scrub: true,
                 },
                 x: 220,
-                ease: 'power3.inOut',
+                ease: 'linear',
             },
             'tilesRowsEven'
         )
@@ -168,12 +168,12 @@ export default {
             {
                 scrollTrigger: {
                     trigger: '.tiles',
-                    start: 'top bottom',
-                    end: 'bottom 100px',
+                    start: '-100% 50%',
+                    end: '150% top',
                     scrub: true,
                 },
                 x: -280,
-                ease: 'power3.inOut',
+                ease: 'linear',
             },
             'tilesRowsOdd'
         )
@@ -181,7 +181,7 @@ export default {
         tiles.addEventListener('mouseenter', () => {
             this.cursor = true
         })
-        tiles.addEventListener('mousemove', e => {
+        document.addEventListener('mousemove', e => {
             const tilesBounds = tiles.getBoundingClientRect(),
                 tilesWidth = tilesBounds.width,
                 tilesTop = tilesBounds.top,
@@ -191,17 +191,17 @@ export default {
             this.mouse.y = -(e.clientY / tilesHeight - 0.5)
 
             requestAnimationFrame(() => {
-                gsap.to('.tiles-row .tiles-item', {
-                    x: 8 * this.mouse.x,
-                    y: 8 * this.mouse.y,
-                    ease: 'power3.out',
-                    //stagger: 0.008,
-                })
+                // gsap.to('.tiles-row .tiles-item', {
+                //     x: 8 * this.mouse.x,
+                //     y: 8 * this.mouse.y * -1,
+                //     ease: 'power3.out',
+                //     //stagger: 0.008,
+                // })
                 gsap.to('.tiles-row img', {
-                    x: 8 * this.mouse.x,
-                    y: 8 * this.mouse.y,
-                    ease: 'power3.out',
-                    //stagger: 0.008,
+                    x: 16 * this.mouse.x,
+                    y: 16 * this.mouse.y * -1,
+                    ease: 'circ.out',
+                    stagger: 0.004,
                 })
             })
         })
@@ -232,7 +232,8 @@ export default {
     --tile-offset: 32vh;
     position: relative;
     height: 100vh;
-    overflow: hidden;
+    overflow-y: visible;
+    overflow-x: clip;
 
     @include mq('laptop-small') {
         height: 125vh;

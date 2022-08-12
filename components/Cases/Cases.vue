@@ -1,8 +1,5 @@
 <template>
     <section class="cases">
-        <div class="container">
-            <h2>Recent work</h2>
-        </div>
         <div class="cases-container">
             <div class="cases-list" data-cursor="invisible">
                 <client-only>

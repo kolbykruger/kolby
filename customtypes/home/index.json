@@ -24,7 +24,6 @@
       "FeaturedWork": {
         "config": {
           "label": "Featured Work",
-          "placeholder": "",
           "fields": {
             "CaseStudy": {
               "config": {
@@ -46,6 +45,12 @@
         "config": {
           "choices": {
             "tiles": {
+              "type": "SharedSlice"
+            },
+            "headline": {
+              "type": "SharedSlice"
+            },
+            "textblock": {
               "type": "SharedSlice"
             }
           }

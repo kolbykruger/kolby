@@ -138,6 +138,10 @@ export default {
         .button a {
             color: c('base-9');
             border-color: transparent;
+
+            svg path {
+                fill: c('base-9');
+            }
             &::before {
                 transform: translate(-50%, -100%);
                 border-radius: 2em;

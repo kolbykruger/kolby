@@ -68,6 +68,10 @@ export default {
 
     .footer & {
         --size: 3em;
+
+        @include mq('tablet') {
+            --size: 2em;
+        }
     }
 
     @include mq('tablet') {
@@ -90,8 +94,9 @@ export default {
         }
 
         svg {
-            width: 100%;
-            height: 100%;
+            --size: 2em;
+            height: var(--size);
+            width: var(--size);
             padding: 0.25em;
 
             @include mq('tablet') {
