@@ -51,7 +51,16 @@ export default {
         },
     ],
     components: true,
-    buildModules: ['@nuxt/image', '@nuxtjs/svg'],
+    buildModules: [
+        '@nuxt/image',
+        '@nuxtjs/svg',
+        [
+            '@nuxtjs/google-analytics',
+            {
+                id: 'UA-79905161-1',
+            },
+        ],
+    ],
     transpile: ['gsap'],
     modules: [
         '@nuxt/image',
