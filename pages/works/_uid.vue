@@ -190,10 +190,15 @@ export default {
     }
 
     &-tagline {
+        @include fs-lg;
         display: grid;
-        grid-template-columns: 3fr 1fr;
-        grid-gap: 10vw;
-        margin-top: 0;
+
+        @include mq('tablet') {
+            @include fs-xxl;
+            grid-template-columns: 3fr 1fr;
+            grid-gap: 10vw;
+            margin-top: 0;
+        }
     }
 
     &-tagline,

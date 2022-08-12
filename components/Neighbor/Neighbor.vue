@@ -88,8 +88,13 @@ export default {
     }
 
     h2 {
+        @include fs-lg;
         margin-top: 0.125em;
         margin-bottom: 0;
+
+        @include mq('tablet') {
+            @include fs-xxl;
+        }
     }
 }
 </style>

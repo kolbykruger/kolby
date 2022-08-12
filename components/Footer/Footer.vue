@@ -153,8 +153,16 @@ export default {
     &-cta {
         flex: 1;
 
-        h2 + h2 {
-            margin-top: 0;
+        h2 {
+            @include fs-lg;
+
+            @include mq('tablet') {
+                @include fs-xxl;
+            }
+
+            + h2 {
+                margin-top: 0;
+            }
         }
     }
 
