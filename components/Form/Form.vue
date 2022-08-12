@@ -8,7 +8,7 @@
         enctype="multipart/form-data"
         class="form"
         ref="form"
-        @submit.prevent="submit"
+        action="/thank-you"
     >
         <div class="form-section" v-for="(field, index) in form.fields" :key="index">
             <TextField v-if="field.type == 'text'" :field="field" />
@@ -19,6 +19,12 @@
             <RadioField v-if="field.type == 'radio'" :field="field" />
             <FileField v-if="field.type == 'file'" :field="field" />
             <Group v-if="field.type == 'group'" :field="field" />
+        </div>
+        <div class="form-section visually-hidden">
+            <div class="form-field">
+                <label> Don’t fill this out if you’re human: <input name="bot-field" /> </label>
+            </div>
+            <div data-netlify-recaptcha="true"></div>
         </div>
         <div class="form-section">
             <div class="form-submit">
