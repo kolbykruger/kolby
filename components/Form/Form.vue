@@ -4,7 +4,6 @@
         method="POST"
         data-netlify="true"
         data-netlify-honeypot="bot-field"
-        data-netlify-recaptcha="true"
         enctype="multipart/form-data"
         class="form"
         ref="form"
@@ -24,8 +23,12 @@
             <div class="form-field">
                 <label> Don’t fill this out if you’re human: <input name="bot-field" /> </label>
             </div>
-            <div data-netlify-recaptcha="true"></div>
         </div>
+        <!-- <div class="form-section">
+            <div class="form-field">
+                <div data-netlify-recaptcha="true"></div>
+            </div>
+        </div> -->
         <div class="form-section">
             <div class="form-submit">
                 <Button size="normal" type="button button-type-inverse" :magnetic="true">

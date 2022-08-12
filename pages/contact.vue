@@ -4,7 +4,7 @@
             <Pageheading name="Contact" />
             <section>
                 <div class="container">
-                    <Form :form="form" />
+                    <Form :form="form" v-if="form" />
                 </div>
             </section>
         </div>
