@@ -1,22 +1,20 @@
 <template>
     <section class="quote">
         <div class="container">
-            <div class="grid grid-col-2 grid-gap-lg">
-                <div v-for="(quote, index) in slice.items" :key="index" class="quote-item">
-                    <div class="quote-item--quotemark">
-                        <Quotes />
+            <div v-for="(quote, index) in slice.items" :key="index" class="quote-item">
+                <div class="quote-item--quotemark">
+                    <Quotes />
+                </div>
+                <prismic-rich-text class="quote-item--tagline" v-if="quote.tagline" :field="quote.tagline" />
+                <prismic-rich-text class="quote-item--quote" v-if="quote.quote" :field="quote.quote" />
+                <div class="quote-item--quotee">
+                    <div class="quote-item--quotee-image" v-if="quote.cover.url">
+                        <prismic-image :field="quote.cover" />
                     </div>
-                    <prismic-rich-text class="quote-item--tagline" v-if="quote.tagline" :field="quote.tagline" />
-                    <prismic-rich-text class="quote-item--quote" v-if="quote.quote" :field="quote.quote" />
-                    <div class="quote-item--quotee">
-                        <div class="quote-item--quotee-image" v-if="quote.cover.url">
-                            <prismic-image :field="quote.cover" />
-                        </div>
 
-                        <div class="quote-item--quotee-info">
-                            <h5 class="quote-item--quotee-name">{{ quote.quotee }}</h5>
-                            <p class="quote-item--quotee-sub" v-if="quote.identifier">{{ quote.identifier }}</p>
-                        </div>
+                    <div class="quote-item--quotee-info">
+                        <h5 class="quote-item--quotee-name">{{ quote.quotee }}</h5>
+                        <p class="quote-item--quotee-sub" v-if="quote.identifier">{{ quote.identifier }}</p>
                     </div>
                 </div>
             </div>
@@ -48,15 +46,13 @@ export default {
 .quote {
     margin-bottom: 6vh;
 
-    .grid {
-    }
-
     &-item {
         position: relative;
         display: flex;
         flex-direction: column;
         padding: 3em;
         border-radius: 0.125em;
+        margin-bottom: 2em;
 
         &::before {
             content: '';
