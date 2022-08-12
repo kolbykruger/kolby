@@ -1,7 +1,7 @@
 <template>
     <form
-        name="Contact Form"
-        method="post"
+        name="contact"
+        method="POST"
         data-netlify="true"
         data-netlify-honeypot="bot-field"
         data-netlify-recaptcha="true"
@@ -12,13 +12,13 @@
     >
         <div class="form-section" v-for="(field, index) in form.fields" :key="index">
             <TextField v-if="field.type == 'text'" :field="field" />
-            <TextareaField v-if="field.type == 'textarea'" :field="field" />
-            <PhoneField v-if="field.type == 'tel'" :field="field" />
-            <EmailField v-if="field.type == 'email'" :field="field" />
-            <CheckboxField v-if="field.type == 'checkbox'" :field="field" />
-            <RadioField v-if="field.type == 'radio'" :field="field" />
-            <FileField v-if="field.type == 'file'" :field="field" />
-            <Group v-if="field.type == 'group'" :field="field" />
+            <TextareaField v-else-if="field.type == 'textarea'" :field="field" />
+            <PhoneField v-else-if="field.type == 'tel'" :field="field" />
+            <EmailField v-else-if="field.type == 'email'" :field="field" />
+            <CheckboxField v-else-if="field.type == 'checkbox'" :field="field" />
+            <RadioField v-else-if="field.type == 'radio'" :field="field" />
+            <FileField v-else-if="field.type == 'file'" :field="field" />
+            <Group v-else-if="field.type == 'group'" :field="field" />
         </div>
         <div class="form-section visually-hidden">
             <div class="form-field">
