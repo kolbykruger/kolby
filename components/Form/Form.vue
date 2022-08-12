@@ -9,6 +9,7 @@
         ref="form"
         action="/thank-you"
     >
+        <input type="hidden" name="form-name" value="contact" />
         <div class="form-section" v-for="(field, index) in form.fields" :key="index">
             <TextField v-if="field.type == 'text'" :field="field" />
             <TextareaField v-else-if="field.type == 'textarea'" :field="field" />
