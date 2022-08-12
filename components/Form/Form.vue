@@ -1,6 +1,6 @@
 <template>
     <form
-        name="vue-contact"
+        name="Contact Form"
         method="post"
         data-netlify="true"
         data-netlify-honeypot="bot-field"
@@ -8,6 +8,7 @@
         enctype="multipart/form-data"
         class="form"
         ref="form"
+        @submit.prevent="submit"
     >
         <div class="form-section" v-for="(field, index) in form.fields" :key="index">
             <TextField v-if="field.type == 'text'" :field="field" />
@@ -21,13 +22,7 @@
         </div>
         <div class="form-section">
             <div class="form-submit">
-                <Button
-                    size="normal"
-                    type="button button-type-inverse"
-                    :magnetic="true"
-                    @click.stop.prevent="submit"
-                    @clicked.stop.prevent="submit"
-                >
+                <Button size="normal" type="button button-type-inverse" :magnetic="true">
                     {{ form.button ? form.button : 'Submit' }}
                     <template #posticon><Send /></template>
                 </Button>
@@ -71,18 +66,23 @@ export default {
             fetch('/', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                body: new URLSearchParams(formData).toString(),
+                body: this.encode({
+                    'form-name': 'Contact Form',
+                    formData,
+                }),
             })
                 .then(() => {
                     console.log('Form successfully submitted')
-                    // console.log('Form contents: ')
-                    // for (const [key, value] of formData) {
-                    //     console.log(`${key}: ${value}\n`)
-                    // }
+
                     // Form submitted / navigate to thank-you
                     this.$router.push({ path: '/thank-you' })
                 })
                 .catch(error => alert(error))
+        },
+        encode(data) {
+            return Object.keys(data)
+                .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`)
+                .join('&')
         },
     },
 }

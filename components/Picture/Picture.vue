@@ -6,7 +6,6 @@
         :style="{ 'aspect-ratio': field.dimensions.width / field.dimensions.height }"
     >
         <nuxt-img
-            v-if="!isDev"
             fit="clip"
             loading="lazy"
             crossorigin="anonymous"
@@ -15,7 +14,7 @@
             :sizes="sizes"
             @load.native="isLoading = false"
         />
-        <prismic-image
+        <!-- <prismic-image
             v-if="isDev"
             fit="clip"
             loading="lazy"
@@ -24,7 +23,7 @@
             :class="{ '-loaded': !isLoading }"
             :field="field"
             @load="isLoading = false"
-        />
+        /> -->
 
         <!-- <Picture
             :field="document.data.Cover"

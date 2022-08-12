@@ -9,7 +9,7 @@
             </div>
         </div>
         <div class="foreward-image" ref="forewardImage">
-            <Picture :field="document.data.Cover" />
+            <Picture :field="document.data.Cover" :noise="true" />
         </div>
     </section>
 </template>

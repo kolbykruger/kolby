@@ -111,6 +111,7 @@ export default {
         h2 {
             @include fs-xl;
             margin-top: 0;
+            line-height: 1.2;
 
             @include mq('desktop-large') {
                 @include fs-xxl;
