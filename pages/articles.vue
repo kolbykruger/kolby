@@ -211,6 +211,8 @@ export default {
 
 <style lang="scss">
 .articles {
+    margin-bottom: 6em;
+
     .container {
     }
 

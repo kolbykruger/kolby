@@ -55,12 +55,15 @@ export default {
     display: flex;
     align-items: center;
     flex-flow: row wrap;
-    gap: 3em;
+    margin-bottom: 11vh;
+
+    @include mq('desktop-small') {
+        gap: 3em;
+    }
     // min-height: 100vh;
 
     &-cover {
         position: relative;
-        aspect-ratio: 3 / 2;
         overflow: hidden;
 
         @include mq('desktop-small') {
@@ -92,10 +95,13 @@ export default {
     }
     &-details {
         position: relative;
+        margin-top: 2em;
+        max-width: 46em;
 
         @include mq('desktop-small') {
             flex: 2;
             max-width: 50%;
+            margin-top: 0;
         }
     }
     &-title {
@@ -103,7 +109,12 @@ export default {
         color: inherit;
 
         h2 {
+            @include fs-xl;
             margin-top: 0;
+
+            @include mq('desktop-large') {
+                @include fs-xxl;
+            }
         }
 
         @include mq('desktop-small') {

@@ -246,6 +246,10 @@ export default {
         if (window.matchMedia('(pointer: coarse)').matches) {
             this.contact = this.email
         }
+
+        // get viewport size on phones
+        let vh = window.innerHeight * 0.01
+        document.documentElement.style.setProperty('--vh', `${vh}px`)
     },
     watch: {
         $route() {
@@ -346,6 +350,7 @@ export default {
     left: 0;
     width: 100%;
     height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
     // padding-bottom: 10vh;
     z-index: 100;
     will-change: transform;

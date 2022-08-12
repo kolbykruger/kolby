@@ -1,0 +1,223 @@
+.form {
+    max-width: 768px;
+    margin-bottom: 3em;
+
+    input:-webkit-autofill,
+    input:-webkit-autofill:hover,
+    input:-webkit-autofill:focus,
+    input:-webkit-autofill:active {
+        -webkit-transition-delay: 9999s;
+        transition-delay: 9999s;
+        -webkit-text-fill-color: none !important;
+    }
+
+    &-section {
+
+        &--label {
+            @include fs-md;
+            font-family: $font-0;
+            color: c('base-3');
+        }
+
+        &--sublabel {
+            @include fs-sm;
+            font-family: $font-0;
+        }
+    }
+
+    &-field {
+
+        label {
+
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        textarea {
+            @include fs-xs;
+            appearance: none;
+            font-family: inherit;
+            line-height: 1.25;
+            display: block;
+            width: 100%;
+            padding: 0.32rem 0;
+            margin: 0;
+            border: none;
+            border-bottom: 2px solid transparent;
+            border-radius: 0;
+            background: none;
+            color: c('base-0');
+            resize: none;
+            outline: none;
+
+            &::placeholder {
+                color: c('base-3');
+            }
+
+            + span.form-field--decor {
+                content: '';
+                display: block;
+                left: 0;
+                width: 100%;
+                height: 2px;
+                background: c('base-4');
+                background: linear-gradient(to right, c('base-7') 65%, transparent);
+                transition: background 0.3s ease;
+
+                html[theme='dark'] & {
+                    background: linear-gradient(to right, c('base-4') 65%, transparent);
+                }
+            }
+
+            &:focus,
+            &:focus-within {
+                + span.form-field--decor {
+                    background: linear-gradient(to right, c('base-7') 65%, transparent);
+
+                    html[theme='dark'] & {
+                        background: linear-gradient(to right, c('base-3') 65%, transparent);
+                    }
+                }
+            }
+        }
+
+        &--checkbox,
+        &--radio{
+            display: inline-flex;
+
+            label {
+                @include fs-xs;
+                position: relative;
+                display: inline-flex;
+                align-items: center;
+                color: c('base-0');
+                background: transparent;
+                overflow: hidden;
+                outline: none;
+                height: 68px;
+                padding: 0 1.4em;
+                margin-right: 0.7em;
+                margin-bottom: 0.7em;
+                border-radius: 2em;
+                border: 1px solid c('base-4');
+                transition: color 0.2s ease, background 0.2s ease, border-color 0.3s ease;
+
+                &::before {
+                    content: '';
+                    position: absolute;
+                    left: 50%;
+                    top: 100%;
+                    width: 100%;
+                    height: 100%;
+                    border-radius: 50%;
+                    background-color: c('base-0');
+                    transform: translate(-50%, 0%);
+                    transition: 0.2s ease;
+                    z-index: -1;
+                    // mix-blend-mode: difference;
+                }
+
+                &::after {
+                    content: '';
+                    position: absolute;
+                    --offset: 0;
+                    top: var(--offset);
+                    left: var(--offset);
+                    bottom: var(--offset);
+                    right: var(--offset);
+                    border-radius: 2em;
+                    background: radial-gradient(ellipse at 0% 0%, c('base-3'), transparent 75%);
+                    opacity: 0.12;
+                }
+
+                &:hover {
+                    color: c('base-9');
+                    border-color: transparent;
+
+                    html[theme='dark'] & {
+                        border-color: transparent;
+                    }
+
+                    svg path {
+                        fill: c('base-9');
+                    }
+
+                    &::before {
+                        transform: translate(-50%, -100%);
+                        border-radius: 2em;
+                    }
+                }
+            }
+
+            &-icon {
+                display: flex;
+                --size: 1.25em;
+                width: var(--size);
+                height: var(--size);
+                transition: 0.3s ease;
+                transform: translate(0.5em, 0) scale(0);
+
+                svg {
+                    width: 100%;
+                    height: 100%;
+
+                    path {
+                        transition: fill 0.2s ease;
+                        fill: c('base-0')
+                    }
+                }
+            }
+
+            &-label {
+                margin-top: 0.25rem;
+            }
+
+            input[type="checkbox"],
+            input[type="radio"] {
+                appearance: none;
+                font-family: inherit;
+                border: none;
+                outline: none;
+                background: none;
+                box-shadow: none;
+                cursor: pointer;
+
+                &:checked + label {
+                    background: c('base-0');
+                    color: c('base-9');
+                    background: radial-gradient(ellipse at 0% 0%, c('base-0'), c('base-1') 90%);
+
+                    .form-field--checkbox-icon,
+                    .form-field--radio-icon {
+                        animation: enter-checkmark 0.3s ease forwards;
+
+                        @keyframes enter-checkmark {
+                            to {
+                                transform: translate(0.5em, 0) scale(1);
+                            }
+                        }
+                    }
+
+                    svg path {
+                        fill: c('base-9');
+                    }
+                }
+            }
+        }
+
+        &--characters {
+            text-align: right;
+            margin: 0.25em 0;
+        }
+    }
+
+    &-recaptcha {
+        margin-top: 2em;
+    }
+
+    &-submit {
+        margin-top: 6em;
+        margin-bottom: 6em;
+    }
+}

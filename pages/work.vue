@@ -32,9 +32,7 @@
                         :style="{ '--speed': projectsCount ? projectsCount * 2 + 's' : null, '--count': projectsCount }"
                     >
                         <li class="projects-list-item" v-for="project in projects" :key="project.index">
-                            <p class="projects-list-item-index">#{{ project.index }}</p>
                             <p class="projects-list-item-company">{{ project.company }}</p>
-                            <p class="projects-list-item-date">{{ project.date }}</p>
                         </li>
                     </ul>
                 </div>
@@ -148,10 +146,10 @@ export default {
         left: 0;
         display: grid;
         grid-template-columns: repeat(var(--count), 1fr);
-        grid-gap: 3.5em;
+        grid-gap: 8vw;
         list-style-type: none;
-        margin-top: 0;
-        margin-bottom: 0;
+        margin-top: 6em;
+        margin-bottom: 3em;
         padding-left: 0;
         padding-right: 0;
         white-space: nowrap;
@@ -193,55 +191,24 @@ export default {
             position: absolute;
             content: '';
             display: block;
-            width: 58px;
-            height: 1px;
-            margin-left: 0.75em;
-            margin-right: 0.75em;
-            margin-bottom: 0.125em;
-            background: c('base-7');
+            width: 6vw;
+            height: 2px;
+            margin-left: 1vw;
+            margin-right: 1vw;
+            background: c('base-4');
+            background: linear-gradient(to right, c('base-7') 65%, transparent);
             left: 100%;
-            top: calc(50% + 0.125em);
-        }
+            top: calc(50% - 2px);
 
-        &-index,
-        &-company,
-        &-date {
-            margin-top: 0;
-            transition: 0.66s cubic-bezier(0.075, 0.82, 0.165, 1);
-        }
-
-        &-index {
-            font-family: $font-2;
-            font-weight: 500;
-            font-size: 1rem;
-            padding: 0.35em 0.5em;
-            background: c('base-9');
-            display: inline-flex;
-            border-radius: 0.35em;
-            line-height: 1;
-            opacity: 0;
-            visibility: hidden;
+            html[theme='dark'] & {
+                background: linear-gradient(to right, c('base-4') 65%, transparent);
+            }
         }
 
         &-company {
+            @include fs-lg;
             color: c('base-0');
             margin-bottom: 0;
-        }
-
-        &-date {
-            font-size: 1.25rem;
-            color: c('base-5');
-            opacity: 0;
-            visibility: hidden;
-        }
-
-        &:hover,
-        &:focus {
-            .projects-list-item-index,
-            .projects-list-item-date {
-                opacity: 1;
-                visibility: visible;
-            }
         }
     }
 }

@@ -66,6 +66,11 @@ export default {
         &[data-magnetic] {
             display: inline-flex;
         }
+
+        svg path {
+            fill: c('base-0');
+            transition: fill 0.2s ease;
+        }
     }
 
     &-type {
@@ -125,6 +130,10 @@ export default {
                             transform: translate(-50%, -100%);
                             border-radius: 2em;
                         }
+
+                        svg path {
+                            fill: c('base-9');
+                        }
                     }
                 }
             }
@@ -135,6 +144,39 @@ export default {
                 &-action {
                     @include fs-sm;
                     padding: 0;
+                }
+            }
+        }
+
+        &-inverse {
+            .button {
+                &-action {
+                    background: c('base-0');
+                    color: c('base-9');
+
+                    svg path {
+                        fill: c('base-9');
+                    }
+
+                    &::before {
+                        background-color: c('base-9');
+                    }
+
+                    &::after {
+                        background: radial-gradient(ellipse at 0% 0%, c('base-3'), transparent 75%);
+                    }
+
+                    &:hover {
+                        color: c('base-0');
+
+                        html[theme='dark'] & {
+                            border-color: transparent;
+                        }
+
+                        svg path {
+                            fill: c('base-0');
+                        }
+                    }
                 }
             }
         }

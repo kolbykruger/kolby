@@ -3,9 +3,15 @@
         <div class="toc-container" v-show="!showCode" v-if="links.length > 0">
             <p class="toc-label">Table of contents</p>
             <ul class="toc-list">
-                <li class="toc-list-item" v-for="(link, index) in links" :key="index" :data-type="link.type">
+                <li
+                    class="toc-list-item"
+                    v-for="(link, index) in links"
+                    :key="index"
+                    :data-type="link.type"
+                    :class="{ '-active': link == activeItem }"
+                >
                     <nuxt-link class="toc-list-item-link" :to="{ path: path, hash: hash(link.id) }">
-                        {{ link.name ? link.name : link.id }}
+                        {{ link.name ? link.name : link.id }} {{ link.status }}
                     </nuxt-link>
                 </li>
             </ul>
@@ -69,13 +75,14 @@ export default {
                     name,
                     type,
                     offset,
+                    status: false,
                 })
             })
 
             figures.forEach(item => {
                 const id = item.getAttribute('name')
                 const name = item.getAttribute('data-figure')
-                const offset = item.getBoundingClientRect().top - 1
+                const offset = item.getBoundingClientRect().top
                 this.codeblocks.push({
                     id,
                     name,
@@ -96,17 +103,25 @@ export default {
                     visibility: 'visible',
                 })
             }
+
+            document.addEventListener('scroll', () => {
+                this.links.forEach(link => {
+                    link.status = link.offset <= window.pageYOffset ? true : false
+                    if (link.status) {
+                        this.activeItem = link
+                    }
+                })
+            })
         },
     },
     mounted() {
-        this.$nextTick(() => {
-            setTimeout(() => {
-                this.getAnchorLinks()
-            }, 800)
+        this.$router.onReady(() => {
+            this.$nextTick(() => {
+                setTimeout(() => {
+                    this.getAnchorLinks()
+                }, 1000) // page animation transition length
+            })
         })
-    },
-    updated() {
-        //this.getAnchorLinks()
     },
 }
 </script>
@@ -134,6 +149,10 @@ export default {
     &-label {
         @include fs-xxs;
         padding-bottom: 0.5em;
+    }
+
+    .-active a {
+        color: c('secondary-base');
     }
 
     &-list {
@@ -181,21 +200,6 @@ export default {
                 padding: 0.25em 0;
                 color: c('base-0');
                 transition: 0.66s cubic-bezier(0.075, 0.82, 0.165, 1);
-
-                &.-active {
-                    &::before {
-                        content: '';
-                        position: absolute;
-                        right: 100%;
-                        top: 50%;
-                        --size: 7px;
-                        width: var(--size);
-                        height: var(--size);
-                        border-radius: 50%;
-                        background: c('primary-base');
-                        transform: translate(-150%, -100%);
-                    }
-                }
 
                 &:hover {
                     color: c('primary-base');
