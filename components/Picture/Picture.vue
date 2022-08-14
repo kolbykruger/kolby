@@ -10,6 +10,7 @@
             loading="lazy"
             crossorigin="anonymous"
             :class="{ '-loaded': !isLoading }"
+            :style="styles"
             :src="field.url"
             :sizes="sizes"
             @load.native="isLoading = false"
@@ -86,6 +87,10 @@ export default {
                     'desktop-large': '100vw',
                 }
             },
+        },
+        styles: {
+            type: Object,
+            default: null,
         },
         animation: {
             type: Boolean,

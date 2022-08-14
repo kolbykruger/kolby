@@ -9,6 +9,7 @@
                 <Picture
                     :field="slice.primary.image"
                     :noise="noise"
+                    :styles="{ 'object-position': alignment }"
                     :sizes="{
                         'phone-small': '375px',
                         phone: '460px',
@@ -42,6 +43,9 @@ export default {
     computed: {
         noise() {
             return this.slice.primary.noise == 'No' ? false : true
+        },
+        alignment() {
+            return this.slice.primary.alignment ? this.slice.primary.alignment.toLowerCase() : 'top'
         },
     },
     mounted() {

@@ -7,7 +7,7 @@ export const CaseStudyMeta = {
         },
         description() {
             return this.$prismic.asText(this.document.data.Summary)
-        }
+        },
     },
     head() {
         return {
@@ -16,9 +16,14 @@ export const CaseStudyMeta = {
                 {
                     hid: 'description',
                     name: 'description',
-                    content: this.description
-                }
-            ]
+                    content: this.description,
+                },
+                {
+                    hid: 'robots',
+                    name: 'robots',
+                    content: 'noindex',
+                },
+            ],
         }
-    }
+    },
 }

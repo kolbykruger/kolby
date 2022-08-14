@@ -33,6 +33,19 @@
             ],
             "default_value": "Yes"
           }
+        },
+        "alignment": {
+          "type": "Select",
+          "config": {
+            "label": "Alignment",
+            "placeholder": "",
+            "options": [
+              "Top",
+              "Center",
+              "Bottom"
+            ],
+            "default_value": "Top"
+          }
         }
       },
       "items": {},

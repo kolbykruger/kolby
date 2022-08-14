@@ -215,7 +215,7 @@ export default {
             .mobile-item {
                 @include mq('tablet') {
                     &:nth-of-type(even) {
-                        transform: translateY(-8vh);
+                        margin-top: -8vh;
                     }
                 }
             }
@@ -230,16 +230,16 @@ export default {
             .mobile-item {
                 @include mq('tablet') {
                     &:nth-child(1) {
-                        transform: translateY(-8vh);
+                        margin-top: -8vh;
                     }
                     &:nth-child(2) {
-                        transform: translateY(-4vh);
+                        margin-top: -4vh;
                     }
                     &:nth-child(4) {
-                        transform: translateY(4vh);
+                        margin-top: 4vh;
                     }
                     &:nth-child(5) {
-                        transform: translateY(8vh);
+                        margin-top: 8vh;
                     }
                 }
             }
