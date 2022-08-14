@@ -65,6 +65,7 @@ export default {
     modules: [
         '@nuxt/image',
         '@nuxtjs/sitemap',
+        '@nuxtjs/robots',
         '@nuxtjs/style-resources',
         [
             '@nuxtjs/prismic',
@@ -118,5 +119,10 @@ export default {
         hostname: 'https://kolby.dev',
         gzip: true,
         exclude: ['/reviews', '/no-script', '/slice-simulator', '/thank-you', '/admin/**'],
+    },
+    robots: {
+        UserAgent: '*',
+        Disallow: '/',
+        Sitemap: 'https://kolby.dev/sitemap.xml',
     },
 }
