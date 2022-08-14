@@ -117,6 +117,6 @@ export default {
     sitemap: {
         hostname: 'https://kolby.dev',
         gzip: true,
-        exclude: ['/reviews', '/admin/**'],
+        exclude: ['/reviews', '/no-script', '/slice-simulator', '/thank-you', '/admin/**'],
     },
 }
