@@ -468,8 +468,15 @@ export default {
             z-index: 3;
 
             @include mq('tablet') {
-                background-image: url('/noise/noise.gif');
-                opacity: 0.15;
+                top: -10rem;
+                left: -10rem;
+                width: calc(100% + 20rem);
+                height: calc(100% + 20rem);
+                background-image: url('/noise/noise-2.png');
+                background-size: auto;
+                background-repeat: repeat;
+                animation: noise 1s steps(2) infinite;
+                opacity: 0.2;
                 mix-blend-mode: overlay;
             }
         }

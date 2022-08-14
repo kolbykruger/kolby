@@ -1,6 +1,6 @@
 <template>
-    <div class="traveler" :class="{ '-initiated': status }" ref="traveler" aria-hidden="true">
-        <div class="traveler-blend">
+    <div class="traveler" ref="traveler" aria-hidden="true">
+        <div class="traveler-blend" v-if="!status">
             <span ref="travelerBackground" class="traveler-background"></span>
             <span ref="travelerNoise" class="traveler-noise"></span>
         </div>
