@@ -64,6 +64,7 @@ export default {
     transpile: ['gsap'],
     modules: [
         '@nuxt/image',
+        '@nuxtjs/sitemap',
         '@nuxtjs/style-resources',
         [
             '@nuxtjs/prismic',
@@ -112,5 +113,10 @@ export default {
     router: {
         middleware: 'pages',
         scrollBehavior,
+    },
+    sitemap: {
+        hostname: 'https://kolby.dev',
+        gzip: true,
+        exclude: ['/reviews', '/admin/**'],
     },
 }

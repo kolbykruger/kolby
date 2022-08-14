@@ -82,19 +82,6 @@
                                     data-stick
                                     data-cursor="xl"
                                     class="navigation-link"
-                                    to="/reviews"
-                                    @click.native="setMenuStatus('/reviews')"
-                                >
-                                    <span data-text="Reviews">Reviews</span>
-                                </nuxt-link>
-                            </div>
-                        </li>
-                        <li class="navigation-item navigation-item-sm">
-                            <div class="navigation-item-bit">
-                                <nuxt-link
-                                    data-stick
-                                    data-cursor="xl"
-                                    class="navigation-link"
                                     to="/contact"
                                     @click.native="setMenuStatus('/contact')"
                                 >
