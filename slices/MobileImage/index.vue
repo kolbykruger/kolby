@@ -13,7 +13,21 @@
                             :key="`slice-item-${i}`"
                             data-anim
                         >
-                            <Picture :field="item.Image" />
+                            <Picture
+                                :field="item.Image"
+                                :sizes="{
+                                    'phone-small': '230px',
+                                    phone: '298px',
+                                    'phone-large': '298px',
+                                    tablet: '261px',
+                                    'laptop-small': '370px',
+                                    laptop: '428px',
+                                    'laptop-large': '473px',
+                                    'desktop-small': '202px',
+                                    desktop: '225px',
+                                    'desktop-large': '343px',
+                                }"
+                            />
                         </div>
                     </Flickity>
                     <Swiper
@@ -142,7 +156,7 @@ export default {
     &-item {
         background-color: #fff;
         border: 0.7em solid #fff;
-        border-radius: 3.3em;
+        border-radius: 0.6em;
         box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.07);
         overflow: hidden;
         width: 80%;
@@ -158,9 +172,15 @@ export default {
         }
 
         @include mq('tablet') {
+            width: 50%;
+            border-radius: 2.3em;
+        }
+
+        @include mq('desktop-small') {
             width: calc(100% / #{var(--count)} - 3vw);
             margin: 0 1.5vw;
-            border: 0.3em solid #fff;
+            border: 0.2em solid #fff;
+            border-radius: 2.3em;
 
             &[data-count='5'] {
                 width: calc(100% / #{var(--count)} - 1.5vw);
@@ -168,20 +188,27 @@ export default {
             }
         }
 
-        @include mq('desktop-small') {
+        @include mq('desktop') {
             border: 0.7em solid #fff;
+            border-radius: 3.3em;
         }
 
         img {
             border: 1px solid #fafafa;
-            border-radius: 3.3em;
+            border-radius: 0.6em;
             padding: 0.5em;
 
             @include mq('tablet') {
-                padding: 0.25em;
+                border-radius: 2.3em;
             }
+
             @include mq('desktop-small') {
+                padding: 0.25em;
+                border-radius: 2.3em;
+            }
+            @include mq('desktop') {
                 padding: 0.5em;
+                border-radius: 3.3em;
             }
         }
     }
