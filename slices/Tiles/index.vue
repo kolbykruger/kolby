@@ -136,7 +136,7 @@ export default {
         },
     },
     mounted() {
-        if (screen.width <= 600) {
+        if (screen.width <= 768) {
             return false
         }
 
@@ -148,6 +148,10 @@ export default {
         const $el = this
         const tiles = this.$refs.tiles
         const tilesRows = tiles.querySelectorAll('.tiles-row')
+
+        if (!tiles || !tilesRows) {
+            return false
+        }
 
         this.tl = gsap.timeline()
 
@@ -311,6 +315,14 @@ export default {
         overflow: hidden;
         aspect-ratio: 600 / 450;
         will-change: transform;
+
+        @include mq('laptop-large') {
+            & > figure {
+                &::before {
+                    opacity: 0.1 !important;
+                }
+            }
+        }
 
         picture {
             position: relative;

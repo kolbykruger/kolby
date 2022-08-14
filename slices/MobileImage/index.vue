@@ -156,7 +156,7 @@ export default {
     &-item {
         background-color: #fff;
         border: 0.7em solid #fff;
-        border-radius: 0.6em;
+        border-radius: 2.3em;
         box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.07);
         overflow: hidden;
         width: 80%;
@@ -173,14 +173,12 @@ export default {
 
         @include mq('tablet') {
             width: 50%;
-            border-radius: 2.3em;
         }
 
         @include mq('desktop-small') {
             width: calc(100% / #{var(--count)} - 3vw);
             margin: 0 1.5vw;
             border: 0.2em solid #fff;
-            border-radius: 2.3em;
 
             &[data-count='5'] {
                 width: calc(100% / #{var(--count)} - 1.5vw);
@@ -195,16 +193,11 @@ export default {
 
         img {
             border: 1px solid #fafafa;
-            border-radius: 0.6em;
+            border-radius: 2.3em;
             padding: 0.5em;
-
-            @include mq('tablet') {
-                border-radius: 2.3em;
-            }
 
             @include mq('desktop-small') {
                 padding: 0.25em;
-                border-radius: 2.3em;
             }
             @include mq('desktop') {
                 padding: 0.5em;

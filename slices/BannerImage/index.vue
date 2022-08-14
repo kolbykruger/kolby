@@ -69,7 +69,7 @@ export default {
 .banner-image {
     overflow: hidden;
 
-    @include mq('tablet') {
+    @include mq('desktop') {
         max-height: 96vh;
         height: 100%;
     }
@@ -91,7 +91,7 @@ export default {
         opacity: 0.9;
         // transform: translateY(-150px);
 
-        @include mq('tablet') {
+        @include mq('desktop') {
             height: 100vh;
         }
     }

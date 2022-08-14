@@ -9,11 +9,11 @@
                 <div class="container">
                     <div class="work-intro-details">
                         <p>
-                            I ventured into design and development to express my creativity;
-                            {{ careerDurationInYears }} years and a couple hundred energy drinks later, there's nowhere
-                            else I'd rather be. I've had the opportunity to work on over
+                            I've had a strong desire to be creative since I was young. After many years and a few
+                            hundred energy drinks, there's nothing I'd rather be doing. I've had the privilege of
+                            working on over
                             <span style="color: var(--color-primary-base)">{{ projectsCount + 14 }} ~</span> projects,
-                            and collaborated with some extraordinary people.
+                            and collaborating with some extraordinary people.
                         </p>
                     </div>
                 </div>

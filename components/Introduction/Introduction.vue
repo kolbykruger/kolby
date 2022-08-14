@@ -4,7 +4,7 @@
         <span class="webgl-overlay"></span>
         <div class="container">
             <NameTitle ref="title" />
-            <h2 ref="subTitle" class="introduction-subtitle">I design and create web <b>experiences</b></h2>
+            <h2 ref="subTitle" class="introduction-subtitle">I create & design web <b>experiences</b></h2>
             <!-- <p ref="description" class="introduction-description">
                 I'm a designer & developer based in Vermont that is passionate about creating extraordinary online
                 experiences through web design, web development, and ux/ui.
@@ -167,6 +167,10 @@ export default {
     min-height: 86vh;
     margin-top: calc(#{var(--offset)} * -1);
     overflow: hidden;
+
+    @include mq('desktop') {
+        min-height: 100vh;
+    }
 
     .container {
         position: absolute;
