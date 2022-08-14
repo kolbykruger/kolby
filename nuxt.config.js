@@ -122,7 +122,10 @@ export default {
     },
     robots: {
         UserAgent: '*',
-        Disallow: '/',
+        Disallow: '/thank-you',
+        Disallow: '/no-script',
+        Disallow: '/reviews',
+        Disallow: '/slice-simulator',
         Sitemap: 'https://kolby.dev/sitemap.xml',
     },
 }
