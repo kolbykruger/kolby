@@ -66,11 +66,30 @@ export default {
     transform: translateY(-5%);
     overflow: hidden;
 
+    .menu & {
+        --size: 3em;
+
+        svg {
+            --size: 2em;
+            @include mq('tablet') {
+                --size: 1em;
+            }
+        }
+    }
+
     .footer & {
         --size: 3em;
 
         @include mq('tablet') {
             --size: 2em;
+        }
+
+        svg {
+            --size: 1.5em;
+
+            @include mq('tablet') {
+                --size: 2em;
+            }
         }
     }
 

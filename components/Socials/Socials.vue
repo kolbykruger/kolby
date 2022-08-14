@@ -73,13 +73,27 @@ export default {
         display: flex;
         align-items: flex-start;
         flex-flow: row wrap;
+        justify-content: center;
 
         @include mq('tablet') {
             margin-left: -2rem;
+            justify-content: flex-start;
         }
     }
 
     &-item {
+        &:last-of-type {
+            width: 100%;
+
+            .theme {
+                margin: 0 auto;
+            }
+
+            @include mq('tablet') {
+                width: auto;
+            }
+        }
+
         @include mq('tablet') {
             margin: 0.75em;
         }

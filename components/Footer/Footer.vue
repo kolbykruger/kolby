@@ -152,6 +152,11 @@ export default {
     &-copy,
     &-cta {
         flex: 1;
+        text-align: center;
+
+        @include mq('tablet') {
+            text-align: unset;
+        }
 
         h2 {
             @include fs-lg;
@@ -192,9 +197,11 @@ export default {
         bottom: 0;
         left: 0;
         right: 0;
+        margin-bottom: 1em;
 
         @include mq('tablet') {
             bottom: 3vh;
+            margin-bottom: 0;
         }
     }
 
