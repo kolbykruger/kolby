@@ -1,5 +1,6 @@
 <template>
     <main class="page article-content" id="content">
+        <span class="article-progress" :style="{ '--scroll': scrollDistance }"></span>
         <div class="page-contents">
             <article class="article">
                 <section class="article-header">
@@ -10,9 +11,9 @@
                                 data-cursor="lg"
                                 data-progress="4"
                                 data-callback="route"
-                                data-callback-location="/articles"
-                                to="/articles"
-                                >Articles</nuxt-link
+                                data-callback-location="/insights"
+                                to="/insights"
+                                >Insights</nuxt-link
                             >
                             <span class="article-header-separator">—</span>
                             <span class="code">
@@ -138,6 +139,7 @@ export default {
             showCode: false,
             showAudio: false,
             scrollPositionHistory: 0,
+            scrollDistance: 0,
         }
     },
     computed: {
@@ -195,6 +197,12 @@ export default {
         listenToArticle() {
             this.showAudio = !this.showAudio
         },
+        updateScrollIndicator() {
+            let scroll = document.body.scrollTop || document.documentElement.scrollTop
+            let height = document.documentElement.scrollHeight - document.documentElement.clientHeight
+            let scrolled = (scroll / height) * 100
+            this.scrollDistance = scrolled + '%'
+        },
     },
     async asyncData({ $prismic, params, error }) {
         const document = await $prismic.api.getByUID('article', params.uid)
@@ -214,6 +222,10 @@ export default {
     mounted() {
         gsap.registerPlugin(SplitText)
         gsap.registerPlugin(CustomEase)
+
+        window.addEventListener('scroll', () => {
+            this.updateScrollIndicator()
+        })
 
         const ease = CustomEase.create('custom', 'M0,0 C0.215,0.61 0.355,1 1,1 ')
         const tl = gsap.timeline()
@@ -282,6 +294,20 @@ export default {
 
 <style lang="scss">
 .article {
+    &-progress {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+
+        height: 0.25em;
+        z-index: 20;
+        background: linear-gradient(to right, c('primary-base') var(--scroll), transparent 0);
+        pointer-events: none;
+        user-select: none;
+        opacity: 0.8;
+    }
+
     &-header {
         padding-top: 6vh;
         margin-bottom: 2vh;
