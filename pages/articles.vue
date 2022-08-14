@@ -71,7 +71,6 @@ import { gsap } from 'gsap'
 import { CustomEase } from 'gsap/dist/CustomEase'
 import Pageheading from '~/components/Pageheading/Pageheading.vue'
 import { Animations } from '~/mixins/animations/Animations.js'
-
 export default {
     data() {
         return {
@@ -98,9 +97,7 @@ export default {
         filteredArticles() {
             const category = this.$route.query.category
             const articles = this.articles
-
             const categoryCheckForLatest = category == 'latest' ? null : category
-
             return categoryCheckForLatest
                 ? articles.results.filter(a => {
                       return a.data.Category.toLowerCase() == category.toLowerCase()
@@ -124,12 +121,10 @@ export default {
             const path = this.path
             const query = category ? { category: category } : null
             this.$router.push({ path: path, query: query })
-
             const marker = this.$refs.marker
             const selectedCategory = this.$refs.articlesFilterGrid.querySelector(`button[data-category="${category}"]`)
             const bounds = selectedCategory.getBoundingClientRect()
             const afBounds = this.$refs.articlesFilterGrid.getBoundingClientRect()
-
             this.moveMarker(marker, bounds.left - afBounds.left, bounds.width)
         },
         updateSelectedCategory(category) {
@@ -183,17 +178,14 @@ export default {
     mounted() {
         gsap.registerPlugin(CustomEase)
         this.ease = CustomEase.create('custom', 'M0,0 C0.23,1 0.32,1 1,1 ')
-
         const category = this.category
         this.selectedCategory = this.category.toLowerCase()
-
         const marker = this.$refs.marker
         const afBounds = this.$refs.articlesFilterGrid.getBoundingClientRect()
         if (category) {
             const elem = document.querySelector(
                 `.articles-filters-categories button[data-category="${category.toLowerCase()}"`
             )
-
             if (elem) {
                 const bounds = elem.getBoundingClientRect()
                 this.moveMarker(marker, bounds.left - afBounds.left, bounds.width)
@@ -211,11 +203,8 @@ export default {
 
 <style lang="scss">
 .articles {
-    margin-bottom: 6em;
-
     .container {
     }
-
     &-content {
         .pageheading {
             .container {
@@ -227,18 +216,14 @@ export default {
             }
         }
     }
-
     &-filters {
         margin-top: 4vh;
         margin-bottom: 2vh;
-
         @include mq('laptop-small') {
             margin-bottom: 6vh;
         }
-
         .container {
         }
-
         &-grid {
             position: relative;
             display: grid;
@@ -246,7 +231,6 @@ export default {
             grid-gap: 6vw;
             align-items: center;
             overflow: hidden;
-
             @include mq('laptop-large') {
                 grid-template-columns: 50em 18em;
                 grid-gap: 6em;
@@ -254,7 +238,6 @@ export default {
                 max-width: calc(50em + 18em + 6em);
                 margin: 0 auto;
             }
-
             &::after {
                 content: '';
                 position: absolute;
@@ -265,7 +248,6 @@ export default {
                 background: c('base-4');
             }
         }
-
         &-categories {
             &-list {
                 position: relative;
@@ -276,11 +258,9 @@ export default {
                 overflow-x: auto;
                 overflow-y: hidden;
                 white-space: nowrap;
-
                 @include mq('laptop-small') {
                     display: flex;
                 }
-
                 &-marker {
                     //--width: 80px;
                     position: absolute;
@@ -294,24 +274,19 @@ export default {
                     background: c('base-0');
                     z-index: 2;
                 }
-
                 li {
                     margin-bottom: 0;
-
                     button {
                         margin-right: 1em;
                         padding: 0 0.25em;
                         color: c('base-3');
                         outline: none;
                         @include fs-xxs;
-
                         html[theme='dark'] & {
                             // color: c('base-4');
                         }
-
                         &.-active {
                             color: c('base-0');
-
                             html[theme='dark'] & {
                                 color: c('base-0');
                             }
@@ -321,20 +296,17 @@ export default {
             }
             &-select {
                 display: inline-flex;
-
                 @include mq('laptop-small') {
                     display: none;
                 }
             }
         }
-
         &-count {
             display: block;
             text-align: right;
             padding-right: 0.5em;
         }
     }
-
     &-grid {
         @include mq('laptop-large') {
             display: grid;
@@ -343,13 +315,11 @@ export default {
             place-content: center;
             max-width: calc(50em + 18em + 6em);
             margin: 0 auto;
-
             &.articles-grid-full {
                 grid-template-columns: 100%;
             }
         }
     }
-
     &-list {
         list-style: none;
         padding: 0;
@@ -357,25 +327,21 @@ export default {
         display: flex;
         flex-flow: column;
     }
-
     &-categories {
         // display: flex;
         // align-items: center;
         // margin-bottom: 5vh;
     }
 }
-
 .fade-enter-active,
 .fade-leave-active {
     transition: all 0.5s;
 }
-
 .fade-enter,
 .fade-leave-to {
     opacity: 0;
     transform: translateY(1em);
 }
-
 .fade-leave-active {
     position: absolute;
     opacity: 0;
