@@ -90,6 +90,10 @@ export default {
             linesClass: 'foreward-text-line',
         })
 
+        if (window.matchMedia('(max-width: 768px)').matches) {
+            return false
+        }
+
         timeline
             .set(image, {
                 yPercent: 100,
@@ -152,15 +156,19 @@ export default {
     transform: none;
     // aspect-ratio: 1.77778 / 1;
 
+    display: flex;
+    flex-direction: column;
+
     @include mq('tablet') {
         transform: translateY(calc(var(--offset) * -1));
     }
 
     .container {
-        position: absolute;
         z-index: 2;
+        order: 1;
 
         @include mq('tablet') {
+            position: absolute;
             min-height: 100vh;
         }
     }
@@ -188,6 +196,14 @@ export default {
         &-word {
             perspective: 1000px;
             transform-style: preserve-3d;
+        }
+
+        .introduction-indicator {
+            display: none;
+
+            @include mq('tablet') {
+                display: block;
+            }
         }
     }
 
