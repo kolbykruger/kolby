@@ -151,6 +151,11 @@
           }
         }
       }
+    },
+    "BannerImage": {
+      "default-slice": {
+        "primary": {}
+      }
     }
   },
   "_cts": {

@@ -18,6 +18,7 @@
                 <div class="tiles-item" v-for="(item, index) in createTileRow(2)" :key="index">
                     <Picture
                         :field="item.Image"
+                        :noise="true"
                         :sizes="{
                             'phone-small': '179px',
                             phone: '220px',
@@ -37,6 +38,7 @@
                 <div class="tiles-item" v-for="(item, index) in createTileRow(1)" :key="index">
                     <Picture
                         :field="item.Image"
+                        :noise="true"
                         :sizes="{
                             'phone-small': '179px',
                             phone: '220px',
@@ -56,6 +58,7 @@
                 <div class="tiles-item" v-for="(item, index) in createTileRow(2)" :key="index">
                     <Picture
                         :field="item.Image"
+                        :noise="true"
                         :sizes="{
                             'phone-small': '179px',
                             phone: '220px',
@@ -75,6 +78,7 @@
                 <div class="tiles-item" v-for="(item, index) in createTileRow(1)" :key="index">
                     <Picture
                         :field="item.Image"
+                        :noise="true"
                         :sizes="{
                             'phone-small': '179px',
                             phone: '220px',

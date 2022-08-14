@@ -164,7 +164,7 @@ export default {
             filter: blur(var(--size));
             border-radius: 50%;
             transform: translate(-25%, -25%);
-            opacity: 0.2;
+            opacity: 0.3;
             transition: background 0.66s cubic-bezier(0.075, 0.82, 0.165, 1);
 
             html[theme='dark'] & {

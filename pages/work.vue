@@ -19,11 +19,7 @@
                 </div>
             </section>
 
-            <section class="case-studies" v-if="cases">
-                <div class="container">
-                    <CaseStudyItem v-for="study in cases.results" :key="study.id" :item="study" />
-                </div>
-            </section>
+            <Cases :cases="cases.results" v-if="cases" />
 
             <section class="projects-list" v-if="projects">
                 <div class="container">
@@ -46,14 +42,14 @@
 <script>
 // import SliceZone from 'vue-slicezone'
 import Pageheading from '~/components/Pageheading/Pageheading.vue'
-import CaseStudyItem from '~/components/CaseStudyItem/CaseStudyItem.vue'
+import Cases from '~/components/Cases/Cases.vue'
 import { Animations } from '~/mixins/animations/Animations.js'
 // import { CaseStudies } from '@/mixins/webgl/CaseStudies'
 
 export default {
     components: {
         Pageheading,
-        CaseStudyItem,
+        Cases,
         // SliceZone,
     },
     mixins: [Animations],

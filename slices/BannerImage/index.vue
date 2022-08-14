@@ -8,7 +8,7 @@
             <div class="banner-image-container">
                 <Picture
                     :field="slice.primary.image"
-                    :noise="true"
+                    :noise="noise"
                     :sizes="{
                         'phone-small': '375px',
                         phone: '460px',
@@ -24,6 +24,7 @@
                 />
             </div>
         </div>
+        {{}}
     </section>
 </template>
 
@@ -37,6 +38,11 @@ export default {
         slice: {
             type: Object,
             required: true,
+        },
+    },
+    computed: {
+        noise() {
+            return this.slice.primary.noise == 'No' ? false : true
         },
     },
     mounted() {

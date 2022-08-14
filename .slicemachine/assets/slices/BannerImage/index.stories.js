@@ -18,12 +18,12 @@ export const _DefaultSlice = () => ({
   },
   data() {
     return {
-      mock: {"variation":"default-slice","name":"Default slice","slice_type":"banner_image","items":[],"primary":{"image":{"dimensions":{"width":2560,"height":1440},"alt":"Placeholder image","copyright":null,"url":"https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=2560&h=1440&fit=crop"}},"id":"_DefaultSlice"}
+      mock: {"variation":"default-slice","version":"sktwi1xtmkfgx8626","items":[{}],"primary":{"image":{"dimensions":{"width":2560,"height":1440},"alt":null,"copyright":null,"url":"https://images.unsplash.com/photo-1607582278043-57198ac8da43"},"noise":"Yes"},"slice_type":"banner_image","id":"_DefaultSlice"}
     }
   },
   template: '<SliceZone :slices="[mock]" :resolver="resolve" />'
 })
-_DefaultSlice.storyName = 'Default slice'
+_DefaultSlice.storyName = ''
 
 export const _BannerImageConfined = () => ({
   components: {
@@ -37,9 +37,9 @@ export const _BannerImageConfined = () => ({
   },
   data() {
     return {
-      mock: {"variation":"bannerImageConfined","name":"BannerImage - Confined","slice_type":"banner_image","items":[],"primary":{"image":{"dimensions":{"width":2560,"height":1440},"alt":"Placeholder image","copyright":null,"url":"https://images.unsplash.com/photo-1545239351-1141bd82e8a6?w=2560&h=1440&fit=crop"}},"id":"_BannerImageConfined"}
+      mock: {"variation":"bannerImageConfined","version":"sktwi1xtmkfgx8626","items":[{}],"primary":{"image":{"dimensions":{"width":2560,"height":1440},"alt":null,"copyright":null,"url":"https://images.unsplash.com/photo-1499951360447-b19be8fe80f5"}},"slice_type":"banner_image","id":"_BannerImageConfined"}
     }
   },
   template: '<SliceZone :slices="[mock]" :resolver="resolve" />'
 })
-_BannerImageConfined.storyName = 'BannerImage - Confined'
+_BannerImageConfined.storyName = ''

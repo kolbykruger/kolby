@@ -1,21 +1,11 @@
 <template>
     <section class="cases">
-        <div class="cases-container">
-            <div class="cases-list" data-cursor="invisible">
-                <client-only>
-                    <Flickity ref="flickity" class="cases-slider" :options="flickityOptions" @init="onInit">
-                        <Case v-for="study in reducedCases" :key="study.id" :item="study" />
-                    </Flickity>
-                    <!-- <div class="flickity-indicator" ref="indicator">
-                        <span
-                            class="flickity-indicator-thumb"
-                            :style="{ '--progress': thumbProgress + 'px', '--width': thumbWidth + 'px' }"
-                        ></span>
-                    </div> -->
-                    <Swiper v-if="isMobile" :count="reducedCases.length" :progress="progress" />
-                </client-only>
+        <div class="container">
+            {{ checkForAwkwardAmount }}
+            <div class="cases-group">
+                <Case v-for="(study, index) in cases" :index="index" :key="study.id" :item="study" />
             </div>
-            <div class="actions actions-center">
+            <div class="actions actions-center" v-if="button">
                 <Button location="/work">
                     Explore more work
                     <template #posticon><ArrowRight /></template>
@@ -27,83 +17,58 @@
 
 <script>
 import Case from '~/components/Cases/Case.vue'
-import Swiper from '~/components/Swiper/Swiper.vue'
 import ArrowRight from '~/assets/svg/arrows/Arrow-Right.svg?inline'
 
 export default {
     name: 'Cases',
     props: {
         cases: Array,
+        button: {
+            type: Boolean,
+            default: false,
+        },
     },
     components: {
         Case,
-        Swiper,
         ArrowRight,
     },
     data() {
         return {
-            selectedIndex: 0,
-            progress: 0,
             isMobile: false,
         }
     },
     computed: {
-        flickityOptions() {
-            return {
-                cellSelector: '.case',
-                cellAlign: 'left',
-                contain: true,
-                imagesLoaded: true,
-                adaptiveHeight: false,
-                setGallerySize: true,
-                prevNextButtons: false,
-                freeScroll: true,
-                selectedAttraction: 0.01,
-                friction: 0.18,
-                groupCells: this.groupCells(),
-                initialIndex: 0,
-                pageDots: false,
+        checkForAwkwardAmount() {
+            const divisByThree = this.cases.length % 3 == 0 ? true : false
+            const divisByFive = this.cases.length % 5 == 0 ? true : false
+
+            if (divisByThree || divisByFive) {
+                return true
+            } else {
+                return false
             }
         },
-        size() {
-            const count = this.cases.length
-            return count > 3 ? true : false
-        },
-        indicator() {
-            const count = this.cases.length
-            const index = this.selectedIndex
-        },
-        reducedCases() {
-            return this.isMobile ? this.cases : this.cases.slice(0, 3)
-        },
     },
-    methods: {
-        groupCells() {
-            return this.isMobile ? 1 : this.cases.length
-        },
-        onInit(evt) {
-            this.selectedIndex = evt.selectedIndex
-            evt.on('change', event => {
-                this.selectedIndex = event
-            })
-            evt.on('scroll', progress => {
-                this.progress = progress
-            })
-        },
-    },
-    mounted() {
-        this.isMobile = screen.width <= 768 ? true : false
-
-        window.addEventListener('resize', () => {
-            this.isMobile = screen.width <= 768 ? true : false
-        })
-    },
+    methods: {},
+    mounted() {},
 }
 </script>
 
 <style lang="scss">
 .cases {
+    margin-bottom: 3em;
+
     .container {
+    }
+
+    &-group {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-gap: 3vh;
+
+        @include mq('laptop-large') {
+            grid-template-columns: repeat(2, 1fr);
+        }
     }
 
     &-list {

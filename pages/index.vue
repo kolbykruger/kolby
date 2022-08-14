@@ -5,7 +5,7 @@
 
             <slice-zone class="slices" type="home" uid="home" />
 
-            <Cases :cases="cases.results" v-if="cases" />
+            <Cases :cases="cases.results" :button="true" v-if="cases" />
         </div>
     </main>
 </template>

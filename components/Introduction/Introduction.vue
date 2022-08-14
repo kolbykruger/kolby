@@ -164,7 +164,7 @@ export default {
 <style lang="scss">
 .introduction {
     position: relative;
-    min-height: 100vh;
+    min-height: 86vh;
     margin-top: calc(#{var(--offset)} * -1);
     overflow: hidden;
 
@@ -174,7 +174,7 @@ export default {
         left: 0;
         width: 100%;
         height: 100%;
-        min-height: 100vh;
+        min-height: 86vh;
         position: relative;
         display: flex;
         flex-direction: column;
