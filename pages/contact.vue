@@ -38,6 +38,8 @@
 </template>
 
 <script>
+import { ContactMeta } from '~/mixins/meta/ContactMeta.js'
+
 import SliceZone from 'vue-slicezone'
 import Pageheading from '~/components/Pageheading/Pageheading.vue'
 import Send from '~/assets/svg/duotone/send.svg?inline'
@@ -50,6 +52,7 @@ export default {
         Send,
         Form,
     },
+    mixins: [ContactMeta],
     async asyncData({ $prismic, params, error }) {
         const document = await $prismic.api.query($prismic.predicates.at('document.type', 'contact'))
 

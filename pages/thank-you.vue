@@ -12,6 +12,8 @@
 </template>
 
 <script>
+import { ThankYouMeta } from '~/mixins/meta/ThankYouMeta.js'
+
 const confetti = require('canvas-confetti')
 import Pageheading from '~/components/Pageheading/Pageheading.vue'
 
@@ -30,6 +32,7 @@ export default {
             },
         }
     },
+    mixins: [ThankYouMeta],
     methods: {
         celebrate() {
             const animationEnd = Date.now() + this.duration

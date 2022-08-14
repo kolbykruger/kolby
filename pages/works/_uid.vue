@@ -90,13 +90,12 @@ import { CaseStudyMeta } from '@/mixins/meta/CaseStudyMeta.js'
 import { Animations } from '~/mixins/animations/Animations.js'
 
 export default {
-    mixins: [CaseStudyMeta],
     components: {
         SliceZone,
         Pageheading,
         Neighbor,
     },
-    mixins: [Animations],
+    mixins: [Animations, CaseStudyMeta],
     computed: {
         formatDate() {
             const date = new Date(this.document.data.Date)

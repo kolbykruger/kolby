@@ -40,6 +40,7 @@
 </template>
 
 <script>
+import { WorkMeta } from '~/mixins/meta/WorkMeta.js'
 // import SliceZone from 'vue-slicezone'
 import Pageheading from '~/components/Pageheading/Pageheading.vue'
 import Cases from '~/components/Cases/Cases.vue'
@@ -52,7 +53,7 @@ export default {
         Cases,
         // SliceZone,
     },
-    mixins: [Animations],
+    mixins: [Animations, WorkMeta],
     async asyncData({ $prismic, params, error }) {
         const document = await $prismic.api.query($prismic.predicates.at('document.type', 'work'))
 

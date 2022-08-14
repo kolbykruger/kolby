@@ -12,6 +12,9 @@ https://www.slicemachine.dev/documentation/nuxt/add-the-slice-zone-to-your-page
 </template>
 
 <script>
+// Meta
+import { Meta } from '@/mixins/meta/Meta.js'
+
 import Pageheading from '~/components/Pageheading/Pageheading.vue'
 import SliceZone from 'vue-slicezone'
 import { Animations } from '~/mixins/animations/Animations.js'
@@ -21,10 +24,11 @@ export default {
         Pageheading,
         SliceZone,
     },
-    mixins: [Animations],
+    mixins: [Animations, Meta],
     async asyncData({ $prismic, params, error }) {
         const document = await $prismic.api.getByUID('page', params.uid)
         if (document) {
+            console.log(document)
             return { document }
         } else {
             error({ statusCode: 404, message: 'Page not found' })

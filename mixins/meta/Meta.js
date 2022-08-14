@@ -1,12 +1,13 @@
-export const CaseStudyMeta = {
-    name: 'CaseStudyMeta',
+export const Meta = {
+    name: 'Meta',
     computed: {
         title() {
             //return document.data.Name
-            return this.document.data.Name[0].text + ' | Case Study' + ' — Kolby Kruger'
+            const metaTitle = this.document.data.Name[0].text ? this.document.data.Name[0].text : 'Page'
+            return metaTitle + ' — Kolby Kruger'
         },
         description() {
-            return this.$prismic.asText(this.document.data.Summary)
+            return this.document.data.meta_description
         },
     },
     head() {
@@ -17,11 +18,6 @@ export const CaseStudyMeta = {
                     hid: 'description',
                     name: 'description',
                     content: this.description,
-                },
-                {
-                    hid: 'robots',
-                    name: 'robots',
-                    content: 'noindex',
                 },
             ],
         }

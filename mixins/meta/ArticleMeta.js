@@ -4,7 +4,7 @@ export const ArticleMeta = {
         title() {
             const title = this.document.data.Name[0].text
             const metaTitle = this.document.data.meta_title
-            return metaTitle ? metaTitle : title + ' // Kolby Kruger'
+            return metaTitle ? metaTitle : title + ' — Kolby Kruger'
         },
         description() {
             const summary = this.$prismic.asText(this.document.data.Summary)

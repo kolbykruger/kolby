@@ -10,6 +10,7 @@
 <script>
 import SliceZone from 'vue-slicezone'
 import { Animations } from '~/mixins/animations/Animations.js'
+import { AboutMeta } from '~/mixins/meta/AboutMeta.js'
 
 import NameTitle from '@/components/Pageheading/NameTitle.vue'
 
@@ -18,7 +19,7 @@ export default {
         NameTitle,
         SliceZone,
     },
-    mixins: [Animations],
+    mixins: [Animations, AboutMeta],
     async asyncData({ $prismic, params, error }) {
         const document = await $prismic.api.getSingle('about')
 

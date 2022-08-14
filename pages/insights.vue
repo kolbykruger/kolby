@@ -67,6 +67,8 @@
 </template>
 
 <script>
+import { InsightsMeta } from '~/mixins/meta/InsightsMeta.js'
+
 import { gsap } from 'gsap'
 import { CustomEase } from 'gsap/dist/CustomEase'
 import Pageheading from '~/components/Pageheading/Pageheading.vue'
@@ -80,7 +82,7 @@ export default {
             ease: null,
         }
     },
-    mixins: [Animations],
+    mixins: [Animations, InsightsMeta],
     components: {
         Pageheading,
     },
