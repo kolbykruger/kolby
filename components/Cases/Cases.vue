@@ -1,7 +1,6 @@
 <template>
-    <section class="cases">
+    <section class="cases" :class="{ 'cases-is-awkward': !checkForAwkwardAmount }">
         <div class="container">
-            {{ checkForAwkwardAmount }}
             <div class="cases-group">
                 <Case v-for="(study, index) in cases" :index="index" :key="study.id" :item="study" />
             </div>
