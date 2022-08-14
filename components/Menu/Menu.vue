@@ -56,10 +56,10 @@
                                     data-stick
                                     data-cursor="xl"
                                     class="navigation-link"
-                                    to="/articles"
-                                    @click.native="setMenuStatus('/articles')"
+                                    to="/insights"
+                                    @click.native="setMenuStatus('/insights')"
                                 >
-                                    <span data-text="Articles">Articles</span>
+                                    <span data-text="Insights">Insights</span>
                                 </nuxt-link>
                             </div>
                         </li>

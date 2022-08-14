@@ -1,6 +1,6 @@
 <template>
     <li class="article-item">
-        <nuxt-link class="article-item-link" data-cursor="lg" :to="'/article/' + article.uid">
+        <nuxt-link class="article-item-link" data-cursor="lg" :to="'/insight/' + article.uid">
             <div class="article-item-details">
                 <p class="article-item-date">
                     {{ formatDate }}<span>—</span><span class="code">{{ article.data.Category }}</span>
