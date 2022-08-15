@@ -9,6 +9,7 @@ if (!smConfig.apiEndpoint) {
 
 export default {
     target: 'static',
+    ssr: false,
     globalName: 'app',
     head: {
         title: 'Kolby Kruger',
