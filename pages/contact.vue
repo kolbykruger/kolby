@@ -110,14 +110,14 @@ export default {
                     {
                         id: 'company',
                         name: 'Company',
-                        placeholder: 'Company',
+                        placeholder: 'Company Name...',
                         type: 'text',
                         required: false,
                     },
                     {
                         id: 'details',
-                        name: 'Details',
-                        placeholder: '',
+                        name: 'Tell me about your project',
+                        placeholder: 'How can I help?',
                         type: 'textarea',
                         required: true,
                         limit: 1000,
@@ -133,7 +133,7 @@ export default {
                             'Website design',
                             'Website development',
                             'UX / UI',
-                            'Not sure...',
+                            'Other',
                         ],
                     },
                     {
@@ -146,7 +146,7 @@ export default {
                     {
                         id: 'source',
                         name: 'Where did you find out about me?',
-                        placeholder: '',
+                        placeholder: 'Google...',
                         type: 'text',
                         required: true,
                     },

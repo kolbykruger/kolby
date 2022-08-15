@@ -255,6 +255,10 @@
         }
     }
 
+    &--required {
+        color: c('tertiary-base')
+    }
+
     &-recaptcha {
         margin-top: 2em;
     }
