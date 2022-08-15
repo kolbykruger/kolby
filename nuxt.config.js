@@ -12,7 +12,7 @@ export default {
     ssr: false,
     globalName: 'app',
     head: {
-        title: 'Kolby Kruger',
+        title: 'Kolby Kruger  — Web designer and developer in Vermont',
         meta: [
             {
                 charset: 'utf-8',
@@ -24,7 +24,8 @@ export default {
             {
                 hid: 'description',
                 name: 'description',
-                content: '',
+                content:
+                    'The portfolio of a Web Designer and Developer from Vermont, who designs creative and high impact websites.',
             },
         ],
         link: [
