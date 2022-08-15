@@ -38,7 +38,7 @@ export default {
         '@/assets/css/vendors/preflight.scss',
         '@/assets/css/style.scss',
         '@/assets/fonts/ogg/ogg.css',
-        '@/assets/fonts/tt-commons/tt-commons.css',
+        '@/assets/fonts/tt-commons/optimized/tt-commons.css',
         '@/assets/fonts/monolisa/monolisa.css',
     ],
     styleResources: {

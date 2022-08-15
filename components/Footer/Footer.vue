@@ -105,6 +105,21 @@ export default {
     mounted() {
         this.contact = this.email
     },
+    created() {
+        let message = '%cCreator: Kolby Kruger\nEmail: hi@kolby.dev'
+        let styles = [
+            'font-size: 22px',
+            'font-family: "TT Commons",sans-serif;',
+            'font-weight: 500;',
+            'background: hsl(210deg, 21%, 5%)',
+            'display: block',
+            'color: hsl(216deg, 15%, 94%)',
+            'padding: 0.3em 1.2em',
+            'width: 1000px;',
+        ].join(';')
+
+        console.log(message, styles)
+    },
 }
 </script>
 
