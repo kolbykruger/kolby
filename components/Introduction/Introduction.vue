@@ -190,7 +190,7 @@ export default {
 
     &-subtitle {
         @include fs-lg;
-        max-width: 9em;
+        max-width: 11em;
         margin-top: 1em;
         // margin-bottom: 1em;
 
