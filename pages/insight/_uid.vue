@@ -20,7 +20,7 @@
                                 <nuxt-link
                                     class="code-link"
                                     :to="{
-                                        path: '/articles',
+                                        path: '/insights',
                                         query: { category: document.data.Category.toLowerCase() },
                                     }"
                                     >{{ document.data.Category }}</nuxt-link

@@ -24,7 +24,7 @@
                                 <h3>About</h3>
                                 <p>
                                     <nuxt-link to="/about" href="">About</nuxt-link><br />
-                                    <nuxt-link to="/articles" href="">Articles</nuxt-link><br />
+                                    <nuxt-link to="/insights" href="">Insights</nuxt-link><br />
                                     <nuxt-link to="/resume" href="">Resume</nuxt-link><br />
                                     <nuxt-link to="/work" href="">Work</nuxt-link>
                                 </p>
