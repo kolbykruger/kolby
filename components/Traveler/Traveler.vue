@@ -83,6 +83,7 @@ export default {
                     anim.kill()
                 }
             })
+            this.animations = null
         },
         animateColor(color) {
             const tr = this.$refs.travelerBackground
