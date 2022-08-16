@@ -16,14 +16,14 @@
                             <Picture
                                 :field="item.Image"
                                 :sizes="{
-                                    'phone-small': '230px',
-                                    phone: '298px',
-                                    'phone-large': '298px',
-                                    tablet: '261px',
-                                    'laptop-small': '370px',
-                                    laptop: '428px',
-                                    'laptop-large': '473px',
-                                    'desktop-small': '202px',
+                                    'phone-small': '228px',
+                                    phone: '296px',
+                                    'phone-large': '391px',
+                                    tablet: '431px',
+                                    'laptop-small': '389px',
+                                    laptop: '457px',
+                                    'laptop-large': '502px',
+                                    'desktop-small': '597px',
                                     desktop: '225px',
                                     'desktop-large': '343px',
                                 }"
