@@ -347,7 +347,6 @@ export default {
         }
 
         figure {
-            opacity: 0;
         }
 
         picture {
