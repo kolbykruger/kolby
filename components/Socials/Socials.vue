@@ -9,7 +9,9 @@
                     target="_blank"
                     rel="noopener norefer"
                 >
-                    <span class="socials-item-icon">GH</span>
+                    <span class="socials-icon">
+                        <GithubIcon />
+                    </span>
                 </a>
             </li>
             <li class="socials-item">
@@ -20,29 +22,16 @@
                     target="_blank"
                     rel="noopener norefer"
                 >
-                    <span class="socials-item-icon">LI</span>
+                    <span class="socials-icon">
+                        <LinkedInIcon />
+                    </span>
                 </a>
             </li>
             <li class="socials-item">
-                <a
-                    data-stick
-                    class="socials-link"
-                    :href="$store.state.contact.socials.figma"
-                    target="_blank"
-                    rel="noopener norefer"
-                >
-                    <span class="socials-item-icon">FI</span>
-                </a>
-            </li>
-            <li class="socials-item">
-                <a
-                    data-stick
-                    class="socials-link"
-                    :href="$store.state.contact.socials.spotify"
-                    target="_blank"
-                    rel="noopener norefer"
-                >
-                    <span class="socials-item-icon">SP</span>
+                <a data-stick class="socials-link" :href="`mailto:hi@kolby.dev`">
+                    <span class="socials-icon">
+                        <EmailIcon />
+                    </span>
                 </a>
             </li>
             <!-- <li class="socials-item">
@@ -58,8 +47,17 @@
 </template>
 
 <script>
+import GithubIcon from '@/assets/svg/brands/github-brands.svg?inline'
+import LinkedInIcon from '@/assets/svg/brands/linkedin-in-brands.svg?inline'
+import EmailIcon from '@/assets/svg/duotone/email.svg?inline'
+
 export default {
     name: 'Socials',
+    components: {
+        GithubIcon,
+        LinkedInIcon,
+        EmailIcon,
+    },
 }
 </script>
 
@@ -119,6 +117,28 @@ export default {
         &:hover,
         &:focus {
             opacity: 1;
+        }
+    }
+
+    &-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        --size: 1.5em;
+        width: var(--size);
+        height: var(--size);
+
+        @include mq('tablet') {
+            --size: 1em;
+        }
+
+        svg {
+            width: 100%;
+            height: 100%;
+
+            path {
+                fill: c('base-0');
+            }
         }
     }
 
