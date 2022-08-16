@@ -18,9 +18,9 @@ export const _DefaultSlice = () => ({
   },
   data() {
     return {
-      mock: {"variation":"default-slice","name":"Default slice","slice_type":"tiles","items":[{"Image":{"dimensions":{"width":600,"height":600},"alt":"Placeholder image","copyright":null,"url":"https://images.unsplash.com/photo-1601933973783-43cf8a7d4c5f?w=600&h=600&fit=crop"}},{"Image":{"dimensions":{"width":600,"height":600},"alt":"Placeholder image","copyright":null,"url":"https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?w=600&h=600&fit=crop"}},{"Image":{"dimensions":{"width":600,"height":600},"alt":"Placeholder image","copyright":null,"url":"https://images.unsplash.com/photo-1601933973783-43cf8a7d4c5f?w=600&h=600&fit=crop"}}],"primary":{"title":[{"type":"heading1","text":"Redefine plug-and-play networks","spans":[]}],"description":[{"type":"paragraph","text":"Consectetur quis commodo commodo ad culpa esse laborum eiusmod proident. Tempor consequat ea nisi labore aute reprehenderit irure in non sint adipisicing et enim aliquip tempor. Nisi sint veniam ullamco est fugiat ullamco excepteur.","spans":[]}]},"id":"_DefaultSlice"}
+      mock: {"variation":"default-slice","version":"sktwi1xtmkfgx8626","items":[{"Image":{"dimensions":{"width":600,"height":450},"alt":null,"copyright":null,"url":"https://images.unsplash.com/photo-1545239351-1141bd82e8a6"}}],"primary":{"title":[{"type":"heading1","text":"Exchange","spans":[]}],"description":[{"type":"paragraph","text":"Officia elit exercitation tempor eiusmod. Labore velit incididunt ullamco dolor non exercitation ipsum in id duis exercitation voluptate.","spans":[]}]},"slice_type":"tiles","id":"_DefaultSlice"}
     }
   },
   template: '<SliceZone :slices="[mock]" :resolver="resolve" />'
 })
-_DefaultSlice.storyName = 'Default slice'
+_DefaultSlice.storyName = ''

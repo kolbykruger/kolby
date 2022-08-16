@@ -312,9 +312,31 @@ export default {
     }
 
     &-item {
+        position: relative;
+        aspect-ratio: 600/450;
+        background: c('base-8');
         overflow: hidden;
-        aspect-ratio: 600 / 450;
         will-change: transform;
+
+        &::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            transform: translateX(-100%);
+            background: c('base-8');
+            background-image: linear-gradient(90deg, c('base-8') 0, c('base-7') 20%, c('base-7') 60%, c('base-8'));
+            animation: skeleton 2s infinite;
+            z-index: -1;
+        }
+
+        @keyframes skeleton {
+            100% {
+                transform: translateX(100%);
+            }
+        }
 
         @include mq('laptop-large') {
             & > figure {
@@ -322,6 +344,10 @@ export default {
                     opacity: 0.1 !important;
                 }
             }
+        }
+
+        figure {
+            opacity: 0;
         }
 
         picture {
