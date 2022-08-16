@@ -51,6 +51,10 @@ export default {
             src: '~/plugins/flickity.js',
             ssr: false,
         },
+        {
+            src: '~/plugins/gsap.js',
+            ssr: false,
+        },
     ],
     components: true,
     buildModules: [
