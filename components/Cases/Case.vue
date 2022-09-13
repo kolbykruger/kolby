@@ -89,8 +89,8 @@ export default {
 
             requestAnimationFrame(() => {
                 gsap.to(caseStudyImg, {
-                    x: 25 * x,
-                    y: 25 * y,
+                    x: 15 * x,
+                    y: 15 * y,
                     ease: 'power2.out',
                 })
             })
@@ -110,10 +110,12 @@ export default {
         window.addEventListener('mouseleave', () => {
             this.cursor = false
 
-            gsap.to(caseStudyImg, {
-                x: 0,
-                y: 0,
-                ease: 'linear',
+            requestAnimationFrame(() => {
+                gsap.to(caseStudyImg, {
+                    x: 0,
+                    y: 0,
+                    ease: 'linear',
+                })
             })
         })
     },
@@ -143,6 +145,7 @@ export default {
     &-cover {
         //position: relative;
         display: block;
+        transition: 0.3s cubic-bezier(0, 0.98, 0.74, 0.77);
         overflow: hidden;
 
         @include mq('laptop-large') {
@@ -185,7 +188,7 @@ export default {
         transition: 0.3s ease;
 
         @include mq('laptop-large') {
-            opacity: 0.4;
+            opacity: 0.46;
         }
 
         &::before {
@@ -198,9 +201,11 @@ export default {
     @mixin case-active-state {
         .case {
             &-cover {
+                transform: scale(0.98);
+
                 figure {
                     opacity: 0.1;
-                    transform: scale(1.1);
+                    transform: scale(1.16);
                 }
             }
             &-background {
