@@ -20,6 +20,8 @@
                     </button>
 
                     <Socials />
+
+                    <p class="affirmation"><small>©{{year}} Kolby Kruger, All Rights Reserved • <button class="crebits" @click="credits.visibility = true">Credits</button></small></p>
                 </div>
                 <div class="footer-cta">
                     <Compass />
@@ -40,24 +42,29 @@
                 </button>
             </div>
         </div>
+        <Credits :class="{ '-visibile': credits.visibility }" @closeCreditsPanel="credits.visibility = false"/>
     </footer>
 </template>
 
 <script>
 const confetti = require('canvas-confetti')
 import Socials from '../Socials/Socials.vue'
+import Credits from '../Credits/Credits.vue'
 import PartArrowDown from '@/assets/svg/arrows/Part-Arrow-Down.svg?inline'
 import squiggle from '@/assets/svg/animated/squiggle.svg?data'
 import squiggleDarkMode from '@/assets/svg/animated/squiggle-dark-mode.svg?data'
 
 export default {
-    components: { Socials },
+    components: { Socials, Credits },
     name: 'Footer',
     data() {
         return {
             contact: null,
             squiggle,
             squiggleDarkMode,
+            credits: {
+                visibility: false
+            }
         }
     },
     components: {

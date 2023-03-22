@@ -1,38 +1,115 @@
 {
-  "id": "dd0efd1f-890a-4d54-9a7d-ede052a311d0",
-  "uid": "consequatur-laborum-architecto",
-  "type": "work",
-  "data": {
-    "Name": [
+  "Name": {
+    "__TYPE__": "StructuredTextContent",
+    "value": [
       {
         "type": "heading1",
-        "text": "Envisioneer ubiquitous markets",
-        "spans": []
+        "content": {
+          "text": "Accident"
+        }
       }
-    ],
-    "CaseStudies": [
+    ]
+  },
+  "uid": {
+    "__TYPE__": "UIDContent",
+    "value": "pull"
+  },
+  "CaseStudies": {
+    "__TYPE__": "GroupContentType",
+    "value": [
       {
-        "CaseStudy": {
-          "link_type": "Web",
-          "url": "http://google.com"
+        "__TYPE__": "GroupItemContent",
+        "value": [
+          [
+            "CaseStudy",
+            {
+              "__TYPE__": "LinkContent",
+              "value": {
+                "__TYPE__": "DocumentLink",
+                "id": "mock_document_id"
+              }
+            }
+          ]
+        ]
+      }
+    ]
+  },
+  "slices": {
+    "__TYPE__": "SliceContentType",
+    "value": [
+      {
+        "key": "headline$f614653b-0ccb-4b9d-8f77-324987435340",
+        "name": "headline",
+        "widget": {
+          "__TYPE__": "SharedSliceContent",
+          "variation": "default-slice",
+          "primary": {
+            "title": {
+              "__TYPE__": "StructuredTextContent",
+              "value": [
+                {
+                  "type": "heading1",
+                  "content": {
+                    "text": "Local"
+                  }
+                }
+              ]
+            }
+          },
+          "items": [
+            {
+              "__TYPE__": "GroupItemContent",
+              "value": []
+            }
+          ]
         }
       },
       {
-        "CaseStudy": {
-          "link_type": "Web",
-          "url": "http://twitter.com"
-        }
-      },
-      {
-        "CaseStudy": {
-          "link_type": "Web",
-          "url": "http://google.com"
-        }
-      },
-      {
-        "CaseStudy": {
-          "link_type": "Web",
-          "url": "https://prismic.io"
+        "key": "textblock$67c2b08f-9b54-49eb-898b-baeeedb7678d",
+        "name": "textblock",
+        "widget": {
+          "__TYPE__": "SharedSliceContent",
+          "variation": "default-slice",
+          "primary": {
+            "Index": {
+              "__TYPE__": "FieldContent",
+              "value": "shade",
+              "type": "Text"
+            },
+            "Eyebrow": {
+              "__TYPE__": "FieldContent",
+              "value": "operation",
+              "type": "Text"
+            },
+            "title": {
+              "__TYPE__": "StructuredTextContent",
+              "value": [
+                {
+                  "type": "heading2",
+                  "content": {
+                    "text": "Within"
+                  }
+                }
+              ]
+            },
+            "description": {
+              "__TYPE__": "StructuredTextContent",
+              "value": [
+                {
+                  "type": "paragraph",
+                  "content": {
+                    "text": "Nisi ex dolor duis deserunt id culpa amet sunt dolore cupidatat. Mollit proident officia anim in deserunt cupidatat labore proident veniam officia labore fugiat ut pariatur."
+                  }
+                }
+              ]
+            }
+          },
+          "items": [
+            {
+              "__TYPE__": "GroupItemContent",
+              "value": []
+            }
+          ]
         }
       }
     ]

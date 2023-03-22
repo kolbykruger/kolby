@@ -1,17 +1,185 @@
 {
-  "id": "mock-doc-id",
-  "url": null,
-  "type": "reviews",
-  "href": null,
-  "tags": [],
-  "first_publication_date": "1970-01-01T00:00:01+0000",
-  "last_publication_date": "1970-01-01T00:00:01+0000",
-  "slugs": [],
-  "linked_documents": [],
-  "lang": "en-us",
-  "alternate_languages": [],
-  "data": {
-    "name": "shot",
-    "slices": []
+  "name": {
+    "__TYPE__": "FieldContent",
+    "value": "certainly",
+    "type": "Text"
+  },
+  "uid": {
+    "__TYPE__": "UIDContent",
+    "value": "street"
+  },
+  "slices": {
+    "__TYPE__": "SliceContentType",
+    "value": [
+      {
+        "key": "quote$771ca900-dd23-4934-8726-1d13b8f58fa0",
+        "name": "quote",
+        "widget": {
+          "__TYPE__": "SharedSliceContent",
+          "variation": "default",
+          "primary": {},
+          "items": [
+            {
+              "__TYPE__": "GroupItemContent",
+              "value": [
+                [
+                  "tagline",
+                  {
+                    "__TYPE__": "StructuredTextContent",
+                    "value": [
+                      {
+                        "type": "heading4",
+                        "content": {
+                          "text": "Shall"
+                        }
+                      }
+                    ]
+                  }
+                ],
+                [
+                  "quote",
+                  {
+                    "__TYPE__": "StructuredTextContent",
+                    "value": [
+                      {
+                        "type": "paragraph",
+                        "content": {
+                          "text": "Nulla cupidatat eiusmod mollit fugiat consequat in. Dolore amet dolor elit ea quis pariatur nulla."
+                        }
+                      }
+                    ]
+                  }
+                ],
+                [
+                  "quotee",
+                  {
+                    "__TYPE__": "FieldContent",
+                    "value": "parts",
+                    "type": "Text"
+                  }
+                ],
+                [
+                  "identifier",
+                  {
+                    "__TYPE__": "FieldContent",
+                    "value": "allow",
+                    "type": "Text"
+                  }
+                ],
+                [
+                  "cover",
+                  {
+                    "__TYPE__": "ImageContent",
+                    "origin": {
+                      "id": "main",
+                      "url": "https://images.unsplash.com/photo-1571126770897-2d612d1f7b89",
+                      "width": 3456,
+                      "height": 3456
+                    },
+                    "url": "https://images.unsplash.com/photo-1571126770897-2d612d1f7b89?rect=0%2C0%2C3456%2C3456&w=75&h=75",
+                    "width": 75,
+                    "height": 75,
+                    "edit": {
+                      "zoom": 1,
+                      "crop": {
+                        "x": 0,
+                        "y": 0
+                      },
+                      "background": "transparent"
+                    },
+                    "thumbnails": {}
+                  }
+                ],
+                [
+                  "website",
+                  {
+                    "__TYPE__": "LinkContent",
+                    "value": {
+                      "__TYPE__": "ExternalLink",
+                      "url": "http://twitter.com"
+                    }
+                  }
+                ]
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "key": "headline$bef5bc35-ee43-4d66-858a-aef1d45f62be",
+        "name": "headline",
+        "widget": {
+          "__TYPE__": "SharedSliceContent",
+          "variation": "default-slice",
+          "primary": {
+            "title": {
+              "__TYPE__": "StructuredTextContent",
+              "value": [
+                {
+                  "type": "heading1",
+                  "content": {
+                    "text": "Danger"
+                  }
+                }
+              ]
+            }
+          },
+          "items": [
+            {
+              "__TYPE__": "GroupItemContent",
+              "value": []
+            }
+          ]
+        }
+      },
+      {
+        "key": "textblock$36751c1a-072e-47ad-a5db-d4679ce58d4f",
+        "name": "textblock",
+        "widget": {
+          "__TYPE__": "SharedSliceContent",
+          "variation": "default-slice",
+          "primary": {
+            "Index": {
+              "__TYPE__": "FieldContent",
+              "value": "coffee",
+              "type": "Text"
+            },
+            "Eyebrow": {
+              "__TYPE__": "FieldContent",
+              "value": "himself",
+              "type": "Text"
+            },
+            "title": {
+              "__TYPE__": "StructuredTextContent",
+              "value": [
+                {
+                  "type": "heading2",
+                  "content": {
+                    "text": "Written"
+                  }
+                }
+              ]
+            },
+            "description": {
+              "__TYPE__": "StructuredTextContent",
+              "value": [
+                {
+                  "type": "paragraph",
+                  "content": {
+                    "text": "Consectetur aliquip sunt culpa adipisicing pariatur laborum ad dolore deserunt eiusmod. Excepteur nulla laborum esse et minim enim consequat amet laboris anim tempor."
+                  }
+                }
+              ]
+            }
+          },
+          "items": [
+            {
+              "__TYPE__": "GroupItemContent",
+              "value": []
+            }
+          ]
+        }
+      }
+    ]
   }
 }

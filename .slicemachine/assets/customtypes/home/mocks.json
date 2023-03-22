@@ -1,37 +1,180 @@
 {
-  "id": "mock-doc-id",
-  "url": null,
-  "type": "home",
-  "href": null,
-  "tags": [],
-  "first_publication_date": "1970-01-01T00:00:01+0000",
-  "last_publication_date": "1970-01-01T00:00:01+0000",
-  "slugs": [],
-  "linked_documents": [],
-  "lang": "en-us",
-  "alternate_languages": [],
-  "data": {
-    "Name": [
+  "Name": {
+    "__TYPE__": "StructuredTextContent",
+    "value": [
       {
         "type": "heading1",
-        "text": "Flame",
-        "spans": []
-      }
-    ],
-    "FeaturedWork": [
-      {
-        "CaseStudy": {
-          "id": "mock_document_id",
-          "link_type": "Document",
-          "type": "case-study",
-          "tags": [],
-          "lang": "en-us",
-          "slug": null,
-          "first_publication_date": "1970-01-01T00:00:01+0000",
-          "last_publication_date": "1970-01-01T01:00:00+0000"
+        "content": {
+          "text": "Yellow"
         }
       }
-    ],
-    "slices": []
+    ]
+  },
+  "uid": {
+    "__TYPE__": "UIDContent",
+    "value": "lift"
+  },
+  "FeaturedWork": {
+    "__TYPE__": "GroupContentType",
+    "value": [
+      {
+        "__TYPE__": "GroupItemContent",
+        "value": [
+          [
+            "CaseStudy",
+            {
+              "__TYPE__": "LinkContent",
+              "value": {
+                "__TYPE__": "DocumentLink",
+                "id": "mock_document_id"
+              }
+            }
+          ]
+        ]
+      }
+    ]
+  },
+  "slices": {
+    "__TYPE__": "SliceContentType",
+    "value": [
+      {
+        "key": "tiles$17686b7d-d51a-4d3f-9178-76dd722fcafb",
+        "name": "tiles",
+        "widget": {
+          "__TYPE__": "SharedSliceContent",
+          "variation": "default-slice",
+          "primary": {
+            "title": {
+              "__TYPE__": "StructuredTextContent",
+              "value": [
+                {
+                  "type": "heading1",
+                  "content": {
+                    "text": "Camera"
+                  }
+                }
+              ]
+            },
+            "description": {
+              "__TYPE__": "StructuredTextContent",
+              "value": [
+                {
+                  "type": "paragraph",
+                  "content": {
+                    "text": "Anim ipsum eu consequat. Id ad ut culpa occaecat magna cupidatat tempor sit dolore proident dolor ipsum est."
+                  }
+                }
+              ]
+            }
+          },
+          "items": [
+            {
+              "__TYPE__": "GroupItemContent",
+              "value": [
+                [
+                  "Image",
+                  {
+                    "__TYPE__": "ImageContent",
+                    "origin": {
+                      "id": "main",
+                      "url": "https://images.unsplash.com/photo-1448932223592-d1fc686e76ea",
+                      "width": 3500,
+                      "height": 2338
+                    },
+                    "url": "https://images.unsplash.com/photo-1448932223592-d1fc686e76ea?rect=191%2C0%2C3117%2C2338&w=600&h=450",
+                    "width": 600,
+                    "height": 450,
+                    "edit": {
+                      "zoom": 1,
+                      "crop": {
+                        "x": 191,
+                        "y": 0
+                      },
+                      "background": "transparent"
+                    },
+                    "thumbnails": {}
+                  }
+                ]
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "key": "headline$98e55c63-2dc4-4b85-a8e3-6ba069f86ae1",
+        "name": "headline",
+        "widget": {
+          "__TYPE__": "SharedSliceContent",
+          "variation": "default-slice",
+          "primary": {
+            "title": {
+              "__TYPE__": "StructuredTextContent",
+              "value": [
+                {
+                  "type": "heading1",
+                  "content": {
+                    "text": "Would"
+                  }
+                }
+              ]
+            }
+          },
+          "items": [
+            {
+              "__TYPE__": "GroupItemContent",
+              "value": []
+            }
+          ]
+        }
+      },
+      {
+        "key": "textblock$c3b1676b-8f69-423e-880e-a7bbd8d67265",
+        "name": "textblock",
+        "widget": {
+          "__TYPE__": "SharedSliceContent",
+          "variation": "default-slice",
+          "primary": {
+            "Index": {
+              "__TYPE__": "FieldContent",
+              "value": "high",
+              "type": "Text"
+            },
+            "Eyebrow": {
+              "__TYPE__": "FieldContent",
+              "value": "village",
+              "type": "Text"
+            },
+            "title": {
+              "__TYPE__": "StructuredTextContent",
+              "value": [
+                {
+                  "type": "heading2",
+                  "content": {
+                    "text": "Flower"
+                  }
+                }
+              ]
+            },
+            "description": {
+              "__TYPE__": "StructuredTextContent",
+              "value": [
+                {
+                  "type": "paragraph",
+                  "content": {
+                    "text": "Qui magna enim in sunt elit excepteur voluptate. Consectetur anim eu dolor veniam proident. Irure nostrud velit ea ullamco sint mollit mollit tempor."
+                  }
+                }
+              ]
+            }
+          },
+          "items": [
+            {
+              "__TYPE__": "GroupItemContent",
+              "value": []
+            }
+          ]
+        }
+      }
+    ]
   }
 }

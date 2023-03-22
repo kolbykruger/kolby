@@ -1,0 +1,214 @@
+[
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "default-slice",
+    "primary": {
+      "Index": {
+        "__TYPE__": "FieldContent",
+        "value": "visit",
+        "type": "Text"
+      },
+      "Eyebrow": {
+        "__TYPE__": "FieldContent",
+        "value": "airplane",
+        "type": "Text"
+      },
+      "title": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "heading2",
+            "content": {
+              "text": "Escape"
+            }
+          }
+        ]
+      },
+      "description": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "paragraph",
+            "content": {
+              "text": "Excepteur eu dolore proident incididunt incididunt deserunt. Magna duis dolor ullamco non enim ullamco consequat Lorem enim. Tempor pariatur excepteur est ullamco."
+            }
+          }
+        ]
+      }
+    },
+    "items": [
+      {
+        "__TYPE__": "GroupItemContent",
+        "value": []
+      }
+    ]
+  },
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "textblockWithGridList",
+    "primary": {
+      "Index": {
+        "__TYPE__": "FieldContent",
+        "value": "movie",
+        "type": "Text"
+      },
+      "Eyebrow": {
+        "__TYPE__": "FieldContent",
+        "value": "service",
+        "type": "Text"
+      },
+      "title": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "heading2",
+            "content": {
+              "text": "Vowel"
+            }
+          }
+        ]
+      },
+      "description": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "paragraph",
+            "content": {
+              "text": "Pariatur proident ut anim aliquip consectetur laboris. Voluptate id aute aliqua sit elit."
+            }
+          }
+        ]
+      }
+    },
+    "items": [
+      {
+        "__TYPE__": "GroupItemContent",
+        "value": [
+          [
+            "Name",
+            {
+              "__TYPE__": "FieldContent",
+              "value": "recent",
+              "type": "Text"
+            }
+          ],
+          [
+            "Outline",
+            {
+              "__TYPE__": "FieldContent",
+              "value": "exact",
+              "type": "Text"
+            }
+          ],
+          [
+            "summary",
+            {
+              "__TYPE__": "StructuredTextContent",
+              "value": [
+                {
+                  "type": "paragraph",
+                  "content": {
+                    "text": "Dolore do velit veniam duis veniam adipisicing. Nisi magna ut deserunt aute laborum."
+                  }
+                }
+              ]
+            }
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "textblockWithGridButton",
+    "primary": {
+      "Index": {
+        "__TYPE__": "FieldContent",
+        "value": "obtain",
+        "type": "Text"
+      },
+      "Eyebrow": {
+        "__TYPE__": "FieldContent",
+        "value": "closely",
+        "type": "Text"
+      },
+      "title": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "heading2",
+            "content": {
+              "text": "Ourselves"
+            }
+          }
+        ]
+      },
+      "description": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "paragraph",
+            "content": {
+              "text": "Dolore id dolor dolor. Magna pariatur sit qui cupidatat tempor deserunt magna ipsum ut aute Lorem consequat nisi minim."
+            }
+          }
+        ]
+      }
+    },
+    "items": [
+      {
+        "__TYPE__": "GroupItemContent",
+        "value": [
+          [
+            "Name",
+            {
+              "__TYPE__": "FieldContent",
+              "value": "difficult",
+              "type": "Text"
+            }
+          ],
+          [
+            "Outline",
+            {
+              "__TYPE__": "FieldContent",
+              "value": "volume",
+              "type": "Text"
+            }
+          ],
+          [
+            "summary",
+            {
+              "__TYPE__": "StructuredTextContent",
+              "value": [
+                {
+                  "type": "paragraph",
+                  "content": {
+                    "text": "Officia quis laborum adipisicing elit. Elit tempor magna elit fugiat ad elit pariatur nulla id quis elit. Sint occaecat nulla officia velit."
+                  }
+                }
+              ]
+            }
+          ],
+          [
+            "button",
+            {
+              "__TYPE__": "LinkContent",
+              "value": {
+                "__TYPE__": "ExternalLink",
+                "url": "http://google.com"
+              }
+            }
+          ],
+          [
+            "button_text",
+            {
+              "__TYPE__": "FieldContent",
+              "value": "earn",
+              "type": "Text"
+            }
+          ]
+        ]
+      }
+    ]
+  }
+]

@@ -1,0 +1,164 @@
+[
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "default-slice",
+    "primary": {
+      "title": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "heading2",
+            "content": {
+              "text": "Again"
+            }
+          }
+        ]
+      },
+      "description": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "paragraph",
+            "content": {
+              "text": "Sint aute nulla sint aute proident consectetur proident et minim aute occaecat aute enim. Excepteur ullamco ipsum nostrud nulla adipisicing elit esse dolor cillum dolor."
+            }
+          }
+        ]
+      },
+      "Alignment": {
+        "__TYPE__": "FieldContent",
+        "value": "Left",
+        "type": "Select"
+      }
+    },
+    "items": [
+      {
+        "__TYPE__": "GroupItemContent",
+        "value": [
+          [
+            "Icon",
+            {
+              "__TYPE__": "FieldContent",
+              "value": "shade",
+              "type": "Text"
+            }
+          ],
+          [
+            "Title",
+            {
+              "__TYPE__": "StructuredTextContent",
+              "value": [
+                {
+                  "type": "heading3",
+                  "content": {
+                    "text": "Until"
+                  }
+                }
+              ]
+            }
+          ],
+          [
+            "Description",
+            {
+              "__TYPE__": "StructuredTextContent",
+              "value": [
+                {
+                  "type": "paragraph",
+                  "content": {
+                    "text": "Sit enim est cillum enim non esse deserunt Lorem veniam mollit aliqua ea esse."
+                  }
+                }
+              ]
+            }
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "featuresWithLink",
+    "primary": {
+      "title": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "heading2",
+            "content": {
+              "text": "Involved"
+            }
+          }
+        ]
+      },
+      "description": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "paragraph",
+            "content": {
+              "text": "Dolor pariatur ex excepteur officia quis laborum proident minim incididunt qui tempor ipsum laboris excepteur consequat."
+            }
+          }
+        ]
+      },
+      "Alignment": {
+        "__TYPE__": "FieldContent",
+        "value": "Center",
+        "type": "Select"
+      }
+    },
+    "items": [
+      {
+        "__TYPE__": "GroupItemContent",
+        "value": [
+          [
+            "Icon",
+            {
+              "__TYPE__": "FieldContent",
+              "value": "shine",
+              "type": "Text"
+            }
+          ],
+          [
+            "Title",
+            {
+              "__TYPE__": "StructuredTextContent",
+              "value": [
+                {
+                  "type": "heading3",
+                  "content": {
+                    "text": "Spider"
+                  }
+                }
+              ]
+            }
+          ],
+          [
+            "Description",
+            {
+              "__TYPE__": "StructuredTextContent",
+              "value": [
+                {
+                  "type": "paragraph",
+                  "content": {
+                    "text": "Proident cupidatat quis nisi anim reprehenderit. Dolor elit dolore officia commodo Lorem cupidatat consectetur officia."
+                  }
+                }
+              ]
+            }
+          ],
+          [
+            "Relationship",
+            {
+              "__TYPE__": "LinkContent",
+              "value": {
+                "__TYPE__": "DocumentLink",
+                "id": "mock_document_id"
+              }
+            }
+          ]
+        ]
+      }
+    ]
+  }
+]

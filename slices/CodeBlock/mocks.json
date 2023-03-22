@@ -1,0 +1,45 @@
+[
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "default-slice",
+    "primary": {
+      "Language": {
+        "__TYPE__": "FieldContent",
+        "value": "html",
+        "type": "Select"
+      },
+      "File": {
+        "__TYPE__": "FieldContent",
+        "value": "sport",
+        "type": "Text"
+      },
+      "Code": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "paragraph",
+            "content": {
+              "text": "Cupidatat irure quis eiusmod eiusmod exercitation laboris ad nulla eu elit sunt eiusmod duis cillum."
+            }
+          }
+        ]
+      },
+      "Figure": {
+        "__TYPE__": "FieldContent",
+        "value": "shoulder",
+        "type": "Text"
+      },
+      "Stamp": {
+        "__TYPE__": "FieldContent",
+        "type": "Timestamp",
+        "value": "2014-07-19T05:41:59Z"
+      }
+    },
+    "items": [
+      {
+        "__TYPE__": "GroupItemContent",
+        "value": []
+      }
+    ]
+  }
+]

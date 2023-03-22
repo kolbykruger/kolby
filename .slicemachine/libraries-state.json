@@ -204,7 +204,7 @@
         },
         "screenshotPaths": {
           "default-slice": {
-            "path": "C:\\Users\\kolby\\Documents\\GitHub\\kolby\\.slicemachine\\assets\\slices\\Accordion\\default-slice\\preview.png",
+            "path": "/Users/kolbykruger/Documents/Github/kolby/.slicemachine/assets/slices/Accordion/default-slice/preview.png",
             "width": 800,
             "height": 204
           }
@@ -374,7 +374,7 @@
         },
         "screenshotPaths": {
           "default-slice": {
-            "path": "C:\\Users\\kolby\\Documents\\GitHub\\kolby\\.slicemachine\\assets\\slices\\ArticleBlock\\default-slice\\preview.png",
+            "path": "/Users/kolbykruger/Documents/Github/kolby/.slicemachine/assets/slices/ArticleBlock/default-slice/preview.png",
             "width": 800,
             "height": 130
           }
@@ -563,12 +563,12 @@
         },
         "screenshotPaths": {
           "default-slice": {
-            "path": "C:\\Users\\kolby\\Documents\\GitHub\\kolby\\.slicemachine\\assets\\slices\\BannerImage\\default-slice\\preview.png",
+            "path": "/Users/kolbykruger/Documents/Github/kolby/.slicemachine/assets/slices/BannerImage/default-slice/preview.png",
             "width": 800,
             "height": 450
           },
           "bannerImageConfined": {
-            "path": "C:\\Users\\kolby\\Documents\\GitHub\\kolby\\.slicemachine\\assets\\slices\\BannerImage\\bannerImageConfined\\preview.png",
+            "path": "/Users/kolbykruger/Documents/Github/kolby/.slicemachine/assets/slices/BannerImage/bannerImageConfined/preview.png",
             "width": 800,
             "height": 338
           }
@@ -686,7 +686,7 @@
         },
         "screenshotPaths": {
           "default-slice": {
-            "path": "C:\\Users\\kolby\\Documents\\GitHub\\kolby\\.slicemachine\\assets\\slices\\Branding\\default-slice\\preview.png",
+            "path": "/Users/kolbykruger/Documents/Github/kolby/.slicemachine/assets/slices/Branding/default-slice/preview.png",
             "width": 800,
             "height": 487
           }
@@ -787,7 +787,7 @@
         },
         "screenshotPaths": {
           "default-slice": {
-            "path": "C:\\Users\\kolby\\Documents\\GitHub\\kolby\\slices\\CodeBlock\\default-slice\\preview.png",
+            "path": "/Users/kolbykruger/Documents/Github/kolby/slices/CodeBlock/default-slice/preview.png",
             "width": 1168,
             "height": 698
           }
@@ -865,7 +865,7 @@
         },
         "screenshotPaths": {
           "default-slice": {
-            "path": "C:\\Users\\kolby\\Documents\\GitHub\\kolby\\.slicemachine\\assets\\slices\\Convoke\\default-slice\\preview.png",
+            "path": "/Users/kolbykruger/Documents/Github/kolby/.slicemachine/assets/slices/Convoke/default-slice/preview.png",
             "width": 800,
             "height": 697
           }
@@ -1001,7 +1001,7 @@
         },
         "screenshotPaths": {
           "default-slice": {
-            "path": "C:\\Users\\kolby\\Documents\\GitHub\\kolby\\.slicemachine\\assets\\slices\\Embed\\default-slice\\preview.png",
+            "path": "/Users/kolbykruger/Documents/Github/kolby/.slicemachine/assets/slices/Embed/default-slice/preview.png",
             "width": 800,
             "height": 198
           }
@@ -1169,7 +1169,7 @@
             "slice_type": "features",
             "items": [
               {
-                "Icon": "optimize collaborative functionalities",
+                "Icon": "duotone/nut",
                 "Title": [
                   {
                     "type": "heading3",
@@ -1186,7 +1186,7 @@
                 ]
               },
               {
-                "Icon": "leverage integrated bandwidth",
+                "Icon": "duotone/nut",
                 "Title": [
                   {
                     "type": "heading3",
@@ -1203,7 +1203,7 @@
                 ]
               },
               {
-                "Icon": "benchmark back-end models",
+                "Icon": "duotone/nut",
                 "Title": [
                   {
                     "type": "heading3",
@@ -1220,7 +1220,7 @@
                 ]
               },
               {
-                "Icon": "cultivate ubiquitous applications",
+                "Icon": "duotone/nut",
                 "Title": [
                   {
                     "type": "heading3",
@@ -1326,7 +1326,18 @@
           "fileName": "index",
           "extension": "vue"
         },
-        "screenshotPaths": {}
+        "screenshotPaths": {
+          "default-slice": {
+            "path": "/Users/kolbykruger/Documents/Github/kolby/.slicemachine/assets/slices/Features/default-slice/preview.png",
+            "width": 800,
+            "height": 2013
+          },
+          "featuresWithLink": {
+            "path": "/Users/kolbykruger/Documents/Github/kolby/.slicemachine/assets/slices/Features/featuresWithLink/preview.png",
+            "width": 800,
+            "height": 757
+          }
+        }
       },
       "gallery": {
         "library": "slices",
@@ -1513,7 +1524,7 @@
         },
         "screenshotPaths": {
           "default-slice": {
-            "path": "C:\\Users\\kolby\\Documents\\GitHub\\kolby\\.slicemachine\\assets\\slices\\Gallery\\default-slice\\preview.png",
+            "path": "/Users/kolbykruger/Documents/Github/kolby/.slicemachine/assets/slices/Gallery/default-slice/preview.png",
             "width": 800,
             "height": 750
           }
@@ -1575,7 +1586,7 @@
         },
         "screenshotPaths": {
           "default-slice": {
-            "path": "C:\\Users\\kolby\\Documents\\GitHub\\kolby\\.slicemachine\\assets\\slices\\Headline\\default-slice\\preview.png",
+            "path": "/Users/kolbykruger/Documents/Github/kolby/.slicemachine/assets/slices/Headline/default-slice/preview.png",
             "width": 800,
             "height": 295
           }
@@ -1721,12 +1732,12 @@
         },
         "screenshotPaths": {
           "default-slice": {
-            "path": "C:\\Users\\kolby\\Documents\\GitHub\\kolby\\.slicemachine\\assets\\slices\\List\\default-slice\\preview.png",
+            "path": "/Users/kolbykruger/Documents/Github/kolby/.slicemachine/assets/slices/List/default-slice/preview.png",
             "width": 800,
             "height": 350
           },
           "orderedList": {
-            "path": "C:\\Users\\kolby\\Documents\\GitHub\\kolby\\.slicemachine\\assets\\slices\\List\\orderedList\\preview.png",
+            "path": "/Users/kolbykruger/Documents/Github/kolby/.slicemachine/assets/slices/List/orderedList/preview.png",
             "width": 800,
             "height": 847
           }
@@ -1843,7 +1854,7 @@
         },
         "screenshotPaths": {
           "default-slice": {
-            "path": "C:\\Users\\kolby\\Documents\\GitHub\\kolby\\.slicemachine\\assets\\slices\\MobileImage\\default-slice\\preview.png",
+            "path": "/Users/kolbykruger/Documents/Github/kolby/.slicemachine/assets/slices/MobileImage/default-slice/preview.png",
             "width": 800,
             "height": 377
           }
@@ -2071,7 +2082,7 @@
         },
         "screenshotPaths": {
           "default": {
-            "path": "C:\\Users\\kolby\\Documents\\GitHub\\kolby\\.slicemachine\\assets\\slices\\Quote\\default\\preview.png",
+            "path": "/Users/kolbykruger/Documents/Github/kolby/.slicemachine/assets/slices/Quote/default/preview.png",
             "width": 800,
             "height": 389
           }
@@ -2463,17 +2474,17 @@
         },
         "screenshotPaths": {
           "default-slice": {
-            "path": "C:\\Users\\kolby\\Documents\\GitHub\\kolby\\.slicemachine\\assets\\slices\\Rail\\default-slice\\preview.png",
+            "path": "/Users/kolbykruger/Documents/Github/kolby/.slicemachine/assets/slices/Rail/default-slice/preview.png",
             "width": 800,
             "height": 750
           },
           "railWithDateCompany": {
-            "path": "C:\\Users\\kolby\\Documents\\GitHub\\kolby\\.slicemachine\\assets\\slices\\Rail\\railWithDateCompany\\preview.png",
+            "path": "/Users/kolbykruger/Documents/Github/kolby/.slicemachine/assets/slices/Rail/railWithDateCompany/preview.png",
             "width": 800,
             "height": 758
           },
           "railWithImages": {
-            "path": "C:\\Users\\kolby\\Documents\\GitHub\\kolby\\.slicemachine\\assets\\slices\\Rail\\railWithImages\\preview.png",
+            "path": "/Users/kolbykruger/Documents/Github/kolby/.slicemachine/assets/slices/Rail/railWithImages/preview.png",
             "width": 800,
             "height": 1028
           }
@@ -2642,7 +2653,7 @@
         },
         "screenshotPaths": {
           "default-slice": {
-            "path": "C:\\Users\\kolby\\Documents\\GitHub\\kolby\\.slicemachine\\assets\\slices\\Scrolly\\default-slice\\preview.png",
+            "path": "/Users/kolbykruger/Documents/Github/kolby/.slicemachine/assets/slices/Scrolly/default-slice/preview.png",
             "width": 800,
             "height": 2608
           }
@@ -2825,7 +2836,7 @@
         },
         "screenshotPaths": {
           "default-slice": {
-            "path": "C:\\Users\\kolby\\Documents\\GitHub\\kolby\\.slicemachine\\assets\\slices\\Sidenote\\default-slice\\preview.png",
+            "path": "/Users/kolbykruger/Documents/Github/kolby/.slicemachine/assets/slices/Sidenote/default-slice/preview.png",
             "width": 800,
             "height": 156
           }
@@ -3148,17 +3159,17 @@
         },
         "screenshotPaths": {
           "default-slice": {
-            "path": "C:\\Users\\kolby\\Documents\\GitHub\\kolby\\.slicemachine\\assets\\slices\\Textblock\\default-slice\\preview.png",
+            "path": "/Users/kolbykruger/Documents/Github/kolby/.slicemachine/assets/slices/Textblock/default-slice/preview.png",
             "width": 800,
             "height": 304
           },
           "textblockWithGridList": {
-            "path": "C:\\Users\\kolby\\Documents\\GitHub\\kolby\\.slicemachine\\assets\\slices\\Textblock\\textblockWithGridList\\preview.png",
+            "path": "/Users/kolbykruger/Documents/Github/kolby/.slicemachine/assets/slices/Textblock/textblockWithGridList/preview.png",
             "width": 800,
             "height": 448
           },
           "textblockWithGridButton": {
-            "path": "C:\\Users\\kolby\\Documents\\GitHub\\kolby\\.slicemachine\\assets\\slices\\Textblock\\textblockWithGridButton\\preview.png",
+            "path": "/Users/kolbykruger/Documents/Github/kolby/.slicemachine/assets/slices/Textblock/textblockWithGridButton/preview.png",
             "width": 800,
             "height": 634
           }
@@ -3260,7 +3271,7 @@
         },
         "screenshotPaths": {
           "default-slice": {
-            "path": "C:\\Users\\kolby\\Documents\\GitHub\\kolby\\.slicemachine\\assets\\slices\\Tiles\\default-slice\\preview.png",
+            "path": "/Users/kolbykruger/Documents/Github/kolby/.slicemachine/assets/slices/Tiles/default-slice/preview.png",
             "width": 800,
             "height": 600
           }
@@ -3466,17 +3477,17 @@
         },
         "screenshotPaths": {
           "default-slice": {
-            "path": "C:\\Users\\kolby\\Documents\\GitHub\\kolby\\.slicemachine\\assets\\slices\\Timeline\\default-slice\\preview.png",
+            "path": "/Users/kolbykruger/Documents/Github/kolby/.slicemachine/assets/slices/Timeline/default-slice/preview.png",
             "width": 800,
             "height": 843
           },
           "timelineVertical": {
-            "path": "C:\\Users\\kolby\\Documents\\GitHub\\kolby\\.slicemachine\\assets\\slices\\Timeline\\timelineVertical\\preview.png",
+            "path": "/Users/kolbykruger/Documents/Github/kolby/.slicemachine/assets/slices/Timeline/timelineVertical/preview.png",
             "width": 800,
             "height": 541
           },
           "timelineImages": {
-            "path": "C:\\Users\\kolby\\Documents\\GitHub\\kolby\\.slicemachine\\assets\\slices\\Timeline\\timelineImages\\preview.png",
+            "path": "/Users/kolbykruger/Documents/Github/kolby/.slicemachine/assets/slices/Timeline/timelineImages/preview.png",
             "width": 800,
             "height": 1203
           }

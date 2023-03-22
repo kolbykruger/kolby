@@ -1,17 +1,37 @@
 {
-  "id": "mock-doc-id",
-  "url": null,
-  "type": "contact",
-  "href": null,
-  "tags": [],
-  "first_publication_date": "1970-01-01T00:00:01+0000",
-  "last_publication_date": "1970-01-01T00:00:01+0000",
-  "slugs": [],
-  "linked_documents": [],
-  "lang": "en-us",
-  "alternate_languages": [],
-  "data": {
-    "name": "percent",
-    "slices": []
+  "name": {
+    "__TYPE__": "FieldContent",
+    "value": "pencil",
+    "type": "Text"
+  },
+  "uid": {
+    "__TYPE__": "UIDContent",
+    "value": "crew"
+  },
+  "slices": {
+    "__TYPE__": "SliceContentType",
+    "value": [
+      {
+        "key": "artwork$e6785c3b-23e3-4af9-9f5d-e5c058216266",
+        "name": "artwork",
+        "widget": {
+          "__TYPE__": "SharedSliceContent",
+          "variation": "default-slice",
+          "primary": {
+            "Type": {
+              "__TYPE__": "FieldContent",
+              "value": "Conic Gradient 2",
+              "type": "Select"
+            }
+          },
+          "items": [
+            {
+              "__TYPE__": "GroupItemContent",
+              "value": []
+            }
+          ]
+        }
+      }
+    ]
   }
 }

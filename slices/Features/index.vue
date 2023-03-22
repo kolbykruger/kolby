@@ -31,7 +31,7 @@
                     <span
                         class="features-item-icon"
                         v-if="item.Icon"
-                        v-html="require(`~/assets/svg/${item.Icon}.svg?raw`)"
+                        v-html="require(`~/assets/svg/${item.Icon ? item.Icon : 'duotone/nut'}.svg?raw`)"
                     >
                         <!-- <img :src="`../assets/svg/${item.Icon}.svg`" /> -->
                     </span>

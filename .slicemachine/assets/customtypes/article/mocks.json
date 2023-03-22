@@ -1,69 +1,321 @@
 {
-  "id": "436b28da-c33a-4d23-a568-906d1a0497cb",
-  "uid": "iusto-vel-et",
-  "type": "article",
-  "data": {
-    "Name": [
+  "Name": {
+    "__TYPE__": "StructuredTextContent",
+    "value": [
       {
         "type": "heading1",
-        "text": "Engage next-generation content",
-        "spans": []
+        "content": {
+          "text": "Black"
+        }
       }
-    ],
-    "Summary": [
+    ]
+  },
+  "uid": {
+    "__TYPE__": "UIDContent",
+    "value": "herself"
+  },
+  "Summary": {
+    "__TYPE__": "StructuredTextContent",
+    "value": [
       {
         "type": "paragraph",
-        "text": "Sunt excepteur pariatur proident adipisicing reprehenderit irure.",
-        "spans": []
+        "content": {
+          "text": "Nulla officia quis nostrud. Dolore non et aliqua exercitation et sint nulla elit sunt non adipisicing veniam."
+        }
       }
-    ],
-    "Read": 2393,
-    "Category": "Code",
-    "Narration": {
-      "link_type": "media",
-      "url": "https://source.unsplash.com/daily"
-    },
-    "meta_title": "generate dynamic e-tailers",
-    "meta_description": "deploy dynamic infomediaries",
-    "social_cards": [
+    ]
+  },
+  "Read": {
+    "__TYPE__": "FieldContent",
+    "value": "97",
+    "type": "Number"
+  },
+  "Category": {
+    "__TYPE__": "FieldContent",
+    "value": "Guide",
+    "type": "Select"
+  },
+  "Narration": {
+    "__TYPE__": "LinkContent",
+    "value": {
+      "id": "mock_Media_link",
+      "kind": "image/jpeg",
+      "name": "mock_name",
+      "url": "https://source.unsplash.com/daily",
+      "size": "0",
+      "__TYPE__": "FileLink"
+    }
+  },
+  "slices": {
+    "__TYPE__": "SliceContentType",
+    "value": [
       {
-        "social_card_image": {
-          "dimensions": {
-            "width": 900,
-            "height": 500
+        "key": "article_block$201ab7e6-f845-4bc7-86fa-7924baf80d16",
+        "name": "article_block",
+        "widget": {
+          "__TYPE__": "SharedSliceContent",
+          "variation": "default-slice",
+          "primary": {
+            "Content": {
+              "__TYPE__": "StructuredTextContent",
+              "value": [
+                {
+                  "type": "paragraph",
+                  "content": {
+                    "text": "Duis officia laborum quis et officia sit pariatur commodo minim mollit id enim. Pariatur sint eiusmod aute tempor sunt nostrud dolor qui."
+                  }
+                }
+              ]
+            }
           },
-          "alt": "Placeholder image",
-          "copyright": null,
-          "url": "https://images.unsplash.com/photo-1591012911207-0dbac31f37da?w=900&h=500&fit=crop"
-        },
-        "social_card_title": "enhance compelling vortals",
-        "social_card_description": "orchestrate intuitive vortals"
+          "items": [
+            {
+              "__TYPE__": "GroupItemContent",
+              "value": []
+            }
+          ]
+        }
       },
       {
-        "social_card_image": {
-          "dimensions": {
-            "width": 900,
-            "height": 500
+        "key": "code_block$6676c566-57a7-4abb-9900-8cde9edb37fa",
+        "name": "code_block",
+        "widget": {
+          "__TYPE__": "SharedSliceContent",
+          "variation": "default-slice",
+          "primary": {
+            "Language": {
+              "__TYPE__": "FieldContent",
+              "value": "scss",
+              "type": "Select"
+            },
+            "File": {
+              "__TYPE__": "FieldContent",
+              "value": "cut",
+              "type": "Text"
+            },
+            "Code": {
+              "__TYPE__": "StructuredTextContent",
+              "value": [
+                {
+                  "type": "paragraph",
+                  "content": {
+                    "text": "Aute excepteur nulla dolor cupidatat adipisicing irure. Irure excepteur sint enim eu do non velit ipsum eu. Irure laborum elit consequat in reprehenderit reprehenderit adipisicing laboris est."
+                  }
+                }
+              ]
+            },
+            "Figure": {
+              "__TYPE__": "FieldContent",
+              "value": "older",
+              "type": "Text"
+            },
+            "Stamp": {
+              "__TYPE__": "FieldContent",
+              "type": "Timestamp",
+              "value": "2014-10-31T21:16:59Z"
+            }
           },
-          "alt": "Placeholder image",
-          "copyright": null,
-          "url": "https://images.unsplash.com/photo-1606248897732-2c5ffe759c04?w=900&h=500&fit=crop"
-        },
-        "social_card_title": "enable killer eyeballs",
-        "social_card_description": "whiteboard dot-com action-items"
+          "items": [
+            {
+              "__TYPE__": "GroupItemContent",
+              "value": []
+            }
+          ]
+        }
       },
       {
-        "social_card_image": {
-          "dimensions": {
-            "width": 900,
-            "height": 500
+        "key": "banner_image$e5700c1d-3d99-4854-b43a-6331ae7983f9",
+        "name": "banner_image",
+        "widget": {
+          "__TYPE__": "SharedSliceContent",
+          "variation": "default-slice",
+          "primary": {
+            "image": {
+              "__TYPE__": "ImageContent",
+              "origin": {
+                "id": "main",
+                "url": "https://images.unsplash.com/photo-1596195689404-24d8a8d1c6ea",
+                "width": 5000,
+                "height": 4613
+              },
+              "url": "https://images.unsplash.com/photo-1596195689404-24d8a8d1c6ea?rect=0%2C900%2C5000%2C2813&w=2560&h=1440",
+              "width": 2560,
+              "height": 1440,
+              "edit": {
+                "zoom": 1,
+                "crop": {
+                  "x": 0,
+                  "y": 900
+                },
+                "background": "transparent"
+              },
+              "thumbnails": {}
+            },
+            "noise": {
+              "__TYPE__": "FieldContent",
+              "value": "Yes",
+              "type": "Select"
+            },
+            "alignment": {
+              "__TYPE__": "FieldContent",
+              "value": "Top",
+              "type": "Select"
+            }
           },
-          "alt": "Placeholder image",
-          "copyright": null,
-          "url": "https://images.unsplash.com/photo-1593642532973-d31b6557fa68?w=900&h=500&fit=crop"
-        },
-        "social_card_title": "seize integrated technologies",
-        "social_card_description": "reinvent visionary technologies"
+          "items": [
+            {
+              "__TYPE__": "GroupItemContent",
+              "value": []
+            }
+          ]
+        }
+      },
+      {
+        "key": "shapes$11bd4aca-ff08-48ea-8fd6-2b2eb505ae30",
+        "name": "shapes",
+        "widget": {
+          "__TYPE__": "SharedSliceContent",
+          "variation": "default-slice",
+          "primary": {
+            "Top": {
+              "__TYPE__": "FieldContent",
+              "value": "drove",
+              "type": "Text"
+            },
+            "Left": {
+              "__TYPE__": "FieldContent",
+              "value": "will",
+              "type": "Text"
+            },
+            "Right": {
+              "__TYPE__": "FieldContent",
+              "value": "claws",
+              "type": "Text"
+            },
+            "Bottom": {
+              "__TYPE__": "FieldContent",
+              "value": "managed",
+              "type": "Text"
+            },
+            "Width": {
+              "__TYPE__": "FieldContent",
+              "value": "particular",
+              "type": "Text"
+            },
+            "Height": {
+              "__TYPE__": "FieldContent",
+              "value": "rate",
+              "type": "Text"
+            }
+          },
+          "items": [
+            {
+              "__TYPE__": "GroupItemContent",
+              "value": [
+                [
+                  "Shape",
+                  {
+                    "__TYPE__": "FieldContent",
+                    "value": "blood",
+                    "type": "Text"
+                  }
+                ]
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "key": "sidenote$8f668c64-857e-4273-8251-17958fcec7d8",
+        "name": "sidenote",
+        "widget": {
+          "__TYPE__": "SharedSliceContent",
+          "variation": "default-slice",
+          "primary": {
+            "Type": {
+              "__TYPE__": "FieldContent",
+              "value": "Warning",
+              "type": "Select"
+            },
+            "Content": {
+              "__TYPE__": "StructuredTextContent",
+              "value": [
+                {
+                  "type": "paragraph",
+                  "content": {
+                    "text": "Deserunt nostrud irure excepteur elit qui ad non veniam exercitation tempor eiusmod pariatur amet sint. Exercitation consectetur et laboris occaecat officia. Dolore dolore ea ullamco adipisicing Lorem id culpa sunt."
+                  }
+                }
+              ]
+            }
+          },
+          "items": [
+            {
+              "__TYPE__": "GroupItemContent",
+              "value": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "meta_title": {
+    "__TYPE__": "FieldContent",
+    "value": "pass",
+    "type": "Text"
+  },
+  "meta_description": {
+    "__TYPE__": "FieldContent",
+    "value": "complete",
+    "type": "Text"
+  },
+  "social_cards": {
+    "__TYPE__": "GroupContentType",
+    "value": [
+      {
+        "__TYPE__": "GroupItemContent",
+        "value": [
+          [
+            "social_card_image",
+            {
+              "__TYPE__": "ImageContent",
+              "origin": {
+                "id": "main",
+                "url": "https://images.unsplash.com/photo-1515378960530-7c0da6231fb1",
+                "width": 5616,
+                "height": 3744
+              },
+              "url": "https://images.unsplash.com/photo-1515378960530-7c0da6231fb1",
+              "width": 5616,
+              "height": 3744,
+              "edit": {
+                "zoom": 1,
+                "crop": {
+                  "x": 0,
+                  "y": 0
+                },
+                "background": "transparent"
+              },
+              "thumbnails": {}
+            }
+          ],
+          [
+            "social_card_title",
+            {
+              "__TYPE__": "FieldContent",
+              "value": "fourth",
+              "type": "Text"
+            }
+          ],
+          [
+            "social_card_description",
+            {
+              "__TYPE__": "FieldContent",
+              "value": "plates",
+              "type": "Text"
+            }
+          ]
+        ]
       }
     ]
   }

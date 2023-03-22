@@ -1,0 +1,156 @@
+[
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "default-slice",
+    "primary": {
+      "heading": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "heading2",
+            "content": {
+              "text": "Impossible"
+            }
+          }
+        ]
+      },
+      "Description": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "paragraph",
+            "content": {
+              "text": "Enim minim consequat dolor ad amet consectetur qui voluptate ut culpa irure. Aliquip aliqua tempor sunt labore excepteur cupidatat commodo irure commodo."
+            }
+          }
+        ]
+      },
+      "Alignment": {
+        "__TYPE__": "FieldContent",
+        "type": "Select",
+        "value": "Horizontal"
+      },
+      "Color": {
+        "__TYPE__": "FieldContent",
+        "type": "Select",
+        "value": "Random"
+      }
+    },
+    "items": [
+      {
+        "__TYPE__": "GroupItemContent",
+        "value": [
+          [
+            "Title",
+            {
+              "__TYPE__": "FieldContent",
+              "type": "Text",
+              "value": "we"
+            }
+          ],
+          [
+            "Description",
+            {
+              "__TYPE__": "StructuredTextContent",
+              "value": [
+                {
+                  "type": "paragraph",
+                  "content": {
+                    "text": "Adipisicing nulla aute cillum velit. Consequat consectetur occaecat adipisicing enim proident commodo tempor id eu laboris irure consectetur. Sint ut et veniam veniam do non veniam non elit exercitation consectetur irure reprehenderit in."
+                  }
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "__TYPE__": "GroupItemContent",
+        "value": [
+          [
+            "Title",
+            {
+              "__TYPE__": "FieldContent",
+              "type": "Text",
+              "value": "test"
+            }
+          ],
+          [
+            "Description",
+            {
+              "__TYPE__": "StructuredTextContent",
+              "value": [
+                {
+                  "type": "paragraph",
+                  "content": {
+                    "text": "Adipisicing nulla aute cillum velit. Consequat consectetur occaecat adipisicing enim proident commodo tempor id eu laboris irure consectetur. Sint ut et veniam veniam do non veniam non elit exercitation consectetur irure reprehenderit in.",
+                    "spans": []
+                  },
+                  "direction": "ltr"
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "__TYPE__": "GroupItemContent",
+        "value": [
+          [
+            "Title",
+            {
+              "__TYPE__": "FieldContent",
+              "type": "Text",
+              "value": "2"
+            }
+          ],
+          [
+            "Description",
+            {
+              "__TYPE__": "StructuredTextContent",
+              "value": [
+                {
+                  "type": "paragraph",
+                  "content": {
+                    "text": "Adipisicing nulla aute cillum velit. Consequat consectetur occaecat adipisicing enim proident commodo tempor id eu laboris irure consectetur. Sint ut et veniam veniam do non veniam non elit exercitation consectetur irure reprehenderit in.",
+                    "spans": []
+                  },
+                  "direction": "ltr"
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "__TYPE__": "GroupItemContent",
+        "value": [
+          [
+            "Title",
+            {
+              "__TYPE__": "FieldContent",
+              "type": "Text",
+              "value": "4"
+            }
+          ],
+          [
+            "Description",
+            {
+              "__TYPE__": "StructuredTextContent",
+              "value": [
+                {
+                  "type": "paragraph",
+                  "content": {
+                    "text": "Adipisicing nulla aute cillum velit. Consequat consectetur occaecat adipisicing enim proident commodo tempor id eu laboris irure consectetur. Sint ut et veniam veniam do non veniam non elit exercitation consectetur irure reprehenderit in.",
+                    "spans": []
+                  },
+                  "direction": "ltr"
+                }
+              ]
+            }
+          ]
+        ]
+      }
+    ]
+  }
+]

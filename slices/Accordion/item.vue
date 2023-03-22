@@ -12,7 +12,7 @@
             <span
                 class="accordion-item-button-icon"
                 v-if="item.Icon"
-                v-html="require(`~/assets/svg/${item.Icon}.svg?raw`)"
+                v-html=""
                 aria-hidden="true"
             ></span>
             <p class="accordion-item-button-title">{{ item.Title }}</p>

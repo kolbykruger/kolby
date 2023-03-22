@@ -1,101 +1,510 @@
 {
-  "id": "e5415120-e691-495b-acdb-7fb8bdfca102",
-  "uid": "tempore-distinctio-nihil",
-  "type": "case-study",
-  "data": {
-    "Name": [
+  "Name": {
+    "__TYPE__": "StructuredTextContent",
+    "value": [
       {
         "type": "heading1",
-        "text": "Generate magnetic e-commerce",
-        "spans": []
+        "content": {
+          "text": "Higher"
+        }
       }
-    ],
-    "Tagline": "optimize transparent content",
-    "View": [
+    ]
+  },
+  "uid": {
+    "__TYPE__": "UIDContent",
+    "value": "wise"
+  },
+  "Tagline": {
+    "__TYPE__": "FieldContent",
+    "value": "stronger",
+    "type": "Text"
+  },
+  "View": {
+    "__TYPE__": "StructuredTextContent",
+    "value": [
       {
         "type": "paragraph",
-        "text": "Qui non ea quis ad occaecat esse ad consectetur labore pariatur sit. Et amet laborum reprehenderit sint id officia fugiat aliquip occaecat amet dolore magna quis sint laborum. Laborum tempor velit laborum.",
-        "spans": []
+        "content": {
+          "text": "Dolore mollit duis qui Lorem laboris laborum eiusmod fugiat cillum. Culpa sunt ad deserunt Lorem nisi duis eu nulla non minim commodo adipisicing excepteur voluptate sunt."
+        }
       }
-    ],
-    "Summary": [
+    ]
+  },
+  "Summary": {
+    "__TYPE__": "StructuredTextContent",
+    "value": [
       {
         "type": "paragraph",
-        "text": "Proident sunt et excepteur aute esse voluptate amet dolor consequat esse. Anim ipsum ad aliquip sint adipisicing ad nulla Lorem.",
-        "spans": []
+        "content": {
+          "text": "Exercitation ea esse ullamco amet. Cillum velit eiusmod amet qui eiusmod."
+        }
       }
-    ],
-    "Role": "enable synergistic architectures",
-    "Client": "matrix efficient systems",
-    "Date": "2019-04-19",
-    "Website": {
-      "link_type": "Web",
-      "url": "http://twitter.com"
+    ]
+  },
+  "Role": {
+    "__TYPE__": "FieldContent",
+    "value": "growth",
+    "type": "Text"
+  },
+  "Client": {
+    "__TYPE__": "FieldContent",
+    "value": "whistle",
+    "type": "Text"
+  },
+  "Date": {
+    "__TYPE__": "FieldContent",
+    "type": "Date",
+    "value": "2016-12-18"
+  },
+  "Website": {
+    "__TYPE__": "LinkContent",
+    "value": {
+      "__TYPE__": "ExternalLink",
+      "url": "http://google.com"
+    }
+  },
+  "Accent": {
+    "__TYPE__": "FieldContent",
+    "value": "#fac873",
+    "type": "Color"
+  },
+  "Cover": {
+    "__TYPE__": "ImageContent",
+    "origin": {
+      "id": "main",
+      "url": "https://images.unsplash.com/photo-1471897488648-5eae4ac6686b",
+      "width": 3560,
+      "height": 5340
     },
-    "Accent": "#39a0f7",
-    "Cover": {
-      "dimensions": {
-        "width": 2560,
-        "height": 1440
+    "url": "https://images.unsplash.com/photo-1471897488648-5eae4ac6686b?rect=0%2C1669%2C3560%2C2003&w=2560&h=1440",
+    "width": 2560,
+    "height": 1440,
+    "edit": {
+      "zoom": 1,
+      "crop": {
+        "x": 0,
+        "y": 1669
       },
-      "alt": "Placeholder image",
-      "copyright": null,
-      "url": "https://images.unsplash.com/photo-1593642633279-1796119d5482?w=2560&h=1440&fit=crop"
+      "background": "transparent"
     },
-    "meta_title": "matrix integrated architectures",
-    "meta_description": "unleash seamless platforms",
-    "social_cards": [
+    "thumbnails": {}
+  },
+  "slices": {
+    "__TYPE__": "SliceContentType",
+    "value": [
       {
-        "social_card_image": {
-          "dimensions": {
-            "width": 900,
-            "height": 500
+        "key": "banner_image$cf6dcba0-6e03-4058-84f8-6357460d4c71",
+        "name": "banner_image",
+        "widget": {
+          "__TYPE__": "SharedSliceContent",
+          "variation": "default-slice",
+          "primary": {
+            "image": {
+              "__TYPE__": "ImageContent",
+              "origin": {
+                "id": "main",
+                "url": "https://images.unsplash.com/photo-1586952518485-11b180e92764",
+                "width": 4172,
+                "height": 4000
+              },
+              "url": "https://images.unsplash.com/photo-1586952518485-11b180e92764?rect=0%2C827%2C4172%2C2347&w=2560&h=1440",
+              "width": 2560,
+              "height": 1440,
+              "edit": {
+                "zoom": 1,
+                "crop": {
+                  "x": 0,
+                  "y": 827
+                },
+                "background": "transparent"
+              },
+              "thumbnails": {}
+            },
+            "noise": {
+              "__TYPE__": "FieldContent",
+              "value": "Yes",
+              "type": "Select"
+            },
+            "alignment": {
+              "__TYPE__": "FieldContent",
+              "value": "Top",
+              "type": "Select"
+            }
           },
-          "alt": "Placeholder image",
-          "copyright": null,
-          "url": "https://images.unsplash.com/photo-1448932223592-d1fc686e76ea?w=900&h=500&fit=crop"
-        },
-        "social_card_title": "target collaborative supply-chains",
-        "social_card_description": "reinvent vertical e-markets"
+          "items": [
+            {
+              "__TYPE__": "GroupItemContent",
+              "value": []
+            }
+          ]
+        }
       },
       {
-        "social_card_image": {
-          "dimensions": {
-            "width": 900,
-            "height": 500
-          },
-          "alt": "Placeholder image",
-          "copyright": null,
-          "url": "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=900&h=500&fit=crop"
-        },
-        "social_card_title": "enhance user-centric vortals",
-        "social_card_description": "syndicate revolutionary blockchains"
+        "key": "list$f4916ce5-00b1-456a-96e3-0a911fe88c55",
+        "name": "list",
+        "widget": {
+          "__TYPE__": "SharedSliceContent",
+          "variation": "default-slice",
+          "primary": {},
+          "items": [
+            {
+              "__TYPE__": "GroupItemContent",
+              "value": [
+                [
+                  "Item",
+                  {
+                    "__TYPE__": "StructuredTextContent",
+                    "value": [
+                      {
+                        "type": "paragraph",
+                        "content": {
+                          "text": "Incididunt nostrud amet voluptate cillum aute consequat. Ullamco Lorem cillum magna excepteur magna commodo nostrud sint aute sint excepteur. Reprehenderit in velit exercitation incididunt non deserunt."
+                        }
+                      }
+                    ]
+                  }
+                ]
+              ]
+            }
+          ]
+        }
       },
       {
-        "social_card_image": {
-          "dimensions": {
-            "width": 900,
-            "height": 500
+        "key": "textblock$1dd7469e-39ed-4d3e-a6e8-cf67d0dc8f56",
+        "name": "textblock",
+        "widget": {
+          "__TYPE__": "SharedSliceContent",
+          "variation": "default-slice",
+          "primary": {
+            "Index": {
+              "__TYPE__": "FieldContent",
+              "value": "composed",
+              "type": "Text"
+            },
+            "Eyebrow": {
+              "__TYPE__": "FieldContent",
+              "value": "hidden",
+              "type": "Text"
+            },
+            "title": {
+              "__TYPE__": "StructuredTextContent",
+              "value": [
+                {
+                  "type": "heading2",
+                  "content": {
+                    "text": "Riding"
+                  }
+                }
+              ]
+            },
+            "description": {
+              "__TYPE__": "StructuredTextContent",
+              "value": [
+                {
+                  "type": "paragraph",
+                  "content": {
+                    "text": "Quis sit est minim reprehenderit dolore nulla commodo in aute."
+                  }
+                }
+              ]
+            }
           },
-          "alt": "Placeholder image",
-          "copyright": null,
-          "url": "https://images.unsplash.com/photo-1471897488648-5eae4ac6686b?w=900&h=500&fit=crop"
-        },
-        "social_card_title": "streamline holistic experiences",
-        "social_card_description": "revolutionize turn-key portals"
+          "items": [
+            {
+              "__TYPE__": "GroupItemContent",
+              "value": []
+            }
+          ]
+        }
       },
       {
-        "social_card_image": {
-          "dimensions": {
-            "width": 900,
-            "height": 500
+        "key": "headline$1555e73c-b797-4a84-b9c6-4c680266e5ed",
+        "name": "headline",
+        "widget": {
+          "__TYPE__": "SharedSliceContent",
+          "variation": "default-slice",
+          "primary": {
+            "title": {
+              "__TYPE__": "StructuredTextContent",
+              "value": [
+                {
+                  "type": "heading1",
+                  "content": {
+                    "text": "Limited"
+                  }
+                }
+              ]
+            }
           },
-          "alt": "Placeholder image",
-          "copyright": null,
-          "url": "https://images.unsplash.com/photo-1601933973783-43cf8a7d4c5f?w=900&h=500&fit=crop"
-        },
-        "social_card_title": "morph viral e-commerce",
-        "social_card_description": "leverage proactive users"
+          "items": [
+            {
+              "__TYPE__": "GroupItemContent",
+              "value": []
+            }
+          ]
+        }
+      },
+      {
+        "key": "mobile_image$97e9a407-2149-4477-964e-26716005dba8",
+        "name": "mobile_image",
+        "widget": {
+          "__TYPE__": "SharedSliceContent",
+          "variation": "default-slice",
+          "primary": {
+            "Layout": {
+              "__TYPE__": "FieldContent",
+              "value": "Pyramid",
+              "type": "Select"
+            }
+          },
+          "items": [
+            {
+              "__TYPE__": "GroupItemContent",
+              "value": [
+                [
+                  "Image",
+                  {
+                    "__TYPE__": "ImageContent",
+                    "origin": {
+                      "id": "main",
+                      "url": "https://images.unsplash.com/photo-1600861194802-a2b11076bc51",
+                      "width": 2545,
+                      "height": 2545
+                    },
+                    "url": "https://images.unsplash.com/photo-1600861194802-a2b11076bc51?rect=674%2C0%2C1197%2C2545&w=517&h=1099",
+                    "width": 517,
+                    "height": 1099,
+                    "edit": {
+                      "zoom": 1,
+                      "crop": {
+                        "x": 674,
+                        "y": 0
+                      },
+                      "background": "transparent"
+                    },
+                    "thumbnails": {}
+                  }
+                ]
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "key": "branding$31bd821b-27a8-42a9-853b-bd6319c6caa4",
+        "name": "branding",
+        "widget": {
+          "__TYPE__": "SharedSliceContent",
+          "variation": "default-slice",
+          "primary": {
+            "Typography": {
+              "__TYPE__": "ImageContent",
+              "origin": {
+                "id": "main",
+                "url": "https://images.unsplash.com/photo-1587905069134-008460d7a636",
+                "width": 3935,
+                "height": 5894
+              },
+              "url": "https://images.unsplash.com/photo-1587905069134-008460d7a636?rect=0%2C1637%2C3935%2C2621&w=1024&h=682",
+              "width": 1024,
+              "height": 682,
+              "edit": {
+                "zoom": 1,
+                "crop": {
+                  "x": 0,
+                  "y": 1637
+                },
+                "background": "transparent"
+              },
+              "thumbnails": {}
+            },
+            "Logo": {
+              "__TYPE__": "ImageContent",
+              "origin": {
+                "id": "main",
+                "url": "https://images.unsplash.com/photo-1547394765-185e1e68f34e",
+                "width": 6000,
+                "height": 4000
+              },
+              "url": "https://images.unsplash.com/photo-1547394765-185e1e68f34e?rect=0%2C2%2C6000%2C3996&w=1024&h=682",
+              "width": 1024,
+              "height": 682,
+              "edit": {
+                "zoom": 1,
+                "crop": {
+                  "x": 0,
+                  "y": 2
+                },
+                "background": "transparent"
+              },
+              "thumbnails": {}
+            }
+          },
+          "items": [
+            {
+              "__TYPE__": "GroupItemContent",
+              "value": [
+                [
+                  "Color",
+                  {
+                    "__TYPE__": "FieldContent",
+                    "value": "#fadae8",
+                    "type": "Color"
+                  }
+                ],
+                [
+                  "ColorName",
+                  {
+                    "__TYPE__": "FieldContent",
+                    "value": "indeed",
+                    "type": "Text"
+                  }
+                ]
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "key": "embed$276f624c-9a14-4ec6-90e2-2e0142106d2a",
+        "name": "embed",
+        "widget": {
+          "__TYPE__": "SharedSliceContent",
+          "variation": "default-slice",
+          "primary": {
+            "Embed": {
+              "embed_url": "https://twitter.com/prismicio/status/1356293316158095361",
+              "author_name": "Prismic",
+              "author_url": "https://twitter.com/prismicio",
+              "html": "<blockquote class=\"twitter-tweet\"><p lang=\"en\" dir=\"ltr\">Gatsby is a popular choice for Prismic users and we work hard on delivering a CMS that plays to its strengths.<br><br>But, what makes <a href=\"https://twitter.com/GatsbyJS?ref_src=twsrc%5Etfw\">@GatsbyJS</a> so popular?<br><br>Here are some of <a href=\"https://twitter.com/mxstbr?ref_src=twsrc%5Etfw\">@mxstbr</a>&#39;s thoughts on Gatsby&#39;s success and how they&#39;re improving developer experience.<a href=\"https://t.co/ZjCPvsWWUD\">https://t.co/ZjCPvsWWUD</a> <a href=\"https://t.co/EQqzJpeNKl\">pic.twitter.com/EQqzJpeNKl</a></p>&mdash; Prismic (@prismicio) <a href=\"https://twitter.com/prismicio/status/1356293316158095361?ref_src=twsrc%5Etfw\">February 1, 2021</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n",
+              "width": 550,
+              "height": null,
+              "type": "rich",
+              "cache_age": "3153600000",
+              "provider_name": "Twitter",
+              "provider_url": "http://www.twitter.com/",
+              "version": "1.0",
+              "__TYPE__": "EmbedContent",
+              "all": {
+                "embed_url": "https://twitter.com/prismicio/status/1356293316158095361",
+                "type": "rich",
+                "author_name": "Prismic",
+                "author_url": "https://twitter.com/prismicio",
+                "cache_age": "3153600000",
+                "html": "<blockquote class=\"twitter-tweet\"><p lang=\"en\" dir=\"ltr\">Gatsby is a popular choice for Prismic users and we work hard on delivering a CMS that plays to its strengths.<br><br>But, what makes <a href=\"https://twitter.com/GatsbyJS?ref_src=twsrc%5Etfw\">@GatsbyJS</a> so popular?<br><br>Here are some of <a href=\"https://twitter.com/mxstbr?ref_src=twsrc%5Etfw\">@mxstbr</a>&#39;s thoughts on Gatsby&#39;s success and how they&#39;re improving developer experience.<a href=\"https://t.co/ZjCPvsWWUD\">https://t.co/ZjCPvsWWUD</a> <a href=\"https://t.co/EQqzJpeNKl\">pic.twitter.com/EQqzJpeNKl</a></p>&mdash; Prismic (@prismicio) <a href=\"https://twitter.com/prismicio/status/1356293316158095361?ref_src=twsrc%5Etfw\">February 1, 2021</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n",
+                "provider_name": "Twitter",
+                "provider_url": "http://www.twitter.com/",
+                "version": "1.0"
+              }
+            }
+          },
+          "items": [
+            {
+              "__TYPE__": "GroupItemContent",
+              "value": []
+            }
+          ]
+        }
+      },
+      {
+        "key": "desktop_image$06425736-bfda-486b-a1b3-e89079b38f65",
+        "name": "desktop_image",
+        "widget": {
+          "__TYPE__": "SharedSliceContent",
+          "variation": "default-slice",
+          "primary": {},
+          "items": [
+            {
+              "__TYPE__": "GroupItemContent",
+              "value": [
+                [
+                  "Image",
+                  {
+                    "__TYPE__": "ImageContent",
+                    "origin": {
+                      "id": "main",
+                      "url": "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d",
+                      "width": 4076,
+                      "height": 2712
+                    },
+                    "url": "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d",
+                    "width": 4076,
+                    "height": 2712,
+                    "edit": {
+                      "zoom": 1,
+                      "crop": {
+                        "x": 0,
+                        "y": 0
+                      },
+                      "background": "transparent"
+                    },
+                    "thumbnails": {}
+                  }
+                ]
+              ]
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "meta_title": {
+    "__TYPE__": "FieldContent",
+    "value": "topic",
+    "type": "Text"
+  },
+  "meta_description": {
+    "__TYPE__": "FieldContent",
+    "value": "more",
+    "type": "Text"
+  },
+  "social_cards": {
+    "__TYPE__": "GroupContentType",
+    "value": [
+      {
+        "__TYPE__": "GroupItemContent",
+        "value": [
+          [
+            "social_card_image",
+            {
+              "__TYPE__": "ImageContent",
+              "origin": {
+                "id": "main",
+                "url": "https://images.unsplash.com/photo-1547394765-185e1e68f34e",
+                "width": 6000,
+                "height": 4000
+              },
+              "url": "https://images.unsplash.com/photo-1547394765-185e1e68f34e",
+              "width": 6000,
+              "height": 4000,
+              "edit": {
+                "zoom": 1,
+                "crop": {
+                  "x": 0,
+                  "y": 0
+                },
+                "background": "transparent"
+              },
+              "thumbnails": {}
+            }
+          ],
+          [
+            "social_card_title",
+            {
+              "__TYPE__": "FieldContent",
+              "value": "more",
+              "type": "Text"
+            }
+          ],
+          [
+            "social_card_description",
+            {
+              "__TYPE__": "FieldContent",
+              "value": "stepped",
+              "type": "Text"
+            }
+          ]
+        ]
       }
     ]
   }

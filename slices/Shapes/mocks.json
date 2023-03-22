@@ -1,0 +1,53 @@
+[
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "default-slice",
+    "primary": {
+      "Top": {
+        "__TYPE__": "FieldContent",
+        "value": "setting",
+        "type": "Text"
+      },
+      "Left": {
+        "__TYPE__": "FieldContent",
+        "value": "wolf",
+        "type": "Text"
+      },
+      "Right": {
+        "__TYPE__": "FieldContent",
+        "value": "instant",
+        "type": "Text"
+      },
+      "Bottom": {
+        "__TYPE__": "FieldContent",
+        "value": "lonely",
+        "type": "Text"
+      },
+      "Width": {
+        "__TYPE__": "FieldContent",
+        "value": "balloon",
+        "type": "Text"
+      },
+      "Height": {
+        "__TYPE__": "FieldContent",
+        "value": "still",
+        "type": "Text"
+      }
+    },
+    "items": [
+      {
+        "__TYPE__": "GroupItemContent",
+        "value": [
+          [
+            "Shape",
+            {
+              "__TYPE__": "FieldContent",
+              "value": "care",
+              "type": "Text"
+            }
+          ]
+        ]
+      }
+    ]
+  }
+]

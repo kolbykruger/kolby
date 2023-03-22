@@ -24,7 +24,6 @@
       "CaseStudies": {
         "config": {
           "label": "CaseStudies",
-          "placeholder": "",
           "fields": {
             "CaseStudy": {
               "config": {
@@ -39,6 +38,20 @@
           }
         },
         "type": "Group"
+      },
+      "slices": {
+        "type": "Slices",
+        "fieldset": "Slice Zone",
+        "config": {
+          "choices": {
+            "headline": {
+              "type": "SharedSlice"
+            },
+            "textblock": {
+              "type": "SharedSlice"
+            }
+          }
+        }
       }
     }
   }
