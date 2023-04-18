@@ -21,7 +21,7 @@
 
                     <Socials />
 
-                    <p class="affirmation"><small>©{{year}} Kolby Kruger, All Rights Reserved • <button class="crebits" @click="credits.visibility = true">Credits</button></small></p>
+                    <p class="affirmation"><small>©{{year}} Kolby Kruger, All Rights Reserved</small></p>
                 </div>
                 <div class="footer-cta">
                     <Compass />
