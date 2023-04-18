@@ -42,7 +42,7 @@
                 </button>
             </div>
         </div>
-        <Credits :class="{ '-visibile': credits.visibility }" @closeCreditsPanel="credits.visibility = false"/>
+        <!-- <Credits :class="{ '-visibile': credits.visibility }" @closeCreditsPanel="credits.visibility = false"/> -->
     </footer>
 </template>
 
