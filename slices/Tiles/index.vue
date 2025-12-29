@@ -54,46 +54,6 @@
                     />
                 </div>
             </div>
-            <div class="tiles-row">
-                <div class="tiles-item" v-for="(item, index) in createTileRow(2)" :key="index">
-                    <Picture
-                        :field="item.Image"
-                        :noise="true"
-                        :sizes="{
-                            'phone-small': '179px',
-                            phone: '220px',
-                            'phone-large': '287px',
-                            tablet: '240px',
-                            'laptop-small': '234px',
-                            laptop: '275px',
-                            'laptop-large': '309px',
-                            'desktop-small': '366px',
-                            desktop: '440px',
-                            'desktop-large': '586px',
-                        }"
-                    />
-                </div>
-            </div>
-            <div class="tiles-row">
-                <div class="tiles-item" v-for="(item, index) in createTileRow(1)" :key="index">
-                    <Picture
-                        :field="item.Image"
-                        :noise="true"
-                        :sizes="{
-                            'phone-small': '179px',
-                            phone: '220px',
-                            'phone-large': '287px',
-                            tablet: '240px',
-                            'laptop-small': '234px',
-                            laptop: '275px',
-                            'laptop-large': '309px',
-                            'desktop-small': '366px',
-                            desktop: '440px',
-                            'desktop-large': '586px',
-                        }"
-                    />
-                </div>
-            </div>
         </div>
     </section>
 </template>
@@ -237,14 +197,14 @@ export default {
 
 <style lang="scss">
 .tiles {
-    --tile-offset: 32vh;
+    --tile-offset: 15vh;
     position: relative;
     height: 100vh;
     overflow-y: visible;
     overflow-x: clip;
 
     @include mq('laptop-small') {
-        height: 125vh;
+        height: 55vh;
         margin-bottom: var(--tile-offset);
     }
 
@@ -280,8 +240,8 @@ export default {
 
     &-container {
         // transform: translate3d(-50%, -50%, 0);
-        transform: translate3d(-50%, -50%, 0) rotate(22.5deg);
-        width: 150%;
+        transform: translate3d(-50%, -50%, 0);
+        width: 200%;
         position: absolute;
         top: 50%;
         left: 50%;
@@ -317,6 +277,7 @@ export default {
         background: c('base-8');
         overflow: hidden;
         will-change: transform;
+		border-radius: 8em;
 
         &::after {
             content: '';
