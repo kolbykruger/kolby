@@ -34,7 +34,6 @@
         "@nuxtjs/style-resources": "^1.2.1",
         "@nuxtjs/svg": "^0.1.12",
         "core-js": "^3.18.2",
-        "node": "^16.0.0",
         "nodemon": "^2.0.6",
         "raw-loader": "^4.0.2",
         "sass": "^1.42.1",
