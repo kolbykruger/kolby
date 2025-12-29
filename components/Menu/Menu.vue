@@ -50,7 +50,7 @@
                         </li>
                     </ul>
                     <ul ref="navSmall" class="navigation-items navigation-items-sm">
-                        <li class="navigation-item navigation-item-sm">
+                        <!-- <li class="navigation-item navigation-item-sm">
                             <div class="navigation-item-bit">
                                 <nuxt-link
                                     data-stick
@@ -62,7 +62,7 @@
                                     <span data-text="Insights">Insights</span>
                                 </nuxt-link>
                             </div>
-                        </li>
+                        </li> -->
                         <li class="navigation-item navigation-item-sm">
                             <div class="navigation-item-bit">
                                 <nuxt-link
@@ -72,7 +72,7 @@
                                     to="/resume"
                                     @click.native="setMenuStatus('/resume')"
                                 >
-                                    <span data-text="Resumé">Resumé</span>
+                                    <span data-text="Resumé">Resume</span>
                                 </nuxt-link>
                             </div>
                         </li>

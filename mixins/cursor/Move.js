@@ -10,8 +10,7 @@ export const Move = {
                 rotate: '0deg',
                 force3D: true,
                 overwrite: true,
-                duration: duration || 0.2,
-                opacity: 1,
+                duration: duration || 0.15,
             })
         },
     },

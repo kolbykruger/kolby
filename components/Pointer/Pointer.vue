@@ -2,9 +2,9 @@
     <div class="pointer" aria-hidden="true" ref="pointer">
         <span class="pointer-svg" ref="pointerSVG">
             <span class="pointer-circle" ref="pointerCircle"></span>
-            <span class="pointer-progress" ref="pointerProgress">
+            <!-- <span class="pointer-progress" ref="pointerProgress">
                 <PointerProgress />
-            </span>
+            </span> -->
             <span class="pointer-arrow" ref="pointerArrow">
                 <span class="pointer-arrow-right" v-if="arrow.direction == 'right' && arrow.active">
                     <PointerRight />
@@ -31,7 +31,7 @@ import { Invisible } from '~/mixins/cursor/Invisible.js'
 import { Shift } from '~/mixins/cursor/Shift.js'
 import { Knob } from '~/mixins/cursor/Knob.js'
 import { Buttons } from '~/mixins/cursor/Buttons.js'
-import { Progress } from '~/mixins/cursor/Progress.js'
+// import { Progress } from '~/mixins/cursor/Progress.js'
 import { Arrow } from '~/mixins/cursor/Arrow.js'
 // import { Rail } from '~/mixins/cursor/Rail.js'
 // import { Image } from '~/mixins/cursor/Image.js'
@@ -44,7 +44,7 @@ import { mapGetters } from 'vuex'
 // Vectors
 import PointerDown from '@/assets/svg/cursor/pointer-down.svg?inline'
 import PointerRight from '@/assets/svg/cursor/pointer-right.svg?inline'
-import PointerProgress from '@/assets/svg/cursor/pointer-progress.svg?inline'
+// import PointerProgress from '@/assets/svg/cursor/pointer-progress.svg?inline'
 
 export default {
     name: 'Pointer',
@@ -61,7 +61,7 @@ export default {
         Invisible,
         Shift,
         Knob,
-        Progress,
+        // Progress,
         Arrow,
         Buttons,
         Move,
@@ -71,7 +71,7 @@ export default {
     components: {
         PointerDown,
         PointerRight,
-        PointerProgress,
+        // PointerProgress,
     },
     computed: {
         checkPerformance() {
@@ -118,7 +118,7 @@ export default {
                         this.sticks()
                         this.visibility()
                         this.invisibility()
-                        this.progress()
+                        // this.progress()
                         this.arrows()
                         this.shift()
                         this.knob()

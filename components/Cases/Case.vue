@@ -1,5 +1,5 @@
 <template>
-    <div class="case" :class="{ 'case--large': isLargerDisplay }" ref="case" :style="{ '--accent': item.data.Accent }">
+    <div class="case case--large" ref="case" :style="{ '--accent': item.data.Accent }">
         <span class="case-cover">
             <span class="case-background"></span>
             <Picture

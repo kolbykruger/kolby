@@ -75,7 +75,7 @@ export const Cursor = {
             this.move(this.props.circle.x.previous, this.props.circle.y.previous, 0.2, pointer.cursor)
 
             requestAnimationFrame(() => {
-                this.render(pointer)
+                // this.render(pointer)
             })
         },
     },

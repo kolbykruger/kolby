@@ -107,7 +107,6 @@ export default {
 <style lang="scss">
 .name-title {
     margin-bottom: 0;
-    text-transform: uppercase;
     font-size: 6.25vw;
     font-size: clamp(3.815rem, -0.875rem + 8.333vw, 11.642rem);
     width: 100%;
